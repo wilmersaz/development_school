@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etiquetas HTML y DOM</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+
+    .tag-demo {
+      transition: all 0.3s ease;
+    }
+
+    .tag-demo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .dom-node {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dom-node:hover {
+      background-color: #fef3c7;
+      transform: translateX(5px);
+    }
+
+    .dom-tree-line {
+      border-left: 2px solid #d1d5db;
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+      }
+    }
+
+    .interactive-element {
+      animation: glow 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="versiones-html.html"
+        class="bg-white text-teal-600 px-4 py-2 rounded-lg hover:bg-teal-50 transition-colors">
+        ← Versiones de HTML
+      </a>
+      <h1 class="text-2xl font-bold text-white">🏗️ Etiquetas y DOM</h1>
+      <a href="organismos-html.html"
+        class="bg-white text-teal-600 px-4 py-2 rounded-lg hover:bg-teal-50 transition-colors">
+        W3C y WHATWG →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🏗️ Estructura HTML y DOM</h1>
+      <p class="text-xl text-gray-600">Etiquetas, atributos y el árbol de documentos</p>
+    </div>
+
+    <!-- DOCTYPE -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">📋 DOCTYPE: La Declaración Fundamental</h2>
+      </div>
+      <div class="p-8">
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">¿Qué es DOCTYPE?</h3>
+            <div class="space-y-3">
+              <p class="text-gray-700">
+                <strong>DOCTYPE</strong> (Document Type Declaration) le dice al navegador qué versión de HTML está
+                usando el documento.
+              </p>
+
+              <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-semibold mb-2">¿Por qué es importante?</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• Activa el <strong>modo estándar</strong> del navegador</li>
+                  <li>• Evita el modo de compatibilidad (quirks mode)</li>
+                  <li>• Asegura renderizado consistente</li>
+                  <li>• Permite validación del HTML</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Evolución de DOCTYPE</h3>
+            <div class="space-y-3">
+
+              <div class="bg-gray-100 p-3 rounded">
+                <h4 class="font-semibold text-sm mb-1">HTML 4.01 Strict:</h4>
+                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"&gt;</pre>
+              </div>
+
+              <div class="bg-gray-100 p-3 rounded">
+                <h4 class="font-semibold text-sm mb-1">XHTML 1.0:</h4>
+                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</pre>
+              </div>
+
+              <div class="bg-green-100 p-3 rounded border-2 border-green-400">
+                <h4 class="font-semibold text-sm mb-1 text-green-700">HTML5 (Actual):</h4>
+                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded">
+&lt;!DOCTYPE html&gt;</pre>
+                <p class="text-xs text-green-600 mt-1">¡Simple y universal!</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tabla de Etiquetas -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🏷️ Tabla de Etiquetas Esenciales</h2>
+        <p class="text-blue-100">Con ejemplos prácticos de cómo se mezclan</p>
+      </div>
+      <div class="p-8">
+
+        <!-- Categorías de etiquetas -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+
+          <!-- Estructura -->
+          <div class="tag-demo bg-red-50 p-4 rounded-lg border-2 border-red-200">
+            <h3 class="font-bold text-red-700 mb-3 text-center">🏗️ Estructura</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <code class="bg-red-100 px-2 py-1 rounded">&lt;html&gt;</code>
+                <span class="text-gray-600">Raíz del documento</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-red-100 px-2 py-1 rounded">&lt;head&gt;</code>
+                <span class="text-gray-600">Metadatos</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-red-100 px-2 py-1 rounded">&lt;body&gt;</code>
+                <span class="text-gray-600">Contenido visible</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-red-100 px-2 py-1 rounded">&lt;header&gt;</code>
+                <span class="text-gray-600">Encabezado</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-red-100 px-2 py-1 rounded">&lt;nav&gt;</code>
+                <span class="text-gray-600">Navegación</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-red-100 px-2 py-1 rounded">&lt;main&gt;</code>
+                <span class="text-gray-600">Contenido principal</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-red-100 px-2 py-1 rounded">&lt;footer&gt;</code>
+                <span class="text-gray-600">Pie de página</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="tag-demo bg-green-50 p-4 rounded-lg border-2 border-green-200">
+            <h3 class="font-bold text-green-700 mb-3 text-center">📝 Contenido</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <code class="bg-green-100 px-2 py-1 rounded">&lt;h1&gt;-&lt;h6&gt;</code>
+                <span class="text-gray-600">Títulos</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-green-100 px-2 py-1 rounded">&lt;p&gt;</code>
+                <span class="text-gray-600">Párrafo</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-green-100 px-2 py-1 rounded">&lt;div&gt;</code>
+                <span class="text-gray-600">Contenedor</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-green-100 px-2 py-1 rounded">&lt;span&gt;</code>
+                <span class="text-gray-600">Línea inline</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-green-100 px-2 py-1 rounded">&lt;strong&gt;</code>
+                <span class="text-gray-600">Texto importante</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-green-100 px-2 py-1 rounded">&lt;em&gt;</code>
+                <span class="text-gray-600">Énfasis</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-green-100 px-2 py-1 rounded">&lt;br&gt;</code>
+                <span class="text-gray-600">Salto de línea</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multimedia -->
+          <div class="tag-demo bg-blue-50 p-4 rounded-lg border-2 border-blue-200">
+            <h3 class="font-bold text-blue-700 mb-3 text-center">🎨 Multimedia</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <code class="bg-blue-100 px-2 py-1 rounded">&lt;img&gt;</code>
+                <span class="text-gray-600">Imagen</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-blue-100 px-2 py-1 rounded">&lt;video&gt;</code>
+                <span class="text-gray-600">Video</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-blue-100 px-2 py-1 rounded">&lt;audio&gt;</code>
+                <span class="text-gray-600">Audio</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-blue-100 px-2 py-1 rounded">&lt;canvas&gt;</code>
+                <span class="text-gray-600">Lienzo gráfico</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-blue-100 px-2 py-1 rounded">&lt;svg&gt;</code>
+                <span class="text-gray-600">Gráficos vectoriales</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Listas -->
+          <div class="tag-demo bg-yellow-50 p-4 rounded-lg border-2 border-yellow-200">
+            <h3 class="font-bold text-yellow-700 mb-3 text-center">📋 Listas</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <code class="bg-yellow-100 px-2 py-1 rounded">&lt;ul&gt;</code>
+                <span class="text-gray-600">Lista no ordenada</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-yellow-100 px-2 py-1 rounded">&lt;ol&gt;</code>
+                <span class="text-gray-600">Lista ordenada</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-yellow-100 px-2 py-1 rounded">&lt;li&gt;</code>
+                <span class="text-gray-600">Elemento de lista</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-yellow-100 px-2 py-1 rounded">&lt;dl&gt;</code>
+                <span class="text-gray-600">Lista de definición</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-yellow-100 px-2 py-1 rounded">&lt;dt&gt;</code>
+                <span class="text-gray-600">Término</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-yellow-100 px-2 py-1 rounded">&lt;dd&gt;</code>
+                <span class="text-gray-600">Definición</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formularios -->
+          <div class="tag-demo bg-purple-50 p-4 rounded-lg border-2 border-purple-200">
+            <h3 class="font-bold text-purple-700 mb-3 text-center">📝 Formularios</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <code class="bg-purple-100 px-2 py-1 rounded">&lt;form&gt;</code>
+                <span class="text-gray-600">Formulario</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-purple-100 px-2 py-1 rounded">&lt;input&gt;</code>
+                <span class="text-gray-600">Campo de entrada</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-purple-100 px-2 py-1 rounded">&lt;textarea&gt;</code>
+                <span class="text-gray-600">Área de texto</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-purple-100 px-2 py-1 rounded">&lt;select&gt;</code>
+                <span class="text-gray-600">Lista desplegable</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-purple-100 px-2 py-1 rounded">&lt;button&gt;</code>
+                <span class="text-gray-600">Botón</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-purple-100 px-2 py-1 rounded">&lt;label&gt;</code>
+                <span class="text-gray-600">Etiqueta</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enlaces y Navegación -->
+          <div class="tag-demo bg-indigo-50 p-4 rounded-lg border-2 border-indigo-200">
+            <h3 class="font-bold text-indigo-700 mb-3 text-center">🔗 Enlaces</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <code class="bg-indigo-100 px-2 py-1 rounded">&lt;a&gt;</code>
+                <span class="text-gray-600">Enlace</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-indigo-100 px-2 py-1 rounded">&lt;link&gt;</code>
+                <span class="text-gray-600">Enlace externo</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-indigo-100 px-2 py-1 rounded">&lt;meta&gt;</code>
+                <span class="text-gray-600">Metadatos</span>
+              </div>
+              <div class="flex justify-between">
+                <code class="bg-indigo-100 px-2 py-1 rounded">&lt;title&gt;</code>
+                <span class="text-gray-600">Título del documento</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Ejemplo Práctico de Mezcla -->
+        <div class="bg-gradient-to-r from-gray-50 to-blue-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🎯 Ejemplo: Cómo se Mezclan las Etiquetas</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+
+            <div>
+              <h4 class="font-semibold mb-3">📝 Código HTML:</h4>
+              <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto">
+&lt;article&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Mi Artículo&lt;/h1&gt;
+    &lt;p&gt;Por &lt;strong&gt;Juan Pérez&lt;/strong&gt;&lt;/p&gt;
+  &lt;/header&gt;
+  
+  &lt;section&gt;
+    &lt;h2&gt;Introducción&lt;/h2&gt;
+    &lt;p&gt;Este es un párrafo con &lt;em&gt;énfasis&lt;/em&gt; 
+       y un &lt;a href="#"&gt;enlace&lt;/a&gt;.&lt;/p&gt;
+    
+    &lt;ul&gt;
+      &lt;li&gt;Primer punto&lt;/li&gt;
+      &lt;li&gt;Segundo punto&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/section&gt;
+  
+  &lt;footer&gt;
+    &lt;p&gt;&lt;small&gt;Publicado el 3 de agosto&lt;/small&gt;&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-3">👀 Resultado Visual:</h4>
+              <div class="bg-white p-4 rounded border shadow-inner">
+                <article>
+                  <header class="mb-4">
+                    <h1 class="text-2xl font-bold text-gray-800">Mi Artículo</h1>
+                    <p class="text-gray-600">Por <strong>Juan Pérez</strong></p>
+                  </header>
+
+                  <section class="mb-4">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-2">Introducción</h2>
+                    <p class="text-gray-700 mb-3">Este es un párrafo con <em>énfasis</em>
+                      y un <a href="#" class="text-blue-600 underline">enlace</a>.</p>
+
+                    <ul class="list-disc list-inside text-gray-700">
+                      <li>Primer punto</li>
+                      <li>Segundo punto</li>
+                    </ul>
+                  </section>
+
+                  <footer>
+                    <p><small class="text-gray-500">Publicado el 3 de agosto</small></p>
+                  </footer>
+                </article>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Atributos -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-orange-600 to-red-600 p-6 text-white">
+        <h2 class="text-3xl font-bold">🏷️ Atributos de las Etiquetas</h2>
+      </div>
+      <div class="p-8">
+
+        <div class="grid md:grid-cols-2 gap-8 mb-6">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">¿Qué son los Atributos?</h3>
+            <p class="text-gray-700 mb-4">
+              Los atributos proporcionan información adicional sobre los elementos HTML.
+              Se escriben dentro de la etiqueta de apertura.
+            </p>
+
+            <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+              <h4 class="font-semibold mb-2">Estructura:</h4>
+              <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm">
+&lt;etiqueta atributo="valor"&gt;contenido&lt;/etiqueta&gt;</pre>
+              <p class="text-gray-600 text-sm mt-2">
+                • <strong>Nombre:</strong> Identifica el atributo<br>
+                • <strong>Valor:</strong> Define el comportamiento (siempre entre comillas)
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Atributos Globales</h3>
+            <div class="space-y-3">
+
+              <div class="bg-gray-100 p-3 rounded">
+                <h4 class="font-semibold text-sm mb-1">id</h4>
+                <p class="text-gray-600 text-xs">Identificador único del elemento</p>
+                <code class="text-xs bg-gray-800 text-green-400 p-1 rounded">&lt;div id="mi-elemento"&gt;</code>
+              </div>
+
+              <div class="bg-gray-100 p-3 rounded">
+                <h4 class="font-semibold text-sm mb-1">class</h4>
+                <p class="text-gray-600 text-xs">Clase(s) CSS para estilos</p>
+                <code class="text-xs bg-gray-800 text-green-400 p-1 rounded">&lt;p class="texto grande"&gt;</code>
+              </div>
+
+              <div class="bg-gray-100 p-3 rounded">
+                <h4 class="font-semibold text-sm mb-1">style</h4>
+                <p class="text-gray-600 text-xs">Estilos CSS inline</p>
+                <code class="text-xs bg-gray-800 text-green-400 p-1 rounded">&lt;span style="color: red;"&gt;</code>
+              </div>
+
+              <div class="bg-gray-100 p-3 rounded">
+                <h4 class="font-semibold text-sm mb-1">title</h4>
+                <p class="text-gray-600 text-xs">Tooltip al pasar el mouse</p>
+                <code class="text-xs bg-gray-800 text-green-400 p-1 rounded">&lt;img title="Mi imagen"&gt;</code>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Ejemplos de atributos específicos -->
+        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🎯 Atributos Específicos por Etiqueta</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+
+            <div class="bg-white p-4 rounded-lg shadow">
+              <h4 class="font-bold text-blue-700 mb-2">&lt;img&gt;</h4>
+              <div class="text-sm space-y-1">
+                <div><code class="bg-blue-100 px-1 rounded">src</code> - URL de la imagen</div>
+                <div><code class="bg-blue-100 px-1 rounded">alt</code> - Texto alternativo</div>
+                <div><code class="bg-blue-100 px-1 rounded">width/height</code> - Dimensiones</div>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow">
+              <h4 class="font-bold text-green-700 mb-2">&lt;a&gt;</h4>
+              <div class="text-sm space-y-1">
+                <div><code class="bg-green-100 px-1 rounded">href</code> - URL destino</div>
+                <div><code class="bg-green-100 px-1 rounded">target</code> - Ventana destino</div>
+                <div><code class="bg-green-100 px-1 rounded">download</code> - Descargar archivo</div>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow">
+              <h4 class="font-bold text-purple-700 mb-2">&lt;input&gt;</h4>
+              <div class="text-sm space-y-1">
+                <div><code class="bg-purple-100 px-1 rounded">type</code> - Tipo de entrada</div>
+                <div><code class="bg-purple-100 px-1 rounded">name</code> - Nombre del campo</div>
+                <div><code class="bg-purple-100 px-1 rounded">value</code> - Valor inicial</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DOM -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-teal-600 to-cyan-600 p-6 text-white">
+        <h2 class="text-3xl font-bold">🌳 El DOM (Document Object Model)</h2>
+        <p class="text-teal-100">Representación visual e interactiva del árbol de documentos</p>
+      </div>
+      <div class="p-8">
+
+        <!-- Explicación del DOM -->
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">¿Qué es el DOM?</h3>
+            <div class="space-y-4">
+              <p class="text-gray-700">
+                El <strong>Document Object Model (DOM)</strong> es una representación estructurada del documento HTML
+                como un árbol de objetos que pueden ser manipulados con JavaScript.
+              </p>
+
+              <div class="bg-teal-50 p-4 rounded-lg border-l-4 border-teal-400">
+                <h4 class="font-semibold mb-2">Origen del concepto:</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• <strong>1990s:</strong> Netscape introduce el concepto</li>
+                  <li>• <strong>1998:</strong> W3C estandariza DOM Level 1</li>
+                  <li>• <strong>2000:</strong> DOM Level 2 (eventos, CSS)</li>
+                  <li>• <strong>2004:</strong> DOM Level 3 (XPath, validación)</li>
+                  <li>• <strong>Presente:</strong> DOM Living Standard (WHATWG)</li>
+                </ul>
+              </div>
+
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <h4 class="font-semibold mb-2">¿Para qué sirve?</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• Acceder a elementos HTML desde JavaScript</li>
+                  <li>• Modificar contenido dinámicamente</li>
+                  <li>• Manejar eventos de usuario</li>
+                  <li>• Crear aplicaciones web interactivas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Estructura de Árbol</h3>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <h4 class="font-semibold mb-3 text-center">Ejemplo HTML → DOM</h4>
+              <pre class="bg-gray-800 text-green-400 p-3 rounded text-xs mb-3 overflow-x-auto">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Mi Página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+    &lt;p&gt;Párrafo de ejemplo&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+              <div class="text-center">
+                <div class="text-sm font-mono">
+                  <div class="bg-red-200 inline-block px-2 py-1 rounded mb-2">Document</div>
+                  <div class="ml-4">
+                    <div class="bg-blue-200 inline-block px-2 py-1 rounded mb-1">html</div>
+                    <div class="ml-8">
+                      <div class="bg-green-200 inline-block px-2 py-1 rounded mr-2">head</div>
+                      <div class="bg-green-200 inline-block px-2 py-1 rounded">body</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOM Interactivo -->
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg mb-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🎮 DOM Interactivo</h3>
+          <p class="text-center text-gray-600 mb-4">Explora el árbol DOM</p>
+
+          <div class="bg-white p-6 rounded-lg border-2 border-gray-200">
+            <!-- DOM Tree Visual -->
+            <div id="dom-tree" class="font-mono text-sm">
+
+              <div class="dom-node bg-red-100 p-2 rounded mb-2 border-2 border-red-300" onclick="toggleNode(this)"
+                data-info="Elemento raíz del documento HTML">
+                <span class="font-bold">📄 document</span>
+                <div class="ml-4 mt-2">
+
+                  <div class="dom-node bg-blue-100 p-2 rounded mb-2 border-2 border-blue-300" onclick="toggleNode(this)"
+                    data-info="Elemento HTML principal que contiene todo el documento">
+                    <span class="font-bold">🏠 &lt;html&gt;</span>
+                    <div class="ml-4 mt-2">
+
+                      <div class="dom-node bg-green-100 p-2 rounded mb-2 border-2 border-green-300"
+                        onclick="toggleNode(this)" data-info="Contiene metadatos: título, estilos, scripts">
+                        <span class="font-bold">🧠 &lt;head&gt;</span>
+                        <div class="ml-4 mt-2">
+                          <div class="dom-node bg-yellow-100 p-2 rounded mb-1 border border-yellow-300"
+                            onclick="toggleNode(this)" data-info="Título que aparece en la pestaña del navegador">
+                            <span>📋 &lt;title&gt;</span> "Mi Página Web"
+                          </div>
+                          <div class="dom-node bg-yellow-100 p-2 rounded mb-1 border border-yellow-300"
+                            onclick="toggleNode(this)" data-info="Enlace a hoja de estilos CSS externa">
+                            <span>🎨 &lt;link&gt;</span> rel="stylesheet"
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="dom-node bg-green-100 p-2 rounded mb-2 border-2 border-green-300"
+                        onclick="toggleNode(this)" data-info="Contiene todo el contenido visible de la página">
+                        <span class="font-bold">👁️ &lt;body&gt;</span>
+                        <div class="ml-4 mt-2">
+
+                          <div class="dom-node bg-purple-100 p-2 rounded mb-2 border-2 border-purple-300"
+                            onclick="toggleNode(this)" data-info="Encabezado principal de la página">
+                            <span class="font-bold">🎯 &lt;header&gt;</span>
+                            <div class="ml-4 mt-2">
+                              <div class="dom-node bg-yellow-100 p-2 rounded mb-1 border border-yellow-300"
+                                onclick="toggleNode(this)" data-info="Título principal de nivel 1">
+                                <span>📢 &lt;h1&gt;</span> "Bienvenidos"
+                              </div>
+                              <div class="dom-node bg-yellow-100 p-2 rounded mb-1 border border-yellow-300"
+                                onclick="toggleNode(this)" data-info="Párrafo con texto descriptivo">
+                                <span>📝 &lt;p&gt;</span> "Esta es mi página web"
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="dom-node bg-purple-100 p-2 rounded mb-2 border-2 border-purple-300"
+                            onclick="toggleNode(this)" data-info="Contenido principal de la página">
+                            <span class="font-bold">🎪 &lt;main&gt;</span>
+                            <div class="ml-4 mt-2">
+                              <div class="dom-node bg-orange-100 p-2 rounded mb-1 border border-orange-300"
+                                onclick="toggleNode(this)" data-info="Sección de contenido agrupado">
+                                <span>📦 &lt;section&gt;</span>
+                                <div class="ml-4 mt-1">
+                                  <div class="dom-node bg-yellow-100 p-1 rounded border border-yellow-300"
+                                    onclick="toggleNode(this)" data-info="Subtítulo de nivel 2">
+                                    <span>🏷️ &lt;h2&gt;</span> "Acerca de"
+                                  </div>
+                                  <div class="dom-node bg-yellow-100 p-1 rounded border border-yellow-300"
+                                    onclick="toggleNode(this)" data-info="Lista no ordenada de elementos">
+                                    <span>📋 &lt;ul&gt;</span>
+                                    <div class="ml-4">
+                                      <div class="text-xs bg-pink-100 p-1 rounded border border-pink-300">• &lt;li&gt;
+                                        Elemento 1</div>
+                                      <div class="text-xs bg-pink-100 p-1 rounded border border-pink-300">• &lt;li&gt;
+                                        Elemento 2</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Panel de información -->
+            <div id="info-panel" class="mt-4 p-4 bg-gray-100 rounded-lg border">
+              <h4 class="font-bold mb-2">💡 Información del Elemento</h4>
+              <p id="element-info" class="text-gray-600">Haz clic en cualquier elemento del árbol DOM para ver
+                información detallada</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Jerarquía y Conceptos -->
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-indigo-700 mb-3">🌳 Conceptos Clave</h3>
+            <div class="space-y-2 text-sm">
+              <div><strong>Nodo:</strong> Cada elemento del árbol DOM</div>
+              <div><strong>Padre:</strong> Elemento que contiene otros elementos</div>
+              <div><strong>Hijo:</strong> Elemento contenido dentro de otro</div>
+              <div><strong>Hermanos:</strong> Elementos al mismo nivel</div>
+              <div><strong>Descendientes:</strong> Todos los elementos dentro de uno</div>
+              <div><strong>Ancestros:</strong> Todos los elementos que contienen uno</div>
+            </div>
+          </div>
+
+          <div class="bg-green-50 p-4 rounded-lg">
+            <h3 class="font-bold text-green-700 mb-3">⚡ Manipulación con JavaScript</h3>
+            <pre class="bg-gray-800 text-green-400 p-3 rounded text-xs overflow-x-auto">
+// Seleccionar elemento
+let titulo = document.getElementById('mi-titulo');
+
+// Cambiar contenido
+titulo.textContent = 'Nuevo título';
+
+// Cambiar estilo
+titulo.style.color = 'blue';
+
+// Agregar evento
+titulo.addEventListener('click', function() {
+  alert('¡Hiciste clic!');
+});</pre>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="versiones-html.html"
+            class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition-colors flex items-center">
+            ← Versiones de HTML
+          </a>
+
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+
+          <a href="organismos-html.html"
+            class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition-colors flex items-center">
+            W3C y WHATWG →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Introducción a HTML</strong>
+      </p>
+      <p class="text-teal-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNode(element) {
+      // Remover clase activa de todos los elementos
+      document.querySelectorAll('.dom-node').forEach(node => {
+        node.classList.remove('interactive-element');
+      });
+
+      // Agregar clase activa al elemento clickeado
+      element.classList.add('interactive-element');
+
+      // Mostrar información del elemento
+      const info = element.getAttribute('data-info');
+      const infoPanel = document.getElementById('element-info');
+      if (info) {
+        infoPanel.textContent = info;
+      } else {
+        infoPanel.textContent = 'Elemento del DOM. Cada elemento tiene propiedades y métodos que pueden ser manipulados con JavaScript.';
+      }
+    }
+
+    // Animaciones en scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      document.querySelectorAll('.bg-white').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        observer.observe(el);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

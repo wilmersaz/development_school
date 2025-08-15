@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia del CSS</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    }
+    @keyframes typewriter {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid violet;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40, end);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-8">
+  
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="que-es-css.html" class="bg-white text-violet-600 px-4 py-2 rounded-lg hover:bg-violet-50 transition-colors">
+        ← ¿Qué es CSS?
+      </a>
+      <h1 class="text-2xl font-bold text-white">📜 Historia del CSS</h1>
+      <a href="versiones-css.html" class="bg-white text-violet-600 px-4 py-2 rounded-lg hover:bg-violet-50 transition-colors">
+        Versiones de CSS →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+    
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 fade-in-up">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 typewriter">La Evolución de CSS</h1>
+      <p class="text-xl text-gray-600">Desde 1994 hasta la era moderna del diseño web</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="space-y-8">
+
+      <!-- Los Inicios - 1994 -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+          <h2 class="text-2xl font-bold">🌟 Los Inicios (1994)</h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">El Problema Original</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li>• HTML solo manejaba estructura y contenido</li>
+                <li>• Los estilos se mezclaban con el HTML</li>
+                <li>• Difícil mantenimiento de sitios web</li>
+                <li>• No había separación de responsabilidades</li>
+              </ul>
+              
+              <div class="mt-4 bg-red-50 p-3 rounded-lg">
+                <h4 class="font-semibold text-red-700 mb-2">La Necesidad</h4>
+                <p class="text-sm text-red-600">
+                  Se necesitaba una forma de separar el contenido (HTML) 
+                  de la presentación (estilos visuales).
+                </p>
+              </div>
+            </div>
+            
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <h4 class="font-semibold mb-2">HTML antes de CSS:</h4>
+              <pre class="text-sm bg-gray-800 text-red-400 p-3 rounded overflow-x-auto">
+&lt;font color="red" size="5"&gt;
+  &lt;b&gt;Título Principal&lt;/b&gt;
+&lt;/font&gt;
+&lt;p&gt;
+  &lt;font color="blue" size="3"&gt;
+    Texto del párrafo
+  &lt;/font&gt;
+&lt;/p&gt;</pre>
+              <p class="text-xs text-gray-600 mt-2">
+                ❌ Estilos mezclados con contenido
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS1 - 1996 -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+          <h2 class="text-2xl font-bold">🎯 CSS1 (1996)</h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">Características Principales</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li>• <strong>Håkon Wium Lie</strong> propuso CSS</li>
+                <li>• Primera recomendación del W3C</li>
+                <li>• Propiedades básicas de fuente y color</li>
+                <li>• Modelo de cajas básico</li>
+                <li>• Selectores simples (elemento, clase, ID)</li>
+              </ul>
+              
+              <div class="mt-4 bg-blue-50 p-3 rounded-lg">
+                <h4 class="font-semibold text-blue-700 mb-2">Impacto</h4>
+                <p class="text-sm text-blue-600">
+                  Revolucionó el diseño web separando contenido y presentación.
+                </p>
+              </div>
+            </div>
+            
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <h4 class="font-semibold mb-2">Ejemplo CSS1:</h4>
+              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
+/* CSS1 - 1996 */
+H1 { 
+  font-size: 24pt;
+  color: red;
+  font-weight: bold;
+}
+
+P {
+  font-size: 12pt;
+  color: blue;
+  margin: 10px;
+}</pre>
+              <p class="text-xs text-green-600 mt-2">
+                ✅ Estilos separados del HTML
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS2 - 1998 -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+          <h2 class="text-2xl font-bold">🚀 CSS2 (1998)</h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">Nuevas Capacidades</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li>• <strong>Posicionamiento</strong> (absolute, relative, fixed)</li>
+                <li>• <strong>Media types</strong> (screen, print, handheld)</li>
+                <li>• <strong>Selectores avanzados</strong> (descendente, hijo)</li>
+                <li>• <strong>Z-index</strong> para capas</li>
+                <li>• <strong>Pseudo-elementos</strong> y pseudo-clases</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">CSS2.1 (2004-2011)</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li>• Corrección de errores de CSS2</li>
+                <li>• Eliminación de características no implementadas</li>
+                <li>• Mejor compatibilidad entre navegadores</li>
+                <li>• Base sólida para CSS3</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mt-6 bg-green-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-green-700 mb-2">Código CSS2:</h4>
+            <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
+.sidebar {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  width: 200px;
+  z-index: 10;
+}
+
+@media print {
+  .no-print { display: none; }
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS3 - 2001-Presente -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+          <h2 class="text-2xl font-bold">✨ CSS3 (2001-Presente)</h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-3 gap-6">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-3">Módulos Principales</h3>
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li>• Selectors Level 3</li>
+                <li>• Media Queries</li>
+                <li>• Colors</li>
+                <li>• Backgrounds and Borders</li>
+                <li>• Text Effects</li>
+                <li>• Transforms</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-3">Nuevas Características</h3>
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li>• Border-radius</li>
+                <li>• Box-shadow</li>
+                <li>• Gradients</li>
+                <li>• Animations</li>
+                <li>• Transitions</li>
+                <li>• Flexbox</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-3">CSS Moderno</h3>
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li>• CSS Grid</li>
+                <li>• CSS Variables</li>
+                <li>• CSS Container Queries</li>
+                <li>• CSS Subgrid</li>
+                <li>• CSS Nesting</li>
+                <li>• CSS Layers</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mt-6 bg-purple-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-purple-700 mb-2">CSS3 Moderno:</h4>
+            <pre class="text-sm bg-gray-800 text-purple-400 p-3 rounded overflow-x-auto">
+.modern-card {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .modern-card { transform: none; }
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Línea de Tiempo Visual -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 text-white">
+          <h2 class="text-2xl font-bold">📊 Línea de Tiempo</h2>
+        </div>
+        <div class="p-6">
+          <div class="space-y-4">
+            <div class="flex items-center space-x-4">
+              <div class="w-4 h-4 bg-red-500 rounded-full"></div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <span class="font-semibold">1994 - Propuesta inicial</span>
+                  <span class="text-gray-500">Håkon Wium Lie</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+              <div class="w-4 h-4 bg-blue-500 rounded-full"></div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <span class="font-semibold">1996 - CSS1</span>
+                  <span class="text-gray-500">Primera recomendación W3C</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+              <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <span class="font-semibold">1998 - CSS2</span>
+                  <span class="text-gray-500">Posicionamiento y media types</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+              <div class="w-4 h-4 bg-purple-500 rounded-full"></div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <span class="font-semibold">2011 - CSS2.1</span>
+                  <span class="text-gray-500">Versión estable</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+              <div class="w-4 h-4 bg-indigo-500 rounded-full"></div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <span class="font-semibold">2001-Presente - CSS3</span>
+                  <span class="text-gray-500">Desarrollo modular</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="que-es-css.html" class="bg-violet-500 text-white px-6 py-3 rounded-lg hover:bg-violet-600 transition-colors flex items-center">
+            ← Tema Anterior
+          </a>
+          
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+          
+          <a href="versiones-css.html" class="bg-violet-500 text-white px-6 py-3 rounded-lg hover:bg-violet-600 transition-colors flex items-center">
+            Siguiente Tema →
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Introducción a CSS</strong>
+      </p>
+      <p class="text-violet-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Agregar efectos adicionales
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll('.fade-in-up');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
+</body>
+</html>

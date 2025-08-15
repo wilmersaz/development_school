@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Versiones de CSS</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid emerald;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40, end);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="historia-css.html"
+        class="bg-white text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition-colors">
+        ← Historia del CSS
+      </a>
+      <h1 class="text-2xl font-bold text-white">📈 Versiones de CSS</h1>
+      <a href="sintaxis-css.html"
+        class="bg-white text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition-colors">
+        Sintaxis CSS →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 fade-in-up">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 typewriter">Evolución de CSS</h1>
+      <p class="text-xl text-gray-600">De CSS1 a CSS3 y el futuro modular del diseño web</p>
+    </div>
+
+    <!-- CSS Version Comparison -->
+    <div class="grid md:grid-cols-3 gap-6 mb-8">
+
+      <!-- CSS1 -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-red-500 to-red-600 p-4 text-white text-center">
+          <h2 class="text-2xl font-bold">CSS1</h2>
+          <p class="text-red-100">1996</p>
+        </div>
+        <div class="p-6">
+          <div class="text-center mb-4">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+              <span class="text-2xl">🚀</span>
+            </div>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Características</h3>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Fuentes y colores</li>
+            <li>• Modelo de cajas básico</li>
+            <li>• Selectores simples</li>
+            <li>• Propiedades de texto</li>
+            <li>• Backgrounds básicos</li>
+          </ul>
+
+          <div class="mt-4 text-center">
+            <span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-semibold">
+              Fundacional
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS2 -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 text-white text-center">
+          <h2 class="text-2xl font-bold">CSS2</h2>
+          <p class="text-blue-100">1998</p>
+        </div>
+        <div class="p-6">
+          <div class="text-center mb-4">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
+              <span class="text-2xl">⚡</span>
+            </div>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Características</h3>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Posicionamiento</li>
+            <li>• Media types</li>
+            <li>• Selectores avanzados</li>
+            <li>• Z-index</li>
+            <li>• Pseudo-elementos</li>
+          </ul>
+
+          <div class="mt-4 text-center">
+            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-semibold">
+              Expansión
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS3 -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up pulse-animation">
+        <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-4 text-white text-center">
+          <h2 class="text-2xl font-bold">CSS3</h2>
+          <p class="text-purple-100">2001-Presente</p>
+        </div>
+        <div class="p-6">
+          <div class="text-center mb-4">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+              <span class="text-2xl">✨</span>
+            </div>
+          </div>
+          <h3 class="font-semibold text-gray-800 mb-2">Características</h3>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Desarrollo modular</li>
+            <li>• Animaciones</li>
+            <li>• Flexbox & Grid</li>
+            <li>• Media Queries</li>
+            <li>• Efectos visuales</li>
+          </ul>
+
+          <div class="mt-4 text-center">
+            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-semibold">
+              Revolución
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSS3: Enfoque Modular -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🧩 CSS3: Enfoque Modular</h2>
+      </div>
+      <div class="p-6">
+        <div class="mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">¿Por qué Módulos?</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start space-x-2">
+                  <span class="text-emerald-600 font-bold">•</span>
+                  <span><strong>Desarrollo Independiente:</strong> Cada módulo evoluciona a su propio ritmo</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <span class="text-emerald-600 font-bold">•</span>
+                  <span><strong>Implementación Gradual:</strong> Los navegadores pueden implementar módulos por
+                    separado</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <span class="text-emerald-600 font-bold">•</span>
+                  <span><strong>Especialización:</strong> Equipos especializados para cada área</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-emerald-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-emerald-800 mb-2">Comparación</h4>
+              <div class="text-sm">
+                <div class="mb-2">
+                  <span class="text-red-600">❌ CSS2:</span> Una especificación monolítica
+                </div>
+                <div>
+                  <span class="text-green-600">✅ CSS3:</span> Múltiples módulos independientes
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Módulos Principales -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
+            <h4 class="font-semibold text-blue-800 mb-2">🎯 Selectors Level 3</h4>
+            <p class="text-sm text-blue-700">Selectores avanzados como :nth-child(), :not(), etc.</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg">
+            <h4 class="font-semibold text-purple-800 mb-2">📱 Media Queries</h4>
+            <p class="text-sm text-purple-700">Diseño responsivo basado en características del dispositivo</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg">
+            <h4 class="font-semibold text-green-800 mb-2">🎨 Colors</h4>
+            <p class="text-sm text-green-700">RGBA, HSLA, y nuevos espacios de color</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg">
+            <h4 class="font-semibold text-orange-800 mb-2">🖼️ Backgrounds & Borders</h4>
+            <p class="text-sm text-orange-700">Border-radius, múltiples backgrounds, gradients</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg">
+            <h4 class="font-semibold text-red-800 mb-2">✏️ Text Effects</h4>
+            <p class="text-sm text-red-700">Text-shadow, word-wrap, text-overflow</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-lg">
+            <h4 class="font-semibold text-indigo-800 mb-2">🔄 Transforms</h4>
+            <p class="text-sm text-indigo-700">Rotaciones, escalas, traslaciones en 2D y 3D</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Módulos Avanzados -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🚀 Módulos Modernos</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- Layout Modules -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📐 Módulos de Layout</h3>
+            <div class="space-y-3">
+              <div class="p-3 bg-blue-50 rounded-lg">
+                <h4 class="font-semibold text-blue-800">Flexbox</h4>
+                <p class="text-sm text-blue-700">Flexible Box Layout Module</p>
+                <code class="text-xs bg-blue-200 px-1 rounded">display: flex;</code>
+              </div>
+
+              <div class="p-3 bg-green-50 rounded-lg">
+                <h4 class="font-semibold text-green-800">Grid</h4>
+                <p class="text-sm text-green-700">CSS Grid Layout Module</p>
+                <code class="text-xs bg-green-200 px-1 rounded">display: grid;</code>
+              </div>
+
+              <div class="p-3 bg-purple-50 rounded-lg">
+                <h4 class="font-semibold text-purple-800">Multi-column</h4>
+                <p class="text-sm text-purple-700">Diseño en columnas múltiples</p>
+                <code class="text-xs bg-purple-200 px-1 rounded">column-count: 3;</code>
+              </div>
+            </div>
+          </div>
+
+          <!-- Animation & Effects -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">⚡ Animaciones y Efectos</h3>
+            <div class="space-y-3">
+              <div class="p-3 bg-orange-50 rounded-lg">
+                <h4 class="font-semibold text-orange-800">Animations</h4>
+                <p class="text-sm text-orange-700">Animaciones CSS keyframe</p>
+                <code class="text-xs bg-orange-200 px-1 rounded">@keyframes</code>
+              </div>
+
+              <div class="p-3 bg-red-50 rounded-lg">
+                <h4 class="font-semibold text-red-800">Transitions</h4>
+                <p class="text-sm text-red-700">Transiciones suaves entre estados</p>
+                <code class="text-xs bg-red-200 px-1 rounded">transition: all 0.3s;</code>
+              </div>
+
+              <div class="p-3 bg-teal-50 rounded-lg">
+                <h4 class="font-semibold text-teal-800">Filters</h4>
+                <p class="text-sm text-teal-700">Efectos visuales como blur, brightness</p>
+                <code class="text-xs bg-teal-200 px-1 rounded">filter: blur(5px);</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estado Actual y Futuro -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-violet-600 to-violet-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🔮 Estado Actual y Futuro</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🌟 CSS Actual (2024)</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span><strong>CSS Variables:</strong> Custom Properties</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span><strong>Container Queries:</strong> Responsive por contenedor</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span><strong>CSS Subgrid:</strong> Grid anidado avanzado</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                <span><strong>CSS Logical Properties:</strong> Propiedades lógicas</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🚀 CSS Futuro</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                <span><strong>CSS Nesting:</strong> Anidado nativo</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                <span><strong>CSS Layers:</strong> @layer para cascada</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                <span><strong>CSS Houdini:</strong> APIs de bajo nivel</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                <span><strong>CSS Color 4:</strong> Nuevos espacios de color</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-violet-50 rounded-lg">
+          <h4 class="font-semibold text-violet-800 mb-2">💡 Tendencia Actual</h4>
+          <p class="text-violet-700 text-sm">
+            CSS evoluciona hacia un desarrollo más modular, con nuevas APIs que permiten
+            mayor control y características que antes requerían JavaScript.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soporte de Navegadores -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+      <div class="bg-gradient-to-r from-gray-600 to-gray-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🌐 Soporte de Navegadores</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-3 gap-4">
+
+          <div class="text-center p-4 bg-green-50 rounded-lg">
+            <div class="text-3xl mb-2">✅</div>
+            <h3 class="font-semibold text-green-800">CSS1 & CSS2.1</h3>
+            <p class="text-sm text-green-700">Soporte universal en todos los navegadores modernos</p>
+          </div>
+
+          <div class="text-center p-4 bg-yellow-50 rounded-lg">
+            <div class="text-3xl mb-2">⚠️</div>
+            <h3 class="font-semibold text-yellow-800">CSS3</h3>
+            <p class="text-sm text-yellow-700">Soporte variable según el módulo y navegador</p>
+          </div>
+
+          <div class="text-center p-4 bg-blue-50 rounded-lg">
+            <div class="text-3xl mb-2">🔍</div>
+            <h3 class="font-semibold text-blue-800">Verificación</h3>
+            <p class="text-sm text-blue-700">Usa Can I Use para verificar compatibilidad</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="historia-css.html"
+            class="bg-emerald-500 text-white px-6 py-3 rounded-lg hover:bg-emerald-600 transition-colors flex items-center">
+            ← Historia del CSS
+          </a>
+
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+
+          <a href="sintaxis-css.html"
+            class="bg-emerald-500 text-white px-6 py-3 rounded-lg hover:bg-emerald-600 transition-colors flex items-center">
+            Sintaxis CSS →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Introducción a CSS</strong>
+      </p>
+      <p class="text-emerald-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Agregar efectos adicionales
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

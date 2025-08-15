@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Versiones de HTML - Evolución Histórica</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .version-card {
+      transition: all 0.3s ease;
+      transform: scale(0.95);
+    }
+
+    .version-card:hover {
+      transform: scale(1);
+    }
+
+    .timeline-line {
+      background: linear-gradient(to bottom, #ff6b6b, #4ecdc4);
+      width: 4px;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-down {
+      animation: slideDown 0.6s ease-out forwards;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="lenguaje-marcado.html"
+        class="bg-white text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors">
+        ← Lenguaje de Marcado
+      </a>
+      <h1 class="text-2xl font-bold text-white">📅 Versiones de HTML</h1>
+      <a href="etiquetas-dom.html"
+        class="bg-white text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors">
+        Etiquetas y DOM →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center slide-down">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">📅 Evolución de HTML</h1>
+      <p class="text-xl text-gray-600">Las 7 versiones clásicas y la unificación en HTML5</p>
+    </div>
+
+    <!-- Timeline de Versiones -->
+    <div class="relative">
+
+      <!-- Línea de tiempo -->
+      <div class="absolute left-8 top-0 bottom-0 timeline-line hidden md:block"></div>
+
+      <!-- HTML 1.0 -->
+      <div class="flex items-center mb-8">
+        <div
+          class="bg-red-500 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl md:relative md:z-10 flex-shrink-0">
+          1.0</div>
+        <div class="ml-8 flex-1">
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden version-card">
+            <div class="bg-red-500 p-4 text-white">
+              <h2 class="text-2xl font-bold">HTML 1.0 (1991)</h2>
+              <p class="text-red-100">El primer borrador</p>
+            </div>
+            <div class="p-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2">Características:</h3>
+                  <ul class="space-y-1 text-gray-600 text-sm">
+                    <li>• Solo 18 etiquetas básicas</li>
+                    <li>• Estructura muy simple</li>
+                    <li>• Sin formularios</li>
+                    <li>• Sin tablas</li>
+                    <li>• Solo texto e imágenes básicas</li>
+                  </ul>
+                </div>
+                <div class="bg-gray-100 p-3 rounded">
+                  <h4 class="font-semibold text-xs mb-2">Etiquetas principales:</h4>
+                  <div class="grid grid-cols-3 gap-1 text-xs">
+                    <span class="bg-red-100 px-1 rounded">&lt;title&gt;</span>
+                    <span class="bg-red-100 px-1 rounded">&lt;h1&gt;-&lt;h6&gt;</span>
+                    <span class="bg-red-100 px-1 rounded">&lt;p&gt;</span>
+                    <span class="bg-red-100 px-1 rounded">&lt;a&gt;</span>
+                    <span class="bg-red-100 px-1 rounded">&lt;ul&gt;</span>
+                    <span class="bg-red-100 px-1 rounded">&lt;li&gt;</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML 2.0 -->
+      <div class="flex items-center mb-8">
+        <div
+          class="bg-orange-500 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl md:relative md:z-10 flex-shrink-0">
+          2.0</div>
+        <div class="ml-8 flex-1">
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden version-card">
+            <div class="bg-orange-500 p-4 text-white">
+              <h2 class="text-2xl font-bold">HTML 2.0 (1995)</h2>
+              <p class="text-orange-100">Primera especificación estándar oficial</p>
+            </div>
+            <div class="p-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2">Novedades:</h3>
+                  <ul class="space-y-1 text-gray-600 text-sm">
+                    <li>• <strong>Formularios básicos</strong> (&lt;form&gt;, &lt;input&gt;)</li>
+                    <li>• Imágenes mejoradas (&lt;img&gt;)</li>
+                    <li>• Caracteres especiales</li>
+                    <li>• RFC 1866 como estándar</li>
+                  </ul>
+                </div>
+                <div class="bg-orange-50 p-3 rounded">
+                  <h4 class="font-semibold text-sm mb-2">Ejemplo de formulario:</h4>
+                  <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+&lt;form action="/enviar"&gt;
+  &lt;input type="text" name="nombre"&gt;
+  &lt;input type="submit" value="Enviar"&gt;
+&lt;/form&gt;</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML 3.2 -->
+      <div class="flex items-center mb-8">
+        <div
+          class="bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl md:relative md:z-10 flex-shrink-0">
+          3.2</div>
+        <div class="ml-8 flex-1">
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden version-card">
+            <div class="bg-yellow-500 p-4 text-white">
+              <h2 class="text-2xl font-bold">HTML 3.2 (1997)</h2>
+              <p class="text-yellow-100">Era del W3C y las tablas</p>
+            </div>
+            <div class="p-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2">Características:</h3>
+                  <ul class="space-y-1 text-gray-600 text-sm">
+                    <li>• <strong>Tablas</strong> (&lt;table&gt;, &lt;tr&gt;, &lt;td&gt;)</li>
+                    <li>• Applets de Java</li>
+                    <li>• Scripts básicos</li>
+                    <li>• Mapas de imagen</li>
+                    <li>• Mejor soporte de formularios</li>
+                  </ul>
+                </div>
+                <div class="bg-yellow-50 p-3 rounded">
+                  <h4 class="font-semibold text-sm mb-2">Tabla básica:</h4>
+                  <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Celda 1&lt;/td&gt;
+    &lt;td&gt;Celda 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML 4.0 -->
+      <div class="flex items-center mb-8">
+        <div
+          class="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl md:relative md:z-10 flex-shrink-0">
+          4.0</div>
+        <div class="ml-8 flex-1">
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden version-card">
+            <div class="bg-green-500 p-4 text-white">
+              <h2 class="text-2xl font-bold">HTML 4.0 (1997)</h2>
+              <p class="text-green-100">Separación de contenido y presentación</p>
+            </div>
+            <div class="p-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2">Innovaciones:</h3>
+                  <ul class="space-y-1 text-gray-600 text-sm">
+                    <li>• <strong>CSS integrado</strong></li>
+                    <li>• Marcos (frames)</li>
+                    <li>• Mejor accesibilidad</li>
+                    <li>• Internacionalización</li>
+                    <li>• Objetos y scripts mejorados</li>
+                  </ul>
+                </div>
+                <div class="bg-green-50 p-3 rounded">
+                  <h4 class="font-semibold text-sm mb-2">Con CSS:</h4>
+                  <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+&lt;link rel="stylesheet" 
+      href="estilos.css"&gt;
+&lt;div class="contenedor"&gt;
+  &lt;p style="color: blue;"&gt;Texto&lt;/p&gt;
+&lt;/div&gt;</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML 4.01 -->
+      <div class="flex items-center mb-8">
+        <div
+          class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-sm md:relative md:z-10 flex-shrink-0">
+          4.01</div>
+        <div class="ml-8 flex-1">
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden version-card">
+            <div class="bg-blue-500 p-4 text-white">
+              <h2 class="text-2xl font-bold">HTML 4.01 (1999)</h2>
+              <p class="text-blue-100">Corrección de errores</p>
+            </div>
+            <div class="p-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2">Mejoras:</h3>
+                  <ul class="space-y-1 text-gray-600 text-sm">
+                    <li>• Corrección de bugs de HTML 4.0</li>
+                    <li>• Mejor validación</li>
+                    <li>• Especificación más clara</li>
+                    <li>• Tres variantes: Strict, Transitional, Frameset</li>
+                  </ul>
+                </div>
+                <div class="bg-blue-50 p-3 rounded">
+                  <h4 class="font-semibold text-sm mb-2">DOCTYPE variants:</h4>
+                  <div class="text-xs space-y-1">
+                    <div>• Strict: Más estricto</div>
+                    <div>• Transitional: Permite elementos obsoletos</div>
+                    <div>• Frameset: Para marcos</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- XHTML 1.0 -->
+      <div class="flex items-center mb-8">
+        <div
+          class="bg-indigo-500 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xs md:relative md:z-10 flex-shrink-0">
+          XHTML</div>
+        <div class="ml-8 flex-1">
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden version-card">
+            <div class="bg-indigo-500 p-4 text-white">
+              <h2 class="text-2xl font-bold">XHTML 1.0 (2000)</h2>
+              <p class="text-indigo-100">HTML reformulado en XML</p>
+            </div>
+            <div class="p-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2">Reglas estrictas:</h3>
+                  <ul class="space-y-1 text-gray-600 text-sm">
+                    <li>• Todas las etiquetas deben cerrarse</li>
+                    <li>• Atributos entre comillas</li>
+                    <li>• Elementos en minúsculas</li>
+                    <li>• Estructura bien formada (XML)</li>
+                  </ul>
+                </div>
+                <div class="bg-indigo-50 p-3 rounded">
+                  <h4 class="font-semibold text-sm mb-2">Ejemplo XHTML:</h4>
+                  <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+&lt;p&gt;Párrafo con &lt;br /&gt; salto&lt;/p&gt;
+&lt;img src="foto.jpg" alt="Foto" /&gt;
+&lt;input type="text" name="campo" /&gt;</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- XHTML 1.1 -->
+      <div class="flex items-center mb-8">
+        <div
+          class="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xs md:relative md:z-10 flex-shrink-0">
+          1.1</div>
+        <div class="ml-8 flex-1">
+          <div class="bg-white rounded-xl shadow-xl overflow-hidden version-card">
+            <div class="bg-purple-500 p-4 text-white">
+              <h2 class="text-2xl font-bold">XHTML 1.1 (2001)</h2>
+              <p class="text-purple-100">Modularización</p>
+            </div>
+            <div class="p-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 class="font-bold text-gray-800 mb-2">Características:</h3>
+                  <ul class="space-y-1 text-gray-600 text-sm">
+                    <li>• Estructura modular</li>
+                    <li>• Ruby annotations (texto asiático)</li>
+                    <li>• Mejor internacionalización</li>
+                    <li>• Eliminación de elementos presentacionales</li>
+                  </ul>
+                </div>
+                <div class="bg-purple-50 p-3 rounded">
+                  <h4 class="font-semibold text-sm mb-2">Módulos:</h4>
+                  <div class="text-xs space-y-1">
+                    <div>• Core (básico)</div>
+                    <div>• Tables (tablas)</div>
+                    <div>• Forms (formularios)</div>
+                    <div>• Image (imágenes)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- La Gran Unificación HTML5 -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 mt-12">
+      <div class="bg-gradient-to-r from-red-600 to-purple-600 p-8 text-white text-center">
+        <h2 class="text-4xl font-bold mb-4">🎯 2005: La Gran Unificación</h2>
+        <p class="text-xl">HTML5 - El fin de la fragmentación</p>
+      </div>
+      <div class="p-8">
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🤔 El Problema</h3>
+            <div class="space-y-3">
+              <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-semibold mb-2">Fragmentación:</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• Múltiples versiones incompatibles</li>
+                  <li>• XHTML vs HTML</li>
+                  <li>• Reglas confusas y contradictorias</li>
+                  <li>• Desarrolladores perdidos</li>
+                </ul>
+              </div>
+
+              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                <h4 class="font-semibold mb-2">Limitaciones:</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• Sin soporte multimedia nativo</li>
+                  <li>• Aplicaciones web limitadas</li>
+                  <li>• Dependencia de plugins</li>
+                  <li>• Falta de APIs modernas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">✅ La Solución HTML5</h3>
+            <div class="space-y-3">
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-semibold mb-2">Unificación:</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• Una sola especificación</li>
+                  <li>• Retrocompatibilidad total</li>
+                  <li>• Sintaxis flexible</li>
+                  <li>• Desarrollo continuo</li>
+                </ul>
+              </div>
+
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <h4 class="font-semibold mb-2">Nuevas Características:</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• Audio y video nativos</li>
+                  <li>• Canvas para gráficos</li>
+                  <li>• APIs de geolocalización</li>
+                  <li>• Almacenamiento local</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML5 Features -->
+        <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🚀 HTML5: Características Revolucionarias</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+
+            <div class="text-center">
+              <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-2xl">🎵</span>
+              </div>
+              <h4 class="font-semibold mb-2">Multimedia</h4>
+              <p class="text-gray-600 text-sm">&lt;audio&gt; y &lt;video&gt; sin plugins</p>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-2xl">🎨</span>
+              </div>
+              <h4 class="font-semibold mb-2">Gráficos</h4>
+              <p class="text-gray-600 text-sm">&lt;canvas&gt; y SVG integrado</p>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-2xl">📱</span>
+              </div>
+              <h4 class="font-semibold mb-2">APIs</h4>
+              <p class="text-gray-600 text-sm">Geolocalización, almacenamiento, etc.</p>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-2xl">📝</span>
+              </div>
+              <h4 class="font-semibold mb-2">Formularios</h4>
+              <p class="text-gray-600 text-sm">Nuevos tipos de input</p>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-2xl">🏗️</span>
+              </div>
+              <h4 class="font-semibold mb-2">Semántica</h4>
+              <p class="text-gray-600 text-sm">&lt;header&gt;, &lt;nav&gt;, &lt;section&gt;</p>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span class="text-2xl">⚡</span>
+              </div>
+              <h4 class="font-semibold mb-2">Performance</h4>
+              <p class="text-gray-600 text-sm">Web Workers, carga asíncrona</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Quote Final -->
+    <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl shadow-xl p-8 text-white text-center mb-8">
+      <div class="text-6xl mb-4">🎯</div>
+      <blockquote class="text-2xl italic mb-4">
+        "HTML5 no es solo una nueva versión, es una nueva plataforma para aplicaciones web"
+      </blockquote>
+      <p class="text-orange-200">- La revolución que cambió la web</p>
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="lenguaje-marcado.html"
+            class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center">
+            ← Lenguaje de Marcado
+          </a>
+
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+
+          <a href="etiquetas-dom.html"
+            class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center">
+            Etiquetas y DOM →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Introducción a HTML</strong>
+      </p>
+      <p class="text-pink-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Animaciones en scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0) scale(1)';
+          }
+        });
+      });
+
+      document.querySelectorAll('.version-card').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px) scale(0.9)';
+        el.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        observer.observe(el);
+      });
+
+      // Efecto hover en las tarjetas de versión
+      document.querySelectorAll('.version-card').forEach(card => {
+        card.addEventListener('mouseenter', function () {
+          this.style.transform = 'translateY(-5px) scale(1.02)';
+          this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
+        });
+
+        card.addEventListener('mouseleave', function () {
+          this.style.transform = 'translateY(0) scale(1)';
+          this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

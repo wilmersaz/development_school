@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formas de Aplicar CSS</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+    @keyframes typewriter {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid amber;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40, end);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+    .bounce-animation {
+      animation: bounce 2s infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-8">
+  
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="sintaxis-css.html" class="bg-white text-amber-600 px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors">
+        ← Sintaxis CSS
+      </a>
+      <h1 class="text-2xl font-bold text-white">📝 Formas de Aplicar CSS</h1>
+      <a href="selectores-css.html" class="bg-white text-amber-600 px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors">
+        Selectores CSS →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+    
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 fade-in-up">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 typewriter">3 Formas de Aplicar CSS</h1>
+      <p class="text-xl text-gray-600">En línea, interno y externo - elige la mejor opción</p>
+    </div>
+
+    <!-- Métodos Overview -->
+    <div class="grid md:grid-cols-3 gap-6 mb-8">
+      
+      <!-- En línea -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-red-500 to-red-600 p-4 text-white text-center">
+          <h2 class="text-xl font-bold">🎯 CSS En Línea</h2>
+          <p class="text-red-100 text-sm">Inline CSS</p>
+        </div>
+        <div class="p-6 text-center">
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">📄</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            Directamente en el elemento HTML usando el atributo <code>style</code>
+          </p>
+          <div class="bg-red-50 p-2 rounded">
+            <span class="text-xs text-red-700 font-semibold">Alta Especificidad</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interno -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up bounce-animation">
+        <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 text-white text-center">
+          <h2 class="text-xl font-bold">🏠 CSS Interno</h2>
+          <p class="text-blue-100 text-sm">Internal CSS</p>
+        </div>
+        <div class="p-6 text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">📋</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            En la cabecera del documento HTML usando la etiqueta <code>&lt;style&gt;</code>
+          </p>
+          <div class="bg-blue-50 p-2 rounded">
+            <span class="text-xs text-blue-700 font-semibold">Recomendado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Externo -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-green-500 to-green-600 p-4 text-white text-center">
+          <h2 class="text-xl font-bold">🌐 CSS Externo</h2>
+          <p class="text-green-100 text-sm">External CSS</p>
+        </div>
+        <div class="p-6 text-center">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">📁</span>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            En archivo separado (.css) enlazado con <code>&lt;link&gt;</code>
+          </p>
+          <div class="bg-green-50 p-2 rounded">
+            <span class="text-xs text-green-700 font-semibold">Mejor Práctica</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSS En Línea -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🎯 CSS En Línea (Inline)</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">¿Cómo se usa?</h3>
+            <p class="text-gray-600 mb-4">
+              Se aplica directamente en el elemento HTML usando el atributo <code>style</code>.
+            </p>
+            
+            <h4 class="font-semibold mb-2">Ejemplo:</h4>
+            <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
+&lt;h1 style="color: red; font-size: 32px;"&gt;
+  Título Rojo
+&lt;/h1&gt;
+
+&lt;p style="background-color: yellow; padding: 10px;"&gt;
+  Párrafo con fondo amarillo
+&lt;/p&gt;
+
+&lt;div style="width: 200px; height: 100px; 
+           background-color: blue;"&gt;
+&lt;/div&gt;</pre>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Resultado Visual:</h3>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <h1 style="color: red; font-size: 32px; margin: 0 0 10px 0;">
+                Título Rojo
+              </h1>
+              <p style="background-color: yellow; padding: 10px; margin: 0 0 10px 0;">
+                Párrafo con fondo amarillo
+              </p>
+              <div style="width: 200px; height: 100px; background-color: blue; margin: 0;">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6 grid md:grid-cols-2 gap-4">
+          <div class="p-4 bg-green-50 border-l-4 border-green-400">
+            <h4 class="font-semibold text-green-800 mb-2">✅ Ventajas:</h4>
+            <ul class="text-sm text-green-700 space-y-1">
+              <li>• Alta especificidad (siempre se aplica)</li>
+              <li>• Rápido para pruebas o cambios menores</li>
+              <li>• No necesita archivos externos</li>
+            </ul>
+          </div>
+          
+          <div class="p-4 bg-red-50 border-l-4 border-red-400">
+            <h4 class="font-semibold text-red-800 mb-2">❌ Desventajas:</h4>
+            <ul class="text-sm text-red-700 space-y-1">
+              <li>• Difícil mantenimiento</li>
+              <li>• No se puede reutilizar</li>
+              <li>• Mezcla contenido con presentación</li>
+              <li>• Código HTML muy largo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSS Interno -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🏠 CSS Interno (Internal)</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">¿Cómo se usa?</h3>
+            <p class="text-gray-600 mb-4">
+              Se coloca dentro de la etiqueta <code>&lt;style&gt;</code> en el <code>&lt;head&gt;</code> del documento HTML.
+            </p>
+            
+            <h4 class="font-semibold mb-2">Ejemplo:</h4>
+            <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Mi Página&lt;/title&gt;
+  &lt;style&gt;
+    /* CSS Interno */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    
+    h1 {
+      color: navy;
+      text-align: center;
+    }
+    
+    .destacado {
+      background-color: yellow;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    
+    #especial {
+      color: red;
+      font-weight: bold;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Mi Título&lt;/h1&gt;
+  &lt;p class="destacado"&gt;Párrafo destacado&lt;/p&gt;
+  &lt;p id="especial"&gt;Texto especial&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Resultado Visual:</h3>
+            <div class="bg-gray-200 p-4 rounded-lg" style="font-family: Arial, sans-serif;">
+              <h1 style="color: navy; text-align: center; margin: 0 0 15px 0; font-size: 24px;">
+                Mi Título
+              </h1>
+              <p style="background-color: yellow; padding: 15px; border-radius: 5px; margin: 0 0 15px 0;">
+                Párrafo destacado
+              </p>
+              <p style="color: red; font-weight: bold; margin: 0;">
+                Texto especial
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6 grid md:grid-cols-2 gap-4">
+          <div class="p-4 bg-green-50 border-l-4 border-green-400">
+            <h4 class="font-semibold text-green-800 mb-2">✅ Ventajas:</h4>
+            <ul class="text-sm text-green-700 space-y-1">
+              <li>• Aplica estilos a toda la página</li>
+              <li>• Mejor organización que CSS en línea</li>
+              <li>• Ideal para páginas únicas</li>
+              <li>• Permite usar selectores y clases</li>
+            </ul>
+          </div>
+          
+          <div class="p-4 bg-yellow-50 border-l-4 border-yellow-400">
+            <h4 class="font-semibold text-yellow-800 mb-2">⚠️ Consideraciones:</h4>
+            <ul class="text-sm text-yellow-700 space-y-1">
+              <li>• Solo aplica a una página</li>
+              <li>• Aumenta el tamaño del HTML</li>
+              <li>• No se puede cachear por separado</li>
+              <li>• Difícil mantener sitios grandes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSS Externo -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🌐 CSS Externo (External)</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">¿Cómo se usa?</h3>
+            <p class="text-gray-600 mb-4">
+              Se crea un archivo separado con extensión <code>.css</code> y se enlaza al HTML con <code>&lt;link&gt;</code>.
+            </p>
+            
+            <h4 class="font-semibold mb-2">1. Crear archivo CSS (estilos.css):</h4>
+            <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
+/* estilos.css */
+body {
+  font-family: 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.header {
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.content {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}</pre>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold mb-2">2. Enlazar en HTML:</h4>
+            <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded overflow-x-auto">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Mi Página&lt;/title&gt;
+  &lt;link rel="stylesheet" href="estilos.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="header"&gt;
+    &lt;h1&gt;Bienvenido&lt;/h1&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="content"&gt;
+    &lt;p&gt;Este es el contenido principal.&lt;/p&gt;
+    &lt;button class="button"&gt;Hacer clic&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            
+            <h4 class="font-semibold mb-2 mt-4">3. Resultado:</h4>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <div style="background-color: #343a40; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 15px;">
+                <h1 style="margin: 0; font-size: 20px;">Bienvenido</h1>
+              </div>
+              <div style="background-color: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <p style="margin: 0 0 10px 0;">Este es el contenido principal.</p>
+                <button style="background-color: #007bff; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+                  Hacer clic
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6 grid md:grid-cols-3 gap-4">
+          <div class="p-4 bg-green-50 border-l-4 border-green-400">
+            <h4 class="font-semibold text-green-800 mb-2">✅ Ventajas:</h4>
+            <ul class="text-sm text-green-700 space-y-1">
+              <li>• Reutilizable en múltiples páginas</li>
+              <li>• Mejor organización y mantenimiento</li>
+              <li>• Separación completa de contenido/estilo</li>
+              <li>• Cacheable por el navegador</li>
+              <li>• Trabajo en equipo más fácil</li>
+            </ul>
+          </div>
+          
+          <div class="p-4 bg-blue-50 border-l-4 border-blue-400">
+            <h4 class="font-semibold text-blue-800 mb-2">🎯 Casos de Uso:</h4>
+            <ul class="text-sm text-blue-700 space-y-1">
+              <li>• Sitios web con múltiples páginas</li>
+              <li>• Proyectos grandes</li>
+              <li>• Estilos que se repiten</li>
+              <li>• Desarrollo profesional</li>
+              <li>• Equipos de desarrollo</li>
+            </ul>
+          </div>
+          
+          <div class="p-4 bg-yellow-50 border-l-4 border-yellow-400">
+            <h4 class="font-semibold text-yellow-800 mb-2">⚠️ Consideraciones:</h4>
+            <ul class="text-sm text-yellow-700 space-y-1">
+              <li>• Requiere gestión de archivos</li>
+              <li>• Una petición HTTP adicional</li>
+              <li>• Necesita organización de carpetas</li>
+              <li>• Posibles problemas de ruta</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparación y Recomendaciones -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📊 Comparación y Recomendaciones</h2>
+      </div>
+      <div class="p-6">
+        
+        <!-- Tabla Comparativa -->
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="text-left p-3 font-semibold">Característica</th>
+                <th class="text-center p-3 font-semibold text-red-700">En Línea</th>
+                <th class="text-center p-3 font-semibold text-blue-700">Interno</th>
+                <th class="text-center p-3 font-semibold text-green-700">Externo</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-700">
+              <tr class="border-b">
+                <td class="p-3 font-semibold">Reutilización</td>
+                <td class="p-3 text-center text-red-600">❌ No</td>
+                <td class="p-3 text-center text-yellow-600">⚠️ Solo una página</td>
+                <td class="p-3 text-center text-green-600">✅ Múltiples páginas</td>
+              </tr>
+              <tr class="border-b bg-gray-50">
+                <td class="p-3 font-semibold">Mantenimiento</td>
+                <td class="p-3 text-center text-red-600">❌ Difícil</td>
+                <td class="p-3 text-center text-yellow-600">⚠️ Regular</td>
+                <td class="p-3 text-center text-green-600">✅ Fácil</td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-3 font-semibold">Especificidad</td>
+                <td class="p-3 text-center text-green-600">✅ Máxima</td>
+                <td class="p-3 text-center text-blue-600">👍 Media</td>
+                <td class="p-3 text-center text-blue-600">👍 Media</td>
+              </tr>
+              <tr class="border-b bg-gray-50">
+                <td class="p-3 font-semibold">Velocidad de carga</td>
+                <td class="p-3 text-center text-green-600">✅ Rápida</td>
+                <td class="p-3 text-center text-green-600">✅ Rápida</td>
+                <td class="p-3 text-center text-yellow-600">⚠️ +1 petición</td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-3 font-semibold">Caché del navegador</td>
+                <td class="p-3 text-center text-red-600">❌ No</td>
+                <td class="p-3 text-center text-red-600">❌ No</td>
+                <td class="p-3 text-center text-green-600">✅ Sí</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Recomendaciones -->
+        <div class="grid md:grid-cols-3 gap-4">
+          
+          <div class="p-4 bg-red-50 border-l-4 border-red-400">
+            <h4 class="font-semibold text-red-800 mb-2">🎯 Usar CSS En Línea:</h4>
+            <ul class="text-sm text-red-700 space-y-1">
+              <li>• Pruebas rápidas</li>
+              <li>• Ajustes menores</li>
+              <li>• Sobrescribir estilos específicos</li>
+              <li>• Emails HTML</li>
+            </ul>
+          </div>
+          
+          <div class="p-4 bg-blue-50 border-l-4 border-blue-400">
+            <h4 class="font-semibold text-blue-800 mb-2">🏠 Usar CSS Interno:</h4>
+            <ul class="text-sm text-blue-700 space-y-1">
+              <li>• Páginas únicas</li>
+              <li>• Prototipos rápidos</li>
+              <li>• Landing pages</li>
+              <li>• Estilos muy específicos</li>
+            </ul>
+          </div>
+          
+          <div class="p-4 bg-green-50 border-l-4 border-green-400">
+            <h4 class="font-semibold text-green-800 mb-2">🌐 Usar CSS Externo:</h4>
+            <ul class="text-sm text-green-700 space-y-1">
+              <li>• Sitios web profesionales</li>
+              <li>• Proyectos grandes</li>
+              <li>• Múltiples páginas</li>
+              <li>• Desarrollo en equipo</li>
+              <li>• <strong>¡La mejor práctica!</strong></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="mt-6 p-4 bg-purple-50 rounded-lg">
+          <h4 class="font-semibold text-purple-800 mb-2">💡 Mejor Práctica:</h4>
+          <p class="text-purple-700 text-sm">
+            <strong>Combinar métodos:</strong> Usa CSS externo como base, CSS interno para estilos específicos de página, 
+            y CSS en línea solo para casos excepcionales o pruebas rápidas.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="sintaxis-css.html" class="bg-amber-500 text-white px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors flex items-center">
+            ← Sintaxis CSS
+          </a>
+          
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+          
+          <a href="selectores-css.html" class="bg-amber-500 text-white px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors flex items-center">
+            Selectores CSS →
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Introducción a CSS</strong>
+      </p>
+      <p class="text-amber-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Agregar efectos adicionales
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll('.fade-in-up');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
+</body>
+</html>

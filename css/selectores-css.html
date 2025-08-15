@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selectores CSS</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid lime;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40, end);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 5px rgba(132, 204, 22, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 20px rgba(132, 204, 22, 0.8);
+      }
+    }
+
+    .glow-animation {
+      animation: glow 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="formas-aplicar-css.html"
+        class="bg-white text-lime-600 px-4 py-2 rounded-lg hover:bg-lime-50 transition-colors">
+        ← Formas de Aplicar CSS
+      </a>
+      <h1 class="text-2xl font-bold text-white">🎯 Selectores CSS</h1>
+      <div class="bg-white text-lime-600 px-4 py-2 rounded-lg opacity-50">
+        (Último tema) →
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 fade-in-up">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 typewriter">Selectores CSS</h1>
+      <p class="text-xl text-gray-600">Elemento, clase, ID y selectores combinados</p>
+    </div>
+
+    <!-- Introducción -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-lime-600 to-lime-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🎯 ¿Qué son los Selectores?</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Definición</h3>
+            <p class="text-gray-600 mb-4">
+              Los selectores CSS son patrones que nos permiten <strong>seleccionar</strong>
+              elementos HTML específicos para aplicarles estilos.
+            </p>
+
+            <div class="bg-lime-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-lime-800 mb-2">💡 Piensa en los selectores como:</h4>
+              <ul class="text-lime-700 text-sm space-y-1">
+                <li>• <strong>Apuntadores:</strong> Señalan elementos específicos</li>
+                <li>• <strong>Filtros:</strong> Seleccionan solo lo que necesitas</li>
+                <li>• <strong>Llaves:</strong> Abren la puerta a aplicar estilos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-semibold mb-3">Estructura Básica:</h4>
+            <div class="bg-gray-800 p-3 rounded text-green-400 font-mono text-sm glow-animation">
+              <div class="text-yellow-400">selector</div>
+              <div class="text-white">{</div>
+              <div class="ml-4 text-cyan-400">propiedad: <span class="text-orange-400">valor</span>;</div>
+              <div class="text-white">}</div>
+            </div>
+            <p class="text-gray-600 text-sm mt-2">
+              El <strong>selector</strong> determina QUÉ elementos se van a estilizar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Selectores Básicos -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🔤 Selectores Básicos</h2>
+      </div>
+      <div class="p-6 space-y-6">
+
+        <!-- Selector de Elemento -->
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">1. Selector de Elemento (Tag)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div>
+              <h4 class="font-semibold mb-2">CSS:</h4>
+              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
+h1 {
+  color: blue;
+  font-size: 32px;
+}
+
+p {
+  color: gray;
+  line-height: 1.6;
+}
+
+div {
+  background-color: lightyellow;
+  padding: 10px;
+}</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">HTML:</h4>
+              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
+&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;h1&gt;Otro Título&lt;/h1&gt;
+&lt;p&gt;Párrafo uno&lt;/p&gt;
+&lt;p&gt;Párrafo dos&lt;/p&gt;
+&lt;div&gt;Un div&lt;/div&gt;
+&lt;div&gt;Otro div&lt;/div&gt;</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">Resultado:</h4>
+              <div class="bg-white p-3 border rounded text-sm">
+                <h1 style="color: blue; font-size: 24px; margin: 0 0 8px 0;">Título Principal</h1>
+                <h1 style="color: blue; font-size: 24px; margin: 0 0 8px 0;">Otro Título</h1>
+                <p style="color: gray; line-height: 1.6; margin: 0 0 8px 0;">Párrafo uno</p>
+                <p style="color: gray; line-height: 1.6; margin: 0 0 8px 0;">Párrafo dos</p>
+                <div style="background-color: lightyellow; padding: 10px; margin: 0 0 4px 0;">Un div</div>
+                <div style="background-color: lightyellow; padding: 10px; margin: 0;">Otro div</div>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mt-3">
+            <strong>Características:</strong> Selecciona TODOS los elementos del mismo tipo. No usa símbolos especiales.
+          </p>
+        </div>
+
+        <!-- Selector de Clase -->
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">2. Selector de Clase (.)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div>
+              <h4 class="font-semibold mb-2">CSS:</h4>
+              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
+.destacado {
+  background-color: yellow;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.error {
+  color: red;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+.info {
+  color: blue;
+  background-color: lightblue;
+}</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">HTML:</h4>
+              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
+&lt;p class="destacado"&gt;
+  Párrafo destacado
+&lt;/p&gt;
+
+&lt;div class="error"&gt;
+  Mensaje de error
+&lt;/div&gt;
+
+&lt;span class="info"&gt;
+  Información
+&lt;/span&gt;
+
+&lt;p class="destacado info"&gt;
+  Múltiples clases
+&lt;/p&gt;</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">Resultado:</h4>
+              <div class="bg-white p-3 border rounded text-sm space-y-2">
+                <p style="background-color: yellow; font-weight: bold; padding: 5px; margin: 0;">
+                  Párrafo destacado
+                </p>
+                <div style="color: red; border: 2px solid red; padding: 10px; margin: 10px;">
+                  Mensaje de error
+                </div>
+                <span style="color: blue; background-color: lightblue; padding: 2px;">
+                  Información
+                </span>
+                <p style="background-color: lightblue; color: blue; font-weight: bold; padding: 5px; margin: 0;">
+                  Múltiples clases
+                </p>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mt-3">
+            <strong>Características:</strong> Comienza con punto (.). Puede aplicarse a cualquier elemento. Un elemento
+            puede tener múltiples clases.
+          </p>
+        </div>
+
+        <!-- Selector de ID -->
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">3. Selector de ID (#)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div>
+              <h4 class="font-semibold mb-2">CSS:</h4>
+              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
+#cabecera {
+  background-color: navy;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#pie-pagina {
+  background-color: gray;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+#contenido-principal {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">HTML:</h4>
+              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
+&lt;header id="cabecera"&gt;
+  Mi Sitio Web
+&lt;/header&gt;
+
+&lt;main id="contenido-principal"&gt;
+  &lt;p&gt;Contenido principal&lt;/p&gt;
+&lt;/main&gt;
+
+&lt;footer id="pie-pagina"&gt;
+  © 2024 Mi Sitio
+&lt;/footer&gt;</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">Resultado:</h4>
+              <div class="bg-white border rounded text-sm">
+                <div style="background-color: navy; color: white; text-align: center; padding: 15px;">
+                  Mi Sitio Web
+                </div>
+                <div style="padding: 15px; margin: 15px 0;">
+                  <p style="margin: 0;">Contenido principal</p>
+                </div>
+                <div style="background-color: gray; color: white; text-align: center; padding: 8px;">
+                  © 2024 Mi Sitio
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mt-3">
+            <strong>Características:</strong> Comienza con # (hash). Debe ser ÚNICO en la página. Mayor especificidad
+            que clases.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Selectores Combinados -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🔗 Selectores Combinados</h2>
+      </div>
+      <div class="p-6 space-y-6">
+
+        <!-- Selector Descendente -->
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">1. Selector Descendente (espacio)</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold mb-2">CSS:</h4>
+              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
+/* Todos los p dentro de div */
+div p {
+  color: red;
+}
+
+/* Todos los span dentro de .contenedor */
+.contenedor span {
+  font-weight: bold;
+}
+
+/* Anidado múltiple */
+.articulo .autor .nombre {
+  font-style: italic;
+}</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">HTML:</h4>
+              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
+&lt;div&gt;
+  &lt;p&gt;Párrafo en div (ROJO)&lt;/p&gt;
+  &lt;section&gt;
+    &lt;p&gt;Párrafo en section→div (ROJO)&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Párrafo fuera de div (normal)&lt;/p&gt;
+
+&lt;div class="contenedor"&gt;
+  &lt;span&gt;Texto en negrita&lt;/span&gt;
+&lt;/div&gt;</pre>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mt-3">
+            <strong>Uso:</strong> Selecciona elementos que están dentro de otros, sin importar cuántos niveles de
+            profundidad.
+          </p>
+        </div>
+
+        <!-- Selector Hijo Directo -->
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">2. Selector Hijo Directo (>)</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold mb-2">CSS:</h4>
+              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
+/* Solo p que son hijos directos de div */
+div > p {
+  color: blue;
+}
+
+/* Solo li que son hijos directos de .menu */
+.menu > li {
+  display: inline-block;
+  margin: 0 10px;
+}</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">HTML:</h4>
+              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
+&lt;div&gt;
+  &lt;p&gt;Hijo directo (AZUL)&lt;/p&gt;
+  &lt;section&gt;
+    &lt;p&gt;No es hijo directo (normal)&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;ul class="menu"&gt;
+  &lt;li&gt;Inicio&lt;/li&gt; &lt;!-- inline-block --&gt;
+  &lt;li&gt;Acerca&lt;/li&gt; &lt;!-- inline-block --&gt;
+&lt;/ul&gt;</pre>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mt-3">
+            <strong>Uso:</strong> Solo selecciona elementos que son hijos directos (un nivel) del elemento padre.
+          </p>
+        </div>
+
+        <!-- Selector de Hermano Adyacente -->
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">3. Selector Hermano Adyacente (+)</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold mb-2">CSS:</h4>
+              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
+/* El p inmediatamente después de h1 */
+h1 + p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* El div inmediatamente después de .alerta */
+.alerta + div {
+  margin-top: 20px;
+}</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">HTML:</h4>
+              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
+&lt;h1&gt;Título&lt;/h1&gt;
+&lt;p&gt;Primer párrafo (grande y negrita)&lt;/p&gt;
+&lt;p&gt;Segundo párrafo (normal)&lt;/p&gt;
+
+&lt;div class="alerta"&gt;Alerta&lt;/div&gt;
+&lt;div&gt;Siguiente div (margin-top)&lt;/div&gt;</pre>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mt-3">
+            <strong>Uso:</strong> Selecciona el elemento que viene inmediatamente después de otro elemento.
+          </p>
+        </div>
+
+        <!-- Selector de Hermanos Generales -->
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">4. Selector Hermanos Generales (~)</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold mb-2">CSS:</h4>
+              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
+/* Todos los p que vienen después de h1 */
+h1 ~ p {
+  color: green;
+}
+
+/* Todos los div después de .especial */
+.especial ~ div {
+  background-color: lightgray;
+}</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">HTML:</h4>
+              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
+&lt;p&gt;Párrafo antes (normal)&lt;/p&gt;
+&lt;h1&gt;Título&lt;/h1&gt;
+&lt;p&gt;Párrafo después 1 (VERDE)&lt;/p&gt;
+&lt;span&gt;Span&lt;/span&gt;
+&lt;p&gt;Párrafo después 2 (VERDE)&lt;/p&gt;</pre>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mt-3">
+            <strong>Uso:</strong> Selecciona todos los elementos hermanos que vienen después del elemento de referencia.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Pseudo-clases y Pseudo-elementos -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">✨ Pseudo-clases y Pseudo-elementos</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Pseudo-clases Comunes</h3>
+            <div class="space-y-3">
+              <div class="p-3 bg-indigo-50 rounded-lg">
+                <h4 class="font-semibold text-indigo-800">:hover</h4>
+                <p class="text-sm text-indigo-700">Cuando el usuario pasa el ratón sobre el elemento</p>
+                <code class="text-xs">button:hover { background: red; }</code>
+              </div>
+
+              <div class="p-3 bg-blue-50 rounded-lg">
+                <h4 class="font-semibold text-blue-800">:focus</h4>
+                <p class="text-sm text-blue-700">Cuando el elemento tiene el foco (inputs, botones)</p>
+                <code class="text-xs">input:focus { border: 2px solid blue; }</code>
+              </div>
+
+              <div class="p-3 bg-green-50 rounded-lg">
+                <h4 class="font-semibold text-green-800">:first-child</h4>
+                <p class="text-sm text-green-700">El primer elemento hijo</p>
+                <code class="text-xs">li:first-child { font-weight: bold; }</code>
+              </div>
+
+              <div class="p-3 bg-purple-50 rounded-lg">
+                <h4 class="font-semibold text-purple-800">:nth-child(n)</h4>
+                <p class="text-sm text-purple-700">El elemento hijo en la posición n</p>
+                <code class="text-xs">tr:nth-child(even) { background: #f0f0f0; }</code>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Pseudo-elementos</h3>
+            <div class="space-y-3">
+              <div class="p-3 bg-orange-50 rounded-lg">
+                <h4 class="font-semibold text-orange-800">::before</h4>
+                <p class="text-sm text-orange-700">Inserta contenido antes del elemento</p>
+                <code class="text-xs">p::before { content: "→ "; }</code>
+              </div>
+
+              <div class="p-3 bg-red-50 rounded-lg">
+                <h4 class="font-semibold text-red-800">::after</h4>
+                <p class="text-sm text-red-700">Inserta contenido después del elemento</p>
+                <code class="text-xs">p::after { content: " ←"; }</code>
+              </div>
+
+              <div class="p-3 bg-teal-50 rounded-lg">
+                <h4 class="font-semibold text-teal-800">::first-line</h4>
+                <p class="text-sm text-teal-700">La primera línea del elemento</p>
+                <code class="text-xs">p::first-line { font-weight: bold; }</code>
+              </div>
+
+              <div class="p-3 bg-pink-50 rounded-lg">
+                <h4 class="font-semibold text-pink-800">::selection</h4>
+                <p class="text-sm text-pink-700">El texto seleccionado por el usuario</p>
+                <code class="text-xs">::selection { background: yellow; }</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Especificidad -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">⚖️ Especificidad de Selectores</h2>
+      </div>
+      <div class="p-6">
+        <div class="mb-6">
+          <p class="text-gray-600 mb-4">
+            Cuando múltiples reglas CSS aplican al mismo elemento, la especificidad determina cuál tiene prioridad.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-4 mb-6">
+          <div class="text-center p-4 bg-red-50 rounded-lg">
+            <div class="text-2xl mb-2">🎯</div>
+            <h3 class="font-semibold text-red-800">En Línea</h3>
+            <p class="text-sm text-red-700">style=""</p>
+            <div class="text-lg font-bold text-red-600">1000</div>
+          </div>
+
+          <div class="text-center p-4 bg-blue-50 rounded-lg">
+            <div class="text-2xl mb-2">#️⃣</div>
+            <h3 class="font-semibold text-blue-800">IDs</h3>
+            <p class="text-sm text-blue-700">#miId</p>
+            <div class="text-lg font-bold text-blue-600">100</div>
+          </div>
+
+          <div class="text-center p-4 bg-green-50 rounded-lg">
+            <div class="text-2xl mb-2">🏷️</div>
+            <h3 class="font-semibold text-green-800">Clases</h3>
+            <p class="text-sm text-green-700">.miClase</p>
+            <div class="text-lg font-bold text-green-600">10</div>
+          </div>
+
+          <div class="text-center p-4 bg-gray-50 rounded-lg">
+            <div class="text-2xl mb-2">🔤</div>
+            <h3 class="font-semibold text-gray-800">Elementos</h3>
+            <p class="text-sm text-gray-700">div, p, h1</p>
+            <div class="text-lg font-bold text-gray-600">1</div>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 p-4 rounded-lg">
+          <h4 class="font-semibold text-gray-800 mb-3">Ejemplos de Cálculo:</h4>
+          <div class="space-y-2 text-sm font-mono">
+            <div class="flex justify-between">
+              <code>p</code>
+              <span class="text-gray-600">0,0,0,1 = 1</span>
+            </div>
+            <div class="flex justify-between">
+              <code>.mi-clase</code>
+              <span class="text-gray-600">0,0,1,0 = 10</span>
+            </div>
+            <div class="flex justify-between">
+              <code>#mi-id</code>
+              <span class="text-gray-600">0,1,0,0 = 100</span>
+            </div>
+            <div class="flex justify-between">
+              <code>div.mi-clase p</code>
+              <span class="text-gray-600">0,0,1,2 = 12</span>
+            </div>
+            <div class="flex justify-between">
+              <code>#header .nav li a:hover</code>
+              <span class="text-gray-600">0,1,2,2 = 122</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplo Práctico Final -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+      <div class="bg-gradient-to-r from-teal-600 to-teal-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">💻 Ejemplo Práctico Completo</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">HTML:</h3>
+            <pre class="text-sm bg-gray-800 text-blue-400 p-4 rounded overflow-x-auto">
+&lt;nav id="menu-principal"&gt;
+  &lt;ul class="lista-menu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="destacado"&gt;
+      &lt;a href="#"&gt;Servicios&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;main class="contenido"&gt;
+  &lt;h1&gt;Bienvenido&lt;/h1&gt;
+  &lt;p class="intro"&gt;Este es el párrafo de introducción.&lt;/p&gt;
+  &lt;p&gt;Este es un párrafo normal.&lt;/p&gt;
+  
+  &lt;section class="articulo"&gt;
+    &lt;h2&gt;Título del Artículo&lt;/h2&gt;
+    &lt;p&gt;Contenido del artículo...&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</pre>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">CSS:</h3>
+            <pre class="text-sm bg-gray-800 text-green-400 p-4 rounded overflow-x-auto">
+/* Selectores básicos */
+body { font-family: Arial, sans-serif; }
+h1 { color: navy; }
+p { line-height: 1.6; }
+
+/* Selectores de clase */
+.contenido { max-width: 800px; margin: 0 auto; }
+.intro { font-size: 18px; font-weight: bold; }
+.destacado { background-color: yellow; }
+
+/* Selectores de ID */
+#menu-principal { background-color: #333; }
+
+/* Selectores combinados */
+#menu-principal ul { list-style: none; }
+#menu-principal li { display: inline-block; }
+.lista-menu a { 
+  color: white; 
+  text-decoration: none; 
+  padding: 10px 15px;
+  display: block;
+}
+
+/* Pseudo-clases */
+.lista-menu a:hover { 
+  background-color: #555; 
+}
+
+/* Selector descendente específico */
+.articulo h2 { 
+  border-bottom: 2px solid #ccc; 
+}
+
+/* Selector hijo directo */
+.contenido > p { 
+  margin-bottom: 20px; 
+}</pre>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-teal-50 rounded-lg">
+          <h4 class="font-semibold text-teal-800 mb-2">📝 Análisis del Código:</h4>
+          <ul class="text-teal-700 text-sm space-y-1">
+            <li>• <code>#menu-principal</code>: Selector de ID (especificidad: 100)</li>
+            <li>• <code>.lista-menu a:hover</code>: Clase + elemento + pseudo-clase (especificidad: 21)</li>
+            <li>• <code>.contenido > p</code>: Selector de clase con hijo directo (especificidad: 11)</li>
+            <li>• <code>.articulo h2</code>: Selector descendente con clase (especificidad: 11)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="formas-aplicar-css.html"
+            class="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-600 transition-colors flex items-center">
+            ← Formas de Aplicar CSS
+          </a>
+
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+
+          <div class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg opacity-50">
+            (Último tema) →
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Introducción a CSS</strong>
+      </p>
+      <p class="text-lime-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Agregar efectos adicionales
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

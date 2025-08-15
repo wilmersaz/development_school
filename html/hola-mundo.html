@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Primer HTML - Hola Mundo</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+    }
+    .code-editor {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'Courier New', monospace;
+    }
+    .line-numbers {
+      background: #2d2d2d;
+      color: #858585;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid orange;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+    .step-highlight {
+      transition: all 0.3s ease;
+    }
+    .step-highlight.active {
+      background: #fef3c7;
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body class="min-h-screen py-8">
+  
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="organismos-html.html" class="bg-white text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors">
+        ← W3C y WHATWG
+      </a>
+      <h1 class="text-2xl font-bold text-white">👋 Tu Primer HTML</h1>
+      <a href="../css/que-es-css.html" class="bg-white text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors">
+        ¿Qué es CSS? →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+    
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 typewriter">¡Tu Primer "Hola Mundo" en HTML!</h1>
+      <p class="text-xl text-gray-600">Aprende a crear tu primera página web paso a paso</p>
+    </div>
+
+    <!-- ¿Qué es index.html? -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">📄 ¿Qué es index.html?</h2>
+      </div>
+      <div class="p-8">
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-6">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🏠 La Página Principal</h3>
+            <div class="space-y-4">
+              <p class="text-gray-700">
+                <strong>index.html</strong> es el nombre estándar para la página principal de un sitio web. 
+                Es como la "puerta de entrada" de tu sitio.
+              </p>
+              
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <h4 class="font-semibold mb-2">¿Por qué "index"?</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• <strong>Tradición:</strong> Viene de los servidores web antiguos</li>
+                  <li>• <strong>Automático:</strong> Los navegadores lo buscan primero</li>
+                  <li>• <strong>Estándar:</strong> Todos los servidores lo reconocen</li>
+                  <li>• <strong>Limpio:</strong> URLs sin nombre de archivo (ejemplo.com/)</li>
+                </ul>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-semibold mb-2">Equivalencias:</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• <code>misitioweb.com</code> = <code>misitioweb.com/index.html</code></li>
+                  <li>• <code>ejemplo.com/productos/</code> = <code>ejemplo.com/productos/index.html</code></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🗂️ Estructura Típica</h3>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <h4 class="font-semibold mb-3">📁 Organización de Archivos:</h4>
+              <div class="font-mono text-sm space-y-1">
+                <div class="flex items-center">
+                  <span class="text-blue-600">📁</span>
+                  <span class="ml-2 font-bold">mi-sitio-web/</span>
+                </div>
+                <div class="ml-6 flex items-center">
+                  <span class="text-green-600">📄</span>
+                  <span class="ml-2 font-bold text-red-600">index.html</span>
+                  <span class="ml-2 text-gray-500">← ¡La página principal!</span>
+                </div>
+                <div class="ml-6 flex items-center">
+                  <span class="text-purple-600">🎨</span>
+                  <span class="ml-2">estilos.css</span>
+                </div>
+                <div class="ml-6 flex items-center">
+                  <span class="text-yellow-600">⚡</span>
+                  <span class="ml-2">script.js</span>
+                </div>
+                <div class="ml-6 flex items-center">
+                  <span class="text-blue-600">📁</span>
+                  <span class="ml-2">imagenes/</span>
+                </div>
+                <div class="ml-12 flex items-center">
+                  <span class="text-green-600">🖼️</span>
+                  <span class="ml-2">logo.png</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Paso a Paso -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-green-600 to-emerald-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🎯 Creando tu Primer HTML: Paso a Paso</h2>
+      </div>
+      <div class="p-8">
+        
+        <!-- Pasos -->
+        <div class="space-y-6">
+          
+          <!-- Paso 1 -->
+          <div class="step-highlight p-6 rounded-lg border-2 border-gray-200 cursor-pointer" onclick="activateStep(this, 1)">
+            <div class="flex items-center mb-4">
+              <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">1</div>
+              <h3 class="text-xl font-bold text-gray-800 ml-4">Abrir un Editor de Texto</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold mb-2">Opciones Recomendadas:</h4>
+                <div class="space-y-2">
+                  <div class="flex items-center p-2 bg-blue-50 rounded">
+                    <span class="text-2xl mr-3">💻</span>
+                    <div>
+                      <p class="font-semibold">Visual Studio Code (Recomendado)</p>
+                      <p class="text-gray-600 text-sm">Gratuito, extensiones para HTML</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center p-2 bg-gray-50 rounded">
+                    <span class="text-2xl mr-3">📝</span>
+                    <div>
+                      <p class="font-semibold">Bloc de Notas / Notepad++</p>
+                      <p class="text-gray-600 text-sm">Simple y directo</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center p-2 bg-purple-50 rounded">
+                    <span class="text-2xl mr-3">⚙️</span>
+                    <div>
+                      <p class="font-semibold">Sublime Text / Atom</p>
+                      <p class="text-gray-600 text-sm">Potentes editores</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-yellow-50 p-4 rounded-lg">
+                <h4 class="font-semibold mb-2">💡 Consejos:</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• <strong>NO uses Microsoft Word</strong> - añade formato invisible</li>
+                  <li>• Asegúrate de poder <strong>guardar como .html</strong></li>
+                  <li>• Un editor con <strong>resaltado de sintaxis</strong> te ayudará mucho</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="step-highlight p-6 rounded-lg border-2 border-gray-200 cursor-pointer" onclick="activateStep(this, 2)">
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">2</div>
+              <h3 class="text-xl font-bold text-gray-800 ml-4">Escribir la Estructura Básica</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold mb-3">📝 Copia este código exactamente:</h4>
+                <div class="bg-gray-900 rounded-lg overflow-hidden">
+                  <div class="line-numbers text-right p-3 text-xs float-left">
+                    <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div>
+                  </div>
+                  <pre class="code-editor p-3 text-sm overflow-x-auto ml-12">
+<span class="text-gray-500">&lt;!DOCTYPE html&gt;</span>
+<span class="text-red-400">&lt;html</span> <span class="text-blue-400">lang</span>=<span class="text-green-400">"es"</span><span class="text-red-400">&gt;</span>
+<span class="text-red-400">&lt;head&gt;</span>
+  <span class="text-red-400">&lt;meta</span> <span class="text-blue-400">charset</span>=<span class="text-green-400">"UTF-8"</span><span class="text-red-400">&gt;</span>
+  <span class="text-red-400">&lt;meta</span> <span class="text-blue-400">name</span>=<span class="text-green-400">"viewport"</span> <span class="text-blue-400">content</span>=<span class="text-green-400">"width=device-width, initial-scale=1.0"</span><span class="text-red-400">&gt;</span>
+  <span class="text-red-400">&lt;title&gt;</span><span class="text-white">Mi Primera Página Web</span><span class="text-red-400">&lt;/title&gt;</span>
+<span class="text-red-400">&lt;/head&gt;</span>
+<span class="text-red-400">&lt;body&gt;</span>
+  
+<span class="text-red-400">&lt;/body&gt;</span>
+<span class="text-red-400">&lt;/html&gt;</span></pre>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-3">🔍 Explicación línea por línea:</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="bg-gray-50 p-2 rounded">
+                    <strong>Línea 1:</strong> DOCTYPE - Dice que es HTML5
+                  </div>
+                  <div class="bg-blue-50 p-2 rounded">
+                    <strong>Línea 2:</strong> Elemento html con idioma español
+                  </div>
+                  <div class="bg-green-50 p-2 rounded">
+                    <strong>Líneas 3-7:</strong> Head - información del documento
+                  </div>
+                  <div class="bg-yellow-50 p-2 rounded">
+                    <strong>Línea 4:</strong> Codificación de caracteres UTF-8
+                  </div>
+                  <div class="bg-purple-50 p-2 rounded">
+                    <strong>Línea 5:</strong> Responsive design (móviles)
+                  </div>
+                  <div class="bg-pink-50 p-2 rounded">
+                    <strong>Línea 6:</strong> Título que aparece en la pestaña
+                  </div>
+                  <div class="bg-orange-50 p-2 rounded">
+                    <strong>Líneas 8-10:</strong> Body - contenido visible
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="step-highlight p-6 rounded-lg border-2 border-gray-200 cursor-pointer" onclick="activateStep(this, 3)">
+            <div class="flex items-center mb-4">
+              <div class="bg-purple-500 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">3</div>
+              <h3 class="text-xl font-bold text-gray-800 ml-4">Agregar Contenido al Body</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold mb-3">📝 Agrega entre &lt;body&gt; y &lt;/body&gt;:</h4>
+                <div class="bg-gray-900 rounded-lg overflow-hidden">
+                  <pre class="code-editor p-4 text-sm overflow-x-auto">
+<span class="text-red-400">&lt;h1&gt;</span><span class="text-white">¡Hola Mundo!</span><span class="text-red-400">&lt;/h1&gt;</span>
+<span class="text-red-400">&lt;p&gt;</span><span class="text-white">Esta es mi primera página web.</span><span class="text-red-400">&lt;/p&gt;</span>
+<span class="text-red-400">&lt;p&gt;</span><span class="text-white">¡Estoy aprendiendo HTML!</span><span class="text-red-400">&lt;/p&gt;</span>
+
+<span class="text-red-400">&lt;h2&gt;</span><span class="text-white">Acerca de mí</span><span class="text-red-400">&lt;/h2&gt;</span>
+<span class="text-red-400">&lt;p&gt;</span><span class="text-white">Mi nombre es </span><span class="text-yellow-400">[TU NOMBRE AQUÍ]</span><span class="text-white"> y estoy 
+   aprendiendo desarrollo web.</span><span class="text-red-400">&lt;/p&gt;</span>
+
+<span class="text-red-400">&lt;h3&gt;</span><span class="text-white">Mis intereses:</span><span class="text-red-400">&lt;/h3&gt;</span>
+<span class="text-red-400">&lt;ul&gt;</span>
+  <span class="text-red-400">&lt;li&gt;</span><span class="text-white">Programación</span><span class="text-red-400">&lt;/li&gt;</span>
+  <span class="text-red-400">&lt;li&gt;</span><span class="text-white">Diseño web</span><span class="text-red-400">&lt;/li&gt;</span>
+  <span class="text-red-400">&lt;li&gt;</span><span class="text-white">Tecnología</span><span class="text-red-400">&lt;/li&gt;</span>
+<span class="text-red-400">&lt;/ul&gt;</span></pre>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-3">🎨 Personalízalo:</h4>
+                <div class="space-y-3">
+                  <div class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400">
+                    <h5 class="font-semibold text-sm">✏️ Campos a personalizar:</h5>
+                    <ul class="text-gray-700 text-sm mt-2 space-y-1">
+                      <li>• Cambia <code class="bg-yellow-200 px-1 rounded">[TU NOMBRE AQUÍ]</code> por tu nombre real</li>
+                      <li>• Modifica la lista de intereses con tus propios gustos</li>
+                      <li>• Cambia los textos por los que prefieras</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400">
+                    <h5 class="font-semibold text-sm">🏷️ Etiquetas utilizadas:</h5>
+                    <ul class="text-gray-700 text-sm mt-2 space-y-1">
+                      <li>• <code class="bg-blue-200 px-1 rounded">&lt;h1&gt;</code> - Título principal</li>
+                      <li>• <code class="bg-blue-200 px-1 rounded">&lt;h2&gt;</code>, <code class="bg-blue-200 px-1 rounded">&lt;h3&gt;</code> - Subtítulos</li>
+                      <li>• <code class="bg-blue-200 px-1 rounded">&lt;p&gt;</code> - Párrafos</li>
+                      <li>• <code class="bg-blue-200 px-1 rounded">&lt;ul&gt;</code>, <code class="bg-blue-200 px-1 rounded">&lt;li&gt;</code> - Lista con viñetas</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paso 4 -->
+          <div class="step-highlight p-6 rounded-lg border-2 border-gray-200 cursor-pointer" onclick="activateStep(this, 4)">
+            <div class="flex items-center mb-4">
+              <div class="bg-orange-500 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">4</div>
+              <h3 class="text-xl font-bold text-gray-800 ml-4">Guardar el Archivo</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold mb-3">💾 Pasos para guardar:</h4>
+                <ol class="space-y-3">
+                  <li class="flex items-start">
+                    <span class="bg-orange-100 text-orange-700 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
+                    <div>
+                      <p class="font-semibold">Presiona Ctrl+S (o Cmd+S en Mac)</p>
+                      <p class="text-gray-600 text-sm">O ve al menú Archivo → Guardar</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="bg-orange-100 text-orange-700 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
+                    <div>
+                      <p class="font-semibold">Elige una carpeta</p>
+                      <p class="text-gray-600 text-sm">Crea una carpeta nueva llamada "mi-primer-sitio"</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="bg-orange-100 text-orange-700 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
+                    <div>
+                      <p class="font-semibold">Nombra el archivo: <code class="bg-red-100 px-2 py-1 rounded text-red-700">index.html</code></p>
+                      <p class="text-gray-600 text-sm">¡IMPORTANTE! Debe terminar en .html</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="bg-orange-100 text-orange-700 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</span>
+                    <div>
+                      <p class="font-semibold">Cambia el tipo a "Todos los archivos" o "HTML"</p>
+                      <p class="text-gray-600 text-sm">Para evitar que se guarde como .txt</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div>
+                <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400 mb-4">
+                  <h5 class="font-semibold text-red-700 mb-2">⚠️ Errores Comunes:</h5>
+                  <ul class="text-red-600 text-sm space-y-1">
+                    <li>• Guardar como "index.html.txt" ❌</li>
+                    <li>• Usar espacios en el nombre ❌</li>
+                    <li>• Olvidar la extensión .html ❌</li>
+                    <li>• Usar caracteres especiales (ñ, acentos) ❌</li>
+                  </ul>
+                </div>
+                
+                <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                  <h5 class="font-semibold text-green-700 mb-2">✅ Correcto:</h5>
+                  <ul class="text-green-600 text-sm space-y-1">
+                    <li>• index.html ✅</li>
+                    <li>• mi-pagina.html ✅</li>
+                    <li>• home.html ✅</li>
+                    <li>• inicio.html ✅</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paso 5 -->
+          <div class="step-highlight p-6 rounded-lg border-2 border-gray-200 cursor-pointer" onclick="activateStep(this, 5)">
+            <div class="flex items-center mb-4">
+              <div class="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">5</div>
+              <h3 class="text-xl font-bold text-gray-800 ml-4">Abrir en el Navegador</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold mb-3">🌐 Métodos para abrir:</h4>
+                <div class="space-y-3">
+                  <div class="bg-blue-50 p-3 rounded border-l-4 border-blue-400">
+                    <h5 class="font-semibold text-blue-700">Método 1: Doble clic</h5>
+                    <p class="text-gray-700 text-sm">Busca tu archivo index.html en el explorador y haz doble clic</p>
+                  </div>
+                  
+                  <div class="bg-green-50 p-3 rounded border-l-4 border-green-400">
+                    <h5 class="font-semibold text-green-700">Método 2: Arrastrar y soltar</h5>
+                    <p class="text-gray-700 text-sm">Arrastra el archivo desde el explorador hasta una ventana del navegador</p>
+                  </div>
+                  
+                  <div class="bg-purple-50 p-3 rounded border-l-4 border-purple-400">
+                    <h5 class="font-semibold text-purple-700">Método 3: Desde el navegador</h5>
+                    <p class="text-gray-700 text-sm">Ctrl+O en el navegador y busca tu archivo</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-3">🎉 ¡Resultado esperado!</h4>
+                <div class="bg-white border-2 border-gray-300 rounded-lg p-4 shadow-inner">
+                  <div class="mb-4">
+                    <h1 class="text-3xl font-bold text-gray-800">¡Hola Mundo!</h1>
+                    <p class="text-gray-700 mt-2">Esta es mi primera página web.</p>
+                    <p class="text-gray-700">¡Estoy aprendiendo HTML!</p>
+                  </div>
+                  
+                  <div class="mb-4">
+                    <h2 class="text-2xl font-semibold text-gray-800">Acerca de mí</h2>
+                    <p class="text-gray-700">Mi nombre es [TU NOMBRE] y estoy aprendiendo desarrollo web.</p>
+                  </div>
+                  
+                  <div>
+                    <h3 class="text-xl font-medium text-gray-800">Mis intereses:</h3>
+                    <ul class="list-disc list-inside text-gray-700 mt-2">
+                      <li>Programación</li>
+                      <li>Diseño web</li>
+                      <li>Tecnología</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-2">Así se verá tu página en el navegador</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Código Completo -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-indigo-600 to-purple-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">📋 Código Completo</h2>
+        <p class="text-indigo-100">Tu primer index.html completo y listo para usar</p>
+      </div>
+      <div class="p-8">
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-bold text-gray-800 mb-4">📝 index.html completo:</h3>
+            <div class="bg-gray-900 rounded-lg overflow-hidden">
+              <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+                <span>📄 index.html</span>
+                <button onclick="copyCode()" class="bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+                  📋 Copiar
+                </button>
+              </div>
+              <pre id="fullCode" class="code-editor p-4 text-sm overflow-x-auto">
+<span class="text-gray-500">&lt;!DOCTYPE html&gt;</span>
+<span class="text-red-400">&lt;html</span> <span class="text-blue-400">lang</span>=<span class="text-green-400">"es"</span><span class="text-red-400">&gt;</span>
+<span class="text-red-400">&lt;head&gt;</span>
+  <span class="text-red-400">&lt;meta</span> <span class="text-blue-400">charset</span>=<span class="text-green-400">"UTF-8"</span><span class="text-red-400">&gt;</span>
+  <span class="text-red-400">&lt;meta</span> <span class="text-blue-400">name</span>=<span class="text-green-400">"viewport"</span> <span class="text-blue-400">content</span>=<span class="text-green-400">"width=device-width, initial-scale=1.0"</span><span class="text-red-400">&gt;</span>
+  <span class="text-red-400">&lt;title&gt;</span><span class="text-white">Mi Primera Página Web</span><span class="text-red-400">&lt;/title&gt;</span>
+<span class="text-red-400">&lt;/head&gt;</span>
+<span class="text-red-400">&lt;body&gt;</span>
+  <span class="text-red-400">&lt;h1&gt;</span><span class="text-white">¡Hola Mundo!</span><span class="text-red-400">&lt;/h1&gt;</span>
+  <span class="text-red-400">&lt;p&gt;</span><span class="text-white">Esta es mi primera página web.</span><span class="text-red-400">&lt;/p&gt;</span>
+  <span class="text-red-400">&lt;p&gt;</span><span class="text-white">¡Estoy aprendiendo HTML!</span><span class="text-red-400">&lt;/p&gt;</span>
+
+  <span class="text-red-400">&lt;h2&gt;</span><span class="text-white">Acerca de mí</span><span class="text-red-400">&lt;/h2&gt;</span>
+  <span class="text-red-400">&lt;p&gt;</span><span class="text-white">Mi nombre es [TU NOMBRE AQUÍ] y estoy 
+     aprendiendo desarrollo web.</span><span class="text-red-400">&lt;/p&gt;</span>
+
+  <span class="text-red-400">&lt;h3&gt;</span><span class="text-white">Mis intereses:</span><span class="text-red-400">&lt;/h3&gt;</span>
+  <span class="text-red-400">&lt;ul&gt;</span>
+    <span class="text-red-400">&lt;li&gt;</span><span class="text-white">Programación</span><span class="text-red-400">&lt;/li&gt;</span>
+    <span class="text-red-400">&lt;li&gt;</span><span class="text-white">Diseño web</span><span class="text-red-400">&lt;/li&gt;</span>
+    <span class="text-red-400">&lt;li&gt;</span><span class="text-white">Tecnología</span><span class="text-red-400">&lt;/li&gt;</span>
+  <span class="text-red-400">&lt;/ul&gt;</span>
+<span class="text-red-400">&lt;/body&gt;</span>
+<span class="text-red-400">&lt;/html&gt;</span></pre>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-gray-800 mb-4">🚀 ¡Próximos Pasos!</h3>
+            <div class="space-y-4">
+              
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <h4 class="font-semibold text-blue-700 mb-2">1. Experimenta</h4>
+                <ul class="text-gray-700 text-sm space-y-1">
+                  <li>• Cambia los textos por los tuyos</li>
+                  <li>• Agrega más párrafos con &lt;p&gt;</li>
+                  <li>• Prueba con &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;</li>
+                  <li>• Crea más listas con &lt;ol&gt; (ordenadas)</li>
+                </ul>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-semibold text-green-700 mb-2">2. Añade Enlaces</h4>
+                <pre class="bg-gray-800 text-green-400 p-2 rounded text-xs mt-2">
+&lt;p&gt;Visita &lt;a href="https://google.com"&gt;Google&lt;/a&gt;&lt;/p&gt;</pre>
+              </div>
+
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+                <h4 class="font-semibold text-purple-700 mb-2">3. Agrega Imágenes</h4>
+                <pre class="bg-gray-800 text-green-400 p-2 rounded text-xs mt-2">
+&lt;img src="mi-foto.jpg" alt="Mi foto"&gt;</pre>
+              </div>
+
+              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                <h4 class="font-semibold text-yellow-700 mb-2">4. Aprende CSS</h4>
+                <p class="text-gray-700 text-sm">Para darle estilo y color a tu página</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Felicitaciones -->
+    <div class="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl shadow-xl p-8 text-white text-center mb-8">
+      <div class="text-6xl mb-4">🎉</div>
+      <h2 class="text-3xl font-bold mb-4">¡Felicitaciones!</h2>
+      <p class="text-xl mb-4">Has creado tu primera página web. ¡Eres oficialmente un desarrollador web!</p>
+      <p class="text-green-100">Sigue practicando y experimentando. ¡El límite es tu imaginación!</p>
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="organismos-html.html" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center">
+            ← W3C y WHATWG
+          </a>
+          
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+          
+          <a href="../css/que-es-css.html" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center">
+            ¿Qué es CSS? →
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Introducción a HTML</strong>
+      </p>
+      <p class="text-pink-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function activateStep(element, stepNumber) {
+      // Remover clase activa de todos los pasos
+      document.querySelectorAll('.step-highlight').forEach(step => {
+        step.classList.remove('active');
+      });
+      
+      // Agregar clase activa al paso clickeado
+      element.classList.add('active');
+      
+      // Scroll suave al elemento
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function copyCode() {
+      const codeElement = document.getElementById('fullCode');
+      const textContent = codeElement.textContent;
+      
+      navigator.clipboard.writeText(textContent).then(() => {
+        // Cambiar texto del botón temporalmente
+        const button = event.target;
+        const originalText = button.innerHTML;
+        button.innerHTML = '✅ ¡Copiado!';
+        button.classList.add('bg-green-600');
+        button.classList.remove('bg-blue-600');
+        
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.classList.remove('bg-green-600');
+          button.classList.add('bg-blue-600');
+        }, 2000);
+      });
+    }
+
+    // Animaciones en scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      document.querySelectorAll('.step-highlight').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        observer.observe(el);
+      });
+    });
+  </script>
+
+</body>
+</html>

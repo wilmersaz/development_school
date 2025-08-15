@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Origen del HTML</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid orange;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40, end);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <div class="text-red-600 px-4 py-2 rounded-lg opacity-50"></div>
+      <h1 class="text-2xl font-bold text-white">🌟 Origen del HTML</h1>
+      <a href="porque-html.html" class="bg-white text-red-600 px-4 py-2 rounded-lg hover:bg-red-50 transition-colors">
+        ¿Por qué HTML? →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 typewriter">Los Inicios de HTML</h1>
+      <p class="text-xl text-gray-600">Un viaje desde SGML hasta la revolución del HyperText</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="space-y-8">
+
+      <!-- SGML Era -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+        <div class="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
+          <h2 class="text-2xl font-bold">📜 Antes del HTML: SGML (1960s-1980s)</h2>
+        </div>
+        <div class="p-6">
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">¿Qué era SGML?</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li>• <strong>Standard Generalized Markup Language</strong></li>
+                <li>• Desarrollado por IBM en los años 60</li>
+                <li>• Estándar ISO desde 1986</li>
+                <li>• Diseñado para documentos técnicos complejos</li>
+                <li>• Usado por gobiernos y grandes corporaciones</li>
+                <li>• <strong>Problema:</strong> Muy complejo y costoso de implementar</li>
+              </ul>
+
+              <div class="mt-4 bg-gray-100 p-3 rounded-lg">
+                <h4 class="font-semibold text-gray-700 mb-2">¿Por qué no funcionó para Internet?</h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Requería software especializado y caro</li>
+                  <li>• Curva de aprendizaje muy empinada</li>
+                  <li>• No era adecuado para documentos simples</li>
+                  <li>• Demasiado rígido para la web emergente</li>
+                </ul>
+              </div>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <h4 class="font-semibold mb-2">Ejemplo de SGML:</h4>
+              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
+&lt;!DOCTYPE documento [
+  &lt;!ELEMENT documento (titulo, contenido)&gt;
+  &lt;!ELEMENT titulo (#PCDATA)&gt;
+  &lt;!ELEMENT contenido (#PCDATA)&gt;
+]&gt;
+&lt;documento&gt;
+  &lt;titulo&gt;Mi Documento&lt;/titulo&gt;
+  &lt;contenido&gt;Este es el contenido&lt;/contenido&gt;
+&lt;/documento&gt;</pre>
+
+              <div class="mt-3 bg-red-50 p-2 rounded text-xs text-red-700">
+                <strong>Nota:</strong> Este ejemplo es simple, pero SGML real era mucho más complejo, con DTDs (Document
+                Type Definitions) de cientos de líneas.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Era Pre-Internet -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+        <div class="bg-gradient-to-r from-amber-600 to-orange-600 p-6 text-white">
+          <h2 class="text-2xl font-bold">🖥️ Era de las Computadoras Aisladas (1950s-1970s)</h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">El Mundo Antes de Internet</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li>• <strong>Computadoras aisladas:</strong> Cada máquina era una isla</li>
+                <li>• <strong>Documentos locales:</strong> Solo veías lo que tenías en tu computadora</li>
+                <li>• <strong>Intercambio físico:</strong> Disquetes, cintas magnéticas, papel</li>
+                <li>• <strong>Colaboración limitada:</strong> Muy difícil compartir información</li>
+                <li>• <strong>Formatos incompatibles:</strong> Cada sistema tenía sus propios estándares</li>
+              </ul>
+            </div>
+            <div class="text-center">
+              <div class="bg-gray-100 p-4 rounded-lg">
+                <h4 class="font-semibold mb-3">Problemas de la Era Pre-Internet</h4>
+                <div class="space-y-3">
+                  <div class="bg-red-50 p-3 rounded border-l-4 border-red-400">
+                    <div class="text-3xl mb-2">🏢</div>
+                    <p class="text-sm text-red-700"><strong>Trabajo en Silos:</strong> Cada departamento, universidad o
+                      empresa trabajaba aisladamente</p>
+                  </div>
+                  <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-400">
+                    <div class="text-3xl mb-2">📄</div>
+                    <p class="text-sm text-yellow-700"><strong>Duplicación:</strong> La misma información se recreaba
+                      una y otra vez</p>
+                  </div>
+                  <div class="bg-blue-50 p-3 rounded border-l-4 border-blue-400">
+                    <div class="text-3xl mb-2">⏰</div>
+                    <p class="text-sm text-blue-700"><strong>Lentitud:</strong> Compartir datos tomaba días o semanas
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARPANET Era -->
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+        <div class="bg-gradient-to-r from-green-600 to-teal-600 p-6 text-white">
+          <h2 class="text-2xl font-bold">🌐 El Nacimiento de ARPANET (1969-1980s)</h2>
+        </div>
+        <div class="p-6">
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">La Primera Red de Computadoras</h3>
+            <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border-l-4 border-green-400 mb-4">
+              <p class="text-gray-700">ARPANET fue desarrollada por DARPA (Defense Advanced Research Projects Agency)
+                del Departamento de Defensa de EE.UU. como respuesta al lanzamiento del Sputnik soviético en 1957.</p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">Cronología de ARPANET:</h4>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div class="bg-green-500 w-4 h-4 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                  <div>
+                    <strong class="text-green-700">1969:</strong> Primera conexión entre UCLA y Stanford
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="bg-blue-500 w-4 h-4 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                  <div>
+                    <strong class="text-blue-700">1971:</strong> Primer email enviado por Ray Tomlinson
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="bg-purple-500 w-4 h-4 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                  <div>
+                    <strong class="text-purple-700">1973:</strong> Primeras conexiones internacionales
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="bg-orange-500 w-4 h-4 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                  <div>
+                    <strong class="text-orange-700">1983:</strong> Adopción del protocolo TCP/IP
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">Limitaciones de ARPANET:</h4>
+              <div class="space-y-2">
+                <div class="bg-yellow-100 p-3 rounded-lg">
+                  <h5 class="font-semibold text-yellow-800">🔒 Acceso Restringido</h5>
+                  <p class="text-yellow-700 text-sm">Solo universidades y organizaciones de investigación</p>
+                </div>
+                <div class="bg-red-100 p-3 rounded-lg">
+                  <h5 class="font-semibold text-red-800">📝 Texto Plano</h5>
+                  <p class="text-red-700 text-sm">Solo se podía enviar texto simple, sin formato</p>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-lg">
+                  <h5 class="font-semibold text-blue-800">🔧 Complejidad Técnica</h5>
+                  <p class="text-blue-700 text-sm">Requería conocimientos técnicos avanzados</p>
+                </div>
+                <div class="bg-purple-100 p-3 rounded-lg">
+                  <h5 class="font-semibold text-purple-800">🚫 Sin Hiperenlaces</h5>
+                  <p class="text-purple-700 text-sm">No existía forma de "saltar" entre documentos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-gray-800 mb-2">El Problema que Persistía:</h4>
+            <p class="text-gray-600">Aunque ARPANET permitía la comunicación entre computadoras, <strong>cada documento
+                seguía siendo una isla</strong>. No había forma de conectar la información de manera intuitiva. Los
+              usuarios tenían que saber exactamente dónde estaba cada archivo y cómo acceder a él.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <div class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg opacity-50">
+            ← (Primer tema)
+          </div>
+
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+
+          <a href="porque-html.html"
+            class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors flex items-center">
+            ¿Por qué HTML? →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Introducción a HTML</strong>
+      </p>
+      <p class="text-red-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Animaciones adicionales
+    document.addEventListener('DOMContentLoaded', function () {
+      // Observador para animaciones en scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      document.querySelectorAll('.bg-white').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease-out';
+        observer.observe(el);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

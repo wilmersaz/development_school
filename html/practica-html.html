@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor Interactivo de HTML</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .editor-container {
+      height: 400px;
+    }
+    .code-editor {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'Courier New', monospace;
+      resize: none;
+      border: none;
+      outline: none;
+    }
+    .preview-frame {
+      background: white;
+      border: none;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+    .tab-button {
+      transition: all 0.3s ease;
+    }
+    .tab-button.active {
+      background: #3b82f6;
+      color: white;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+    .bounce-animation {
+      animation: bounce 2s infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-8">
+  
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="hola-mundo.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+        ← Tu Primer HTML
+      </a>
+      <h1 class="text-2xl font-bold text-white">🎯 Editor Interactivo</h1>
+      <a href="../index.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+        🏠 Menú Principal
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+    
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🎯 Editor Interactivo de HTML</h1>
+      <p class="text-xl text-gray-600">Experimenta con HTML en tiempo real</p>
+    </div>
+
+    <!-- Ejercicios Guiados -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🎓 Ejercicios Guiados</h2>
+        <p class="text-blue-100">Sigue los ejercicios paso a paso</p>
+      </div>
+      <div class="p-6">
+        
+        <!-- Pestañas de ejercicios -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button class="tab-button px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300" onclick="loadExercise(1)" id="tab-1">
+            📝 Ejercicio 1: Básico
+          </button>
+          <button class="tab-button px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300" onclick="loadExercise(2)" id="tab-2">
+            🏷️ Ejercicio 2: Etiquetas
+          </button>
+          <button class="tab-button px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300" onclick="loadExercise(3)" id="tab-3">
+            🔗 Ejercicio 3: Enlaces
+          </button>
+          <button class="tab-button px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300" onclick="loadExercise(4)" id="tab-4">
+            📋 Ejercicio 4: Listas
+          </button>
+          <button class="tab-button px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300" onclick="loadExercise(5)" id="tab-5">
+            🎨 Ejercicio 5: Multimedia
+          </button>
+        </div>
+
+        <!-- Instrucciones del ejercicio -->
+        <div id="exercise-instructions" class="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-400">
+          <h3 class="font-bold text-blue-800 mb-2">¡Bienvenido al Editor Interactivo!</h3>
+          <p class="text-blue-700">Selecciona un ejercicio arriba para comenzar a practicar HTML.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Editor Principal -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-green-600 to-teal-600 p-6 text-white">
+        <h2 class="text-3xl font-bold">💻 Editor de Código</h2>
+        <p class="text-green-100">Escribe tu HTML y ve el resultado en tiempo real</p>
+      </div>
+      <div class="p-6">
+        
+        <div class="grid md:grid-cols-2 gap-6 editor-container">
+          
+          <!-- Panel del Editor -->
+          <div class="bg-gray-900 rounded-lg overflow-hidden">
+            <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+              <span>📝 Escribe tu HTML aquí</span>
+              <div class="flex gap-2">
+                <button onclick="clearEditor()" class="bg-red-600 text-white px-3 py-1 rounded text-xs hover:bg-red-700 transition-colors">
+                  🗑️ Limpiar
+                </button>
+                <button onclick="loadTemplate()" class="bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+                  📋 Plantilla
+                </button>
+              </div>
+            </div>
+            <textarea 
+              id="htmlEditor" 
+              class="code-editor w-full h-full p-4 text-sm resize-none"
+              placeholder="Escribe tu código HTML aquí...
+Por ejemplo:
+<h1>Mi título</h1>
+<p>Mi primer párrafo</p>"
+              oninput="updatePreview()"
+            ></textarea>
+          </div>
+
+          <!-- Panel de Vista Previa -->
+          <div class="bg-gray-100 rounded-lg overflow-hidden">
+            <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+              <span>👀 Vista Previa</span>
+              <button onclick="openInNewWindow()" class="bg-green-600 text-white px-3 py-1 rounded text-xs hover:bg-green-700 transition-colors">
+                🔗 Abrir en Nueva Ventana
+              </button>
+            </div>
+            <iframe id="preview" class="preview-frame"></iframe>
+          </div>
+
+        </div>
+
+        <!-- Herramientas Rápidas -->
+        <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+          <h3 class="font-bold text-gray-800 mb-3">🔧 Herramientas Rápidas</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+            
+            <button onclick="insertCode('<h1></h1>')" class="bg-red-100 text-red-700 px-3 py-2 rounded text-sm hover:bg-red-200 transition-colors">
+              📢 &lt;h1&gt;
+            </button>
+            <button onclick="insertCode('<p></p>')" class="bg-blue-100 text-blue-700 px-3 py-2 rounded text-sm hover:bg-blue-200 transition-colors">
+              📝 &lt;p&gt;
+            </button>
+            <button onclick="insertCode('<strong></strong>')" class="bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 transition-colors">
+              💪 &lt;strong&gt;
+            </button>
+            <button onclick="insertCode('<em></em>')" class="bg-purple-100 text-purple-700 px-3 py-2 rounded text-sm hover:bg-purple-200 transition-colors">
+              ✨ &lt;em&gt;
+            </button>
+            <button onclick="insertCode('<a href=&quot;&quot;></a>')" class="bg-green-100 text-green-700 px-3 py-2 rounded text-sm hover:bg-green-200 transition-colors">
+              🔗 &lt;a&gt;
+            </button>
+            <button onclick="insertCode('<br>')" class="bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 transition-colors">
+              ↵ &lt;br&gt;
+            </button>
+            
+            <button onclick="insertCode('<ul>\n  <li></li>\n</ul>')" class="bg-indigo-100 text-indigo-700 px-3 py-2 rounded text-sm hover:bg-indigo-200 transition-colors">
+              📋 Lista
+            </button>
+            <button onclick="insertCode('<div></div>')" class="bg-pink-100 text-pink-700 px-3 py-2 rounded text-sm hover:bg-pink-200 transition-colors">
+              📦 &lt;div&gt;
+            </button>
+            <button onclick="insertCode('<img src=&quot;&quot; alt=&quot;&quot;>')" class="bg-orange-100 text-orange-700 px-3 py-2 rounded text-sm hover:bg-orange-200 transition-colors">
+              🖼️ Imagen
+            </button>
+            <button onclick="insertCode('<button></button>')" class="bg-teal-100 text-teal-700 px-3 py-2 rounded text-sm hover:bg-teal-200 transition-colors">
+              🔘 Botón
+            </button>
+            <button onclick="insertCode('<span></span>')" class="bg-cyan-100 text-cyan-700 px-3 py-2 rounded text-sm hover:bg-cyan-200 transition-colors">
+              🏷️ &lt;span&gt;
+            </button>
+            <button onclick="insertCode('<!-- Comentario -->')" class="bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 transition-colors">
+              💬 Comentario
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Ejemplos Rápidos -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-orange-600 to-red-600 p-6 text-white">
+        <h2 class="text-3xl font-bold">⚡ Ejemplos Rápidos</h2>
+        <p class="text-orange-100">Haz clic para cargar ejemplos predefinidos</p>
+      </div>
+      <div class="p-6">
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          
+          <div class="bg-blue-50 p-4 rounded-lg border-2 border-blue-200 hover:border-blue-400 cursor-pointer transition-all" onclick="loadExample('blog')">
+            <h3 class="font-bold text-blue-800 mb-2">📝 Artículo de Blog</h3>
+            <p class="text-blue-600 text-sm">Estructura completa con título, párrafos y enlaces</p>
+          </div>
+
+          <div class="bg-green-50 p-4 rounded-lg border-2 border-green-200 hover:border-green-400 cursor-pointer transition-all" onclick="loadExample('profile')">
+            <h3 class="font-bold text-green-800 mb-2">👤 Perfil Personal</h3>
+            <p class="text-green-600 text-sm">Información personal con listas e imágenes</p>
+          </div>
+
+          <div class="bg-purple-50 p-4 rounded-lg border-2 border-purple-200 hover:border-purple-400 cursor-pointer transition-all" onclick="loadExample('menu')">
+            <h3 class="font-bold text-purple-800 mb-2">🍽️ Menú de Restaurante</h3>
+            <p class="text-purple-600 text-sm">Lista de platillos con precios y descripciones</p>
+          </div>
+
+          <div class="bg-yellow-50 p-4 rounded-lg border-2 border-yellow-200 hover:border-yellow-400 cursor-pointer transition-all" onclick="loadExample('portfolio')">
+            <h3 class="font-bold text-yellow-800 mb-2">💼 Portafolio Simple</h3>
+            <p class="text-yellow-600 text-sm">Secciones de proyectos y habilidades</p>
+          </div>
+
+          <div class="bg-red-50 p-4 rounded-lg border-2 border-red-200 hover:border-red-400 cursor-pointer transition-all" onclick="loadExample('form')">
+            <h3 class="font-bold text-red-800 mb-2">📋 Formulario de Contacto</h3>
+            <p class="text-red-600 text-sm">Formulario con diferentes tipos de campos</p>
+          </div>
+
+          <div class="bg-indigo-50 p-4 rounded-lg border-2 border-indigo-200 hover:border-indigo-400 cursor-pointer transition-all" onclick="loadExample('gallery')">
+            <h3 class="font-bold text-indigo-800 mb-2">🖼️ Galería de Imágenes</h3>
+            <p class="text-indigo-600 text-sm">Colección de imágenes organizadas</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Consejos y Trucos -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-6 text-white">
+        <h2 class="text-3xl font-bold">💡 Consejos y Trucos</h2>
+      </div>
+      <div class="p-6">
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <div>
+            <h3 class="font-bold text-gray-800 mb-4">🚀 Para Principiantes</h3>
+            <div class="space-y-3">
+              <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-semibold text-green-700">✅ Buenas Prácticas</h4>
+                <ul class="text-green-600 text-sm mt-2 space-y-1">
+                  <li>• Siempre cierra las etiquetas que abres</li>
+                  <li>• Usa indentación para mayor claridad</li>
+                  <li>• Los atributos van entre comillas</li>
+                  <li>• Un archivo HTML bien formado empieza con &lt;!DOCTYPE html&gt;</li>
+                </ul>
+              </div>
+
+              <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-semibold text-red-700">❌ Errores Comunes</h4>
+                <ul class="text-red-600 text-sm mt-2 space-y-1">
+                  <li>• Olvidar cerrar etiquetas: &lt;p&gt;texto (falta &lt;/p&gt;)</li>
+                  <li>• Anidar incorrectamente: &lt;p&gt;&lt;div&gt;&lt;/p&gt;&lt;/div&gt;</li>
+                  <li>• Atributos sin comillas: &lt;img src=foto.jpg&gt;</li>
+                  <li>• Usar etiquetas inexistentes: &lt;texto&gt;</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-gray-800 mb-4">⌨️ Atajos de Teclado</h3>
+            <div class="space-y-3">
+              <div class="bg-blue-50 p-3 rounded-lg">
+                <h4 class="font-semibold text-blue-700 mb-2">En el Editor:</h4>
+                <div class="text-blue-600 text-sm space-y-1">
+                  <div class="flex justify-between">
+                    <span>Limpiar todo</span>
+                    <kbd class="bg-blue-200 px-2 py-1 rounded">Ctrl+A → Delete</kbd>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Deshacer</span>
+                    <kbd class="bg-blue-200 px-2 py-1 rounded">Ctrl+Z</kbd>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Rehacer</span>
+                    <kbd class="bg-blue-200 px-2 py-1 rounded">Ctrl+Y</kbd>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Buscar</span>
+                    <kbd class="bg-blue-200 px-2 py-1 rounded">Ctrl+F</kbd>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-purple-50 p-3 rounded-lg">
+                <h4 class="font-semibold text-purple-700 mb-2">HTML Rápido:</h4>
+                <div class="text-purple-600 text-sm space-y-1">
+                  <div>&lt;h1&gt; + Tab = &lt;h1&gt;&lt;/h1&gt;</div>
+                  <div>&lt;p&gt; + Tab = &lt;p&gt;&lt;/p&gt;</div>
+                  <div>&lt;a&gt; + Tab = &lt;a href=""&gt;&lt;/a&gt;</div>
+                  <div>&lt;img&gt; + Tab = &lt;img src="" alt=""&gt;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Desafío Final -->
+    <div class="bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl shadow-xl p-8 text-white text-center mb-8">
+      <div class="text-6xl mb-4 bounce-animation">🏆</div>
+      <h2 class="text-3xl font-bold mb-4">¡Desafío Final!</h2>
+      <p class="text-xl mb-4">Crea una página web completa sobre tu tema favorito</p>
+      <div class="bg-white bg-opacity-20 p-4 rounded-lg text-left max-w-2xl mx-auto">
+        <h3 class="font-bold mb-2">Debe incluir:</h3>
+        <ul class="space-y-1">
+          <li>• Un título principal (&lt;h1&gt;)</li>
+          <li>• Al menos 3 párrafos (&lt;p&gt;)</li>
+          <li>• Una lista ordenada o no ordenada</li>
+          <li>• Al menos un enlace (&lt;a&gt;)</li>
+          <li>• Texto en negrita y cursiva</li>
+          <li>• ¡Tu creatividad!</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="flex justify-between items-center">
+      <a href="hola-mundo.html" class="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-50 transition-colors">
+        ← Tu Primer HTML
+      </a>
+      <a href="../index.html" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+        🏠 Menú Principal
+      </a>
+      <a href="presentacion.html" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">
+        Ver Presentación →
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    // Función para actualizar la vista previa
+    function updatePreview() {
+      const htmlCode = document.getElementById('htmlEditor').value;
+      const preview = document.getElementById('preview');
+      
+      const fullHTML = `
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Vista Previa</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+            img { max-width: 100%; height: auto; }
+          </style>
+        </head>
+        <body>
+          ${htmlCode}
+        </body>
+        </html>
+      `;
+      
+      preview.srcdoc = fullHTML;
+    }
+
+    // Función para insertar código en el editor
+    function insertCode(code) {
+      const editor = document.getElementById('htmlEditor');
+      const cursorPos = editor.selectionStart;
+      const textBefore = editor.value.substring(0, cursorPos);
+      const textAfter = editor.value.substring(cursorPos);
+      
+      editor.value = textBefore + code + textAfter;
+      editor.focus();
+      
+      // Posicionar cursor dentro de las etiquetas si es posible
+      if (code.includes('></')) {
+        const newPos = cursorPos + code.indexOf('>') + 1;
+        editor.setSelectionRange(newPos, newPos);
+      } else {
+        editor.setSelectionRange(cursorPos + code.length, cursorPos + code.length);
+      }
+      
+      updatePreview();
+    }
+
+    // Función para limpiar el editor
+    function clearEditor() {
+      document.getElementById('htmlEditor').value = '';
+      updatePreview();
+    }
+
+    // Función para cargar plantilla básica
+    function loadTemplate() {
+      const template = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página</title>
+</head>
+<body>
+  <h1>Mi título principal</h1>
+  <p>Este es mi primer párrafo.</p>
+  
+</body>
+</html>`;
+      document.getElementById('htmlEditor').value = template;
+      updatePreview();
+    }
+
+    // Función para abrir en nueva ventana
+    function openInNewWindow() {
+      const htmlCode = document.getElementById('htmlEditor').value;
+      const newWindow = window.open();
+      newWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Mi Página HTML</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+            img { max-width: 100%; height: auto; }
+          </style>
+        </head>
+        <body>
+          ${htmlCode}
+        </body>
+        </html>
+      `);
+      newWindow.document.close();
+    }
+
+    // Función para cargar ejercicios
+    function loadExercise(exerciseNumber) {
+      // Remover clase activa de todas las pestañas
+      document.querySelectorAll('.tab-button').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Activar pestaña seleccionada
+      document.getElementById(`tab-${exerciseNumber}`).classList.add('active');
+      
+      const exercises = {
+        1: {
+          instructions: '<h3 class="font-bold text-blue-800 mb-2">📝 Ejercicio 1: Estructura Básica</h3><p class="text-blue-700 mb-2">Crea una página web básica con:</p><ul class="text-blue-600 text-sm list-disc list-inside"><li>Un título principal con tu nombre</li><li>Un párrafo de presentación</li><li>Un subtítulo "Mis Hobbies"</li><li>Otro párrafo describiendo tus pasatiempos</li></ul>',
+          code: '<h1>Mi nombre es [Tu Nombre]</h1>\n<p>Hola, soy estudiante y me gusta aprender cosas nuevas.</p>\n\n<h2>Mis Hobbies</h2>\n<p>En mi tiempo libre me gusta leer, escuchar música y programar.</p>'
+        },
+        2: {
+          instructions: '<h3 class="font-bold text-blue-800 mb-2">🏷️ Ejercicio 2: Formato de Texto</h3><p class="text-blue-700 mb-2">Practica con diferentes etiquetas de formato:</p><ul class="text-blue-600 text-sm list-disc list-inside"><li>Usa &lt;strong&gt; para texto importante</li><li>Usa &lt;em&gt; para texto enfatizado</li><li>Agrega saltos de línea con &lt;br&gt;</li><li>Experimenta con diferentes niveles de títulos (h1-h6)</li></ul>',
+          code: '<h1>Aprendiendo HTML</h1>\n<p>Este es un párrafo con <strong>texto importante</strong> y <em>texto enfatizado</em>.</p>\n\n<h2>¿Qué es HTML?</h2>\n<p>HTML significa <strong>HyperText Markup Language</strong>.<br>\nEs el lenguaje estándar para crear páginas web.</p>\n\n<h3>Características principales</h3>\n<p>HTML es <em>fácil de aprender</em> y <strong>muy poderoso</strong>.</p>'
+        },
+        3: {
+          instructions: '<h3 class="font-bold text-blue-800 mb-2">🔗 Ejercicio 3: Enlaces</h3><p class="text-blue-700 mb-2">Aprende a crear diferentes tipos de enlaces:</p><ul class="text-blue-600 text-sm list-disc list-inside"><li>Enlaces a otras páginas web</li><li>Enlaces de email</li><li>Enlaces que abren en nueva ventana</li><li>Enlaces a secciones de la misma página</li></ul>',
+          code: '<h1>Mis Enlaces Favoritos</h1>\n\n<h2>Sitios Web Útiles</h2>\n<p>Mi buscador favorito es <a href="https://google.com">Google</a>.</p>\n<p>Para aprender programación recomiendo <a href="https://github.com" target="_blank">GitHub</a>.</p>\n\n<h2>Contacto</h2>\n<p>Escríbeme a <a href="mailto:mi@email.com">mi@email.com</a></p>\n\n<h2>Navegación Interna</h2>\n<p><a href="#contacto">Ir a la sección de contacto</a></p>\n\n<h2 id="contacto">Sección de Contacto</h2>\n<p>Esta es la sección de contacto.</p>'
+        },
+        4: {
+          instructions: '<h3 class="font-bold text-blue-800 mb-2">📋 Ejercicio 4: Listas</h3><p class="text-blue-700 mb-2">Practica con diferentes tipos de listas:</p><ul class="text-blue-600 text-sm list-disc list-inside"><li>Listas no ordenadas (&lt;ul&gt;)</li><li>Listas ordenadas (&lt;ol&gt;)</li><li>Listas anidadas</li></ul>',
+          code: '<h1>Mis Listas Favoritas</h1>\n\n<h2>Comidas Favoritas</h2>\n<ul>\n  <li>Pizza</li>\n  <li>Sushi</li>\n  <li>Tacos</li>\n  <li>Hamburguesas</li>\n</ul>\n\n<h2>Pasos para hacer café</h2>\n<ol>\n  <li>Hervir agua</li>\n  <li>Moler los granos de café</li>\n  <li>Agregar el café al filtro</li>\n  <li>Verter el agua caliente</li>\n  <li>¡Disfrutar!</li>\n</ol>\n\n<h2>Tecnologías Web</h2>\n<ul>\n  <li>Frontend\n    <ul>\n      <li>HTML</li>\n      <li>CSS</li>\n      <li>JavaScript</li>\n    </ul>\n  </li>\n  <li>Backend\n    <ul>\n      <li>Node.js</li>\n      <li>Python</li>\n      <li>PHP</li>\n    </ul>\n  </li>\n</ul>'
+        },
+        5: {
+          instructions: '<h3 class="font-bold text-blue-800 mb-2">🎨 Ejercicio 5: Multimedia y Más</h3><p class="text-blue-700 mb-2">Explora elementos multimedia y otros elementos:</p><ul class="text-blue-600 text-sm list-disc list-inside"><li>Imágenes con &lt;img&gt;</li><li>Botones con &lt;button&gt;</li><li>Contenedores con &lt;div&gt;</li><li>Comentarios HTML</li></ul>',
+          code: '<h1>Mi Galería Personal</h1>\n\n<!-- Este es un comentario - no se ve en la página -->\n\n<h2>Foto de Perfil</h2>\n<img src="https://via.placeholder.com/200x200/4F46E5/white?text=Foto" alt="Mi foto de perfil">\n\n<h2>Sobre mí</h2>\n<div>\n  <p>¡Hola! Soy un estudiante entusiasta de la tecnología.</p>\n  <button>Contactarme</button>\n</div>\n\n<h2>Mis Proyectos</h2>\n<div>\n  <h3>Proyecto 1</h3>\n  <img src="https://via.placeholder.com/300x200/10B981/white?text=Proyecto+1" alt="Proyecto 1">\n  <p>Descripción del proyecto 1</p>\n  <button>Ver más</button>\n</div>\n\n<div>\n  <h3>Proyecto 2</h3>\n  <img src="https://via.placeholder.com/300x200/F59E0B/white?text=Proyecto+2" alt="Proyecto 2">\n  <p>Descripción del proyecto 2</p>\n  <button>Ver más</button>\n</div>'
+        }
+      };
+      
+      const exercise = exercises[exerciseNumber];
+      if (exercise) {
+        document.getElementById('exercise-instructions').innerHTML = exercise.instructions;
+        document.getElementById('htmlEditor').value = exercise.code;
+        updatePreview();
+      }
+    }
+
+    // Función para cargar ejemplos predefinidos
+    function loadExample(exampleType) {
+      let example = '';
+      
+      if (exampleType === 'blog') {
+        example = '<article>\n  <header>\n    <h1>Mi Primer Artículo de Blog</h1>\n    <p>Publicado por <strong>Tu Nombre</strong></p>\n  </header>\n\n  <section>\n    <h2>Introducción</h2>\n    <p>Bienvenidos a mi blog. Este es mi primer artículo.</p>\n    \n    <h2>Desarrollo</h2>\n    <p>En este artículo voy a hablar sobre HTML.</p>\n    \n    <p>Algunos beneficios de aprender HTML:</p>\n    <ul>\n      <li>Es la base de todas las páginas web</li>\n      <li>Es fácil de aprender</li>\n      <li>Te abre puertas al desarrollo web</li>\n    </ul>\n  </section>\n</article>';
+      } else if (exampleType === 'profile') {
+        example = '<header>\n  <h1>Perfil de [Tu Nombre]</h1>\n  <img src="https://via.placeholder.com/150x150/4F46E5/white?text=Tu+Foto" alt="Mi foto">\n</header>\n\n<main>\n  <section>\n    <h2>Acerca de mí</h2>\n    <p>Hola, soy [Tu Nombre], estudiante de programación.</p>\n  </section>\n\n  <section>\n    <h2>Habilidades</h2>\n    <ul>\n      <li>HTML & CSS</li>\n      <li>JavaScript</li>\n      <li>Diseño web</li>\n    </ul>\n  </section>\n</main>';
+      } else if (exampleType === 'menu') {
+        example = '<header>\n  <h1>🍽️ Restaurante "El Buen Sabor"</h1>\n  <p>Comida casera con amor</p>\n</header>\n\n<main>\n  <section>\n    <h2>Entradas</h2>\n    <ul>\n      <li><strong>Ensalada César</strong> - $12.99</li>\n      <li><strong>Sopa del día</strong> - $8.99</li>\n    </ul>\n  </section>\n\n  <section>\n    <h2>Platos Principales</h2>\n    <ul>\n      <li><strong>Pollo a la Plancha</strong> - $18.99</li>\n      <li><strong>Salmón al Horno</strong> - $22.99</li>\n      <li><strong>Pasta Italiana</strong> - $16.99</li>\n    </ul>\n  </section>\n</main>';
+      }
+      
+      if (example) {
+        document.getElementById('htmlEditor').value = example;
+        updatePreview();
+      }
+    }
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', function() {
+      loadTemplate();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué es CSS?</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid cyan;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40, end);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="../html/hola-mundo.html" class="bg-white text-cyan-600 px-4 py-2 rounded-lg hover:bg-cyan-50 transition-colors">
+        ← Tu Primer HTML
+      </a>
+      <h1 class="text-2xl font-bold text-white">🎨 ¿Qué es CSS?</h1>
+      <a href="historia-css.html"
+        class="bg-white text-cyan-600 px-4 py-2 rounded-lg hover:bg-cyan-50 transition-colors">
+        Historia del CSS →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 fade-in-up">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 pb-1 typewriter">Cascading Style Sheets</h1>
+      <p class="text-xl text-gray-600">El lenguaje que da vida y estilo a nuestras páginas web</p>
+    </div>
+
+    <!-- Definición -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-cyan-600 to-cyan-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📚 Definición de CSS</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">¿Qué significa CSS?</h3>
+            <ul class="space-y-3 text-gray-600">
+              <li><strong>C</strong>ascading = En cascada</li>
+              <li><strong>S</strong>tyle = Estilo</li>
+              <li><strong>S</strong>heets = Hojas</li>
+            </ul>
+
+            <div class="mt-6 bg-cyan-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-cyan-800 mb-2">💡 En pocas palabras:</h4>
+              <p class="text-cyan-700 text-sm">
+                CSS es un lenguaje de hojas de estilo que describe la presentación
+                de un documento escrito en HTML o XML.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-semibold mb-2">Sin CSS vs Con CSS</h4>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="bg-white p-2 border text-xs">
+                <div class="text-black">
+                  Título<br>
+                  Párrafo de texto<br>
+                  • Lista<br>
+                  • Elemento
+                </div>
+                <p class="text-center text-gray-500 text-xs mt-1">Sin CSS</p>
+              </div>
+              <div class="bg-gradient-to-br from-blue-100 to-purple-100 p-2 rounded text-xs">
+                <div class="text-blue-800 font-bold">
+                  Título<br>
+                </div>
+                <div class="text-gray-700">
+                  Párrafo con estilo<br>
+                </div>
+                <div class="text-green-600">
+                  • Lista colorida<br>
+                  • Con diseño
+                </div>
+                <p class="text-center text-gray-500 text-xs mt-1">Con CSS</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Propósito -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🎯 Propósito de CSS</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🎨</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 mb-2">Separación de Responsabilidades</h3>
+            <p class="text-gray-600 text-sm">
+              HTML maneja la estructura y contenido,
+              CSS se encarga de la presentación visual
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">♻️</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 mb-2">Reutilización</h3>
+            <p class="text-gray-600 text-sm">
+              Un solo archivo CSS puede dar estilo
+              a múltiples páginas HTML
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🔧</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 mb-2">Mantenimiento</h3>
+            <p class="text-gray-600 text-sm">
+              Facilita los cambios de diseño sin
+              modificar el contenido HTML
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Características -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">⚡ Características Principales</h2>
+      </div>
+      <div class="p-6">
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4 p-4 bg-emerald-50 rounded-lg">
+            <span class="text-emerald-600 text-xl">1.</span>
+            <div>
+              <h4 class="font-semibold text-emerald-800">Cascada (Cascade)</h4>
+              <p class="text-emerald-700 text-sm">Los estilos se aplican en orden de prioridad y especificidad</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg">
+            <span class="text-blue-600 text-xl">2.</span>
+            <div>
+              <h4 class="font-semibold text-blue-800">Herencia (Inheritance)</h4>
+              <p class="text-blue-700 text-sm">Los elementos hijos heredan estilos de sus elementos padre</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 p-4 bg-purple-50 rounded-lg">
+            <span class="text-purple-600 text-xl">3.</span>
+            <div>
+              <h4 class="font-semibold text-purple-800">Especificidad (Specificity)</h4>
+              <p class="text-purple-700 text-sm">Determina qué reglas CSS tienen prioridad sobre otras</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplo Práctico -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">💻 Ejemplo Práctico</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold mb-3">HTML (Contenido)</h4>
+            <pre class="text-sm bg-gray-800 text-green-400 p-4 rounded overflow-x-auto">
+&lt;h1&gt;Mi Título&lt;/h1&gt;
+&lt;p&gt;Este es un párrafo de ejemplo.&lt;/p&gt;
+&lt;button&gt;Hacer clic&lt;/button&gt;</pre>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-3">CSS (Estilo)</h4>
+            <pre class="text-sm bg-gray-800 text-cyan-400 p-4 rounded overflow-x-auto">
+h1 {
+  color: blue;
+  font-size: 32px;
+}
+
+p {
+  color: gray;
+  line-height: 1.6;
+}
+
+button {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}</pre>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-gradient-to-r from-orange-100 to-orange-200 rounded-lg">
+          <h4 class="font-semibold text-orange-800 mb-2">Resultado Visual:</h4>
+          <div class="bg-white p-4 rounded border">
+            <h1 style="color: blue; font-size: 32px; margin: 0 0 10px 0;">Mi Título</h1>
+            <p style="color: gray; line-height: 1.6; margin: 0 0 10px 0;">Este es un párrafo de ejemplo.</p>
+            <button
+              style="background-color: orange; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Hacer
+              clic</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="../html/hola-mundo.html"
+            class="bg-cyan-500 text-white px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors flex items-center">
+            ← Tu Primer HTML
+          </a>
+
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+
+          <a href="historia-css.html"
+            class="bg-cyan-500 text-white px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors flex items-center">
+            Historia del CSS →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Introducción a CSS</strong>
+      </p>
+      <p class="text-cyan-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Agregar efectos adicionales
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
