@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrar Tailwind con CDN - Escuela de Desarrollo</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .code-block {
+      background: #1e1e1e;
+      border-radius: 8px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .copy-btn {
+      background: #10b981;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+      margin-top: -10px;
+      margin-right: -10px;
+    }
+    .copy-btn:hover {
+      background: #059669;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-8">
+  
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="../bootstrap/ejercicio-bootstrap.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+        ← Ejercicio Bootstrap
+      </a>
+      <h1 class="text-2xl font-bold text-white">🌊 Tailwind CDN</h1>
+      <a href="clases-tailwind.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+        Clases Tailwind →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center fade-in-up">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🌊 Integrar Tailwind CSS con CDN</h1>
+      <p class="text-xl text-gray-600">La forma más rápida de empezar con Tailwind CSS</p>
+    </div>
+  <div class="max-w-4xl mx-auto px-4">
+    
+    <!-- ¿Qué es Tailwind CDN? -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">🚀</span>
+        ¿Qué es Tailwind CSS CDN?
+      </h2>
+      <p class="text-gray-600 text-lg leading-relaxed mb-6">
+        El <strong>CDN de Tailwind CSS</strong> es una versión simplificada que incluye todas 
+        las clases utilitarias predefinidas, perfecta para prototipado rápido y proyectos 
+        sin herramientas de build.
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-green-50 border border-green-200 p-4 rounded-lg">
+          <h3 class="text-lg font-bold text-green-800 mb-2">✅ Ventajas del CDN</h3>
+          <ul class="text-green-700 space-y-1 text-sm">
+            <li>• Setup instantáneo</li>
+            <li>• No requiere configuración</li>
+            <li>• Perfecto para prototipado</li>
+            <li>• Todas las clases disponibles</li>
+            <li>• Ideal para aprender</li>
+          </ul>
+        </div>
+        <div class="bg-orange-50 border border-orange-200 p-4 rounded-lg">
+          <h3 class="text-lg font-bold text-orange-800 mb-2">⚠️ Limitaciones del CDN</h3>
+          <ul class="text-orange-700 space-y-1 text-sm">
+            <li>• Archivo más grande (~3MB)</li>
+            <li>• No personalizable</li>
+            <li>• Sin PurgeCSS automático</li>
+            <li>• No apto para producción</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Integración Paso a Paso -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">📝</span>
+        Integración en 3 Pasos
+      </h2>
+      
+      <!-- Paso 1 -->
+      <div class="mb-8">
+        <h3 class="text-2xl font-bold text-cyan-600 mb-4">Paso 1: Obtener el CDN</h3>
+        <p class="text-gray-600 mb-4">
+          Ve a <a href="https://tailwindcss.com/docs/installation" class="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener">tailwindcss.com</a> 
+          o usa el CDN oficial más reciente:
+        </p>
+        
+        <div class="relative">
+          <button class="copy-btn" onclick="copyCode('tailwind-cdn')">Copiar</button>
+          <div class="code-block text-green-400 text-sm font-mono" id="tailwind-cdn">
+<pre>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</pre>
+          </div>
+        </div>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded mt-4">
+          <p class="text-blue-800 text-sm">
+            <strong>💡 Nota:</strong> A diferencia de Bootstrap, Tailwind CDN se carga con un script tag, 
+            no con un link CSS tradicional.
+          </p>
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="mb-8">
+        <h3 class="text-2xl font-bold text-cyan-600 mb-4">Paso 2: Estructura HTML Básica</h3>
+        <p class="text-gray-600 mb-4">
+          Crea un archivo HTML con la estructura básica:
+        </p>
+        
+        <div class="relative">
+          <button class="copy-btn" onclick="copyCode('html-basic')">Copiar</button>
+          <div class="code-block text-green-400 text-sm font-mono" id="html-basic">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Mi sitio con Tailwind CSS&lt;/title&gt;
+  
+  &lt;!-- Tailwind CSS CDN --&gt;
+  &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+  &lt;!-- Tu contenido aquí --&gt;
+  &lt;h1 class="text-4xl font-bold text-blue-600"&gt;¡Hola Tailwind!&lt;/h1&gt;
+  
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="mb-8">
+        <h3 class="text-2xl font-bold text-cyan-600 mb-4">Paso 3: ¡Empezar a usar clases!</h3>
+        <p class="text-gray-600 mb-4">
+          Tailwind funciona con clases utilitarias que describes directamente en el HTML:
+        </p>
+        
+        <div class="relative">
+          <button class="copy-btn" onclick="copyCode('tailwind-example')">Copiar</button>
+          <div class="code-block text-green-400 text-sm font-mono" id="tailwind-example">
+<pre>&lt;div class="bg-blue-500 text-white p-6 rounded-lg shadow-lg"&gt;
+  &lt;h2 class="text-2xl font-bold mb-4"&gt;¡Tailwind es genial!&lt;/h2&gt;
+  &lt;p class="text-blue-100 mb-4"&gt;
+    Esto es una tarjeta creada con clases utilitarias.
+  &lt;/p&gt;
+  &lt;button class="bg-white text-blue-500 px-4 py-2 rounded hover:bg-gray-100 transition-colors"&gt;
+    Botón de Acción
+  &lt;/button&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clases Básicas de Tailwind -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">🎯</span>
+        Clases Básicas de Tailwind
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Espaciado -->
+        <div class="bg-emerald-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-emerald-800 mb-4">📏 Espaciado (Spacing)</h3>
+          <div class="space-y-3">
+            <div class="bg-white p-3 rounded border">
+              <code class="text-emerald-600">p-4</code>
+              <p class="text-sm text-gray-600 mt-1">Padding de 1rem (16px)</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-emerald-600">m-6</code>
+              <p class="text-sm text-gray-600 mt-1">Margin de 1.5rem (24px)</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-emerald-600">px-8</code>
+              <p class="text-sm text-gray-600 mt-1">Padding horizontal</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-emerald-600">mt-2</code>
+              <p class="text-sm text-gray-600 mt-1">Margin-top</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div class="bg-blue-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-blue-800 mb-4">📝 Texto</h3>
+          <div class="space-y-3">
+            <div class="bg-white p-3 rounded border">
+              <code class="text-blue-600">text-center</code>
+              <p class="text-sm text-gray-600 mt-1">Centrar texto</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-blue-600">text-xl</code>
+              <p class="text-sm text-gray-600 mt-1">Tamaño de fuente</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-blue-600">font-bold</code>
+              <p class="text-sm text-gray-600 mt-1">Texto en negrita</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-blue-600">text-gray-600</code>
+              <p class="text-sm text-gray-600 mt-1">Color de texto</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colores -->
+        <div class="bg-purple-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-purple-800 mb-4">🎨 Colores</h3>
+          <div class="space-y-3">
+            <div class="bg-blue-500 text-white p-2 rounded text-center text-sm">
+              <code>bg-blue-500</code>
+            </div>
+            <div class="bg-red-500 text-white p-2 rounded text-center text-sm">
+              <code>bg-red-500</code>
+            </div>
+            <div class="bg-green-500 text-white p-2 rounded text-center text-sm">
+              <code>bg-green-500</code>
+            </div>
+            <div class="bg-purple-500 text-white p-2 rounded text-center text-sm">
+              <code>bg-purple-500</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Layout -->
+        <div class="bg-orange-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-orange-800 mb-4">📐 Layout</h3>
+          <div class="space-y-3">
+            <div class="bg-white p-3 rounded border">
+              <code class="text-orange-600">flex</code>
+              <p class="text-sm text-gray-600 mt-1">Display flex</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-orange-600">grid</code>
+              <p class="text-sm text-gray-600 mt-1">Display grid</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-orange-600">w-full</code>
+              <p class="text-sm text-gray-600 mt-1">Ancho 100%</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-orange-600">h-screen</code>
+              <p class="text-sm text-gray-600 mt-1">Alto de ventana</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bordes y Sombras -->
+        <div class="bg-pink-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-pink-800 mb-4">🔲 Bordes y Sombras</h3>
+          <div class="space-y-3">
+            <div class="bg-white p-3 border rounded">
+              <code class="text-pink-600">border</code>
+              <p class="text-sm text-gray-600 mt-1">Borde básico</p>
+            </div>
+            <div class="bg-white p-3 rounded-lg border">
+              <code class="text-pink-600">rounded-lg</code>
+              <p class="text-sm text-gray-600 mt-1">Bordes redondeados</p>
+            </div>
+            <div class="bg-white p-3 shadow-md rounded border">
+              <code class="text-pink-600">shadow-md</code>
+              <p class="text-sm text-gray-600 mt-1">Sombra mediana</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Responsive -->
+        <div class="bg-teal-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-teal-800 mb-4">📱 Responsive</h3>
+          <div class="space-y-3">
+            <div class="bg-white p-3 rounded border">
+              <code class="text-teal-600">md:text-xl</code>
+              <p class="text-sm text-gray-600 mt-1">Medium screens+</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-teal-600">lg:flex</code>
+              <p class="text-sm text-gray-600 mt-1">Large screens+</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-teal-600">sm:hidden</code>
+              <p class="text-sm text-gray-600 mt-1">Oculto en small+</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplo Completo -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">🎨</span>
+        Ejemplo Completo
+      </h2>
+      
+      <p class="text-gray-600 mb-4">Aquí tienes una página completa usando Tailwind con CDN:</p>
+      
+      <div class="relative">
+        <button class="copy-btn" onclick="copyCode('full-example')">Copiar</button>
+        <div class="code-block text-green-400 text-sm font-mono" id="full-example">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Mi Primera Página con Tailwind&lt;/title&gt;
+  &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class="bg-gray-100 min-h-screen py-8"&gt;
+  
+  &lt;div class="max-w-md mx-auto"&gt;
+    &lt;div class="bg-white rounded-xl shadow-lg overflow-hidden"&gt;
+      
+      &lt;div class="bg-gradient-to-r from-blue-500 to-purple-500 p-6 text-white text-center"&gt;
+        &lt;div class="w-20 h-20 bg-white rounded-full mx-auto mb-4 flex items-center justify-content-center"&gt;
+          &lt;span class="text-3xl"&gt;🚀&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;h1 class="text-2xl font-bold"&gt;¡Hola Tailwind!&lt;/h1&gt;
+        &lt;p class="text-blue-100"&gt;Mi primera tarjeta&lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="p-6"&gt;
+        &lt;p class="text-gray-600 mb-4"&gt;
+          Esta tarjeta fue creada usando únicamente clases utilitarias de Tailwind CSS.
+        &lt;/p&gt;
+        
+        &lt;div class="flex space-x-4"&gt;
+          &lt;button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"&gt;
+            Primario
+          &lt;/button&gt;
+          &lt;button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors"&gt;
+            Secundario
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configuración Avanzada -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">⚙️</span>
+        Configuración Avanzada (Opcional)
+      </h2>
+      
+      <p class="text-gray-600 mb-6">
+        Puedes personalizar Tailwind CDN añadiendo tu propia configuración:
+      </p>
+      
+      <div class="relative">
+        <button class="copy-btn" onclick="copyCode('tailwind-config')">Copiar</button>
+        <div class="code-block text-green-400 text-sm font-mono" id="tailwind-config">
+<pre>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;script&gt;
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'custom-blue': '#1e40af',
+          'custom-purple': '#7c3aed',
+        },
+        fontFamily: {
+          'custom': ['Inter', 'sans-serif'],
+        }
+      }
+    }
+  }
+&lt;/script&gt;</pre>
+        </div>
+      </div>
+      
+      <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded mt-4">
+        <p class="text-yellow-800 text-sm">
+          <strong>⚠️ Nota:</strong> Esta configuración solo funciona con el CDN. 
+          Para proyectos reales, considera usar la instalación completa de Tailwind.
+        </p>
+      </div>
+    </div>
+
+    <!-- Comparación con Bootstrap -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">⚖️</span>
+        Tailwind CDN vs Bootstrap CDN
+      </h2>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="p-4 font-bold text-gray-700">Aspecto</th>
+              <th class="p-4 font-bold text-cyan-600">Tailwind CDN</th>
+              <th class="p-4 font-bold text-purple-600">Bootstrap CDN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t">
+              <td class="p-4 font-semibold">🏷️ Integración</td>
+              <td class="p-4">&lt;script&gt; tag</td>
+              <td class="p-4">&lt;link&gt; tag</td>
+            </tr>
+            <tr class="border-t bg-gray-50">
+              <td class="p-4 font-semibold">📦 Tamaño</td>
+              <td class="p-4">~3MB (todas las clases)</td>
+              <td class="p-4">~20KB (minificado)</td>
+            </tr>
+            <tr class="border-t">
+              <td class="p-4 font-semibold">🎨 Filosofía</td>
+              <td class="p-4">Utility-first</td>
+              <td class="p-4">Component-based</td>
+            </tr>
+            <tr class="border-t bg-gray-50">
+              <td class="p-4 font-semibold">⚡ JavaScript</td>
+              <td class="p-4">No incluido</td>
+              <td class="p-4">Incluido</td>
+            </tr>
+            <tr class="border-t">
+              <td class="p-4 font-semibold">🎯 Uso ideal</td>
+              <td class="p-4">Diseños únicos</td>
+              <td class="p-4">Prototipos rápidos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Próximos Pasos -->
+    <div class="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl shadow-xl p-8 mb-8 fade-in-up text-white">
+      <h2 class="text-3xl font-bold mb-6 flex items-center">
+        <span class="text-4xl mr-3">🚀</span>
+        Próximos Pasos
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold mb-4">📚 Para Aprender</h3>
+          <ul class="space-y-2 text-cyan-100">
+            <li>✨ Practica con las clases básicas</li>
+            <li>✨ Experimenta con responsive design</li>
+            <li>✨ Crea componentes reutilizables</li>
+            <li>✨ Aprende sobre utility patterns</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-4">🚀 Para Producción</h3>
+          <ul class="space-y-2 text-cyan-100">
+            <li>🔥 Instala Tailwind localmente</li>
+            <li>🔥 Configura PurgeCSS</li>
+            <li>🔥 Personaliza el tema</li>
+            <li>🔥 Integra con tu build process</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="../bootstrap/ejercicio-bootstrap.html"
+            class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+            ← Ejercicio Bootstrap
+          </a>
+
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+
+          <a href="clases-tailwind.html"
+            class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+            Clases Tailwind →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Frameworks de Estilos</strong>
+      </p>
+      <p class="text-purple-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function copyCode(elementId) {
+      const element = document.getElementById(elementId);
+      const text = element.textContent;
+      
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = element.parentElement.querySelector('.copy-btn');
+        const originalText = btn.textContent;
+        btn.textContent = '¡Copiado!';
+        btn.style.background = '#3b82f6';
+        
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '#10b981';
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>

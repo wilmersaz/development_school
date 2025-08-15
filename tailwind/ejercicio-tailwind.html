@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio Tailwind - Escuela de Desarrollo</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .code-toggle {
+      background: #1e1e1e;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    .code-toggle.show {
+      display: block;
+    }
+    .step-number {
+      background: linear-gradient(45deg, #06b6d4, #3b82f6);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-8">
+  
+ <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="clases-tailwind.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+        ← Clases Tailwind
+      </a>
+      <h1 class="text-2xl font-bold text-white">🎯 Ejercicio Tailwind</h1>
+      <div class="bg-gray-300 text-gray-500 px-4 py-2 rounded-lg opacity-50">
+        (Último tema)
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center fade-in-up">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🎯 Ejercicio Práctico: Tarjeta Tailwind</h1>
+      <p class="text-xl text-gray-600">Crea una tarjeta de presentación con utilidades de Tailwind CSS</p>
+    </div>
+
+  <!-- Content -->
+  <div class="max-w-6xl mx-auto px-4">
+    
+    <!-- Objetivo -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">🎯</span>
+        Objetivo del Ejercicio
+      </h2>
+      
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            Vamos a crear una <strong>tarjeta de presentación personal</strong> utilizando 
+            únicamente clases utilitarias de Tailwind CSS. El enfoque será construir 
+            cada elemento desde cero usando utilidades.
+          </p>
+          
+          <h3 class="text-xl font-bold text-gray-700 mb-4">📋 Requisitos:</h3>
+          <ul class="text-gray-600 space-y-2">
+            <li>✅ Usar enfoque utility-first</li>
+            <li>✅ Aplicar sistema de colores de Tailwind</li>
+            <li>✅ Implementar diseño responsive</li>
+            <li>✅ Usar flexbox y grid</li>
+            <li>✅ Aplicar efectos hover y transiciones</li>
+            <li>✅ Usar al menos 20 clases de Tailwind</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold text-gray-700 mb-4">🎨 Resultado Final:</h3>
+          
+          <!-- Demo Card -->
+          <div class="max-w-sm mx-auto">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              
+              <!-- Header con gradiente -->
+              <div class="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 p-8 text-white text-center relative">
+                <div class="absolute inset-0 bg-black bg-opacity-10"></div>
+                <div class="relative z-10">
+                  <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center backdrop-blur-sm border-2 border-white border-opacity-30">
+                    <span class="text-3xl">👩‍💻</span>
+                  </div>
+                  <h3 class="text-2xl font-bold mb-1">María García</h3>
+                  <p class="text-cyan-100">UX/UI Designer</p>
+                </div>
+              </div>
+              
+              <!-- Body -->
+              <div class="p-6">
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                  Diseñadora especializada en crear experiencias digitales intuitivas 
+                  y centradas en el usuario. Apasionada por el diseño minimalista.
+                </p>
+                
+                <!-- Skills -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-xs font-medium">Figma</span>
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">Adobe XD</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium">Sketch</span>
+                  <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium">Prototyping</span>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-4 mb-6 text-center">
+                  <div>
+                    <div class="text-2xl font-bold text-cyan-600">120+</div>
+                    <div class="text-xs text-gray-500">Proyectos</div>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold text-blue-600">4</div>
+                    <div class="text-xs text-gray-500">Años Exp.</div>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold text-purple-600">98%</div>
+                    <div class="text-xs text-gray-500">Satisfacción</div>
+                  </div>
+                </div>
+                
+                <!-- Buttons -->
+                <div class="flex gap-3">
+                  <button class="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-4 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 transition-all duration-200 transform hover:scale-105">
+                    Contactar
+                  </button>
+                  <button class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-50 hover:border-gray-400 transition-all duration-200">
+                    Portfolio
+                  </button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guía Paso a Paso -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">📝</span>
+        Guía Paso a Paso
+      </h2>
+      
+      <div class="space-y-8">
+        
+        <!-- Paso 1 -->
+        <div class="flex gap-4">
+          <div class="step-number">1</div>
+          <div class="flex-grow-1">
+            <h3 class="text-xl font-bold text-gray-700 mb-3">Estructura HTML y CDN</h3>
+            <p class="text-gray-600 mb-3">
+              Configura el HTML básico con Tailwind CDN:
+            </p>
+            <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm" onclick="toggleCode('step1')">
+              Ver Código 👀
+            </button>
+            
+            <div id="step1" class="code-toggle">
+              <div class="text-green-400 text-sm font-mono">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Mi Tarjeta con Tailwind&lt;/title&gt;
+  &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class="bg-gray-100 min-h-screen py-8"&gt;
+  
+  &lt;!-- Aquí irá tu tarjeta --&gt;
+  
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="flex gap-4">
+          <div class="step-number">2</div>
+          <div class="flex-grow-1">
+            <h3 class="text-xl font-bold text-gray-700 mb-3">Contenedor y Estructura Base</h3>
+            <p class="text-gray-600 mb-3">
+              Crea el contenedor principal y la estructura de la tarjeta:
+            </p>
+            <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm" onclick="toggleCode('step2')">
+              Ver Código 👀
+            </button>
+            
+            <div id="step2" class="code-toggle">
+              <div class="text-green-400 text-sm font-mono">
+<pre>&lt;body class="bg-gray-100 min-h-screen py-8"&gt;
+  &lt;div class="max-w-sm mx-auto"&gt;
+    &lt;div class="bg-white rounded-xl shadow-xl overflow-hidden"&gt;
+      
+      &lt;!-- Header --&gt;
+      &lt;div class="bg-gradient-to-r from-cyan-500 to-blue-500 p-8 text-white text-center"&gt;
+        &lt;!-- Avatar y título aquí --&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Body --&gt;
+      &lt;div class="p-6"&gt;
+        &lt;!-- Contenido aquí --&gt;
+      &lt;/div&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="flex gap-4">
+          <div class="step-number">3</div>
+          <div class="flex-grow-1">
+            <h3 class="text-xl font-bold text-gray-700 mb-3">Header con Avatar y Gradiente</h3>
+            <p class="text-gray-600 mb-3">
+              Agrega el avatar, nombre y título con efectos visuales:
+            </p>
+            <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm" onclick="toggleCode('step3')">
+              Ver Código 👀
+            </button>
+            
+            <div id="step3" class="code-toggle">
+              <div class="text-green-400 text-sm font-mono">
+<pre>&lt;div class="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 p-8 text-white text-center relative"&gt;
+  &lt;div class="absolute inset-0 bg-black bg-opacity-10"&gt;&lt;/div&gt;
+  &lt;div class="relative z-10"&gt;
+    &lt;div class="w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center backdrop-blur-sm border-2 border-white border-opacity-30"&gt;
+      &lt;span class="text-3xl"&gt;👩‍💻&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;h3 class="text-2xl font-bold mb-1"&gt;Tu Nombre&lt;/h3&gt;
+    &lt;p class="text-cyan-100"&gt;Tu Profesión&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="flex gap-4">
+          <div class="step-number">4</div>
+          <div class="flex-grow-1">
+            <h3 class="text-xl font-bold text-gray-700 mb-3">Contenido: Descripción y Skills</h3>
+            <p class="text-gray-600 mb-3">
+              Agrega descripción personal y etiquetas de habilidades:
+            </p>
+            <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm" onclick="toggleCode('step4')">
+              Ver Código 👀
+            </button>
+            
+            <div id="step4" class="code-toggle">
+              <div class="text-green-400 text-sm font-mono">
+<pre>&lt;div class="p-6"&gt;
+  &lt;p class="text-gray-600 mb-6 leading-relaxed"&gt;
+    Aquí va una descripción personal que hable sobre ti, 
+    tus intereses y lo que te apasiona de tu profesión.
+  &lt;/p&gt;
+  
+  &lt;!-- Skills como badges --&gt;
+  &lt;div class="flex flex-wrap gap-2 mb-6"&gt;
+    &lt;span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-xs font-medium"&gt;
+      HTML
+    &lt;/span&gt;
+    &lt;span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium"&gt;
+      CSS
+    &lt;/span&gt;
+    &lt;span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium"&gt;
+      JavaScript
+    &lt;/span&gt;
+    &lt;span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium"&gt;
+      Tailwind
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="flex gap-4">
+          <div class="step-number">5</div>
+          <div class="flex-grow-1">
+            <h3 class="text-xl font-bold text-gray-700 mb-3">Estadísticas y Grid</h3>
+            <p class="text-gray-600 mb-3">
+              Agrega estadísticas usando el sistema de grid:
+            </p>
+            <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm" onclick="toggleCode('step5')">
+              Ver Código 👀
+            </button>
+            
+            <div id="step5" class="code-toggle">
+              <div class="text-green-400 text-sm font-mono">
+<pre>&lt;!-- Agregar después de los skills --&gt;
+&lt;div class="grid grid-cols-3 gap-4 mb-6 text-center"&gt;
+  &lt;div&gt;
+    &lt;div class="text-2xl font-bold text-cyan-600"&gt;50+&lt;/div&gt;
+    &lt;div class="text-xs text-gray-500"&gt;Proyectos&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;div class="text-2xl font-bold text-blue-600"&gt;2&lt;/div&gt;
+    &lt;div class="text-xs text-gray-500"&gt;Años Exp.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;div class="text-2xl font-bold text-purple-600"&gt;100%&lt;/div&gt;
+    &lt;div class="text-xs text-gray-500"&gt;Dedicación&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 6 -->
+        <div class="flex gap-4">
+          <div class="step-number">6</div>
+          <div class="flex-grow-1">
+            <h3 class="text-xl font-bold text-gray-700 mb-3">Botones con Efectos Hover</h3>
+            <p class="text-gray-600 mb-3">
+              Finaliza con botones interactivos que tengan efectos hover:
+            </p>
+            <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm" onclick="toggleCode('step6')">
+              Ver Código 👀
+            </button>
+            
+            <div id="step6" class="code-toggle">
+              <div class="text-green-400 text-sm font-mono">
+<pre>&lt;!-- Botones al final del contenido --&gt;
+&lt;div class="flex gap-3"&gt;
+  &lt;button class="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-4 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 transition-all duration-200 transform hover:scale-105"&gt;
+    Contactar
+  &lt;/button&gt;
+  &lt;button class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"&gt;
+    Portfolio
+  &lt;/button&gt;
+&lt;/div&gt;</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 7 -->
+        <div class="flex gap-4">
+          <div class="step-number">7</div>
+          <div class="flex-grow-1">
+            <h3 class="text-xl font-bold text-gray-700 mb-3">Efectos Finales y Responsive</h3>
+            <p class="text-gray-600 mb-3">
+              Agrega efectos hover a la tarjeta completa y hazla responsive:
+            </p>
+            <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm" onclick="toggleCode('step7')">
+              Ver Código 👀
+            </button>
+            
+            <div id="step7" class="code-toggle">
+              <div class="text-green-400 text-sm font-mono">
+<pre>&lt;!-- Actualizar el div principal de la tarjeta --&gt;
+&lt;div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"&gt;
+
+&lt;!-- Y el contenedor principal para responsive --&gt;
+&lt;div class="max-w-sm mx-auto px-4 md:px-0"&gt;</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Código Completo -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">💻</span>
+        Código Completo
+      </h2>
+      
+      <p class="text-gray-600 mb-4">
+        Aquí tienes el código completo del ejercicio. ¡Cópialo y personalízalo!
+      </p>
+      
+      <div class="bg-gray-900 text-green-400 p-6 rounded text-xs font-mono overflow-x-auto">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Mi Tarjeta con Tailwind&lt;/title&gt;
+  &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class="bg-gray-100 min-h-screen py-8"&gt;
+  
+  &lt;div class="max-w-sm mx-auto px-4 md:px-0"&gt;
+    &lt;div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"&gt;
+      
+      &lt;!-- Header con gradiente --&gt;
+      &lt;div class="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 p-8 text-white text-center relative"&gt;
+        &lt;div class="absolute inset-0 bg-black bg-opacity-10"&gt;&lt;/div&gt;
+        &lt;div class="relative z-10"&gt;
+          &lt;div class="w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center backdrop-blur-sm border-2 border-white border-opacity-30"&gt;
+            &lt;span class="text-3xl"&gt;👩‍💻&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;h3 class="text-2xl font-bold mb-1"&gt;Tu Nombre&lt;/h3&gt;
+          &lt;p class="text-cyan-100"&gt;Tu Profesión&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Body --&gt;
+      &lt;div class="p-6"&gt;
+        &lt;p class="text-gray-600 mb-6 leading-relaxed"&gt;
+          Aquí va una descripción personal sobre ti, tus intereses y 
+          lo que te apasiona de tu profesión o área de expertise.
+        &lt;/p&gt;
+        
+        &lt;!-- Skills --&gt;
+        &lt;div class="flex flex-wrap gap-2 mb-6"&gt;
+          &lt;span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-xs font-medium"&gt;HTML&lt;/span&gt;
+          &lt;span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium"&gt;CSS&lt;/span&gt;
+          &lt;span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium"&gt;JavaScript&lt;/span&gt;
+          &lt;span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium"&gt;Tailwind&lt;/span&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Stats --&gt;
+        &lt;div class="grid grid-cols-3 gap-4 mb-6 text-center"&gt;
+          &lt;div&gt;
+            &lt;div class="text-2xl font-bold text-cyan-600"&gt;50+&lt;/div&gt;
+            &lt;div class="text-xs text-gray-500"&gt;Proyectos&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class="text-2xl font-bold text-blue-600"&gt;2&lt;/div&gt;
+            &lt;div class="text-xs text-gray-500"&gt;Años Exp.&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class="text-2xl font-bold text-purple-600"&gt;100%&lt;/div&gt;
+            &lt;div class="text-xs text-gray-500"&gt;Dedicación&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Buttons --&gt;
+        &lt;div class="flex gap-3"&gt;
+          &lt;button class="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-4 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 transition-all duration-200 transform hover:scale-105"&gt;
+            Contactar
+          &lt;/button&gt;
+          &lt;button class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"&gt;
+            Portfolio
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+      </div>
+    </div>
+
+    <!-- Comparación Bootstrap vs Tailwind -->
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">⚖️</span>
+        Comparación: Bootstrap vs Tailwind
+      </h2>
+      
+      <p class="text-gray-600 mb-6">
+        Ahora que has creado tarjetas con ambos frameworks, nota las diferencias:
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-purple-50 p-6 rounded-lg border-2 border-purple-200">
+          <h3 class="text-xl font-bold text-purple-800 mb-4">🅱️ Enfoque Bootstrap</h3>
+          <div class="space-y-3 text-sm">
+            <div class="bg-white p-3 rounded border">
+              <code class="text-purple-600">.card .card-header .card-body</code>
+              <p class="text-gray-600 mt-1">Componentes predefinidos</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-purple-600">.btn .btn-primary .btn-lg</code>
+              <p class="text-gray-600 mt-1">Variaciones de componentes</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-purple-600">.container .row .col</code>
+              <p class="text-gray-600 mt-1">Sistema de grid estructurado</p>
+            </div>
+          </div>
+          <div class="mt-4 p-3 bg-purple-100 rounded text-xs text-purple-700">
+            ✨ <strong>Ventaja:</strong> Componentes listos, desarrollo rápido
+          </div>
+        </div>
+        
+        <div class="bg-cyan-50 p-6 rounded-lg border-2 border-cyan-200">
+          <h3 class="text-xl font-bold text-cyan-800 mb-4">🌊 Enfoque Tailwind</h3>
+          <div class="space-y-3 text-sm">
+            <div class="bg-white p-3 rounded border">
+              <code class="text-cyan-600">.bg-white .rounded-xl .shadow-xl</code>
+              <p class="text-gray-600 mt-1">Utilidades atómicas</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-cyan-600">.bg-gradient-to-r .from-cyan-500</code>
+              <p class="text-gray-600 mt-1">Control granular de estilos</p>
+            </div>
+            <div class="bg-white p-3 rounded border">
+              <code class="text-cyan-600">.grid .grid-cols-3 .gap-4</code>
+              <p class="text-gray-600 mt-1">Layout flexible con utilidades</p>
+            </div>
+          </div>
+          <div class="mt-4 p-3 bg-cyan-100 rounded text-xs text-cyan-700">
+            ✨ <strong>Ventaja:</strong> Control total, diseños únicos
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desafíos Extra -->
+    <div class="bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl shadow-xl p-8 mb-8 fade-in-up text-white">
+      <h2 class="text-3xl font-bold mb-6 flex items-center">
+        <span class="text-4xl mr-3">🚀</span>
+        Desafíos Extra
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">🎖️ Nivel Intermedio</h3>
+          <ul class="space-y-2 text-cyan-100">
+            <li>✨ Agrega modo dark/light toggle</li>
+            <li>✨ Crea animaciones personalizadas</li>
+            <li>✨ Implementa un slider de proyectos</li>
+            <li>✨ Añade formulario de contacto responsive</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold mb-4">🏆 Nivel Avanzado</h3>
+          <ul class="space-y-2 text-cyan-100">
+            <li>🔥 Crea configuración custom de Tailwind</li>
+            <li>🔥 Implementa lazy loading para imágenes</li>
+            <li>🔥 Añade micro-interacciones avanzadas</li>
+            <li>🔥 Optimiza para performance</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-6 bg-white bg-opacity-20 rounded-lg p-4">
+        <p class="text-cyan-100 text-sm">
+          <strong>💡 Tip Pro:</strong> Combina ambos enfoques según el proyecto. 
+          Bootstrap para prototipos rápidos, Tailwind para diseños únicos.
+        </p>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex justify-between items-center">
+          <a href="clases-tailwind.html"
+            class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+            ← Clases Tailwind
+          </a>
+
+          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+            🏠 Menú Principal
+          </a>
+
+          <div class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg opacity-50">
+            (Último tema)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Frameworks de Estilos</strong>
+      </p>
+      <p class="text-purple-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+  
+  <script>
+    function toggleCode(stepId) {
+      const codeBlock = document.getElementById(stepId);
+      codeBlock.classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>

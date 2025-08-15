@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrar Bootstrap con CDN - Escuela de Desarrollo</title>
+    <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .copy-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+            margin-top: -10px;
+            margin-right: -10px;
+        }
+
+        .copy-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+    <!-- Navigation -->
+    <div class="max-w-6xl mx-auto px-4 mb-8">
+        <a href="../index.html" class="inline-flex items-center text-blue-100 hover:text-white transition-colors">
+            ← Volver al inicio
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="text-center mb-12 fade-in-up">
+        <h1 class="text-5xl font-bold text-white mb-4">
+            🅱️ Integrar Bootstrap con CDN
+        </h1>
+        <p class="text-xl text-blue-100 max-w-3xl mx-auto px-4">
+            La forma más rápida de empezar con Bootstrap
+        </p>
+    </header>
+
+    <!-- Content -->
+    <div class="max-w-4xl mx-auto px-4">
+
+        <!-- ¿Qué es CDN? -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">🌐</span>
+                ¿Qué es un CDN?
+            </h2>
+            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                Un <strong>CDN (Content Delivery Network)</strong> es una red de servidores distribuidos
+                geográficamente que almacenan copias de archivos estáticos (CSS, JavaScript, imágenes)
+                para entregarlos a los usuarios desde la ubicación más cercana.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-green-50 border border-green-200 p-4 rounded-lg">
+                    <h3 class="text-lg font-bold text-green-800 mb-2">✅ Ventajas del CDN</h3>
+                    <ul class="text-green-700 space-y-1 text-sm">
+                        <li>• Carga más rápida</li>
+                        <li>• No ocupas espacio local</li>
+                        <li>• Siempre actualizado</li>
+                        <li>• Redundancia y disponibilidad</li>
+                        <li>• Cache del navegador</li>
+                    </ul>
+                </div>
+                <div class="bg-orange-50 border border-orange-200 p-4 rounded-lg">
+                    <h3 class="text-lg font-bold text-orange-800 mb-2">⚠️ Desventajas del CDN</h3>
+                    <ul class="text-orange-700 space-y-1 text-sm">
+                        <li>• Dependes de conexión a internet</li>
+                        <li>• El CDN puede fallar</li>
+                        <li>• Menos control sobre la versión</li>
+                        <li>• Posible tracking externo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paso a paso -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">📝</span>
+                Integración Paso a Paso
+            </h2>
+
+            <!-- Paso 1 -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-purple-600 mb-4">Paso 1: Obtener los enlaces CDN</h3>
+                <p class="text-gray-600 mb-4">
+                    Ve a <a href="https://getbootstrap.com/" class="text-blue-500 hover:text-blue-700" target="_blank"
+                        rel="noopener">getbootstrap.com</a>
+                    y copia los enlaces CDN más recientes:
+                </p>
+
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('bootstrap-links')">Copiar</button>
+                    <div class="code-block text-green-400 text-sm font-mono" id="bootstrap-links">
+                        <pre>&lt;!-- Bootstrap CSS --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;!-- Bootstrap JavaScript (Opcional) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-purple-600 mb-4">Paso 2: Estructura HTML básica</h3>
+                <p class="text-gray-600 mb-4">
+                    Crea un archivo HTML con la estructura básica y los enlaces de Bootstrap:
+                </p>
+
+                <div class="relative">
+                    <button class="copy-btn" onclick="copyCode('html-structure')">Copiar</button>
+                    <div class="code-block text-green-400 text-sm font-mono" id="html-structure">
+                        <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Mi sitio con Bootstrap&lt;/title&gt;
+  
+  &lt;!-- Bootstrap CSS --&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+  &lt;!-- Tu contenido aquí --&gt;
+  &lt;h1&gt;¡Hola Bootstrap!&lt;/h1&gt;
+  
+  &lt;!-- Bootstrap JavaScript --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-purple-600 mb-4">Paso 3: Meta tag viewport</h3>
+                <p class="text-gray-600 mb-4">
+                    <strong>¡Muy importante!</strong> El meta tag viewport es esencial para el diseño responsive:
+                </p>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                    <div class="flex items-center mb-2">
+                        <span class="text-2xl mr-2">⚠️</span>
+                        <strong class="text-yellow-800">Meta Tag Obligatorio</strong>
+                    </div>
+                    <div class="code-block text-green-400 text-sm font-mono">
+                        <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
+                    </div>
+                    <p class="text-yellow-700 mt-2 text-sm">
+                        Sin este meta tag, Bootstrap no funcionará correctamente en dispositivos móviles.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clases Básicas -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">🎯</span>
+                Clases Bootstrap Básicas
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <!-- Layout -->
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-4">📐 Layout y Grid</h3>
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-blue-600">.container</code>
+                            <p class="text-sm text-gray-600 mt-1">Contenedor responsive centrado</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-blue-600">.row</code>
+                            <p class="text-sm text-gray-600 mt-1">Fila del sistema de grid</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-blue-600">.col, .col-md-6</code>
+                            <p class="text-sm text-gray-600 mt-1">Columnas responsive</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Componentes -->
+                <div class="bg-green-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-green-800 mb-4">🧩 Componentes</h3>
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-green-600">.btn .btn-primary</code>
+                            <p class="text-sm text-gray-600 mt-1">Botones con estilos</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-green-600">.card</code>
+                            <p class="text-sm text-gray-600 mt-1">Tarjetas de contenido</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-green-600">.form-control</code>
+                            <p class="text-sm text-gray-600 mt-1">Inputs de formulario</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Utilidades -->
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-purple-800 mb-4">⚡ Utilidades</h3>
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-purple-600">.text-center</code>
+                            <p class="text-sm text-gray-600 mt-1">Alineación de texto</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-purple-600">.bg-primary</code>
+                            <p class="text-sm text-gray-600 mt-1">Colores de fondo</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-purple-600">.m-3, .p-4</code>
+                            <p class="text-sm text-gray-600 mt-1">Márgenes y padding</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Responsive -->
+                <div class="bg-orange-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-orange-800 mb-4">📱 Responsive</h3>
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-orange-600">.d-md-none</code>
+                            <p class="text-sm text-gray-600 mt-1">Display responsive</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-orange-600">.col-lg-4</code>
+                            <p class="text-sm text-gray-600 mt-1">Columnas por breakpoint</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border">
+                            <code class="text-orange-600">.text-md-left</code>
+                            <p class="text-sm text-gray-600 mt-1">Utilidades responsive</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejemplo Práctico -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">🎨</span>
+                Ejemplo Práctico
+            </h2>
+
+            <p class="text-gray-600 mb-4">Aquí tienes una página completa usando Bootstrap con CDN:</p>
+
+            <div class="relative">
+                <button class="copy-btn" onclick="copyCode('full-example')">Copiar</button>
+                <div class="code-block text-green-400 text-sm font-mono" id="full-example">
+                    <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Mi Primera Página con Bootstrap&lt;/title&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+  &lt;div class="container my-5"&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-8 mx-auto"&gt;
+        
+        &lt;div class="card"&gt;
+          &lt;div class="card-header bg-primary text-white"&gt;
+            &lt;h1 class="card-title mb-0"&gt;¡Hola Bootstrap!&lt;/h1&gt;
+          &lt;/div&gt;
+          &lt;div class="card-body"&gt;
+            &lt;p class="card-text"&gt;Esta es mi primera página usando Bootstrap con CDN.&lt;/p&gt;
+            &lt;button class="btn btn-success"&gt;¡Genial!&lt;/button&gt;
+            &lt;button class="btn btn-outline-secondary ms-2"&gt;Aprender más&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Consideraciones -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">💡</span>
+                Consideraciones Importantes
+            </h2>
+
+            <div class="space-y-6">
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h3 class="text-xl font-bold text-blue-600 mb-2">🔄 Versionado</h3>
+                    <p class="text-gray-600">
+                        Siempre especifica una versión exacta en producción para evitar cambios inesperados.
+                    </p>
+                    <code class="bg-gray-100 px-2 py-1 rounded text-sm">bootstrap@5.3.0</code> en lugar de <code
+                        class="bg-gray-100 px-2 py-1 rounded text-sm">bootstrap@5</code>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h3 class="text-xl font-bold text-green-600 mb-2">⚡ Performance</h3>
+                    <p class="text-gray-600">
+                        Usa <code class="bg-gray-100 px-2 py-1 rounded text-sm">.min.css</code> y <code
+                            class="bg-gray-100 px-2 py-1 rounded text-sm">.min.js</code>
+                        para archivos optimizados y más pequeños.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-orange-500 pl-4">
+                    <h3 class="text-xl font-bold text-orange-600 mb-2">🔒 Integridad</h3>
+                    <p class="text-gray-600">
+                        Para mayor seguridad, usa el atributo <code
+                            class="bg-gray-100 px-2 py-1 rounded text-sm">integrity</code>
+                        para verificar que el archivo no ha sido modificado.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Footer Navigation -->
+    <footer class="mt-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="bg-white rounded-xl shadow-xl p-6">
+                <div class="flex justify-between items-center">
+                    <a href="bootstrap-vs-tailwind.html"
+                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+                        ← Bootstrap vs Tailwind
+                    </a>
+
+                    <a href="../index.html"
+                        class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                        🏠 Menú Principal
+                    </a>
+
+                    <a href="clases-bootstrap.html"
+                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+                        Clases Bootstrap →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-8">
+            <p class="text-white text-lg">
+                📖 Preparado para la clase de <strong>Frameworks de Estilos</strong>
+            </p>
+            <p class="text-purple-100 mt-2">
+                CCL © Copyright 2025
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = element.parentElement.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '¡Copiado!';
+                btn.style.background = '#2196F3';
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#4CAF50';
+                }, 2000);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap vs Tailwind - Escuela de Desarrollo</title>
+    <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .vs-divider {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background-size: 400% 400%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+    <!-- Navigation -->
+    <div class="max-w-6xl mx-auto px-4 mb-8">
+        <a href="../index.html" class="inline-flex items-center text-blue-100 hover:text-white transition-colors">
+            ← Volver al inicio
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="text-center mb-12 fade-in-up">
+        <h1 class="text-5xl font-bold text-white mb-4">
+            ⚔️ Bootstrap vs Tailwind CSS
+        </h1>
+        <p class="text-xl text-blue-100 max-w-3xl mx-auto px-4">
+            La batalla de filosofías: Componentes vs Utilidades
+        </p>
+    </header>
+
+    <!-- Content -->
+    <div class="max-w-6xl mx-auto px-4">
+
+        <!-- Comparación Principal -->
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+
+            <!-- Bootstrap -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+                <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+                    <h2 class="text-3xl font-bold flex items-center">
+                        <span class="text-4xl mr-3">🅱️</span>
+                        Bootstrap
+                    </h2>
+                    <p class="text-purple-100 mt-2">El pionero de los frameworks CSS</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">🏗️ Filosofía: Component-Based</h3>
+                    <p class="text-gray-600 mb-4">
+                        Bootstrap sigue un enfoque basado en componentes predefinidos. Te proporciona
+                        elementos completos como cards, navbars, modals, etc., listos para usar.
+                    </p>
+
+                    <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-bold text-purple-800 mb-2">✨ Características:</h4>
+                        <ul class="text-purple-700 text-sm space-y-1">
+                            <li>• Grid system de 12 columnas</li>
+                            <li>• Componentes prediseñados</li>
+                            <li>• JavaScript integrado</li>
+                            <li>• Temas y customización</li>
+                            <li>• Mobile-first approach</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-100 p-3 rounded font-mono text-sm">
+                        <span class="text-green-600">&lt;button</span>
+                        <span class="text-blue-600">class=</span>
+                        <span class="text-red-600">"btn btn-primary btn-lg"</span>
+                        <span class="text-green-600">&gt;</span>
+                        <br>
+                        &nbsp;&nbsp;Botón Grande
+                        <br>
+                        <span class="text-green-600">&lt;/button&gt;</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tailwind -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+                <div class="bg-gradient-to-r from-cyan-500 to-cyan-600 p-6 text-white">
+                    <h2 class="text-3xl font-bold flex items-center">
+                        <span class="text-4xl mr-3">🌊</span>
+                        Tailwind CSS
+                    </h2>
+                    <p class="text-cyan-100 mt-2">El framework utility-first moderno</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">🎯 Filosofía: Utility-First</h3>
+                    <p class="text-gray-600 mb-4">
+                        Tailwind proporciona clases utilitarias de bajo nivel que puedes combinar
+                        para construir cualquier diseño directamente en tu HTML.
+                    </p>
+
+                    <div class="bg-cyan-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-bold text-cyan-800 mb-2">✨ Características:</h4>
+                        <ul class="text-cyan-700 text-sm space-y-1">
+                            <li>• Clases utilitarias atómicas</li>
+                            <li>• Altamente customizable</li>
+                            <li>• PurgeCSS integrado</li>
+                            <li>• Design tokens</li>
+                            <li>• Responsive design fácil</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-100 p-3 rounded font-mono text-sm">
+                        <span class="text-green-600">&lt;button</span>
+                        <span class="text-blue-600">class=</span>
+                        <span class="text-red-600">"bg-blue-500 text-white px-6 py-3 rounded-lg text-lg
+                            hover:bg-blue-600"</span>
+                        <span class="text-green-600">&gt;</span>
+                        <br>
+                        &nbsp;&nbsp;Botón Grande
+                        <br>
+                        <span class="text-green-600">&lt;/button&gt;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VS Divider -->
+        <div class="vs-divider text-center py-8 rounded-xl mb-8 fade-in-up">
+            <span class="text-6xl font-bold text-white">VS</span>
+        </div>
+
+        <!-- Comparación Detallada -->
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+                📊 Comparación Detallada
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 font-bold text-gray-700">Aspecto</th>
+                            <th class="p-4 font-bold text-purple-600">Bootstrap</th>
+                            <th class="p-4 font-bold text-cyan-600">Tailwind CSS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t">
+                            <td class="p-4 font-semibold">📦 Tamaño</td>
+                            <td class="p-4">~20KB (minified + gzipped)</td>
+                            <td class="p-4">Varía con PurgeCSS (~10KB típico)</td>
+                        </tr>
+                        <tr class="border-t bg-gray-50">
+                            <td class="p-4 font-semibold">🎨 Personalización</td>
+                            <td class="p-4">Variables CSS/Sass</td>
+                            <td class="p-4">Configuración JavaScript completa</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="p-4 font-semibold">📱 Responsivo</td>
+                            <td class="p-4">Breakpoints predefinidos</td>
+                            <td class="p-4">Prefijos responsive flexibles</td>
+                        </tr>
+                        <tr class="border-t bg-gray-50">
+                            <td class="p-4 font-semibold">⚡ JavaScript</td>
+                            <td class="p-4">Incluido (componentes interactivos)</td>
+                            <td class="p-4">No incluido (solo CSS)</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="p-4 font-semibold">📈 Curva de Aprendizaje</td>
+                            <td class="p-4">Más fácil para principiantes</td>
+                            <td class="p-4">Requiere conocimiento de CSS</td>
+                        </tr>
+                        <tr class="border-t bg-gray-50">
+                            <td class="p-4 font-semibold">🎯 Enfoque</td>
+                            <td class="p-4">Componentes listos para usar</td>
+                            <td class="p-4">Construir desde cero</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Ejemplos de Código -->
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+
+            <!-- Bootstrap Example -->
+            <div class="bg-white rounded-xl shadow-xl p-6 fade-in-up">
+                <h3 class="text-2xl font-bold text-purple-600 mb-4">🅱️ Ejemplo Bootstrap</h3>
+                <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono mb-4">
+                    <pre>&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;h5 class="card-title"&gt;Título&lt;/h5&gt;
+  &lt;/div&gt;
+  &lt;div class="card-body"&gt;
+    &lt;p class="card-text"&gt;Contenido...&lt;/p&gt;
+    &lt;button class="btn btn-primary"&gt;
+      Acción
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+                <p class="text-sm text-gray-600">
+                    ✨ <strong>Ventaja:</strong> Componente completo con una sola clase
+                </p>
+            </div>
+
+            <!-- Tailwind Example -->
+            <div class="bg-white rounded-xl shadow-xl p-6 fade-in-up">
+                <h3 class="text-2xl font-bold text-cyan-600 mb-4">🌊 Ejemplo Tailwind</h3>
+                <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono mb-4">
+                    <pre>&lt;div class="bg-white shadow-lg rounded-lg"&gt;
+  &lt;div class="bg-gray-50 px-6 py-4"&gt;
+    &lt;h5 class="text-xl font-bold"&gt;Título&lt;/h5&gt;
+  &lt;/div&gt;
+  &lt;div class="px-6 py-4"&gt;
+    &lt;p class="text-gray-600 mb-4"&gt;Contenido...&lt;/p&gt;
+    &lt;button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"&gt;
+      Acción
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+                <p class="text-sm text-gray-600">
+                    ✨ <strong>Ventaja:</strong> Control total sobre cada aspecto visual
+                </p>
+            </div>
+        </div>
+
+        <!-- Cuándo usar cada uno -->
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+
+            <div class="bg-white rounded-xl shadow-xl p-6 fade-in-up">
+                <h3 class="text-2xl font-bold text-purple-600 mb-4">🅱️ Usar Bootstrap cuando:</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Necesites desarrollo rápido</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Equipo con poca experiencia en CSS</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Prototipado rápido</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Aplicaciones administrativas</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Necesites componentes JavaScript</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-xl p-6 fade-in-up">
+                <h3 class="text-2xl font-bold text-cyan-600 mb-4">🌊 Usar Tailwind cuando:</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Necesites diseño único</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Control total del CSS</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Performance optimizada</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Sistemas de diseño custom</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 text-xl mr-3">✓</span>
+                        <span class="text-gray-700">Mantenibilidad a largo plazo</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Footer Navigation -->
+    <footer class="mt-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="bg-white rounded-xl shadow-xl p-6">
+                <div class="flex justify-between items-center">
+                    <a href="que-es-framework.html"
+                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+                        ← ¿Qué es Framework?
+                    </a>
+
+                    <a href="../index.html"
+                        class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                        🏠 Menú Principal
+                    </a>
+
+                    <a href="bootstrap-cdn.html"
+                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+                        Bootstrap CDN →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-8">
+            <p class="text-white text-lg">
+                📖 Preparado para la clase de <strong>Frameworks de Estilos</strong>
+            </p>
+            <p class="text-purple-100 mt-2">
+                CCL © Copyright 2025
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
