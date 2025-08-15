@@ -1,195 +1,227 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejercicio Bootstrap - Escuela de Desarrollo</title>
-  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-    .demo-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .demo-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-    .code-toggle {
-      background: #1e1e1e;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-top: 1rem;
-      display: none;
-    }
-    .code-toggle.show {
-      display: block;
-    }
-    .step-number {
-      background: linear-gradient(45deg, #007bff, #6610f2);
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .avatar-circle {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 10px;
-    }
-    .avatar-emoji {
-      font-size: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Bootstrap - Escuela de Desarrollo</title>
+    <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-down {
+            animation: slideDown 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .demo-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .code-toggle {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .code-toggle.show {
+            display: block;
+        }
+
+        .step-number {
+            background: linear-gradient(45deg, #007bff, #6610f2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .avatar-circle {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .avatar-emoji {
+            font-size: 2rem;
+        }
+    </style>
 </head>
+
 <body class="min-h-screen py-8">
-  
-  <!-- Navigation -->
-  <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-      <a href="clases-bootstrap.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
-        ← Clases Bootstrap
-      </a>
-      <a href="../tailwind/tailwind-cdn.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
-        Tailwind CDN →
-      </a>
-    </div>
-  </nav>
 
-  <div class="max-w-4xl mx-auto px-4">
-
-    <!-- Header -->
-    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center fade-in-up">
-      <h1 class="text-4xl font-bold text-gray-800 mb-4">🎯 Ejercicio Práctico: Tarjeta Bootstrap</h1>
-      <p class="text-xl text-gray-600">Crea una tarjeta de presentación profesional usando Bootstrap</p>
-    </div>
-
-  <!-- Content -->
-  <div class="max-w-6xl mx-auto px-4">
-    
-    <!-- Objetivo -->
-    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-        <span class="text-4xl mr-3">🎯</span>
-        Objetivo del Ejercicio
-      </h2>
-      
-      <div class="grid lg:grid-cols-2 gap-8">
-        <div>
-          <p class="text-gray-600 text-lg leading-relaxed mb-6">
-            Vamos a crear una <strong>tarjeta de presentación personal</strong> utilizando 
-            únicamente clases de Bootstrap. El resultado debe ser responsive y 
-            visualmente atractivo.
-          </p>
-          
-          <h3 class="text-xl font-bold text-gray-700 mb-4">📋 Requisitos:</h3>
-          <ul class="text-gray-600 space-y-2">
-            <li>✅ Usar el sistema de grid de Bootstrap</li>
-            <li>✅ Implementar una tarjeta con .card</li>
-            <li>✅ Incluir botones con diferentes estilos</li>
-            <li>✅ Aplicar utilidades de espaciado y color</li>
-            <li>✅ Hacer el diseño responsive</li>
-            <li>✅ Usar al menos 10 clases de Bootstrap</li>
-          </ul>
+    <!-- Navigation -->
+    <nav class="mb-8">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <a href="clases-bootstrap.html"
+                class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+                ← Clases Bootstrap
+            </a>
+            <a href="../tailwind/tailwind-cdn.html"
+                class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+                Tailwind CDN →
+            </a>
         </div>
-        
-        <div>
-          <h3 class="text-xl font-bold text-gray-700 mb-4">🎨 Resultado Final:</h3>
-          
-          <!-- Demo Card -->
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-10">
-                <div class="card demo-card shadow-lg border-0">
-                  <div class="card-header bg-primary text-white text-center py-4">
-                    <div class="bg-white rounded-circle d-inline-flex align-items-center justify-content-center avatar-circle">
-                      <span class="avatar-emoji">👨‍💻</span>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4">
+
+        <!-- Header -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center slide-down">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">🎯 Ejercicio Práctico: Tarjeta Bootstrap</h1>
+            <p class="text-xl text-gray-600">Crea una tarjeta de presentación profesional usando Bootstrap</p>
+        </div>
+
+        <!-- Content -->
+        <div class="max-w-6xl mx-auto px-4">
+
+            <!-- Objetivo -->
+            <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl mr-3">🎯</span>
+                    Objetivo del Ejercicio
+                </h2>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            Vamos a crear una <strong>tarjeta de presentación personal</strong> utilizando
+                            únicamente clases de Bootstrap. El resultado debe ser responsive y
+                            visualmente atractivo.
+                        </p>
+
+                        <h3 class="text-xl font-bold text-gray-700 mb-4">📋 Requisitos:</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>✅ Usar el sistema de grid de Bootstrap</li>
+                            <li>✅ Implementar una tarjeta con .card</li>
+                            <li>✅ Incluir botones con diferentes estilos</li>
+                            <li>✅ Aplicar utilidades de espaciado y color</li>
+                            <li>✅ Hacer el diseño responsive</li>
+                            <li>✅ Usar al menos 10 clases de Bootstrap</li>
+                        </ul>
                     </div>
-                    <h3 class="card-title mb-0">Juan Pérez</h3>
-                    <p class="mb-0 text-light">Desarrollador Full Stack</p>
-                  </div>
-                  <div class="card-body p-4">
-                    <p class="card-text text-muted mb-4">
-                      Desarrollador apasionado con 3 años de experiencia en tecnologías web modernas. 
-                      Especializado en React, Node.js y Bootstrap.
-                    </p>
-                    
-                    <div class="row text-center mb-4">
-                      <div class="col-4">
-                        <h5 class="text-primary mb-0">50+</h5>
-                        <small class="text-muted">Proyectos</small>
-                      </div>
-                      <div class="col-4">
-                        <h5 class="text-success mb-0">3</h5>
-                        <small class="text-muted">Años Exp.</small>
-                      </div>
-                      <div class="col-4">
-                        <h5 class="text-warning mb-0">15+</h5>
-                        <small class="text-muted">Tecnologías</small>
-                      </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-700 mb-4">🎨 Resultado Final:</h3>
+
+                        <!-- Demo Card -->
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="card demo-card shadow-lg border-0">
+                                        <div class="card-header bg-primary text-white text-center py-4">
+                                            <div
+                                                class="bg-white rounded-circle d-inline-flex align-items-center justify-content-center avatar-circle">
+                                                <span class="avatar-emoji">👨‍💻</span>
+                                            </div>
+                                            <h3 class="card-title mb-0">Juan Pérez</h3>
+                                            <p class="mb-0 text-light">Desarrollador Full Stack</p>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <p class="card-text text-muted mb-4">
+                                                Desarrollador apasionado con 3 años de experiencia en tecnologías web
+                                                modernas.
+                                                Especializado en React, Node.js y Bootstrap.
+                                            </p>
+
+                                            <div class="row text-center mb-4">
+                                                <div class="col-4">
+                                                    <h5 class="text-primary mb-0">50+</h5>
+                                                    <small class="text-muted">Proyectos</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h5 class="text-success mb-0">3</h5>
+                                                    <small class="text-muted">Años Exp.</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h5 class="text-warning mb-0">15+</h5>
+                                                    <small class="text-muted">Tecnologías</small>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <button class="btn btn-primary btn-sm">Contactar</button>
+                                                <button class="btn btn-outline-secondary btn-sm">Portfolio</button>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer bg-light text-center">
+                                            <small class="text-muted">Disponible para nuevos proyectos</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="d-flex justify-content-center gap-2">
-                      <button class="btn btn-primary btn-sm">Contactar</button>
-                      <button class="btn btn-outline-secondary btn-sm">Portfolio</button>
-                    </div>
-                  </div>
-                  <div class="card-footer bg-light text-center">
-                    <small class="text-muted">Disponible para nuevos proyectos</small>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Guía Paso a Paso -->
-    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-        <span class="text-4xl mr-3">📝</span>
-        Guía Paso a Paso
-      </h2>
-      
-      <div class="space-y-8">
-        
-        <!-- Paso 1 -->
-        <div class="d-flex gap-4">
-          <div class="step-number">1</div>
-          <div class="flex-grow-1">
-            <h3 class="text-xl font-bold text-gray-700 mb-3">Estructura HTML Básica</h3>
-            <p class="text-gray-600 mb-3">
-              Comienza creando la estructura HTML básica con Bootstrap CDN:
-            </p>
-            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step1')">
-              Ver Código 👀
-            </button>
-            
-            <div id="step1" class="code-toggle">
-              <div class="text-green-400 text-sm font-mono">
-<pre>&lt;!DOCTYPE html&gt;
+            <!-- Guía Paso a Paso -->
+            <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl mr-3">📝</span>
+                    Guía Paso a Paso
+                </h2>
+
+                <div class="space-y-8">
+
+                    <!-- Paso 1 -->
+                    <div class="d-flex gap-4">
+                        <div class="step-number">1</div>
+                        <div class="flex-grow-1">
+                            <h3 class="text-xl font-bold text-gray-700 mb-3">Estructura HTML Básica</h3>
+                            <p class="text-gray-600 mb-3">
+                                Comienza creando la estructura HTML básica con Bootstrap CDN:
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step1')">
+                                Ver Código 👀
+                            </button>
+
+                            <div id="step1" class="code-toggle">
+                                <div class="text-green-400 text-sm font-mono">
+                                    <pre>&lt;!DOCTYPE html&gt;
 &lt;html lang="es"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
@@ -204,26 +236,26 @@
   &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-              </div>
-            </div>
-          </div>
-        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Paso 2 -->
-        <div class="d-flex gap-4">
-          <div class="step-number">2</div>
-          <div class="flex-grow-1">
-            <h3 class="text-xl font-bold text-gray-700 mb-3">Crear el Contenedor y Grid</h3>
-            <p class="text-gray-600 mb-3">
-              Usa el sistema de grid de Bootstrap para centrar la tarjeta:
-            </p>
-            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step2')">
-              Ver Código 👀
-            </button>
-            
-            <div id="step2" class="code-toggle">
-              <div class="text-green-400 text-sm font-mono">
-<pre>&lt;body class="bg-light py-5"&gt;
+                    <!-- Paso 2 -->
+                    <div class="d-flex gap-4">
+                        <div class="step-number">2</div>
+                        <div class="flex-grow-1">
+                            <h3 class="text-xl font-bold text-gray-700 mb-3">Crear el Contenedor y Grid</h3>
+                            <p class="text-gray-600 mb-3">
+                                Usa el sistema de grid de Bootstrap para centrar la tarjeta:
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step2')">
+                                Ver Código 👀
+                            </button>
+
+                            <div id="step2" class="code-toggle">
+                                <div class="text-green-400 text-sm font-mono">
+                                    <pre>&lt;body class="bg-light py-5"&gt;
   &lt;div class="container"&gt;
     &lt;div class="row justify-content-center"&gt;
       &lt;div class="col-md-8 col-lg-6"&gt;
@@ -234,26 +266,26 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/body&gt;</pre>
-              </div>
-            </div>
-          </div>
-        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Paso 3 -->
-        <div class="d-flex gap-4">
-          <div class="step-number">3</div>
-          <div class="flex-grow-1">
-            <h3 class="text-xl font-bold text-gray-700 mb-3">Estructura de la Tarjeta</h3>
-            <p class="text-gray-600 mb-3">
-              Crea la estructura básica de la tarjeta con header, body y footer:
-            </p>
-            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step3')">
-              Ver Código 👀
-            </button>
-            
-            <div id="step3" class="code-toggle">
-              <div class="text-green-400 text-sm font-mono">
-<pre>&lt;div class="card shadow-lg border-0"&gt;
+                    <!-- Paso 3 -->
+                    <div class="d-flex gap-4">
+                        <div class="step-number">3</div>
+                        <div class="flex-grow-1">
+                            <h3 class="text-xl font-bold text-gray-700 mb-3">Estructura de la Tarjeta</h3>
+                            <p class="text-gray-600 mb-3">
+                                Crea la estructura básica de la tarjeta con header, body y footer:
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step3')">
+                                Ver Código 👀
+                            </button>
+
+                            <div id="step3" class="code-toggle">
+                                <div class="text-green-400 text-sm font-mono">
+                                    <pre>&lt;div class="card shadow-lg border-0"&gt;
   
   &lt;div class="card-header bg-primary text-white text-center py-4"&gt;
     &lt;!-- Avatar y título --&gt;
@@ -268,26 +300,26 @@
   &lt;/div&gt;
   
 &lt;/div&gt;</pre>
-              </div>
-            </div>
-          </div>
-        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Paso 4 -->
-        <div class="d-flex gap-4">
-          <div class="step-number">4</div>
-          <div class="flex-grow-1">
-            <h3 class="text-xl font-bold text-gray-700 mb-3">Header con Avatar y Título</h3>
-            <p class="text-gray-600 mb-3">
-              Agrega un avatar (emoji) y el nombre en el header:
-            </p>
-            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step4')">
-              Ver Código 👀
-            </button>
-            
-            <div id="step4" class="code-toggle">
-              <div class="text-green-400 text-sm font-mono">
-<pre>&lt;div class="card-header bg-primary text-white text-center py-4"&gt;
+                    <!-- Paso 4 -->
+                    <div class="d-flex gap-4">
+                        <div class="step-number">4</div>
+                        <div class="flex-grow-1">
+                            <h3 class="text-xl font-bold text-gray-700 mb-3">Header con Avatar y Título</h3>
+                            <p class="text-gray-600 mb-3">
+                                Agrega un avatar (emoji) y el nombre en el header:
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step4')">
+                                Ver Código 👀
+                            </button>
+
+                            <div id="step4" class="code-toggle">
+                                <div class="text-green-400 text-sm font-mono">
+                                    <pre>&lt;div class="card-header bg-primary text-white text-center py-4"&gt;
   &lt;div class="bg-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
        style="width: 80px; height: 80px;"&gt;
     &lt;span style="font-size: 2.5rem;"&gt;👨‍💻&lt;/span&gt;
@@ -295,26 +327,26 @@
   &lt;h3 class="card-title mb-1"&gt;Tu Nombre&lt;/h3&gt;
   &lt;p class="mb-0 text-light"&gt;Tu Profesión&lt;/p&gt;
 &lt;/div&gt;</pre>
-              </div>
-            </div>
-          </div>
-        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Paso 5 -->
-        <div class="d-flex gap-4">
-          <div class="step-number">5</div>
-          <div class="flex-grow-1">
-            <h3 class="text-xl font-bold text-gray-700 mb-3">Contenido del Body</h3>
-            <p class="text-gray-600 mb-3">
-              Agrega descripción, estadísticas y botones:
-            </p>
-            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step5')">
-              Ver Código 👀
-            </button>
-            
-            <div id="step5" class="code-toggle">
-              <div class="text-green-400 text-sm font-mono">
-<pre>&lt;div class="card-body p-4"&gt;
+                    <!-- Paso 5 -->
+                    <div class="d-flex gap-4">
+                        <div class="step-number">5</div>
+                        <div class="flex-grow-1">
+                            <h3 class="text-xl font-bold text-gray-700 mb-3">Contenido del Body</h3>
+                            <p class="text-gray-600 mb-3">
+                                Agrega descripción, estadísticas y botones:
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step5')">
+                                Ver Código 👀
+                            </button>
+
+                            <div id="step5" class="code-toggle">
+                                <div class="text-green-400 text-sm font-mono">
+                                    <pre>&lt;div class="card-body p-4"&gt;
   &lt;p class="card-text text-muted mb-4"&gt;
     Aquí va una breve descripción sobre ti y tus habilidades...
   &lt;/p&gt;
@@ -339,50 +371,50 @@
     &lt;button class="btn btn-outline-secondary btn-sm"&gt;Portfolio&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
-              </div>
-            </div>
-          </div>
-        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Paso 6 -->
-        <div class="d-flex gap-4">
-          <div class="step-number">6</div>
-          <div class="flex-grow-1">
-            <h3 class="text-xl font-bold text-gray-700 mb-3">Footer Informativo</h3>
-            <p class="text-gray-600 mb-3">
-              Finaliza con un footer que incluya información adicional:
-            </p>
-            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step6')">
-              Ver Código 👀
-            </button>
-            
-            <div id="step6" class="code-toggle">
-              <div class="text-green-400 text-sm font-mono">
-<pre>&lt;div class="card-footer bg-light text-center"&gt;
+                    <!-- Paso 6 -->
+                    <div class="d-flex gap-4">
+                        <div class="step-number">6</div>
+                        <div class="flex-grow-1">
+                            <h3 class="text-xl font-bold text-gray-700 mb-3">Footer Informativo</h3>
+                            <p class="text-gray-600 mb-3">
+                                Finaliza con un footer que incluya información adicional:
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="toggleCode('step6')">
+                                Ver Código 👀
+                            </button>
+
+                            <div id="step6" class="code-toggle">
+                                <div class="text-green-400 text-sm font-mono">
+                                    <pre>&lt;div class="card-footer bg-light text-center"&gt;
   &lt;small class="text-muted"&gt;
     Disponible para nuevos proyectos • Lima, Perú
   &lt;/small&gt;
 &lt;/div&gt;</pre>
-              </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Código Completo -->
-    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-        <span class="text-4xl mr-3">💻</span>
-        Código Completo
-      </h2>
-      
-      <p class="text-gray-600 mb-4">
-        Aquí tienes el código completo del ejercicio. Cópialo y personalízalo:
-      </p>
-      
-      <div class="bg-gray-900 text-green-400 p-6 rounded text-sm font-mono">
-<pre>&lt;!DOCTYPE html&gt;
+            <!-- Código Completo -->
+            <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl mr-3">💻</span>
+                    Código Completo
+                </h2>
+
+                <p class="text-gray-600 mb-4">
+                    Aquí tienes el código completo del ejercicio. Cópialo y personalízalo:
+                </p>
+
+                <div class="bg-gray-900 text-green-400 p-6 rounded text-sm font-mono">
+                    <pre>&lt;!DOCTYPE html&gt;
 &lt;html lang="es"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
@@ -453,132 +485,136 @@
   &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-      </div>
+                </div>
+            </div>
+
+            <!-- Variaciones -->
+            <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <span class="text-4xl mr-3">🎨</span>
+                    Ideas para Personalizar
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">🎯 Cambios de Color</h3>
+                        <ul class="text-blue-700 space-y-2 text-sm">
+                            <li>• Cambia <code>.bg-primary</code> por <code>.bg-success</code>, <code>.bg-danger</code>,
+                                etc.</li>
+                            <li>• Experimenta con <code>.text-primary</code>, <code>.text-warning</code></li>
+                            <li>• Usa <code>.bg-gradient</code> para fondos con gradiente</li>
+                            <li>• Prueba <code>.border-primary</code> para bordes de color</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">📱 Responsividad</h3>
+                        <ul class="text-green-700 space-y-2 text-sm">
+                            <li>• Cambia <code>.col-md-8</code> por otros tamaños</li>
+                            <li>• Usa <code>.d-md-block .d-none</code> para mostrar/ocultar</li>
+                            <li>• Prueba <code>.text-md-start .text-center</code></li>
+                            <li>• Experimenta con <code>.flex-md-row .flex-column</code></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-purple-800 mb-4">✨ Efectos Visuales</h3>
+                        <ul class="text-purple-700 space-y-2 text-sm">
+                            <li>• Añade <code>.shadow-sm</code>, <code>.shadow-lg</code></li>
+                            <li>• Usa <code>.rounded-pill</code> para bordes redondeados</li>
+                            <li>• Prueba <code>.border-0</code>, <code>.border-3</code></li>
+                            <li>• Experimenta con <code>.opacity-75</code></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-orange-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-orange-800 mb-4">🧩 Componentes Extra</h3>
+                        <ul class="text-orange-700 space-y-2 text-sm">
+                            <li>• Agrega <code>.badge</code> para etiquetas</li>
+                            <li>• Incluye <code>.progress</code> para barras de progreso</li>
+                            <li>• Usa <code>.list-group</code> para listas</li>
+                            <li>• Añade iconos con Bootstrap Icons</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desafío Extra -->
+            <div
+                class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-xl p-8 mb-8 fade-in-up text-white">
+                <h2 class="text-3xl font-bold mb-6 flex items-center">
+                    <span class="text-4xl mr-3">🚀</span>
+                    Desafío Extra
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">🎖️ Nivel Intermedio</h3>
+                        <ul class="space-y-2 text-purple-100">
+                            <li>✨ Agrega un carousel de proyectos</li>
+                            <li>✨ Incluye un modal con más información</li>
+                            <li>✨ Crea una galería de habilidades con progress bars</li>
+                            <li>✨ Añade tooltips a los botones</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">🏆 Nivel Avanzado</h3>
+                        <ul class="space-y-2 text-purple-100">
+                            <li>🔥 Implementa un sistema de tabs</li>
+                            <li>🔥 Agrega animaciones con CSS personalizado</li>
+                            <li>🔥 Crea un formulario de contacto</li>
+                            <li>🔥 Integra Bootstrap Icons</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <!-- Variaciones -->
-    <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-        <span class="text-4xl mr-3">🎨</span>
-        Ideas para Personalizar
-      </h2>
-      
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-blue-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-blue-800 mb-4">🎯 Cambios de Color</h3>
-          <ul class="text-blue-700 space-y-2 text-sm">
-            <li>• Cambia <code>.bg-primary</code> por <code>.bg-success</code>, <code>.bg-danger</code>, etc.</li>
-            <li>• Experimenta con <code>.text-primary</code>, <code>.text-warning</code></li>
-            <li>• Usa <code>.bg-gradient</code> para fondos con gradiente</li>
-            <li>• Prueba <code>.border-primary</code> para bordes de color</li>
-          </ul>
-        </div>
-        
-        <div class="bg-green-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-green-800 mb-4">📱 Responsividad</h3>
-          <ul class="text-green-700 space-y-2 text-sm">
-            <li>• Cambia <code>.col-md-8</code> por otros tamaños</li>
-            <li>• Usa <code>.d-md-block .d-none</code> para mostrar/ocultar</li>
-            <li>• Prueba <code>.text-md-start .text-center</code></li>
-            <li>• Experimenta con <code>.flex-md-row .flex-column</code></li>
-          </ul>
-        </div>
-        
-        <div class="bg-purple-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-purple-800 mb-4">✨ Efectos Visuales</h3>
-          <ul class="text-purple-700 space-y-2 text-sm">
-            <li>• Añade <code>.shadow-sm</code>, <code>.shadow-lg</code></li>
-            <li>• Usa <code>.rounded-pill</code> para bordes redondeados</li>
-            <li>• Prueba <code>.border-0</code>, <code>.border-3</code></li>
-            <li>• Experimenta con <code>.opacity-75</code></li>
-          </ul>
-        </div>
-        
-        <div class="bg-orange-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-orange-800 mb-4">🧩 Componentes Extra</h3>
-          <ul class="text-orange-700 space-y-2 text-sm">
-            <li>• Agrega <code>.badge</code> para etiquetas</li>
-            <li>• Incluye <code>.progress</code> para barras de progreso</li>
-            <li>• Usa <code>.list-group</code> para listas</li>
-            <li>• Añade iconos con Bootstrap Icons</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <!-- Footer Navigation -->
+    <footer class="mt-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="bg-white rounded-xl shadow-xl p-6">
+                <div class="flex justify-between items-center">
+                    <a href="clases-bootstrap.html"
+                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+                        ← Clases Bootstrap
+                    </a>
 
-    <!-- Desafío Extra -->
-    <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-xl p-8 mb-8 fade-in-up text-white">
-      <h2 class="text-3xl font-bold mb-6 flex items-center">
-        <span class="text-4xl mr-3">🚀</span>
-        Desafío Extra
-      </h2>
-      
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <h3 class="text-2xl font-bold mb-4">🎖️ Nivel Intermedio</h3>
-          <ul class="space-y-2 text-purple-100">
-            <li>✨ Agrega un carousel de proyectos</li>
-            <li>✨ Incluye un modal con más información</li>
-            <li>✨ Crea una galería de habilidades con progress bars</li>
-            <li>✨ Añade tooltips a los botones</li>
-          </ul>
+                    <a href="../index.html"
+                        class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                        🏠 Menú Principal
+                    </a>
+
+                    <a href="../tailwind/tailwind-cdn.html"
+                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+                        Tailwind CDN →
+                    </a>
+                </div>
+            </div>
         </div>
-        
-        <div>
-          <h3 class="text-2xl font-bold mb-4">🏆 Nivel Avanzado</h3>
-          <ul class="space-y-2 text-purple-100">
-            <li>🔥 Implementa un sistema de tabs</li>
-            <li>🔥 Agrega animaciones con CSS personalizado</li>
-            <li>🔥 Crea un formulario de contacto</li>
-            <li>🔥 Integra Bootstrap Icons</li>
-          </ul>
+
+        <div class="text-center mt-8">
+            <p class="text-white text-lg">
+                📖 Preparado para la clase de <strong>Frameworks de Estilos</strong>
+            </p>
+            <p class="text-purple-100 mt-2">
+                CCL © Copyright 2025
+            </p>
         </div>
-      </div>
-    </div>
+    </footer>
 
-    </div>
-  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Footer Navigation -->
-  <footer class="mt-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="bg-white rounded-xl shadow-xl p-6">
-        <div class="flex justify-between items-center">
-          <a href="clases-bootstrap.html"
-            class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
-            ← Clases Bootstrap
-          </a>
-
-          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
-            🏠 Menú Principal
-          </a>
-
-          <a href="../tailwind/tailwind-cdn.html"
-            class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
-            Tailwind CDN →
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-8">
-      <p class="text-white text-lg">
-        📖 Preparado para la clase de <strong>Frameworks de Estilos</strong>
-      </p>
-      <p class="text-purple-100 mt-2">
-        CCL © Copyright 2025
-      </p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script>
-    function toggleCode(stepId) {
-      const codeBlock = document.getElementById(stepId);
-      codeBlock.classList.toggle('show');
-    }
-  </script>
+    <script>
+        function toggleCode(stepId) {
+            const codeBlock = document.getElementById(stepId);
+            codeBlock.classList.toggle('show');
+        }
+    </script>
 
 </body>
+
 </html>

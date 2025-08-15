@@ -12,6 +12,22 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.8s ease-out forwards;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -52,21 +68,23 @@
 
 <body class="min-h-screen py-8">
 
-  <!-- Navigation -->
-  <nav class="mb-4">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-      <a href="../bootstrap/que-es-framework.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
-        ←  ¿Qué es un Framework?
-      </a>
-      <a href="../bootstrap/bootstrap-cdn.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
-         Integrar Bootstrap →
-      </a>
-    </div>
-  </nav>
+    <!-- Navigation -->
+    <nav class="mb-4">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <a href="../bootstrap/que-es-framework.html"
+                class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+                ← ¿Qué es un Framework?
+            </a>
+            <a href="../bootstrap/bootstrap-cdn.html"
+                class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+                Integrar Bootstrap →
+            </a>
+        </div>
+    </nav>
 
     <!-- Header -->
     <div class="flex justify-center">
-        <div class="max-w-6xl bg-white rounded-2xl shadow-2xl p-8 m-10 text-center fade-in-up w-full">
+        <div class="max-w-6xl w-full bg-white rounded-2xl shadow-2xl p-8 m-10 text-center slide-in">
             <h1 class="text-4xl font-bold text-gray-800 mb-4">⚔️ Bootstrap vs Tailwind CSS</h1>
             <p class="text-xl text-gray-600">La batalla de filosofías: Componentes vs Utilidades</p>
         </div>

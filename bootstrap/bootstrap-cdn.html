@@ -12,6 +12,22 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
+        @keyframes fadeInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .fade-in-left {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -71,7 +87,7 @@
 
     <!-- Header -->
     <div class="flex justify-center">
-        <div class="max-w-4xl mx-auto px-4 bg-white rounded-2xl shadow-2xl p-8 m-10 text-center fade-in-up w-full">
+        <div class="max-w-4xl w-full mx-auto px-4 bg-white rounded-2xl shadow-2xl p-8 m-10 text-center fade-in-left">
             <h1 class="text-4xl font-bold text-gray-800 mb-4">🅱️ Integrar Bootstrap con CDN</h1>
             <p class="text-xl text-gray-600"> La forma más rápida de empezar con Bootstrap</p>
         </div>
