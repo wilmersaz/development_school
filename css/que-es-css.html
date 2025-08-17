@@ -68,13 +68,13 @@
 
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
       <a href="../html/hola-mundo.html"
-        class="bg-white text-cyan-600 px-4 py-2 rounded-lg hover:bg-cyan-50 transition-colors">
+        class="bg-white text-cyan-600 px-4 py-2 rounded-lg hover:bg-cyan-50 transition-colors w-full sm:w-auto text-center">
         ← Tu Primer HTML
       </a>
       <a href="historia-css.html"
-        class="bg-white text-cyan-600 px-4 py-2 rounded-lg hover:bg-cyan-50 transition-colors">
+        class="bg-white text-cyan-600 px-4 py-2 rounded-lg hover:bg-cyan-50 transition-colors w-full sm:w-auto text-center">
         Historia del CSS →
       </a>
     </div>
@@ -229,7 +229,7 @@
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <h4 class="font-semibold mb-3">HTML (Contenido)</h4>
-            <pre class="text-sm bg-gray-800 text-green-400 p-4 rounded overflow-x-auto">
+            <pre class="text-sm bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
 &lt;h1&gt;Mi Título&lt;/h1&gt;
 &lt;p&gt;Este es un párrafo de ejemplo.&lt;/p&gt;
 &lt;button&gt;Hacer clic&lt;/button&gt;</pre>
@@ -237,7 +237,7 @@
 
           <div>
             <h4 class="font-semibold mb-3">CSS (Estilo)</h4>
-            <pre class="text-sm bg-gray-800 text-cyan-400 p-4 rounded overflow-x-auto">
+            <pre class="text-sm bg-gray-800 text-cyan-400 p-2 rounded overflow-x-auto">
 h1 {
   color: blue;
   font-size: 32px;
@@ -261,11 +261,9 @@ button {
         <div class="mt-6 p-4 bg-gradient-to-r from-orange-100 to-orange-200 rounded-lg">
           <h4 class="font-semibold text-orange-800 mb-2">Resultado Visual:</h4>
           <div class="bg-white p-4 rounded border">
-            <h1 style="color: blue; font-size: 32px; margin: 0 0 10px 0;">Mi Título</h1>
-            <p style="color: gray; line-height: 1.6; margin: 0 0 10px 0;">Este es un párrafo de ejemplo.</p>
-            <button
-              style="background-color: orange; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Hacer
-              clic</button>
+            <h1 class="text-blue-600 text-3xl font-bold mb-2">Mi Título</h1>
+            <p class="text-gray-600 leading-relaxed mb-2">Este es un párrafo de ejemplo.</p>
+            <button class="bg-orange-500 text-white px-5 py-2 rounded-md hover:bg-orange-600 transition-colors">Hacer clic</button>
           </div>
         </div>
       </div>
@@ -277,22 +275,22 @@ button {
   <footer class="mt-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white rounded-xl shadow-xl p-6">
-        <div class="flex justify-between items-center">
-          <a href="../html/hola-mundo.html"
-            class="bg-cyan-500 text-white px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors flex items-center">
-            ← Tu Primer HTML
-          </a>
+      <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+        <a href="../html/hola-mundo.html"
+        class="bg-cyan-500 text-white px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+        ← Tu Primer HTML
+        </a>
 
-          <a href="../index.html"
-            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
-            🏠 Menú Principal
-          </a>
+        <a href="../index.html"
+        class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+        🏠 Menú Principal
+        </a>
 
-          <a href="historia-css.html"
-            class="bg-cyan-500 text-white px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors flex items-center">
-            Historia del CSS →
-          </a>
-        </div>
+        <a href="historia-css.html"
+        class="bg-cyan-500 text-white px-6 py-3 rounded-lg hover:bg-cyan-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+        Historia del CSS →
+        </a>
+      </div>
       </div>
     </div>
 
