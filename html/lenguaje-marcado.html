@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,50 +11,85 @@
     body {
       background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
     }
+
     .code-highlight {
       background: linear-gradient(90deg, #ff6b6b, #ffa500);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
+
+      0%,
+      50% {
+        opacity: 1;
+      }
+
+      51%,
+      100% {
+        opacity: 0;
+      }
     }
+
     .cursor::after {
       content: '|';
       animation: blink 1s infinite;
     }
+
     @keyframes bounceIn {
-      0% { transform: scale(0.3); opacity: 0; }
-      50% { transform: scale(1.05); }
-      70% { transform: scale(0.9); }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0.3);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      70% {
+        transform: scale(0.9);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
+
     .bounce-in {
       animation: bounceIn 0.8s ease-out forwards;
     }
+
+    .html-output-minheight {
+      min-height: 128px;
+    }
   </style>
 </head>
+
 <body class="min-h-screen py-8">
-  
+
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
-      <a href="web-html.html" class="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition-colors text-center">
+    <div
+      class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+      <a href="web-html.html"
+        class="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition-colors text-center">
         ← web y HTML
       </a>
-      <a href="versiones-html.html" class="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition-colors text-center">
-        versiones  →
+      <a href="versiones-html.html"
+        class="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition-colors text-center">
+        versiones →
       </a>
     </div>
   </nav>
 
   <div class="max-w-5xl mx-auto px-4">
-    
+
     <!-- Header -->
     <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center bounce-in">
-      <h1 class="text-4xl font-bold text-gray-800 mb-4">🏷️ ¿Por qué es un <span class="code-highlight">Lenguaje de Marcado</span>?</h1>
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🏷️ ¿Por qué es un <span class="code-highlight">Lenguaje de
+          Marcado</span>?</h1>
       <p class="text-xl text-gray-600">Y por qué NO es un lenguaje de programación</p>
     </div>
 
@@ -69,7 +105,8 @@
             <div class="space-y-4">
               <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
                 <h4 class="font-semibold mb-2">📰 Origen Editorial</h4>
-                <p class="text-gray-700">En las imprentas, los editores "marcaban" los manuscritos con anotaciones para indicar formato:</p>
+                <p class="text-gray-700">En las imprentas, los editores "marcaban" los manuscritos con anotaciones para
+                  indicar formato:</p>
                 <ul class="mt-2 text-gray-600 text-sm">
                   <li>• Texto en <strong>negrita</strong></li>
                   <li>• Texto en <em>cursiva</em></li>
@@ -77,14 +114,15 @@
                   <li>• Espaciado y márgenes</li>
                 </ul>
               </div>
-              
+
               <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
                 <h4 class="font-semibold mb-2">💻 En Computación</h4>
-                <p class="text-gray-700">Los lenguajes de marcado usan <strong>etiquetas</strong> para definir la estructura y presentación del contenido.</p>
+                <p class="text-gray-700">Los lenguajes de marcado usan <strong>etiquetas</strong> para definir la
+                  estructura y presentación del contenido.</p>
               </div>
             </div>
           </div>
-          
+
           <div class="bg-gray-100 p-6 rounded-lg">
             <h4 class="font-semibold mb-4 text-center">Ejemplo Visual: Manuscrito Marcado</h4>
             <div class="bg-white p-4 rounded border-2 border-dashed border-gray-300">
@@ -121,7 +159,7 @@
       </div>
       <div class="p-8">
         <div class="space-y-6">
-          
+
           <!-- Ejemplo Comparativo -->
           <div class="grid md:grid-cols-2 gap-6">
             <div>
@@ -136,18 +174,26 @@
               </div>
               <p class="text-gray-600 text-sm mt-2">Sin estructura, sin formato</p>
             </div>
-            
+
             <div>
               <h3 class="text-xl font-bold text-gray-800 mb-4">🏷️ Documento HTML (Marcado)</h3>
-              <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto break-words break-all">
-              <div><span class="text-yellow-400">&lt;h1&gt;</span>Mi Pagina Web<span class="text-yellow-400">&lt;/h1&gt;</span></div>
-              <div><span class="text-yellow-400">&lt;p&gt;</span>Esta es una introduccion<span class="text-yellow-400">&lt;/p&gt;</span></div>
-              <div><span class="text-yellow-400">&lt;h2&gt;</span>Lista de elementos:<span class="text-yellow-400">&lt;/h2&gt;</span></div>
-              <div><span class="text-yellow-400">&lt;ul&gt;</span></div>
-              <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;li&gt;</span>Primer elemento<span class="text-yellow-400">&lt;/li&gt;</span></div>
-              <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;li&gt;</span>Segundo elemento<span class="text-yellow-400">&lt;/li&gt;</span></div>
-              <div><span class="text-yellow-400">&lt;/ul&gt;</span></div>
-              <div><span class="text-yellow-400">&lt;p&gt;</span>Contacto: <span class="text-yellow-400">&lt;a href="mailto:email@ejemplo.com"&gt;</span>email@ejemplo.com<span class="text-yellow-400">&lt;/a&gt;&lt;/p&gt;</span></div>
+              <div
+                class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto break-words break-all">
+                <div><span class="text-yellow-400">&lt;h1&gt;</span>Mi Pagina Web<span
+                    class="text-yellow-400">&lt;/h1&gt;</span></div>
+                <div><span class="text-yellow-400">&lt;p&gt;</span>Esta es una introduccion<span
+                    class="text-yellow-400">&lt;/p&gt;</span></div>
+                <div><span class="text-yellow-400">&lt;h2&gt;</span>Lista de elementos:<span
+                    class="text-yellow-400">&lt;/h2&gt;</span></div>
+                <div><span class="text-yellow-400">&lt;ul&gt;</span></div>
+                <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;li&gt;</span>Primer elemento<span
+                    class="text-yellow-400">&lt;/li&gt;</span></div>
+                <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;li&gt;</span>Segundo elemento<span
+                    class="text-yellow-400">&lt;/li&gt;</span></div>
+                <div><span class="text-yellow-400">&lt;/ul&gt;</span></div>
+                <div><span class="text-yellow-400">&lt;p&gt;</span>Contacto: <span class="text-yellow-400">&lt;a
+                    href="mailto:email@ejemplo.com"&gt;</span>email@ejemplo.com<span
+                    class="text-yellow-400">&lt;/a&gt;&lt;/p&gt;</span></div>
               </div>
               <p class="text-gray-600 text-sm mt-2">Con estructura y significado</p>
             </div>
@@ -164,7 +210,8 @@
                 <li>Primer elemento</li>
                 <li>Segundo elemento</li>
               </ul>
-              <p class="text-gray-700">Contacto: <a href="mailto:email@ejemplo.com" class="text-blue-600 underline">email@ejemplo.com</a></p>
+              <p class="text-gray-700">Contacto: <a href="mailto:email@ejemplo.com"
+                  class="text-blue-600 underline">email@ejemplo.com</a></p>
             </div>
           </div>
 
@@ -179,12 +226,12 @@
       </div>
       <div class="p-8">
         <div class="grid md:grid-cols-2 gap-8">
-          
+
           <!-- Diferencias Clave -->
           <div>
             <h3 class="text-xl font-bold text-gray-800 mb-4">🔍 Diferencias Fundamentales</h3>
             <div class="space-y-4">
-              
+
               <div class="border border-red-200 rounded-lg p-4">
                 <h4 class="font-semibold text-red-700 mb-2">🚫 HTML NO tiene:</h4>
                 <ul class="space-y-1 text-gray-700">
@@ -214,7 +261,7 @@
           <!-- Comparación Práctica -->
           <div>
             <h3 class="text-xl font-bold text-gray-800 mb-4">💡 Comparación Práctica</h3>
-            
+
             <div class="space-y-4">
               <div class="bg-red-50 p-4 rounded-lg">
                 <h4 class="font-semibold text-red-700 mb-2">Lenguaje de Programación (JavaScript)</h4>
@@ -252,86 +299,86 @@
       </div>
       <div class="p-8">
         <div class="grid md:grid-cols-2 gap-6">
-          
+
           <div>
             <h3 class="font-bold text-gray-800 mb-4">✏️ Escribe HTML aquí:</h3>
-            <textarea 
-              id="htmlInput" 
+            <textarea id="htmlInput"
               class="w-full h-64 p-4 border rounded-lg font-mono text-sm bg-gray-900 text-green-400"
-              placeholder="Escribe tu HTML aquí..."
-            >&lt;h1&gt;Mi Primer HTML&lt;/h1&gt;
+              placeholder="Escribe tu HTML aquí...">&lt;h1&gt;Mi Primer HTML&lt;/h1&gt;
 &lt;p&gt;Este es un &lt;strong&gt;párrafo&lt;/strong&gt; con texto &lt;em&gt;enfatizado&lt;/em&gt;.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Elemento 1&lt;/li&gt;
   &lt;li&gt;Elemento 2&lt;/li&gt;
 &lt;/ul&gt;</textarea>
           </div>
+          <div id="htmlOutput" class="w-full h-64 p-4 border rounded-lg bg-white overflow-auto html-output-minheight">
+            <h1>Mi Primer HTML</h1>
+            <p>Este es un <strong>párrafo</strong> con texto <em>enfatizado</em>.</p>
+            <ul>
+              <li>Elemento 1</li>
+              <li>Elemento 2</li>
+              <li>Elemento 2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
-          <div>
-            <h3 class="font-bold text-gray-800 mb-4">👀 Vista Previa:</h3>
-            <div 
-              id="htmlOutput" 
-              class="w-full h-64 p-4 border rounded-lg bg-white overflow-auto"
-              style="min-height: 128px;"
-            >
-              <h1>Mi Primer HTML</h1>
-              <p>Este es un <strong>párrafo</strong> con texto <em>enfatizado</em>.</p>
-              <ul>
-                <li>Elemento 1</li>
-                <li>Elemento 2</li>
+  <!-- Jerarquía de Etiquetas -->
+  <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+    <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 p-6 text-white">
+      <h2 class="text-3xl font-bold">🌳 Jerarquía de Etiquetas</h2>
+    </div>
+    <div class="p-8">
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Estructura Jerárquica</h3>
+          <div class="space-y-4">
+            <p class="text-gray-700">HTML funciona como un árbol familiar, donde las etiquetas pueden contener otras
+              etiquetas:</p>
+
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <h4 class="font-semibold mb-2">Terminología:</h4>
+              <ul class="space-y-1 text-gray-700">
+                <li>• <strong>Elemento padre:</strong> Contiene otros elementos</li>
+                <li>• <strong>Elemento hijo:</strong> Está dentro de otro elemento</li>
+                <li>• <strong>Elementos hermanos:</strong> Están al mismo nivel</li>
+                <li>• <strong>Anidamiento:</strong> Elementos dentro de elementos</li>
               </ul>
             </div>
           </div>
-
         </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-800 mb-4">🌲 Ejemplo Visual</h3>
+          <div class="bg-gray-900 text-white p-4 rounded-lg font-mono text-sm">
+            <div><span class="text-red-400">&lt;html&gt;</span> <span class="text-gray-500">← Raíz</span></div>
+            <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;head&gt;</span> <span class="text-gray-500">← Hijo de
+                html</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-green-400">&lt;title&gt;</span>Mi Página<span
+                class="text-green-400">&lt;/title&gt;</span></div>
+            <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;/head&gt;</span></div>
+            <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;body&gt;</span> <span class="text-gray-500">← Hermano de
+                head</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">&lt;h1&gt;</span>Título<span
+                class="text-blue-400">&lt;/h1&gt;</span> <span class="text-gray-500">← Hijo de body</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">&lt;p&gt;</span> <span class="text-gray-500">←
+                Hermano de h1</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texto con <span
+                class="text-purple-400">&lt;strong&gt;</span>énfasis<span class="text-purple-400">&lt;/strong&gt;</span>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">&lt;/p&gt;</span></div>
+            <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;/body&gt;</span></div>
+            <div><span class="text-red-400">&lt;/html&gt;</span></div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <!-- Jerarquía de Etiquetas -->
-    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
-      <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 p-6 text-white">
-        <h2 class="text-3xl font-bold">🌳 Jerarquía de Etiquetas</h2>
-      </div>
-      <div class="p-8">
-        <div class="grid md:grid-cols-2 gap-8">
-          
-          <div>
-            <h3 class="text-xl font-bold text-gray-800 mb-4">Estructura Jerárquica</h3>
-            <div class="space-y-4">
-              <p class="text-gray-700">HTML funciona como un árbol familiar, donde las etiquetas pueden contener otras etiquetas:</p>
-              
-              <div class="bg-gray-100 p-4 rounded-lg">
-                <h4 class="font-semibold mb-2">Terminología:</h4>
-                <ul class="space-y-1 text-gray-700">
-                  <li>• <strong>Elemento padre:</strong> Contiene otros elementos</li>
-                  <li>• <strong>Elemento hijo:</strong> Está dentro de otro elemento</li>
-                  <li>• <strong>Elementos hermanos:</strong> Están al mismo nivel</li>
-                  <li>• <strong>Anidamiento:</strong> Elementos dentro de elementos</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="text-xl font-bold text-gray-800 mb-4">🌲 Ejemplo Visual</h3>
-            <div class="bg-gray-900 text-white p-4 rounded-lg font-mono text-sm">
-              <div><span class="text-red-400">&lt;html&gt;</span> <span class="text-gray-500">← Raíz</span></div>
-              <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;head&gt;</span> <span class="text-gray-500">← Hijo de html</span></div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-green-400">&lt;title&gt;</span>Mi Página<span class="text-green-400">&lt;/title&gt;</span></div>
-              <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;/head&gt;</span></div>
-              <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;body&gt;</span> <span class="text-gray-500">← Hermano de head</span></div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">&lt;h1&gt;</span>Título<span class="text-blue-400">&lt;/h1&gt;</span> <span class="text-gray-500">← Hijo de body</span></div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">&lt;p&gt;</span> <span class="text-gray-500">← Hermano de h1</span></div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Texto con <span class="text-purple-400">&lt;strong&gt;</span>énfasis<span class="text-purple-400">&lt;/strong&gt;</span></div>
-              <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">&lt;/p&gt;</span></div>
-              <div>&nbsp;&nbsp;<span class="text-yellow-400">&lt;/body&gt;</span></div>
-              <div><span class="text-red-400">&lt;/html&gt;</span></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
+  </div>
   </div>
 
   <!-- Footer Navigation -->
@@ -339,19 +386,22 @@
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white rounded-xl shadow-xl p-6">
         <div class="flex flex-col gap-3 sm:flex-row sm:gap-0 sm:justify-between sm:items-center">
-          <a href="web-html.html" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center">
+          <a href="web-html.html"
+            class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center">
             ← web y HTML
           </a>
-          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center">
+          <a href="../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center">
             🏠 Menú Principal
           </a>
-          <a href="versiones-html.html" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center">
+          <a href="versiones-html.html"
+            class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center">
             versiones →
           </a>
         </div>
       </div>
     </div>
-    
+
     <div class="text-center mt-8">
       <p class="text-white text-lg">
         📖 Preparado para la clase de <strong>Introducción a HTML</strong>
@@ -363,7 +413,7 @@
   </footer>
 
   <script>
-        function updatePreview() {
+    function updatePreview() {
       const input = document.getElementById('htmlInput').value;
       const output = document.getElementById('htmlOutput');
       output.innerHTML = input;
@@ -373,7 +423,7 @@
     document.getElementById('htmlInput').addEventListener('input', updatePreview);
 
     // Animaciones en scroll
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -393,4 +443,5 @@
   </script>
 
 </body>
+
 </html>
