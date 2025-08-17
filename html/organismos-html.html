@@ -24,6 +24,9 @@
     .battle-animation {
       animation: battle 2s ease-in-out infinite;
     }
+    .battle-delay {
+      animation-delay: 0.5s;
+    }
   </style>
 </head>
 <body class="min-h-screen py-8">
@@ -232,10 +235,10 @@
                 <li>• <strong>Visión académica:</strong> Teoría sobre práctica</li>
               </ul>
             </div>
-          </div>
+          <div class="battle-animation battle-delay">
 
           <!-- Lado WHATWG -->
-          <div class="battle-animation" style="animation-delay: 0.5s;">
+          <div class="battle-animation battle-delay">
             <div class="bg-green-50 p-6 rounded-lg border-2 border-green-200">
               <div class="text-center mb-4">
                 <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-2">
