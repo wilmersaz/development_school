@@ -48,13 +48,13 @@
 
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
       <a href="lenguaje-marcado.html"
-        class="bg-white text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors">
+        class="bg-white text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors text-center">
         ← Lenguaje de Marcado
       </a>
       <a href="etiquetas-dom.html"
-        class="bg-white text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors">
+        class="bg-white text-pink-600 px-4 py-2 rounded-lg hover:bg-pink-50 transition-colors text-center">
         Etiquetas y DOM →
       </a>
     </div>
@@ -138,11 +138,13 @@
                 </div>
                 <div class="bg-orange-50 p-3 rounded">
                   <h4 class="font-semibold text-sm mb-2">Ejemplo de formulario:</h4>
-                  <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+<pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto break-words whitespace-pre-wrap">
 &lt;form action="/enviar"&gt;
   &lt;input type="text" name="nombre"&gt;
   &lt;input type="submit" value="Enviar"&gt;
-&lt;/form&gt;</pre>
+&lt;/form&gt;
+</pre>
+                </div>
                 </div>
               </div>
             </div>
@@ -214,7 +216,7 @@
                 </div>
                 <div class="bg-green-50 p-3 rounded">
                   <h4 class="font-semibold text-sm mb-2">Con CSS:</h4>
-                  <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+                  <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto break-words whitespace-pre-wrap">
 &lt;link rel="stylesheet" 
       href="estilos.css"&gt;
 &lt;div class="contenedor"&gt;
@@ -287,7 +289,7 @@
                 </div>
                 <div class="bg-indigo-50 p-3 rounded">
                   <h4 class="font-semibold text-sm mb-2">Ejemplo XHTML:</h4>
-                  <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+                  <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto break-words whitespace-pre-wrap">
 &lt;p&gt;Párrafo con &lt;br /&gt; salto&lt;/p&gt;
 &lt;img src="foto.jpg" alt="Foto" /&gt;
 &lt;input type="text" name="campo" /&gt;</pre>
@@ -338,7 +340,7 @@
     </div>
 
     <!-- La Gran Unificación HTML5 -->
-    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 mt-12">
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 m-4">
       <div class="bg-gradient-to-r from-red-600 to-purple-600 p-8 text-white text-center">
         <h2 class="text-4xl font-bold mb-4">🎯 2005: La Gran Unificación</h2>
         <p class="text-xl">HTML5 - El fin de la fragmentación</p>
@@ -457,7 +459,7 @@
     </div>
 
     <!-- Quote Final -->
-    <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl shadow-xl p-8 text-white text-center mb-8">
+    <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl shadow-xl p-8 text-white text-center m-4">
       <div class="text-6xl mb-4">🎯</div>
       <blockquote class="text-2xl italic mb-4">
         "HTML5 no es solo una nueva versión, es una nueva plataforma para aplicaciones web"
@@ -470,21 +472,21 @@
   <footer class="mt-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white rounded-xl shadow-xl p-6">
-        <div class="flex justify-between items-center">
-          <a href="lenguaje-marcado.html"
-            class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center">
-            ← Lenguaje de Marcado
-          </a>
+      <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+        <a href="lenguaje-marcado.html"
+        class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center justify-center">
+        ← Lenguaje de Marcado
+        </a>
 
-          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
-            🏠 Menú Principal
-          </a>
+        <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center">
+        🏠 Menú Principal
+        </a>
 
-          <a href="etiquetas-dom.html"
-            class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center">
-            Etiquetas y DOM →
-          </a>
-        </div>
+        <a href="etiquetas-dom.html"
+        class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center justify-center">
+        Etiquetas y DOM →
+        </a>
+      </div>
       </div>
     </div>
 
