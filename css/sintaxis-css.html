@@ -427,7 +427,7 @@ mi-clase {
             <h3 class="text-lg font-semibold text-gray-800 mb-3">HTML</h3>
             <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
               <span>📄 index.html</span>
-              <button onclick="copyCode()"
+              <button onclick="copyCode(event)"
                 class="bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
                 📋 Copiar
               </button>
@@ -558,7 +558,7 @@ mi-clase {
       });
     });
 
-    function copyCode() {
+    function copyCode(event) {
       const codeElement = document.getElementById('fullCode');
       const textContent = codeElement.textContent;
 

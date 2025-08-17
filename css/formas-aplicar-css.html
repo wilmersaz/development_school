@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,56 +11,83 @@
     body {
       background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     }
+
     @keyframes typewriter {
-      from { width: 0 }
-      to { width: 100% }
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
     }
+
     .typewriter {
       overflow: hidden;
       border-right: .15em solid amber;
-      white-space: nowrap;
       margin: 0 auto;
       animation: typewriter 3s steps(40, end);
     }
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
+
     .fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
     }
+
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-10px);
+      }
+
+      60% {
+        transform: translateY(-5px);
+      }
     }
+
     .bounce-animation {
       animation: bounce 2s infinite;
     }
   </style>
 </head>
+
 <body class="min-h-screen py-8">
-  
+
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-      <a href="sintaxis-css.html" class="bg-white text-amber-600 px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="sintaxis-css.html"
+        class="bg-white text-amber-600 px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors w-full sm:w-auto text-center">
         ← Sintaxis CSS
       </a>
-      <a href="selectores-css.html" class="bg-white text-amber-600 px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors">
+      <a href="selectores-css.html"
+        class="bg-white text-amber-600 px-4 py-2 rounded-lg hover:bg-amber-50 transition-colors w-full sm:w-auto text-center">
         Selectores CSS →
       </a>
     </div>
   </nav>
 
   <div class="max-w-4xl mx-auto px-4">
-    
+
     <!-- Header -->
     <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 fade-in-up">
       <h1 class="text-4xl font-bold text-gray-800 mb-4 typewriter">📝 3 Formas de Aplicar CSS</h1>
@@ -68,9 +96,9 @@
 
     <!-- Métodos Overview -->
     <div class="grid md:grid-cols-3 gap-6 mb-8">
-      
+
       <!-- En línea -->
-      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up bounce-animation">
         <div class="bg-gradient-to-r from-red-500 to-red-600 p-4 text-white text-center">
           <h2 class="text-xl font-bold">🎯 CSS En Línea</h2>
           <p class="text-red-100 text-sm">Inline CSS</p>
@@ -108,7 +136,7 @@
       </div>
 
       <!-- Externo -->
-      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up bounce-animation">
         <div class="bg-gradient-to-r from-green-500 to-green-600 p-4 text-white text-center">
           <h2 class="text-xl font-bold">🌐 CSS Externo</h2>
           <p class="text-green-100 text-sm">External CSS</p>
@@ -139,22 +167,22 @@
             <p class="text-gray-600 mb-4">
               Se aplica directamente en el elemento HTML usando el atributo <code>style</code>.
             </p>
-            
+
             <h4 class="font-semibold mb-2">Ejemplo:</h4>
-            <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
-&lt;h1 style="color: red; font-size: 32px;"&gt;
-  Título Rojo
-&lt;/h1&gt;
+            <pre class="text-sm rounded overflow-x-auto break-all whitespace-pre-wrap p-3 bg-[#272822] text-[#f8f8f2]">
+            <span class="text-[#f92672]">&lt;h1</span> <span class="text-[#a6e22e]">style=</span><span class="text-[#e6db74]">"color: red; font-size: 32px;"</span><span class="text-[#f92672]">&gt;</span>
+              <span class="text-[#f8f8f2]">Título Rojo</span>
+            <span class="text-[#f92672]">&lt;/h1&gt;</span>
 
-&lt;p style="background-color: yellow; padding: 10px;"&gt;
-  Párrafo con fondo amarillo
-&lt;/p&gt;
+            <span class="text-[#f92672]">&lt;p</span> <span class="text-[#a6e22e]">style=</span><span class="text-[#e6db74]">"background-color: yellow; padding: 10px;"</span><span class="text-[#f92672]">&gt;</span>
+              <span class="text-[#f8f8f2]">Párrafo con fondo amarillo</span>
+            <span class="text-[#f92672]">&lt;/p&gt;</span>
 
-&lt;div style="width: 200px; height: 100px; 
-           background-color: blue;"&gt;
-&lt;/div&gt;</pre>
+            <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">style=</span><span class="text-[#e6db74]">"width: 200px; height: 100px; background-color: blue;"</span><span class="text-[#f92672]">&gt;</span>
+            <span class="text-[#f92672]">&lt;/div&gt;</span>
+            </pre>
           </div>
-          
+
           <div>
             <h3 class="text-lg font-semibold text-gray-800 mb-3">Resultado Visual:</h3>
             <div class="bg-gray-100 p-4 rounded-lg">
@@ -170,7 +198,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="mt-6 grid md:grid-cols-2 gap-4">
           <div class="p-4 bg-green-50 border-l-4 border-green-400">
             <h4 class="font-semibold text-green-800 mb-2">✅ Ventajas:</h4>
@@ -180,7 +208,7 @@
               <li>• No necesita archivos externos</li>
             </ul>
           </div>
-          
+
           <div class="p-4 bg-red-50 border-l-4 border-red-400">
             <h4 class="font-semibold text-red-800 mb-2">❌ Desventajas:</h4>
             <ul class="text-sm text-red-700 space-y-1">
@@ -204,47 +232,57 @@
           <div>
             <h3 class="text-lg font-semibold text-gray-800 mb-3">¿Cómo se usa?</h3>
             <p class="text-gray-600 mb-4">
-              Se coloca dentro de la etiqueta <code>&lt;style&gt;</code> en el <code>&lt;head&gt;</code> del documento HTML.
+              Se coloca dentro de la etiqueta <code>&lt;style&gt;</code> en el <code>&lt;head&gt;</code> del documento
+              HTML.
             </p>
-            
+
             <h4 class="font-semibold mb-2">Ejemplo:</h4>
-            <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Mi Página&lt;/title&gt;
-  &lt;style&gt;
-    /* CSS Interno */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-    }
-    
-    h1 {
-      color: navy;
-      text-align: center;
-    }
-    
-    .destacado {
-      background-color: yellow;
-      padding: 15px;
-      border-radius: 5px;
-    }
-    
-    #especial {
-      color: red;
-      font-weight: bold;
-    }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Mi Título&lt;/h1&gt;
-  &lt;p class="destacado"&gt;Párrafo destacado&lt;/p&gt;
-  &lt;p id="especial"&gt;Texto especial&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
+            <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+              <span>📄 index.html</span>
+              <button onclick="copyCode(event)"
+                class="bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+                📋 Copiar
+              </button>
+            </div>
+            <pre id="fullCode"
+              class="text-sm overflow-x-auto break-all whitespace-pre-wrap p-3 bg-[#272822] text-[#f8f8f2]">
+<span class="text-[#f92672]">&lt;!DOCTYPE html&gt;</span>
+<span class="text-[#f92672]">&lt;html&gt;</span>
+<span class="text-[#f92672]">&lt;head&gt;</span>
+  <span class="text-[#f92672]">&lt;title&gt;</span><span class="text-[#f8f8f2]">Mi Página</span><span class="text-[#f92672]">&lt;/title&gt;</span>
+  <span class="text-[#f92672]">&lt;style&gt;</span>
+    <span class="text-[#75715e]">/* CSS Interno */</span>
+    <span class="text-[#a6e22e]">body</span> <span class="text-[#f8f8f2]">{</span>
+      <span class="text-[#a6e22e]">font-family</span>: <span class="text-[#e6db74]">Arial, sans-serif</span>;
+      <span class="text-[#a6e22e]">background-color</span>: <span class="text-[#e6db74]">#f0f0f0</span>;
+    <span class="text-[#f8f8f2]">}</span>
+
+    <span class="text-[#a6e22e]">h1</span> <span class="text-[#f8f8f2]">{</span>
+      <span class="text-[#a6e22e]">color</span>: <span class="text-[#e6db74]">navy</span>;
+      <span class="text-[#a6e22e]">text-align</span>: <span class="text-[#e6db74]">center</span>;
+    <span class="text-[#f8f8f2]">}</span>
+
+    <span class="text-[#a6e22e]">.destacado</span> <span class="text-[#f8f8f2]">{</span>
+      <span class="text-[#a6e22e]">background-color</span>: <span class="text-[#e6db74]">yellow</span>;
+      <span class="text-[#a6e22e]">padding</span>: <span class="text-[#e6db74]">15px</span>;
+      <span class="text-[#a6e22e]">border-radius</span>: <span class="text-[#e6db74]">5px</span>;
+    <span class="text-[#f8f8f2]">}</span>
+
+    <span class="text-[#a6e22e]">#especial</span> <span class="text-[#f8f8f2]">{</span>
+      <span class="text-[#a6e22e]">color</span>: <span class="text-[#e6db74]">red</span>;
+      <span class="text-[#a6e22e]">font-weight</span>: <span class="text-[#e6db74]">bold</span>;
+    <span class="text-[#f8f8f2]">}</span>
+  <span class="text-[#f92672]">&lt;/style&gt;</span>
+<span class="text-[#f92672]">&lt;/head&gt;</span>
+<span class="text-[#f92672]">&lt;body&gt;</span>
+  <span class="text-[#f92672]">&lt;h1&gt;</span><span class="text-[#f8f8f2]">Mi Título</span><span class="text-[#f92672]">&lt;/h1&gt;</span>
+  <span class="text-[#f92672]">&lt;p</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"destacado"</span><span class="text-[#f92672]">&gt;</span><span class="text-[#f8f8f2]">Párrafo destacado</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+  <span class="text-[#f92672]">&lt;p</span> <span class="text-[#a6e22e]">id=</span><span class="text-[#e6db74]">"especial"</span><span class="text-[#f92672]">&gt;</span><span class="text-[#f8f8f2]">Texto especial</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+<span class="text-[#f92672]">&lt;/body&gt;</span>
+<span class="text-[#f92672]">&lt;/html&gt;</span>
+</pre>
           </div>
-          
+
           <div>
             <h3 class="text-lg font-semibold text-gray-800 mb-3">Resultado Visual:</h3>
             <div class="bg-gray-200 p-4 rounded-lg" style="font-family: Arial, sans-serif;">
@@ -260,7 +298,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="mt-6 grid md:grid-cols-2 gap-4">
           <div class="p-4 bg-green-50 border-l-4 border-green-400">
             <h4 class="font-semibold text-green-800 mb-2">✅ Ventajas:</h4>
@@ -271,7 +309,7 @@
               <li>• Permite usar selectores y clases</li>
             </ul>
           </div>
-          
+
           <div class="p-4 bg-yellow-50 border-l-4 border-yellow-400">
             <h4 class="font-semibold text-yellow-800 mb-2">⚠️ Consideraciones:</h4>
             <ul class="text-sm text-yellow-700 space-y-1">
@@ -295,85 +333,92 @@
           <div>
             <h3 class="text-lg font-semibold text-gray-800 mb-3">¿Cómo se usa?</h3>
             <p class="text-gray-600 mb-4">
-              Se crea un archivo separado con extensión <code>.css</code> y se enlaza al HTML con <code>&lt;link&gt;</code>.
+              Se crea un archivo separado con extensión <code>.css</code> y se enlaza al HTML con
+              <code>&lt;link&gt;</code>.
             </p>
-            
+
             <h4 class="font-semibold mb-2">1. Crear archivo CSS (estilos.css):</h4>
-            <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto">
-/* estilos.css */
-body {
-  font-family: 'Helvetica', sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f8f9fa;
-}
+<pre class="text-sm rounded overflow-x-auto break-all whitespace-pre-wrap p-3 bg-[#272822] text-[#f8f8f2]">
+<span class="text-[#75715e]">/* estilos.css */</span>
+<span class="text-[#a6e22e]">body</span> <span class="text-[#f8f8f2]">{</span>
+  <span class="text-[#a6e22e]">font-family</span>: <span class="text-[#e6db74]">'Helvetica', sans-serif</span>;
+  <span class="text-[#a6e22e]">margin</span>: <span class="text-[#e6db74]">0</span>;
+  <span class="text-[#a6e22e]">padding</span>: <span class="text-[#e6db74]">20px</span>;
+  <span class="text-[#a6e22e]">background-color</span>: <span class="text-[#e6db74]">#f8f9fa</span>;
+<span class="text-[#f8f8f2]">}</span>
 
-.header {
-  background-color: #343a40;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-}
+<span class="text-[#a6e22e]">.header</span> <span class="text-[#f8f8f2]">{</span>
+  <span class="text-[#a6e22e]">background-color</span>: <span class="text-[#e6db74]">#343a40</span>;
+  <span class="text-[#a6e22e]">color</span>: <span class="text-[#e6db74]">white</span>;
+  <span class="text-[#a6e22e]">padding</span>: <span class="text-[#e6db74]">20px</span>;
+  <span class="text-[#a6e22e]">text-align</span>: <span class="text-[#e6db74]">center</span>;
+  <span class="text-[#a6e22e]">border-radius</span>: <span class="text-[#e6db74]">8px</span>;
+<span class="text-[#f8f8f2]">}</span>
 
-.content {
-  background-color: white;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+<span class="text-[#a6e22e]">.content</span> <span class="text-[#f8f8f2]">{</span>
+  <span class="text-[#a6e22e]">background-color</span>: <span class="text-[#e6db74]">white</span>;
+  <span class="text-[#a6e22e]">padding</span>: <span class="text-[#e6db74]">20px</span>;
+  <span class="text-[#a6e22e]">margin-top</span>: <span class="text-[#e6db74]">20px</span>;
+  <span class="text-[#a6e22e]">border-radius</span>: <span class="text-[#e6db74]">8px</span>;
+  <span class="text-[#a6e22e]">box-shadow</span>: <span class="text-[#e6db74]">0 2px 4px rgba(0,0,0,0.1)</span>;
+<span class="text-[#f8f8f2]">}</span>
 
-.button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+<span class="text-[#a6e22e]">.button</span> <span class="text-[#f8f8f2]">{</span>
+  <span class="text-[#a6e22e]">background-color</span>: <span class="text-[#e6db74]">#007bff</span>;
+  <span class="text-[#a6e22e]">color</span>: <span class="text-[#e6db74]">white</span>;
+  <span class="text-[#a6e22e]">padding</span>: <span class="text-[#e6db74]">10px 20px</span>;
+  <span class="text-[#a6e22e]">border</span>: <span class="text-[#e6db74]">none</span>;
+  <span class="text-[#a6e22e]">border-radius</span>: <span class="text-[#e6db74]">4px</span>;
+  <span class="text-[#a6e22e]">cursor</span>: <span class="text-[#e6db74]">pointer</span>;
+<span class="text-[#f8f8f2]">}</span>
 
-.button:hover {
-  background-color: #0056b3;
-}</pre>
+<span class="text-[#a6e22e]">.button:hover</span> <span class="text-[#f8f8f2]">{</span>
+  <span class="text-[#a6e22e]">background-color</span>: <span class="text-[#e6db74]">#0056b3</span>;
+<span class="text-[#f8f8f2]">}</span>
+</pre>
           </div>
-          
+
           <div>
             <h4 class="font-semibold mb-2">2. Enlazar en HTML:</h4>
-            <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded overflow-x-auto">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Mi Página&lt;/title&gt;
-  &lt;link rel="stylesheet" href="estilos.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div class="header"&gt;
-    &lt;h1&gt;Bienvenido&lt;/h1&gt;
-  &lt;/div&gt;
-  
-  &lt;div class="content"&gt;
-    &lt;p&gt;Este es el contenido principal.&lt;/p&gt;
-    &lt;button class="button"&gt;Hacer clic&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
-            
+  <pre class="text-sm rounded overflow-x-auto break-all whitespace-pre-wrap p-3 bg-[#272822] text-[#f8f8f2]">
+<span class="text-[#f92672]">&lt;!DOCTYPE html&gt;</span>
+<span class="text-[#f92672]">&lt;html&gt;</span>
+<span class="text-[#f92672]">&lt;head&gt;</span>
+  <span class="text-[#f92672]">&lt;title&gt;</span><span class="text-[#f8f8f2]">Mi Página</span><span class="text-[#f92672]">&lt;/title&gt;</span>
+  <span class="text-[#f92672]">&lt;link</span> <span class="text-[#a6e22e]">rel=</span><span class="text-[#e6db74]">"stylesheet"</span> <span class="text-[#a6e22e]">href=</span><span class="text-[#e6db74]">"estilos.css"</span><span class="text-[#f92672]">&gt;</span>
+<span class="text-[#f92672]">&lt;/head&gt;</span>
+<span class="text-[#f92672]">&lt;body&gt;</span>
+  <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"header"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;h1&gt;</span><span class="text-[#f8f8f2]">Bienvenido</span><span class="text-[#f92672]">&lt;/h1&gt;</span>
+  <span class="text-[#f92672]">&lt;/div&gt;</span>
+
+  <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"content"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;p&gt;</span><span class="text-[#f8f8f2]">Este es el contenido principal.</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+    <span class="text-[#f92672]">&lt;button</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"button"</span><span class="text-[#f92672]">&gt;</span><span class="text-[#f8f8f2]">Hacer clic</span><span class="text-[#f92672]">&lt;/button&gt;</span>
+  <span class="text-[#f92672]">&lt;/div&gt;</span>
+<span class="text-[#f92672]">&lt;/body&gt;</span>
+<span class="text-[#f92672]">&lt;/html&gt;</span>
+</pre>
+</div>
+
             <h4 class="font-semibold mb-2 mt-4">3. Resultado:</h4>
             <div class="bg-gray-100 p-4 rounded-lg">
-              <div style="background-color: #343a40; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 15px;">
+              <div
+                style="background-color: #343a40; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 15px;">
                 <h1 style="margin: 0; font-size: 20px;">Bienvenido</h1>
               </div>
-              <div style="background-color: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+              <div
+                style="background-color: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                 <p style="margin: 0 0 10px 0;">Este es el contenido principal.</p>
-                <button style="background-color: #007bff; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+                <button
+                  style="background-color: #007bff; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
                   Hacer clic
                 </button>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="mt-6 grid md:grid-cols-3 gap-4">
           <div class="p-4 bg-green-50 border-l-4 border-green-400">
             <h4 class="font-semibold text-green-800 mb-2">✅ Ventajas:</h4>
@@ -385,7 +430,7 @@ body {
               <li>• Trabajo en equipo más fácil</li>
             </ul>
           </div>
-          
+
           <div class="p-4 bg-blue-50 border-l-4 border-blue-400">
             <h4 class="font-semibold text-blue-800 mb-2">🎯 Casos de Uso:</h4>
             <ul class="text-sm text-blue-700 space-y-1">
@@ -396,7 +441,7 @@ body {
               <li>• Equipos de desarrollo</li>
             </ul>
           </div>
-          
+
           <div class="p-4 bg-yellow-50 border-l-4 border-yellow-400">
             <h4 class="font-semibold text-yellow-800 mb-2">⚠️ Consideraciones:</h4>
             <ul class="text-sm text-yellow-700 space-y-1">
@@ -411,12 +456,12 @@ body {
     </div>
 
     <!-- Comparación y Recomendaciones -->
-    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden m-4 fade-in-up">
       <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
         <h2 class="text-2xl font-bold">📊 Comparación y Recomendaciones</h2>
       </div>
       <div class="p-6">
-        
+
         <!-- Tabla Comparativa -->
         <div class="overflow-x-auto mb-6">
           <table class="w-full text-sm">
@@ -465,7 +510,7 @@ body {
 
         <!-- Recomendaciones -->
         <div class="grid md:grid-cols-3 gap-4">
-          
+
           <div class="p-4 bg-red-50 border-l-4 border-red-400">
             <h4 class="font-semibold text-red-800 mb-2">🎯 Usar CSS En Línea:</h4>
             <ul class="text-sm text-red-700 space-y-1">
@@ -475,7 +520,7 @@ body {
               <li>• Emails HTML</li>
             </ul>
           </div>
-          
+
           <div class="p-4 bg-blue-50 border-l-4 border-blue-400">
             <h4 class="font-semibold text-blue-800 mb-2">🏠 Usar CSS Interno:</h4>
             <ul class="text-sm text-blue-700 space-y-1">
@@ -485,7 +530,7 @@ body {
               <li>• Estilos muy específicos</li>
             </ul>
           </div>
-          
+
           <div class="p-4 bg-green-50 border-l-4 border-green-400">
             <h4 class="font-semibold text-green-800 mb-2">🌐 Usar CSS Externo:</h4>
             <ul class="text-sm text-green-700 space-y-1">
@@ -497,11 +542,12 @@ body {
             </ul>
           </div>
         </div>
-        
+
         <div class="mt-6 p-4 bg-purple-50 rounded-lg">
           <h4 class="font-semibold text-purple-800 mb-2">💡 Mejor Práctica:</h4>
           <p class="text-purple-700 text-sm">
-            <strong>Combinar métodos:</strong> Usa CSS externo como base, CSS interno para estilos específicos de página, 
+            <strong>Combinar métodos:</strong> Usa CSS externo como base, CSS interno para estilos específicos de
+            página,
             y CSS en línea solo para casos excepcionales o pruebas rápidas.
           </p>
         </div>
@@ -514,22 +560,25 @@ body {
   <footer class="mt-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white rounded-xl shadow-xl p-6">
-        <div class="flex justify-between items-center">
-          <a href="sintaxis-css.html" class="bg-amber-500 text-white px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors flex items-center">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="sintaxis-css.html"
+            class="bg-amber-500 text-white px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             ← Sintaxis CSS
           </a>
-          
-          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+
+          <a href="../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors justify-center w-full sm:w-auto text-center">
             🏠 Menú Principal
           </a>
-          
-          <a href="selectores-css.html" class="bg-amber-500 text-white px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors flex items-center">
+
+          <a href="selectores-css.html"
+            class="bg-amber-500 text-white px-6 py-3 rounded-lg hover:bg-amber-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             Selectores CSS →
           </a>
         </div>
       </div>
     </div>
-    
+
     <div class="text-center mt-8">
       <p class="text-white text-lg">
         📖 Preparado para la clase de <strong>Introducción a CSS</strong>
@@ -542,9 +591,9 @@ body {
 
   <script>
     // Agregar efectos adicionales
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const elements = document.querySelectorAll('.fade-in-up');
-      
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -558,7 +607,27 @@ body {
         observer.observe(element);
       });
     });
+    function copyCode(event) {
+      const codeElement = document.getElementById('fullCode');
+      const textContent = codeElement.textContent;
+
+      navigator.clipboard.writeText(textContent).then(() => {
+        const button = event.target;
+        const originalText = button.innerHTML;
+        button.innerHTML = '✅ ¡Copiado!';
+        button.classList.add('bg-green-600');
+        button.classList.remove('bg-blue-600');
+
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.classList.remove('bg-green-600');
+          button.classList.add('bg-blue-600');
+        }, 2000);
+      });
+    }
+
   </script>
 
 </body>
+
 </html>
