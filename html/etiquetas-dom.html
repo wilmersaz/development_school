@@ -57,13 +57,13 @@
 
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
       <a href="versiones-html.html"
-        class="bg-white text-teal-600 px-4 py-2 rounded-lg hover:bg-teal-50 transition-colors">
+        class="bg-white text-teal-600 px-4 py-2 rounded-lg hover:bg-teal-50 transition-colors w-full sm:w-auto text-center">
         ← Versiones de HTML
       </a>
       <a href="organismos-html.html"
-        class="bg-white text-teal-600 px-4 py-2 rounded-lg hover:bg-teal-50 transition-colors">
+        class="bg-white text-teal-600 px-4 py-2 rounded-lg hover:bg-teal-50 transition-colors w-full sm:w-auto text-center">
         W3C y WHATWG →
       </a>
     </div>
@@ -111,21 +111,21 @@
 
               <div class="bg-gray-100 p-3 rounded">
                 <h4 class="font-semibold text-sm mb-1">HTML 4.01 Strict:</h4>
-                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto break-words whitespace-pre-wrap">
 &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
     "http://www.w3.org/TR/html4/strict.dtd"&gt;</pre>
               </div>
 
               <div class="bg-gray-100 p-3 rounded">
                 <h4 class="font-semibold text-sm mb-1">XHTML 1.0:</h4>
-                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto">
+                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto break-words whitespace-pre-wrap">
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</pre>
               </div>
 
               <div class="bg-green-100 p-3 rounded border-2 border-green-400">
                 <h4 class="font-semibold text-sm mb-1 text-green-700">HTML5 (Actual):</h4>
-                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded">
+                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded overflow-x-auto break-words whitespace-pre-wrap">
 &lt;!DOCTYPE html&gt;</pre>
                 <p class="text-xs text-green-600 mt-1">¡Simple y universal!</p>
               </div>
@@ -339,7 +339,7 @@
 
             <div>
               <h4 class="font-semibold mb-3">📝 Código HTML:</h4>
-              <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto">
+              <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto break-words whitespace-pre-wrap">
 &lt;article&gt;
   &lt;header&gt;
     &lt;h1&gt;Mi Artículo&lt;/h1&gt;
@@ -397,23 +397,23 @@
     </div>
 
     <!-- Atributos -->
-    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-6">
       <div class="bg-gradient-to-r from-orange-600 to-red-600 p-6 text-white">
         <h2 class="text-3xl font-bold">🏷️ Atributos de las Etiquetas</h2>
       </div>
       <div class="p-8">
 
-        <div class="grid md:grid-cols-2 gap-8 mb-6">
+        <div class="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 class="text-xl font-bold text-gray-800 mb-4">¿Qué son los Atributos?</h3>
-            <p class="text-gray-700 mb-4">
+            <h3 class="text-xl font-bold text-gray-800 m-4">¿Qué son los Atributos?</h3>
+            <p class="text-gray-700 m-4">
               Los atributos proporcionan información adicional sobre los elementos HTML.
               Se escriben dentro de la etiqueta de apertura.
             </p>
 
             <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
               <h4 class="font-semibold mb-2">Estructura:</h4>
-              <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm">
+              <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto break-words break-all whitespace-pre-wrap">
 &lt;etiqueta atributo="valor"&gt;contenido&lt;/etiqueta&gt;</pre>
               <p class="text-gray-600 text-sm mt-2">
                 • <strong>Nombre:</strong> Identifica el atributo<br>
@@ -565,64 +565,62 @@
         </div>
 
         <!-- DOM Interactivo -->
-        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg mb-6">
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-2 rounded-lg mb-6">
           <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🎮 DOM Interactivo</h3>
           <p class="text-center text-gray-600 mb-4">Explora el árbol DOM</p>
 
-          <div class="bg-white p-6 rounded-lg border-2 border-gray-200">
             <!-- DOM Tree Visual -->
             <div id="dom-tree" class="font-mono text-sm">
-
-              <div class="dom-node bg-red-100 p-2 rounded mb-2 border-2 border-red-300" onclick="toggleNode(this)"
+              <div class="dom-node bg-red-100 p-1 rounded mb-2 border-2 border-red-300" onclick="toggleNode(this)"
                 data-info="Elemento raíz del documento HTML">
                 <span class="font-bold">📄 document</span>
                 <div class="ml-4 mt-2">
 
-                  <div class="dom-node bg-blue-100 p-2 rounded mb-2 border-2 border-blue-300" onclick="toggleNode(this)"
+                  <div class="dom-node bg-blue-100 p-1 rounded mb-2 border-2 border-blue-300" onclick="toggleNode(this)"
                     data-info="Elemento HTML principal que contiene todo el documento">
                     <span class="font-bold">🏠 &lt;html&gt;</span>
                     <div class="ml-4 mt-2">
 
-                      <div class="dom-node bg-green-100 p-2 rounded mb-2 border-2 border-green-300"
+                      <div class="dom-node bg-green-100 p-1 rounded mb-2 border-2 border-green-300"
                         onclick="toggleNode(this)" data-info="Contiene metadatos: título, estilos, scripts">
                         <span class="font-bold">🧠 &lt;head&gt;</span>
                         <div class="ml-4 mt-2">
-                          <div class="dom-node bg-yellow-100 p-2 rounded mb-1 border border-yellow-300"
+                          <div class="dom-node bg-yellow-100 p-1 rounded mb-1 border border-yellow-300"
                             onclick="toggleNode(this)" data-info="Título que aparece en la pestaña del navegador">
                             <span>📋 &lt;title&gt;</span> "Mi Página Web"
                           </div>
-                          <div class="dom-node bg-yellow-100 p-2 rounded mb-1 border border-yellow-300"
+                          <div class="dom-node bg-yellow-100 p-1 rounded mb-1 border border-yellow-300"
                             onclick="toggleNode(this)" data-info="Enlace a hoja de estilos CSS externa">
                             <span>🎨 &lt;link&gt;</span> rel="stylesheet"
                           </div>
                         </div>
                       </div>
 
-                      <div class="dom-node bg-green-100 p-2 rounded mb-2 border-2 border-green-300"
+                      <div class="dom-node bg-green-100 p-1 rounded mb-2 border-2 border-green-300"
                         onclick="toggleNode(this)" data-info="Contiene todo el contenido visible de la página">
                         <span class="font-bold">👁️ &lt;body&gt;</span>
                         <div class="ml-4 mt-2">
 
-                          <div class="dom-node bg-purple-100 p-2 rounded mb-2 border-2 border-purple-300"
+                          <div class="dom-node bg-purple-100 p-1 rounded mb-2 border-2 border-purple-300"
                             onclick="toggleNode(this)" data-info="Encabezado principal de la página">
                             <span class="font-bold">🎯 &lt;header&gt;</span>
                             <div class="ml-4 mt-2">
-                              <div class="dom-node bg-yellow-100 p-2 rounded mb-1 border border-yellow-300"
+                              <div class="dom-node bg-yellow-100 p-1 rounded mb-1 border border-yellow-300"
                                 onclick="toggleNode(this)" data-info="Título principal de nivel 1">
                                 <span>📢 &lt;h1&gt;</span> "Bienvenidos"
                               </div>
-                              <div class="dom-node bg-yellow-100 p-2 rounded mb-1 border border-yellow-300"
+                              <div class="dom-node bg-yellow-100 p-1 rounded mb-1 border border-yellow-300"
                                 onclick="toggleNode(this)" data-info="Párrafo con texto descriptivo">
                                 <span>📝 &lt;p&gt;</span> "Esta es mi página web"
                               </div>
                             </div>
                           </div>
 
-                          <div class="dom-node bg-purple-100 p-2 rounded mb-2 border-2 border-purple-300"
+                          <div class="dom-node bg-purple-100 p-1 rounded mb-2 border-2 border-purple-300"
                             onclick="toggleNode(this)" data-info="Contenido principal de la página">
                             <span class="font-bold">🎪 &lt;main&gt;</span>
                             <div class="ml-4 mt-2">
-                              <div class="dom-node bg-orange-100 p-2 rounded mb-1 border border-orange-300"
+                              <div class="dom-node bg-orange-100 p-1 rounded mb-1 border border-orange-300"
                                 onclick="toggleNode(this)" data-info="Sección de contenido agrupado">
                                 <span>📦 &lt;section&gt;</span>
                                 <div class="ml-4 mt-1">
@@ -663,7 +661,6 @@
                 información detallada</p>
             </div>
 
-          </div>
         </div>
 
         <!-- Jerarquía y Conceptos -->
@@ -683,7 +680,7 @@
 
           <div class="bg-green-50 p-4 rounded-lg">
             <h3 class="font-bold text-green-700 mb-3">⚡ Manipulación con JavaScript</h3>
-            <pre class="bg-gray-800 text-green-400 p-3 rounded text-xs overflow-x-auto">
+            <pre class="bg-gray-800 text-green-400 p-3 rounded text-xs overflow-x-auto break-words whitespace-pre-wrap">
 // Seleccionar elemento
 let titulo = document.getElementById('mi-titulo');
 
@@ -709,21 +706,22 @@ titulo.addEventListener('click', function() {
   <footer class="mt-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white rounded-xl shadow-xl p-6">
-        <div class="flex justify-between items-center">
-          <a href="versiones-html.html"
-            class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition-colors flex items-center">
-            ← Versiones de HTML
-          </a>
+      <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+        <a href="versiones-html.html"
+        class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+        ← Versiones de HTML
+        </a>
 
-          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
-            🏠 Menú Principal
-          </a>
+        <a href="../index.html"
+        class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+        🏠 Menú Principal
+        </a>
 
-          <a href="organismos-html.html"
-            class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition-colors flex items-center">
-            W3C y WHATWG →
-          </a>
-        </div>
+        <a href="organismos-html.html"
+        class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+        W3C y WHATWG →
+        </a>
+      </div>
       </div>
     </div>
 
