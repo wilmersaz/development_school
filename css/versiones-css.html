@@ -68,13 +68,13 @@
 
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
       <a href="historia-css.html"
-        class="bg-white text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition-colors">
+        class="bg-white text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition-colors w-full sm:w-auto text-center">
         ← Historia del CSS
       </a>
       <a href="sintaxis-css.html"
-        class="bg-white text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition-colors">
+        class="bg-white text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition-colors w-full sm:w-auto text-center">
         Sintaxis CSS →
       </a>
     </div>
@@ -92,7 +92,7 @@
     <div class="grid md:grid-cols-3 gap-6 mb-8">
 
       <!-- CSS1 -->
-      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up pulse-animation">
         <div class="bg-gradient-to-r from-red-500 to-red-600 p-4 text-white text-center">
           <h2 class="text-2xl font-bold">CSS1</h2>
           <p class="text-red-100">1996</p>
@@ -121,7 +121,7 @@
       </div>
 
       <!-- CSS2 -->
-      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up pulse-animation">
         <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 text-white text-center">
           <h2 class="text-2xl font-bold">CSS2</h2>
           <p class="text-blue-100">1998</p>
@@ -413,18 +413,19 @@
   <footer class="mt-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white rounded-xl shadow-xl p-6">
-        <div class="flex justify-between items-center">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
           <a href="historia-css.html"
-            class="bg-emerald-500 text-white px-6 py-3 rounded-lg hover:bg-emerald-600 transition-colors flex items-center">
+            class="bg-emerald-500 text-white px-6 py-3 rounded-lg hover:bg-emerald-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             ← Historia del CSS
           </a>
 
-          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+          <a href="../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             🏠 Menú Principal
           </a>
 
           <a href="sintaxis-css.html"
-            class="bg-emerald-500 text-white px-6 py-3 rounded-lg hover:bg-emerald-600 transition-colors flex items-center">
+            class="bg-emerald-500 text-white px-6 py-3 rounded-lg hover:bg-emerald-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             Sintaxis CSS →
           </a>
         </div>
