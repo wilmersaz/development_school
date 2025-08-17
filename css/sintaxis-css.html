@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,55 +11,82 @@
     body {
       background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
     }
+
     @keyframes typewriter {
-      from { width: 0 }
-      to { width: 100% }
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
     }
+
     .typewriter {
       overflow: hidden;
       border-right: .15em solid rose;
-      white-space: nowrap;
       margin: 0 auto;
       animation: typewriter 3s steps(40, end);
     }
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
+
     .fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
     }
+
     @keyframes highlight {
-      0%, 100% { background-color: transparent; }
-      50% { background-color: rgba(244, 63, 94, 0.2); }
+
+      0%,
+      100% {
+        background-color: transparent;
+      }
+
+      50% {
+        background-color: rgba(244, 63, 94, 0.2);
+      }
     }
+
     .highlight-animation {
       animation: highlight 2s ease-in-out infinite;
     }
+
+    .code-editor {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'Courier New', monospace;
+    }
   </style>
 </head>
+
 <body class="min-h-screen py-8">
-  
+
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-      <a href="versiones-css.html" class="bg-white text-rose-600 px-4 py-2 rounded-lg hover:bg-rose-50 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="versiones-css.html"
+        class="bg-white text-rose-600 px-4 py-2 rounded-lg hover:bg-rose-50 transition-colors w-full sm:w-auto text-center">
         ← Versiones de CSS
       </a>
-      <a href="formas-aplicar-css.html" class="bg-white text-rose-600 px-4 py-2 rounded-lg hover:bg-rose-50 transition-colors">
+      <a href="formas-aplicar-css.html"
+        class="bg-white text-rose-600 px-4 py-2 rounded-lg hover:bg-rose-50 transition-colors w-full sm:w-auto text-center">
         Formas de Aplicar CSS →
       </a>
     </div>
   </nav>
 
   <div class="max-w-4xl mx-auto px-4">
-    
+
     <!-- Header -->
     <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 fade-in-up">
       <h1 class="text-4xl font-bold text-gray-800 mb-4 typewriter">⚡ Anatomía de CSS</h1>
@@ -76,15 +104,15 @@
             <h3 class="text-xl font-semibold text-gray-800 mb-3">Anatomía de una Regla</h3>
             <div class="bg-gray-800 p-4 rounded-lg text-green-400 font-mono text-sm">
               <div class="mb-2">
-                <span class="text-yellow-400 highlight-animation">selector</span> 
+                <span class="text-yellow-400 highlight-animation">selector</span>
                 <span class="text-white">{</span>
               </div>
               <div class="ml-4 mb-2">
-                <span class="text-cyan-400 highlight-animation">propiedad</span><span class="text-white">:</span> 
+                <span class="text-cyan-400 highlight-animation">propiedad</span><span class="text-white">:</span>
                 <span class="text-orange-400 highlight-animation">valor</span><span class="text-white">;</span>
               </div>
               <div class="ml-4 mb-2">
-                <span class="text-cyan-400">otra-propiedad</span><span class="text-white">:</span> 
+                <span class="text-cyan-400">otra-propiedad</span><span class="text-white">:</span>
                 <span class="text-orange-400">otro-valor</span><span class="text-white">;</span>
               </div>
               <div>
@@ -92,7 +120,7 @@
               </div>
             </div>
           </div>
-          
+
           <div>
             <h3 class="text-xl font-semibold text-gray-800 mb-3">Componentes</h3>
             <div class="space-y-3">
@@ -100,12 +128,12 @@
                 <h4 class="font-semibold text-yellow-800">Selector</h4>
                 <p class="text-sm text-yellow-700">Indica QUÉ elementos se van a estilizar</p>
               </div>
-              
+
               <div class="p-3 bg-cyan-50 border-l-4 border-cyan-400">
                 <h4 class="font-semibold text-cyan-800">Propiedad</h4>
                 <p class="text-sm text-cyan-700">QUÉ característica se va a cambiar</p>
               </div>
-              
+
               <div class="p-3 bg-orange-50 border-l-4 border-orange-400">
                 <h4 class="font-semibold text-orange-800">Valor</h4>
                 <p class="text-sm text-orange-700">CÓMO se va a cambiar esa característica</p>
@@ -113,7 +141,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="mt-6 p-4 bg-rose-50 rounded-lg">
           <h4 class="font-semibold text-rose-800 mb-2">Ejemplo Real:</h4>
           <div class="bg-gray-800 p-3 rounded text-green-400 font-mono text-sm">
@@ -136,7 +164,7 @@
       </div>
       <div class="p-6">
         <div class="space-y-6">
-          
+
           <!-- Selector de Elemento -->
           <div class="border border-gray-200 rounded-lg p-4">
             <h3 class="text-lg font-semibold text-gray-800 mb-3">1. Selector de Elemento</h3>
@@ -181,7 +209,8 @@ p {
   color: red;
 }</pre>
                 <h4 class="font-semibold mb-2 mt-3">HTML:</h4>
-                <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
+                <pre
+                  class="text-sm bg-gray-800 text-blue-400 p-3 rounded overflow-x-auto break-words whitespace-pre-wrap">
 &lt;p class="destacado"&gt;Texto&lt;/p&gt;
 &lt;span class="error"&gt;Error&lt;/span&gt;</pre>
               </div>
@@ -204,7 +233,8 @@ p {
             <div class="grid md:grid-cols-2 gap-4">
               <div>
                 <h4 class="font-semibold mb-2">CSS:</h4>
-                <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
+                <pre
+                  class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto break-words whitespace-pre-wrap">
 #header {
   background-color: navy;
   color: white;
@@ -215,7 +245,8 @@ p {
   text-align: center;
 }</pre>
                 <h4 class="font-semibold mb-2 mt-3">HTML:</h4>
-                <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
+                <pre
+                  class="text-sm bg-gray-800 text-blue-400 p-3 rounded overflow-x-auto break-words whitespace-pre-wrap">
 &lt;header id="header"&gt;Cabecera&lt;/header&gt;
 &lt;footer id="footer"&gt;Pie&lt;/footer&gt;</pre>
               </div>
@@ -246,7 +277,7 @@ p {
       </div>
       <div class="p-6">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
+
           <!-- Propiedades de Texto -->
           <div class="bg-blue-50 p-4 rounded-lg">
             <h3 class="font-semibold text-blue-800 mb-3">📝 Texto</h3>
@@ -258,7 +289,7 @@ p {
               <li><code>line-height: 1.5;</code></li>
             </ul>
           </div>
-          
+
           <!-- Propiedades de Fondo -->
           <div class="bg-green-50 p-4 rounded-lg">
             <h3 class="font-semibold text-green-800 mb-3">🎨 Fondo</h3>
@@ -269,7 +300,7 @@ p {
               <li><code>background-repeat: no-repeat;</code></li>
             </ul>
           </div>
-          
+
           <!-- Propiedades de Caja -->
           <div class="bg-purple-50 p-4 rounded-lg">
             <h3 class="font-semibold text-purple-800 mb-3">📦 Caja</h3>
@@ -287,7 +318,7 @@ p {
         <div class="mt-8">
           <h3 class="text-xl font-semibold text-gray-800 mb-4">Tipos de Valores</h3>
           <div class="grid md:grid-cols-2 gap-6">
-            
+
             <div>
               <h4 class="font-semibold text-gray-700 mb-3">🔢 Valores Numéricos</h4>
               <div class="space-y-2 text-sm">
@@ -305,7 +336,7 @@ p {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h4 class="font-semibold text-gray-700 mb-3">🎨 Otros Valores</h4>
               <div class="space-y-2 text-sm">
@@ -335,7 +366,7 @@ p {
       </div>
       <div class="p-6">
         <div class="grid md:grid-cols-2 gap-6">
-          
+
           <div>
             <h3 class="text-lg font-semibold text-gray-800 mb-3">✅ Correcto</h3>
             <div class="bg-green-50 p-4 rounded-lg">
@@ -358,7 +389,7 @@ h1 {
               <li>• Comentarios con /* */</li>
             </ul>
           </div>
-          
+
           <div>
             <h3 class="text-lg font-semibold text-gray-800 mb-3">❌ Incorrecto</h3>
             <div class="bg-red-50 p-4 rounded-lg">
@@ -391,71 +422,84 @@ mi-clase {
         <h2 class="text-2xl font-bold">💻 Ejemplo Completo</h2>
       </div>
       <div class="p-6">
-        <div class="grid md:grid-cols-2 gap-6">
-          
+        <div class="gap-6">
           <div>
             <h3 class="text-lg font-semibold text-gray-800 mb-3">HTML</h3>
-            <pre class="text-sm bg-gray-800 text-blue-400 p-4 rounded overflow-x-auto">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Mi Página&lt;/title&gt;
-  &lt;style&gt;
-    /* CSS interno */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    
-    #titulo {
-      color: navy;
-      text-align: center;
-      border-bottom: 2px solid blue;
-    }
-    
-    .destacado {
-      background-color: lightyellow;
-      padding: 10px;
-      border-left: 4px solid gold;
-    }
-    
-    p {
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1 id="titulo"&gt;Mi Página Web&lt;/h1&gt;
-  &lt;p class="destacado"&gt;Este párrafo está destacado&lt;/p&gt;
-  &lt;p&gt;Este es un párrafo normal.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
-          </div>
-          
-          <div>
-            <h3 class="text-lg font-semibold text-gray-800 mb-3">Resultado Visual</h3>
-            <div class="bg-white border-2 border-gray-300 p-4 rounded-lg" style="font-family: Arial, sans-serif;">
-              <h1 style="color: navy; text-align: center; border-bottom: 2px solid blue; margin: 0 0 15px 0; font-size: 24px;">
-                Mi Página Web
-              </h1>
-              <p style="background-color: lightyellow; padding: 10px; border-left: 4px solid gold; line-height: 1.6; margin-bottom: 15px;">
-                Este párrafo está destacado
-              </p>
-              <p style="line-height: 1.6; margin-bottom: 15px;">
-                Este es un párrafo normal.
-              </p>
+            <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+              <span>📄 index.html</span>
+              <button onclick="copyCode()"
+                class="bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+                📋 Copiar
+              </button>
             </div>
-            
-            <div class="mt-4 p-3 bg-indigo-50 rounded-lg">
-              <h4 class="font-semibold text-indigo-800 text-sm">Explicación:</h4>
-              <ul class="text-indigo-700 text-xs space-y-1">
-                <li>• Selector ID (#titulo) para el título</li>
-                <li>• Selector de clase (.destacado) para el párrafo especial</li>
-                <li>• Selector de elemento (p) para todos los párrafos</li>
-                <li>• Múltiples propiedades por regla</li>
-              </ul>
+            <pre id="fullCode"
+              class="code-editor p-4 text-sm overflow-x-auto break-words break-all whitespace-pre-wrap">
+<span class="text-gray-500">&lt;!DOCTYPE html&gt;</span>
+<span class="text-red-400">&lt;html</span> <span class="text-blue-400">lang</span>=<span class="text-green-400">"es"</span><span class="text-red-400">&gt;</span>
+<span class="text-red-400">&lt;head&gt;</span>
+  <span class="text-red-400">&lt;meta</span> <span class="text-blue-400">charset</span>=<span class="text-green-400">"UTF-8"</span><span class="text-red-400">&gt;</span>
+  <span class="text-red-400">&lt;meta</span> <span class="text-blue-400">name</span>=<span class="text-green-400">"viewport"</span> <span class="text-blue-400">content</span>=<span class="text-green-400">"width=device-width, initial-scale=1.0"</span><span class="text-red-400">&gt;</span>
+  <span class="text-red-400">&lt;title&gt;</span><span class="text-white">Mi Primera Página Web</span><span class="text-red-400">&lt;/title&gt;</span>
+  <span class="text-red-400">&lt;style&gt;</span>
+    <span class="text-gray-500">/* CSS interno */</span>
+    <span class="text-pink-400">body</span> <span class="text-white">{</span>
+      <span class="text-yellow-300">font-family</span><span class="text-white">:</span> <span class="text-green-400">Arial, sans-serif</span><span class="text-white">;</span>
+      <span class="text-yellow-300">margin</span><span class="text-white">:</span> <span class="text-cyan-400">0</span><span class="text-white">;</span>
+      <span class="text-yellow-300">padding</span><span class="text-white">:</span> <span class="text-cyan-400">20px</span><span class="text-white">;</span>
+    <span class="text-white">}</span>
+    
+    <span class="text-pink-400">#titulo</span> <span class="text-white">{</span>
+      <span class="text-yellow-300">color</span><span class="text-white">:</span> <span class="text-green-400">navy</span><span class="text-white">;</span>
+      <span class="text-yellow-300">text-align</span><span class="text-white">:</span> <span class="text-green-400">center</span><span class="text-white">;</span>
+      <span class="text-yellow-300">border-bottom</span><span class="text-white">:</span> <span class="text-cyan-400">2px</span> <span class="text-white">solid</span> <span class="text-green-400">blue</span><span class="text-white">;</span>
+    <span class="text-white">}</span>
+    
+    <span class="text-pink-400">.destacado</span> <span class="text-white">{</span>
+      <span class="text-yellow-300">background-color</span><span class="text-white">:</span> <span class="text-green-400">lightyellow</span><span class="text-white">;</span>
+      <span class="text-yellow-300">padding</span><span class="text-white">:</span> <span class="text-cyan-400">10px</span><span class="text-white">;</span>
+      <span class="text-yellow-300">border-left</span><span class="text-white">:</span> <span class="text-cyan-400">4px</span> <span class="text-white">solid</span> <span class="text-green-400">gold</span><span class="text-white">;</span>
+    <span class="text-white">}</span>
+    
+    <span class="text-pink-400">p</span> <span class="text-white">{</span>
+      <span class="text-yellow-300">line-height</span><span class="text-white">:</span> <span class="text-cyan-400">1.6</span><span class="text-white">;</span>
+      <span class="text-yellow-300">margin-bottom</span><span class="text-white">:</span> <span class="text-cyan-400">15px</span><span class="text-white">;</span>
+    <span class="text-white">}</span>
+  <span class="text-red-400">&lt;/style&gt;</span>
+<span class="text-red-400">&lt;/head&gt;</span>
+  <span class="text-red-400">&lt;body&gt;</span>
+  <span class="text-red-400">&lt;h1</span> <span class="text-blue-400">id</span>=<span class="text-green-400">"titulo"</span><span class="text-red-400">&gt;</span><span class="text-white">Mi Página Web</span><span class="text-red-400">&lt;/h1&gt;</span>
+  <span class="text-red-400">&lt;p</span> <span class="text-blue-400">class</span>=<span class="text-green-400">"destacado"</span><span class="text-red-400">&gt;</span><span class="text-white">Este párrafo está destacado</span><span class="text-red-400">&lt;/p&gt;</span>
+  <span class="text-red-400">&lt;p&gt;</span><span class="text-white">Este es un párrafo normal.</span><span class="text-red-400">&lt;/p&gt;</span>
+  <span class="text-red-400">&lt;/body&gt;</span>
+<span class="text-red-400">&lt;/html&gt;</span></pre>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-800 m-3">Resultado Visual</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <div class="bg-white border-2 border-gray-300 p-4 rounded-lg" style="font-family: Arial, sans-serif;">
+                <h1
+                  style="color: navy; text-align: center; border-bottom: 2px solid blue; margin: 0 0 15px 0; font-size: 24px;">
+                  Mi Página Web
+                </h1>
+                <p
+                  style="background-color: lightyellow; padding: 10px; border-left: 4px solid gold; line-height: 1.6; margin-bottom: 15px;">
+                  Este párrafo está destacado
+                </p>
+                <p style="line-height: 1.6; margin-bottom: 15px;">
+                  Este es un párrafo normal.
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="mt-4 md:mt-0 p-3 bg-indigo-50 rounded-lg">
+                <h4 class="font-semibold text-indigo-800 text-sm">Explicación:</h4>
+                <ul class="text-indigo-700 text-xs space-y-1">
+                  <li>• Selector ID (#titulo) para el título</li>
+                  <li>• Selector de clase (.destacado) para el párrafo especial</li>
+                  <li>• Selector de elemento (p) para todos los párrafos</li>
+                  <li>• Múltiples propiedades por regla</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -468,22 +512,23 @@ mi-clase {
   <footer class="mt-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white rounded-xl shadow-xl p-6">
-        <div class="flex justify-between items-center">
-          <a href="versiones-css.html" class="bg-rose-500 text-white px-6 py-3 rounded-lg hover:bg-rose-600 transition-colors flex items-center">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="versiones-css.html"
+            class="bg-rose-500 text-white px-6 py-3 rounded-lg hover:bg-rose-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             ← Versiones de CSS
           </a>
-          
-          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+          <a href="../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             🏠 Menú Principal
           </a>
-          
-          <a href="formas-aplicar-css.html" class="bg-rose-500 text-white px-6 py-3 rounded-lg hover:bg-rose-600 transition-colors flex items-center">
+          <a href="formas-aplicar-css.html"
+            class="bg-rose-500 text-white px-6 py-3 rounded-lg hover:bg-rose-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             Formas de Aplicar CSS →
           </a>
         </div>
       </div>
     </div>
-    
+
     <div class="text-center mt-8">
       <p class="text-white text-lg">
         📖 Preparado para la clase de <strong>Introducción a CSS</strong>
@@ -496,9 +541,9 @@ mi-clase {
 
   <script>
     // Agregar efectos adicionales
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const elements = document.querySelectorAll('.fade-in-up');
-      
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -512,7 +557,28 @@ mi-clase {
         observer.observe(element);
       });
     });
+
+    function copyCode() {
+      const codeElement = document.getElementById('fullCode');
+      const textContent = codeElement.textContent;
+
+      navigator.clipboard.writeText(textContent).then(() => {
+        // Cambiar texto del botón temporalmente
+        const button = event.target;
+        const originalText = button.innerHTML;
+        button.innerHTML = '✅ ¡Copiado!';
+        button.classList.add('bg-green-600');
+        button.classList.remove('bg-blue-600');
+
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.classList.remove('bg-green-600');
+          button.classList.add('bg-blue-600');
+        }, 2000);
+      });
+    }
   </script>
 
 </body>
+
 </html>
