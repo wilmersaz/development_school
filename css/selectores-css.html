@@ -68,12 +68,13 @@
 
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
       <a href="formas-aplicar-css.html"
-        class="bg-white text-lime-600 px-4 py-2 rounded-lg hover:bg-lime-50 transition-colors">
+        class="bg-white text-lime-600 px-4 py-2 rounded-lg hover:bg-lime-50 transition-colors w-full sm:w-auto text-center">
         ← Formas de Aplicar CSS
       </a>
-      <a href="../bootstrap/que-es-framework.html" class="bg-white text-lime-600 px-4 py-2 rounded-lg hover:bg-lime-50 transition-colors">
+      <a href="../bootstrap/que-es-framework.html"
+        class="bg-white text-lime-600 px-4 py-2 rounded-lg hover:bg-lime-50 transition-colors w-full sm:w-auto text-center">
         Qué es un framework →
       </a>
     </div>
@@ -132,7 +133,7 @@
       <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
         <h2 class="text-2xl font-bold">🔤 Selectores Básicos</h2>
       </div>
-      <div class="p-6 space-y-6">
+      <div class="p-2 space-y-6">
 
         <!-- Selector de Elemento -->
         <div class="border border-gray-200 rounded-lg p-4">
@@ -140,109 +141,124 @@
           <div class="grid md:grid-cols-3 gap-4">
             <div>
               <h4 class="font-semibold mb-2">CSS:</h4>
-              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
-h1 {
-  color: blue;
-  font-size: 32px;
-}
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto whitespace-pre-wrap w-full">
+<code>
+<span class="text-purple-400">h1</span> <span class="text-white">{</span>
+&nbsp;&nbsp;<span class="text-cyan-400">color</span><span class="text-white">:</span> <span class="text-yellow-400">blue</span><span class="text-white">;</span>
+&nbsp;&nbsp;<span class="text-cyan-400">font-size</span><span class="text-white">:</span> <span class="text-yellow-400">32px</span><span class="text-white">;</span>
+<span class="text-white">}</span>
 
-p {
-  color: gray;
-  line-height: 1.6;
-}
+<span class="text-purple-400">p</span> <span class="text-white">{</span>
+&nbsp;&nbsp;<span class="text-cyan-400">color</span><span class="text-white">:</span> <span class="text-yellow-400">gray</span><span class="text-white">;</span>
+&nbsp;&nbsp;<span class="text-cyan-400">line-height</span><span class="text-white">:</span> <span class="text-yellow-400">1.6</span><span class="text-white">;</span>
+<span class="text-white">}</span>
 
-div {
-  background-color: lightyellow;
-  padding: 10px;
-}</pre>
+<span class="text-purple-400">div</span> <span class="text-white">{</span>
+&nbsp;&nbsp;<span class="text-cyan-400">background-color</span><span class="text-white">:</span> <span class="text-yellow-400">lightyellow</span><span class="text-white">;</span>
+&nbsp;&nbsp;<span class="text-cyan-400">padding</span><span class="text-white">:</span> <span class="text-yellow-400">10px</span><span class="text-white">;</span>
+<span class="text-white">}</span>
+</code>
+</pre>
             </div>
 
             <div>
               <h4 class="font-semibold mb-2">HTML:</h4>
-              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
-&lt;h1&gt;Título Principal&lt;/h1&gt;
-&lt;h1&gt;Otro Título&lt;/h1&gt;
-&lt;p&gt;Párrafo uno&lt;/p&gt;
-&lt;p&gt;Párrafo dos&lt;/p&gt;
-&lt;div&gt;Un div&lt;/div&gt;
-&lt;div&gt;Otro div&lt;/div&gt;</pre>
-            </div>
-
-            <div>
-              <h4 class="font-semibold mb-2">Resultado:</h4>
-              <div class="bg-white p-3 border rounded text-sm">
-                <h1 style="color: blue; font-size: 24px; margin: 0 0 8px 0;">Título Principal</h1>
-                <h1 style="color: blue; font-size: 24px; margin: 0 0 8px 0;">Otro Título</h1>
-                <p style="color: gray; line-height: 1.6; margin: 0 0 8px 0;">Párrafo uno</p>
-                <p style="color: gray; line-height: 1.6; margin: 0 0 8px 0;">Párrafo dos</p>
-                <div style="background-color: lightyellow; padding: 10px; margin: 0 0 4px 0;">Un div</div>
-                <div style="background-color: lightyellow; padding: 10px; margin: 0;">Otro div</div>
-              </div>
-            </div>
-          </div>
-          <p class="text-gray-600 text-sm mt-3">
-            <strong>Características:</strong> Selecciona TODOS los elementos del mismo tipo. No usa símbolos especiales.
-          </p>
-        </div>
-
-        <!-- Selector de Clase -->
-        <div class="border border-gray-200 rounded-lg p-4">
-          <h3 class="text-lg font-semibold text-gray-800 mb-3">2. Selector de Clase (.)</h3>
-          <div class="grid md:grid-cols-3 gap-4">
-            <div>
-              <h4 class="font-semibold mb-2">CSS:</h4>
-              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
-.destacado {
-  background-color: yellow;
-  font-weight: bold;
-  padding: 5px;
-}
-
-.error {
-  color: red;
-  border: 2px solid red;
-  padding: 10px;
-}
-
-.info {
-  color: blue;
-  background-color: lightblue;
-}</pre>
-            </div>
-
-            <div>
-              <h4 class="font-semibold mb-2">HTML:</h4>
-              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
-&lt;p class="destacado"&gt;
-  Párrafo destacado
-&lt;/p&gt;
-
-&lt;div class="error"&gt;
-  Mensaje de error
-&lt;/div&gt;
-
-&lt;span class="info"&gt;
-  Información
-&lt;/span&gt;
-
-&lt;p class="destacado info"&gt;
-  Múltiples clases
-&lt;/p&gt;</pre>
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto">
+<code>
+<span class="text-green-400">&lt;h1&gt;</span><span class="text-white">Título Principal</span><span class="text-green-400">&lt;/h1&gt;</span>
+<span class="text-green-400">&lt;h1&gt;</span><span class="text-white">Otro Título</span><span class="text-green-400">&lt;/h1&gt;</span>
+<span class="text-green-400">&lt;p&gt;</span><span class="text-white">Párrafo uno</span><span class="text-green-400">&lt;/p&gt;</span>
+<span class="text-green-400">&lt;p&gt;</span><span class="text-white">Párrafo dos</span><span class="text-green-400">&lt;/p&gt;</span>
+<span class="text-green-400">&lt;div&gt;</span><span class="text-white">Un div</span><span class="text-green-400">&lt;/div&gt;</span>
+<span class="text-green-400">&lt;div&gt;</span><span class="text-white">Otro div</span><span class="text-green-400">&lt;/div&gt;</span>
+</code>
+</pre>
             </div>
 
             <div>
               <h4 class="font-semibold mb-2">Resultado:</h4>
               <div class="bg-white p-3 border rounded text-sm space-y-2">
-                <p style="background-color: yellow; font-weight: bold; padding: 5px; margin: 0;">
+                <h1 class="text-blue-600 text-2xl font-bold m-0 mb-2">Título Principal</h1>
+                <h1 class="text-blue-600 text-2xl font-bold m-0 mb-2">Otro Título</h1>
+                <p class="text-gray-500 leading-relaxed m-0 mb-2">Párrafo uno</p>
+                <p class="text-gray-500 leading-relaxed m-0 mb-2">Párrafo dos</p>
+                <div class="bg-yellow-100 p-2 mb-1">Un div</div>
+                <div class="bg-yellow-100 p-2">Otro div</div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-gray-600 text-sm mt-3">
+            <strong>Características:</strong> Selecciona TODOS los elementos del mismo tipo. No usa símbolos especiales.
+          </p>
+        </div>
+      </div>
+
+      <!-- Selector de Clase -->
+      <div class="p-2 space-y-6">
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h3 class="text-lg font-semibold text-gray-800 mb-3">2. Selector de Clase (.)</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div>
+              <h4 class="font-semibold mb-2">CSS:</h4>
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto">
+<code>
+<span class="text-pink-400">.destacado</span> <span class="text-white">{</span>
+  <span class="text-green-400">background-color</span><span class="text-white">:</span> <span class="text-yellow-300">yellow</span><span class="text-white">;</span>
+  <span class="text-green-400">font-weight</span><span class="text-white">:</span> <span class="text-yellow-300">bold</span><span class="text-white">;</span>
+  <span class="text-green-400">padding</span><span class="text-white">:</span> <span class="text-yellow-300">5px</span><span class="text-white">;</span>
+<span class="text-white">}</span>
+
+<span class="text-pink-400">.error</span> <span class="text-white">{</span>
+  <span class="text-green-400">color</span><span class="text-white">:</span> <span class="text-yellow-300">red</span><span class="text-white">;</span>
+  <span class="text-green-400">border</span><span class="text-white">:</span> <span class="text-yellow-300">2px solid red</span><span class="text-white">;</span>
+  <span class="text-green-400">padding</span><span class="text-white">:</span> <span class="text-yellow-300">10px</span><span class="text-white">;</span>
+<span class="text-white">}</span>
+
+<span class="text-pink-400">.info</span> <span class="text-white">{</span>
+  <span class="text-green-400">color</span><span class="text-white">:</span> <span class="text-yellow-300">blue</span><span class="text-white">;</span>
+  <span class="text-green-400">background-color</span><span class="text-white">:</span> <span class="text-yellow-300">lightblue</span><span class="text-white">;</span>
+<span class="text-white">}</span>
+</code>
+</pre>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-2">HTML:</h4>
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto whitespace-pre">
+<code>
+<span class="text-[#f92672]">&lt;p</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"destacado"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-white">Párrafo destacado</span>
+<span class="text-[#f92672]">&lt;/p&gt;</span>
+
+<span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"error"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-white">Mensaje de error</span>
+<span class="text-[#f92672]">&lt;/div&gt;</span>
+
+<span class="text-[#f92672]">&lt;span</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"info"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-white">Información</span>
+<span class="text-[#f92672]">&lt;/span&gt;</span>
+
+<span class="text-[#f92672]">&lt;p</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"destacado info"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-white">Múltiples clases</span>
+<span class="text-[#f92672]">&lt;/p&gt;</span>
+</code>
+</pre>
+
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Resultado:</h4>
+              <div class="bg-white p-3 border rounded text-sm space-y-2">
+                <p class="bg-yellow-300 font-bold px-2 py-1 m-0 rounded">
                   Párrafo destacado
                 </p>
-                <div style="color: red; border: 2px solid red; padding: 10px; margin: 10px;">
+                <div class="text-red-600 border-2 border-red-600 px-4 py-2 my-2 rounded">
                   Mensaje de error
                 </div>
-                <span style="color: blue; background-color: lightblue; padding: 2px;">
+                <span class="text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block mt-2 mb-2">
                   Información
                 </span>
-                <p style="background-color: lightblue; color: blue; font-weight: bold; padding: 5px; margin: 0;">
+                <p class="bg-blue-100 text-blue-600 font-bold px-2 py-1 m-0 rounded">
                   Múltiples clases
                 </p>
               </div>
@@ -253,62 +269,70 @@ div {
             puede tener múltiples clases.
           </p>
         </div>
+      </div>
 
-        <!-- Selector de ID -->
+      <!-- Selector de ID -->
+      <div class="p-2 space-y-6">
         <div class="border border-gray-200 rounded-lg p-4">
           <h3 class="text-lg font-semibold text-gray-800 mb-3">3. Selector de ID (#)</h3>
           <div class="grid md:grid-cols-3 gap-4">
             <div>
               <h4 class="font-semibold mb-2">CSS:</h4>
-              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
-#cabecera {
-  background-color: navy;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto break-words break-all whitespace-pre-wrap">
+<code>
+<span class="text-[#f92672]">#cabecera</span> <span class="text-white">{</span>
+  <span class="text-[#a6e22e]">background-color</span><span class="text-white">:</span> <span class="text-[#e6db74]">navy</span><span class="text-white">;</span>
+  <span class="text-[#a6e22e]">color</span><span class="text-white">:</span> <span class="text-[#e6db74]">white</span><span class="text-white">;</span>
+  <span class="text-[#a6e22e]">text-align</span><span class="text-white">:</span> <span class="text-[#e6db74]">center</span><span class="text-white">;</span>
+  <span class="text-[#a6e22e]">padding</span><span class="text-white">:</span> <span class="text-[#e6db74]">20px</span><span class="text-white">;</span>
+<span class="text-white">}</span>
 
-#pie-pagina {
-  background-color: gray;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
+<span class="text-[#f92672]">#pie-pagina</span> <span class="text-white">{</span>
+  <span class="text-[#a6e22e]">background-color</span><span class="text-white">:</span> <span class="text-[#e6db74]">gray</span><span class="text-white">;</span>
+  <span class="text-[#a6e22e]">color</span><span class="text-white">:</span> <span class="text-[#e6db74]">white</span><span class="text-white">;</span>
+  <span class="text-[#a6e22e]">text-align</span><span class="text-white">:</span> <span class="text-[#e6db74]">center</span><span class="text-white">;</span>
+  <span class="text-[#a6e22e]">padding</span><span class="text-white">:</span> <span class="text-[#e6db74]">10px</span><span class="text-white">;</span>
+<span class="text-white">}</span>
 
-#contenido-principal {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-}</pre>
+<span class="text-[#f92672]">#contenido-principal</span> <span class="text-white">{</span>
+  <span class="text-[#a6e22e]">max-width</span><span class="text-white">:</span> <span class="text-[#e6db74]">800px</span><span class="text-white">;</span>
+  <span class="text-[#a6e22e]">margin</span><span class="text-white">:</span> <span class="text-[#e6db74]">20px auto</span><span class="text-white">;</span>
+  <span class="text-[#a6e22e]">padding</span><span class="text-white">:</span> <span class="text-[#e6db74]">20px</span><span class="text-white">;</span>
+<span class="text-white">}</span>
+</code>
+</pre>
             </div>
 
             <div>
               <h4 class="font-semibold mb-2">HTML:</h4>
-              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
-&lt;header id="cabecera"&gt;
-  Mi Sitio Web
-&lt;/header&gt;
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto break-words break-all whitespace-pre-wrap">
+<code>
+<span class="text-[#f92672]">&lt;header</span> <span class="text-[#a6e22e]">id=</span><span class="text-[#e6db74]">"cabecera"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-white">Mi Sitio Web</span>
+<span class="text-[#f92672]">&lt;/header&gt;</span>
 
-&lt;main id="contenido-principal"&gt;
-  &lt;p&gt;Contenido principal&lt;/p&gt;
-&lt;/main&gt;
+<span class="text-[#f92672]">&lt;main</span> <span class="text-[#a6e22e]">id=</span><span class="text-[#e6db74]">"contenido-principal"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f8f8f2]">&lt;p&gt;Contenido principal&lt;/p&gt;</span>
+<span class="text-[#f92672]">&lt;/main&gt;</span>
 
-&lt;footer id="pie-pagina"&gt;
-  © 2024 Mi Sitio
-&lt;/footer&gt;</pre>
+<span class="text-[#f92672]">&lt;footer</span> <span class="text-[#a6e22e]">id=</span><span class="text-[#e6db74]">"pie-pagina"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-white">© 2025 Mi Sitio</span>
+<span class="text-[#f92672]">&lt;/footer&gt;</span>
+</code>
+</pre>
             </div>
 
             <div>
               <h4 class="font-semibold mb-2">Resultado:</h4>
               <div class="bg-white border rounded text-sm">
-                <div style="background-color: navy; color: white; text-align: center; padding: 15px;">
+                <div class="bg-blue-900 text-white text-center py-4 px-2 rounded-t">
                   Mi Sitio Web
                 </div>
-                <div style="padding: 15px; margin: 15px 0;">
-                  <p style="margin: 0;">Contenido principal</p>
+                <div class="py-4 px-4 my-4">
+                  <p class="m-0">Contenido principal</p>
                 </div>
-                <div style="background-color: gray; color: white; text-align: center; padding: 8px;">
-                  © 2024 Mi Sitio
+                <div class="bg-gray-500 text-white text-center py-2 px-2 rounded-b">
+                  © 2025 Mi Sitio
                 </div>
               </div>
             </div>
@@ -318,8 +342,8 @@ div {
             que clases.
           </p>
         </div>
-
       </div>
+
     </div>
 
     <!-- Selectores Combinados -->
@@ -327,163 +351,194 @@ div {
       <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
         <h2 class="text-2xl font-bold">🔗 Selectores Combinados</h2>
       </div>
-      <div class="p-6 space-y-6">
 
-        <!-- Selector Descendente -->
+      <!-- Selector Descendente -->
+      <div class="p-2 space-y-6">
         <div class="border border-gray-200 rounded-lg p-4">
           <h3 class="text-lg font-semibold text-gray-800 mb-3">1. Selector Descendente (espacio)</h3>
           <div class="grid md:grid-cols-2 gap-4">
             <div>
               <h4 class="font-semibold mb-2">CSS:</h4>
-              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
-/* Todos los p dentro de div */
-div p {
-  color: red;
-}
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto whitespace-pre-wrap w-full">
+<code>
+<span class="text-[#f92672]">/* Todos los p dentro de div */</span>
+<span class="text-purple-400">div</span> <span class="text-white">p</span> <span class="text-white">{</span>
+&nbsp;&nbsp;<span class="text-cyan-400">color</span><span class="text-white">:</span> <span class="text-red-400">red</span><span class="text-white">;</span>
+<span class="text-white">}</span>
 
-/* Todos los span dentro de .contenedor */
-.contenedor span {
-  font-weight: bold;
-}
+<span class="text-[#f92672]">/* Todos los span dentro de .contenedor */</span>
+<span class="text-pink-400">.contenedor</span> <span class="text-white">span</span> <span class="text-white">{</span>
+&nbsp;&nbsp;<span class="text-cyan-400">font-weight</span><span class="text-white">:</span> <span class="text-yellow-300">bold</span><span class="text-white">;</span>
+<span class="text-white">}</span>
 
-/* Anidado múltiple */
-.articulo .autor .nombre {
-  font-style: italic;
-}</pre>
+<span class="text-[#f92672]">/* Anidado múltiple */</span>
+<span class="text-pink-400">.articulo</span> <span class="text-pink-400">.autor</span> <span class="text-pink-400">.nombre</span> <span class="text-white">{</span>
+&nbsp;&nbsp;<span class="text-cyan-400">font-style</span><span class="text-white">:</span> <span class="text-yellow-300">italic</span><span class="text-white">;</span>
+<span class="text-white">}</span>
+</code>
+</pre>
             </div>
 
             <div>
               <h4 class="font-semibold mb-2">HTML:</h4>
-              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
-&lt;div&gt;
-  &lt;p&gt;Párrafo en div (ROJO)&lt;/p&gt;
-  &lt;section&gt;
-    &lt;p&gt;Párrafo en section→div (ROJO)&lt;/p&gt;
-  &lt;/section&gt;
-&lt;/div&gt;
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto whitespace-pre-wrap w-full">
+<code>
+<span class="text-[#f92672]">&lt;div&gt;</span>
+  <span class="text-[#f92672]">&lt;p&gt;</span><span class="text-white">Párrafo en div (ROJO)</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+  <span class="text-[#f92672]">&lt;section&gt;</span>
+    <span class="text-[#f92672]">&lt;p&gt;</span><span class="text-white">Párrafo en section→div (ROJO)</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+  <span class="text-[#f92672]">&lt;/section&gt;</span>
+<span class="text-[#f92672]">&lt;/div&gt;</span>
 
-&lt;p&gt;Párrafo fuera de div (normal)&lt;/p&gt;
+<span class="text-[#f92672]">&lt;p&gt;</span><span class="text-white">Párrafo fuera de div (normal)</span><span class="text-[#f92672]">&lt;/p&gt;</span>
 
-&lt;div class="contenedor"&gt;
-  &lt;span&gt;Texto en negrita&lt;/span&gt;
-&lt;/div&gt;</pre>
+<span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"contenedor"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f8f8f2]">&lt;span&gt;</span><span class="text-white">Texto en negrita</span><span class="text-[#f8f8f2]">&lt;/span&gt;</span>
+<span class="text-[#f92672]">&lt;/div&gt;</span>
+</code>
+</pre>
             </div>
+
           </div>
           <p class="text-gray-600 text-sm mt-3">
             <strong>Uso:</strong> Selecciona elementos que están dentro de otros, sin importar cuántos niveles de
             profundidad.
           </p>
         </div>
+      </div>
 
-        <!-- Selector Hijo Directo -->
+      <!-- Selector Hijo Directo -->
+      <div class="p-2 space-y-6">
         <div class="border border-gray-200 rounded-lg p-4">
           <h3 class="text-lg font-semibold text-gray-800 mb-3">2. Selector Hijo Directo (>)</h3>
           <div class="grid md:grid-cols-2 gap-4">
             <div>
               <h4 class="font-semibold mb-2">CSS:</h4>
-              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
-/* Solo p que son hijos directos de div */
-div > p {
-  color: blue;
-}
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto whitespace-pre-wrap w-full">
+  <code>
+  <span class="text-[#75715e]">/* Solo p que son hijos directos de div */</span>
+  <span class="text-purple-400">div</span> <span class="text-white">&gt;</span> <span class="text-purple-400">p</span> <span class="text-white">{</span>
+    <span class="text-cyan-400">color</span><span class="text-white">:</span> <span class="text-blue-400">blue</span><span class="text-white">;</span>
+  <span class="text-white">}</span>
 
-/* Solo li que son hijos directos de .menu */
-.menu > li {
-  display: inline-block;
-  margin: 0 10px;
-}</pre>
+  <span class="text-[#75715e]">/* Solo li que son hijos directos de .menu */</span>
+  <span class="text-pink-400">.menu</span> <span class="text-white">&gt;</span> <span class="text-purple-400">li</span> <span class="text-white">{</span>
+    <span class="text-cyan-400">display</span><span class="text-white">:</span> <span class="text-yellow-300">inline-block</span><span class="text-white">;</span>
+    <span class="text-cyan-400">margin</span><span class="text-white">:</span> <span class="text-orange-400">0 10px</span><span class="text-white">;</span>
+  <span class="text-white">}</span>
+  </code>
+  </pre>
             </div>
 
             <div>
               <h4 class="font-semibold mb-2">HTML:</h4>
-              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
-&lt;div&gt;
-  &lt;p&gt;Hijo directo (AZUL)&lt;/p&gt;
-  &lt;section&gt;
-    &lt;p&gt;No es hijo directo (normal)&lt;/p&gt;
-  &lt;/section&gt;
-&lt;/div&gt;
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto whitespace-pre-wrap w-full">
+  <code>
+  <span class="text-[#f92672]">&lt;div&gt;</span>
+    <span class="text-[#f92672]">&lt;p&gt;</span><span class="text-white">Hijo directo (AZUL)</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+    <span class="text-[#f92672]">&lt;section&gt;</span>
+      <span class="text-[#f92672]">&lt;p&gt;</span><span class="text-white">No es hijo directo (normal)</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+    <span class="text-[#f92672]">&lt;/section&gt;</span>
+  <span class="text-[#f92672]">&lt;/div&gt;</span>
 
-&lt;ul class="menu"&gt;
-  &lt;li&gt;Inicio&lt;/li&gt; &lt;!-- inline-block --&gt;
-  &lt;li&gt;Acerca&lt;/li&gt; &lt;!-- inline-block --&gt;
-&lt;/ul&gt;</pre>
+  <span class="text-[#f92672]">&lt;ul</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"menu"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;li&gt;</span><span class="text-white">Inicio</span><span class="text-[#f92672]">&lt;/li&gt;</span> <span class="text-[#75715e]">&lt;!-- inline-block --&gt;</span>
+    <span class="text-[#f92672]">&lt;li&gt;</span><span class="text-white">Acerca</span><span class="text-[#f92672]">&lt;/li&gt;</span> <span class="text-[#75715e]">&lt;!-- inline-block --&gt;</span>
+  <span class="text-[#f92672]">&lt;/ul&gt;</span>
+  </code>
+  </pre>
             </div>
           </div>
           <p class="text-gray-600 text-sm mt-3">
             <strong>Uso:</strong> Solo selecciona elementos que son hijos directos (un nivel) del elemento padre.
           </p>
         </div>
+      </div>
 
-        <!-- Selector de Hermano Adyacente -->
+      <!-- Selector de Hermano Adyacente -->
+      <div class="p-2 space-y-6">
         <div class="border border-gray-200 rounded-lg p-4">
           <h3 class="text-lg font-semibold text-gray-800 mb-3">3. Selector Hermano Adyacente (+)</h3>
           <div class="grid md:grid-cols-2 gap-4">
             <div>
               <h4 class="font-semibold mb-2">CSS:</h4>
-              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
-/* El p inmediatamente después de h1 */
-h1 + p {
-  font-size: 18px;
-  font-weight: bold;
-}
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto break-words break-all whitespace-pre-wrap">
+<code>
+<span class="text-[#75715e]">/* El p inmediatamente después de h1 */</span>
+<span class="text-purple-400">h1</span> <span class="text-white">+</span> <span class="text-purple-400">p</span> <span class="text-white">{</span>
+&nbsp;&nbsp;<span class="text-cyan-400">font-size</span><span class="text-white">:</span> <span class="text-orange-400">18px</span><span class="text-white">;</span>
+&nbsp;&nbsp;<span class="text-cyan-400">font-weight</span><span class="text-white">:</span> <span class="text-yellow-300">bold</span><span class="text-white">;</span>
+<span class="text-white">}</span>
 
-/* El div inmediatamente después de .alerta */
-.alerta + div {
-  margin-top: 20px;
-}</pre>
+<span class="text-[#75715e]">/* El div inmediatamente después de .alerta */</span>
+<span class="text-pink-400">.alerta</span> <span class="text-white">+</span> <span class="text-purple-400">div</span> <span class="text-white">{</span>
+&nbsp;&nbsp;<span class="text-cyan-400">margin-top</span><span class="text-white">:</span> <span class="text-orange-400">20px</span><span class="text-white">;</span>
+<span class="text-white">}</span>
+</code>
+</pre>
             </div>
 
             <div>
               <h4 class="font-semibold mb-2">HTML:</h4>
-              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
-&lt;h1&gt;Título&lt;/h1&gt;
-&lt;p&gt;Primer párrafo (grande y negrita)&lt;/p&gt;
-&lt;p&gt;Segundo párrafo (normal)&lt;/p&gt;
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto break-words break-all whitespace-pre-wrap">
+<code>
+<span class="text-[#f92672]">&lt;h1&gt;</span><span class="text-white">Título</span><span class="text-[#f92672]">&lt;/h1&gt;</span>
+<span class="text-[#f92672]">&lt;p&gt;</span><span class="text-white">Primer párrafo (grande y negrita)</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+<span class="text-[#f92672]">&lt;p&gt;</span><span class="text-white">Segundo párrafo (normal)</span><span class="text-[#f92672]">&lt;/p&gt;</span>
 
-&lt;div class="alerta"&gt;Alerta&lt;/div&gt;
-&lt;div&gt;Siguiente div (margin-top)&lt;/div&gt;</pre>
+<span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"alerta"</span><span class="text-[#f92672]">&gt;</span><span class="text-white">Alerta</span><span class="text-[#f92672]">&lt;/div&gt;</span>
+<span class="text-[#f92672]">&lt;div&gt;</span><span class="text-white">Siguiente div (margin-top)</span><span class="text-[#f92672]">&lt;/div&gt;</span>
+</code>
+</pre>
             </div>
           </div>
           <p class="text-gray-600 text-sm mt-3">
             <strong>Uso:</strong> Selecciona el elemento que viene inmediatamente después de otro elemento.
           </p>
         </div>
+      </div>
 
-        <!-- Selector de Hermanos Generales -->
+      <!-- Selector de Hermanos Generales -->
+      <div class="p-2 space-y-6">
         <div class="border border-gray-200 rounded-lg p-4">
           <h3 class="text-lg font-semibold text-gray-800 mb-3">4. Selector Hermanos Generales (~)</h3>
           <div class="grid md:grid-cols-2 gap-4">
             <div>
               <h4 class="font-semibold mb-2">CSS:</h4>
-              <pre class="text-sm bg-gray-800 text-green-400 p-3 rounded">
-/* Todos los p que vienen después de h1 */
-h1 ~ p {
-  color: green;
-}
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto whitespace-pre-wrap w-full">
+      <code>
+      <span class="text-[#75715e]">/* Todos los p que vienen después de h1 */</span>
+      <span class="text-purple-400">h1</span> <span class="text-white">~</span> <span class="text-purple-400">p</span> <span class="text-white">{</span>
+      &nbsp;&nbsp;<span class="text-cyan-400">color</span><span class="text-white">:</span> <span class="text-green-400">green</span><span class="text-white">;</span>
+      <span class="text-white">}</span>
 
-/* Todos los div después de .especial */
-.especial ~ div {
-  background-color: lightgray;
-}</pre>
+      <span class="text-[#75715e]">/* Todos los div después de .especial */</span>
+      <span class="text-pink-400">.especial</span> <span class="text-white">~</span> <span class="text-purple-400">div</span> <span class="text-white">{</span>
+      &nbsp;&nbsp;<span class="text-cyan-400">background-color</span><span class="text-white">:</span> <span class="text-yellow-300">lightgray</span><span class="text-white">;</span>
+      <span class="text-white">}</span>
+      </code>
+      </pre>
             </div>
 
             <div>
               <h4 class="font-semibold mb-2">HTML:</h4>
-              <pre class="text-sm bg-gray-800 text-blue-400 p-3 rounded">
-&lt;p&gt;Párrafo antes (normal)&lt;/p&gt;
-&lt;h1&gt;Título&lt;/h1&gt;
-&lt;p&gt;Párrafo después 1 (VERDE)&lt;/p&gt;
-&lt;span&gt;Span&lt;/span&gt;
-&lt;p&gt;Párrafo después 2 (VERDE)&lt;/p&gt;</pre>
+              <pre class="text-sm bg-gray-800 p-3 rounded overflow-x-auto whitespace-pre">
+<code>
+<span class="text-[#f8f8f2]">&lt;p&gt;</span><span class="text-white">Párrafo antes (normal)</span><span class="text-[#f8f8f2]">&lt;/p&gt;</span>
+<span class="text-[#f92672]">&lt;h1&gt;</span><span class="text-white">Título</span><span class="text-[#f92672]">&lt;/h1&gt;</span>
+<span class="text-[#f8f8f2]">&lt;p&gt;</span><span class="text-white">Párrafo después 1 (</span><span class="text-green-400">VERDE</span><span class="text-white">)</span><span class="text-[#f8f8f2]">&lt;/p&gt;</span>
+<span class="text-[#f8f8f2]">&lt;span&gt;</span><span class="text-white">Span</span><span class="text-[#f8f8f2]">&lt;/span&gt;</span>
+<span class="text-[#f8f8f2]">&lt;p&gt;</span><span class="text-white">Párrafo después 2 (</span><span class="text-green-400">VERDE</span><span class="text-white">)</span><span class="text-[#f8f8f2]">&lt;/p&gt;</span>
+</code>
+</pre>
             </div>
           </div>
           <p class="text-gray-600 text-sm mt-3">
             <strong>Uso:</strong> Selecciona todos los elementos hermanos que vienen después del elemento de referencia.
           </p>
         </div>
-
       </div>
+
     </div>
 
     <!-- Pseudo-clases y Pseudo-elementos -->
@@ -635,69 +690,73 @@ h1 ~ p {
 
           <div>
             <h3 class="text-lg font-semibold text-gray-800 mb-3">HTML:</h3>
-            <pre class="text-sm bg-gray-800 text-blue-400 p-4 rounded overflow-x-auto">
-&lt;nav id="menu-principal"&gt;
-  &lt;ul class="lista-menu"&gt;
-    &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
-    &lt;li class="destacado"&gt;
-      &lt;a href="#"&gt;Servicios&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;&lt;a href="#"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;
+  <pre class="text-sm bg-gray-800 p-4 overflow-x-auto break-words break-all whitespace-pre-wrap">
+<span class="text-[#f92672]">&lt;nav</span> <span class="text-[#a6e22e]">id=</span><span class="text-[#e6db74]">"menu-principal"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f92672]">&lt;ul</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"lista-menu"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;li&gt;&lt;a</span> <span class="text-[#a6e22e]">href=</span><span class="text-[#e6db74]">"#"</span><span class="text-[#f92672]">&gt;</span><span class="text-[#f8f8f2]">Inicio</span><span class="text-[#f92672]">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="text-[#f92672]">&lt;li</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"destacado"</span><span class="text-[#f92672]">&gt;</span>
+      <span class="text-[#f92672]">&lt;a</span> <span class="text-[#a6e22e]">href=</span><span class="text-[#e6db74]">"#"</span><span class="text-[#f92672]">&gt;</span><span class="text-[#f8f8f2]">Servicios</span><span class="text-[#f92672]">&lt;/a&gt;</span>
+    <span class="text-[#f92672]">&lt;/li&gt;</span>
+    <span class="text-[#f92672]">&lt;li&gt;&lt;a</span> <span class="text-[#a6e22e]">href=</span><span class="text-[#e6db74]">"#"</span><span class="text-[#f92672]">&gt;</span><span class="text-[#f8f8f2]">Contacto</span><span class="text-[#f92672]">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="text-[#f92672]">&lt;/ul&gt;</span>
+<span class="text-[#f92672]">&lt;/nav&gt;</span>
 
-&lt;main class="contenido"&gt;
-  &lt;h1&gt;Bienvenido&lt;/h1&gt;
-  &lt;p class="intro"&gt;Este es el párrafo de introducción.&lt;/p&gt;
-  &lt;p&gt;Este es un párrafo normal.&lt;/p&gt;
+<span class="text-[#f92672]">&lt;main</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"contenido"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f92672]">&lt;h1&gt;</span><span class="text-[#f8f8f2]">Bienvenido</span><span class="text-[#f92672]">&lt;/h1&gt;</span>
+  <span class="text-[#f92672]">&lt;p</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"intro"</span><span class="text-[#f92672]">&gt;</span><span class="text-[#f8f8f2]">Este es el párrafo de introducción.</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+  <span class="text-[#f92672]">&lt;p&gt;</span><span class="text-[#f8f8f2]">Este es un párrafo normal.</span><span class="text-[#f92672]">&lt;/p&gt;</span>
   
-  &lt;section class="articulo"&gt;
-    &lt;h2&gt;Título del Artículo&lt;/h2&gt;
-    &lt;p&gt;Contenido del artículo...&lt;/p&gt;
-  &lt;/section&gt;
-&lt;/main&gt;</pre>
+  <span class="text-[#f92672]">&lt;section</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"articulo"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;h2&gt;</span><span class="text-[#f8f8f2]">Título del Artículo</span><span class="text-[#f92672]">&lt;/h2&gt;</span>
+    <span class="text-[#f92672]">&lt;p&gt;</span><span class="text-[#f8f8f2]">Contenido del artículo...</span><span class="text-[#f92672]">&lt;/p&gt;</span>
+  <span class="text-[#f92672]">&lt;/section&gt;</span>
+<span class="text-[#f92672]">&lt;/main&gt;</span>
+</pre>
           </div>
 
           <div>
             <h3 class="text-lg font-semibold text-gray-800 mb-3">CSS:</h3>
-            <pre class="text-sm bg-gray-800 text-green-400 p-4 rounded overflow-x-auto">
-/* Selectores básicos */
-body { font-family: Arial, sans-serif; }
-h1 { color: navy; }
-p { line-height: 1.6; }
+  <pre class="text-sm bg-gray-800 p-4 overflow-x-auto break-words break-all whitespace-pre-wrap">
+<code>
+<span class="text-[#75715e]">/* Selectores básicos */</span>
+<span class="text-[#f8f8f2]">body</span> <span class="text-[#f8f8f2]">{</span> <span class="text-[#a6e22e]">font-family</span><span class="text-[#f8f8f2]">: Arial, sans-serif;</span> <span class="text-[#f8f8f2]">}</span>
+<span class="text-[#f8f8f2]">h1</span> <span class="text-[#f8f8f2]">{</span> <span class="text-[#a6e22e]">color</span><span class="text-[#f8f8f2]">: navy;</span> <span class="text-[#f8f8f2]">}</span>
+<span class="text-[#f8f8f2]">p</span> <span class="text-[#f8f8f2]">{</span> <span class="text-[#a6e22e]">line-height</span><span class="text-[#f8f8f2]">: 1.6;</span> <span class="text-[#f8f8f2]">}</span>
 
-/* Selectores de clase */
-.contenido { max-width: 800px; margin: 0 auto; }
-.intro { font-size: 18px; font-weight: bold; }
-.destacado { background-color: yellow; }
+<span class="text-[#75715e]">/* Selectores de clase */</span>
+<span class="text-[#f92672]">.contenido</span> <span class="text-[#f8f8f2]">{</span> <span class="text-[#a6e22e]">max-width</span><span class="text-[#f8f8f2]">: 800px;</span> <span class="text-[#a6e22e]">margin</span><span class="text-[#f8f8f2]">: 0 auto;</span> <span class="text-[#f8f8f2]">}</span>
+<span class="text-[#f92672]">.intro</span> <span class="text-[#f8f8f2]">{</span> <span class="text-[#a6e22e]">font-size</span><span class="text-[#f8f8f2]">: 18px;</span> <span class="text-[#a6e22e]">font-weight</span><span class="text-[#f8f8f2]">: bold;</span> <span class="text-[#f8f8f2]">}</span>
+<span class="text-[#f92672]">.destacado</span> <span class="text-[#f8f8f2]">{</span> <span class="text-[#a6e22e]">background-color</span><span class="text-[#f8f8f2]">: yellow;</span> <span class="text-[#f8f8f2]">}</span>
 
-/* Selectores de ID */
-#menu-principal { background-color: #333; }
+<span class="text-[#75715e]">/* Selectores de ID */</span>
+<span class="text-[#a6e22e]">#menu-principal</span> <span class="text-[#f8f8f2]">{</span> <span class="text-[#a6e22e]">background-color</span><span class="text-[#f8f8f2]">: #333;</span> <span class="text-[#f8f8f2]">}</span>
 
-/* Selectores combinados */
-#menu-principal ul { list-style: none; }
-#menu-principal li { display: inline-block; }
-.lista-menu a { 
-  color: white; 
-  text-decoration: none; 
-  padding: 10px 15px;
-  display: block;
-}
+<span class="text-[#75715e]">/* Selectores combinados */</span>
+<span class="text-[#a6e22e]">#menu-principal</span> <span class="text-[#f8f8f2]">ul</span> <span class="text-[#f8f8f2]">{</span> <span class="text-[#a6e22e]">list-style</span><span class="text-[#f8f8f2]">: none;</span> <span class="text-[#f8f8f2]">}</span>
+<span class="text-[#a6e22e]">#menu-principal</span> <span class="text-[#f8f8f2]">li</span> <span class="text-[#f8f8f2]">{</span> <span class="text-[#a6e22e]">display</span><span class="text-[#f8f8f2]">: inline-block;</span> <span class="text-[#f8f8f2]">}</span>
+<span class="text-[#f92672]">.lista-menu</span> <span class="text-[#f8f8f2]">a</span> <span class="text-[#f8f8f2]">{</span>
+  <span class="text-[#a6e22e]">color</span><span class="text-[#f8f8f2]">: white;</span>
+  <span class="text-[#a6e22e]">text-decoration</span><span class="text-[#f8f8f2]">: none;</span>
+  <span class="text-[#a6e22e]">padding</span><span class="text-[#f8f8f2]">: 10px 15px;</span>
+  <span class="text-[#a6e22e]">display</span><span class="text-[#f8f8f2]">: block;</span>
+<span class="text-[#f8f8f2]">}</span>
 
-/* Pseudo-clases */
-.lista-menu a:hover { 
-  background-color: #555; 
-}
+<span class="text-[#75715e]">/* Pseudo-clases */</span>
+<span class="text-[#f92672]">.lista-menu</span> <span class="text-[#f8f8f2]">a:hover</span> <span class="text-[#f8f8f2]">{</span>
+  <span class="text-[#a6e22e]">background-color</span><span class="text-[#f8f8f2]">: #555;</span>
+<span class="text-[#f8f8f2]">}</span>
 
-/* Selector descendente específico */
-.articulo h2 { 
-  border-bottom: 2px solid #ccc; 
-}
+<span class="text-[#75715e]">/* Selector descendente específico */</span>
+<span class="text-[#f92672]">.articulo</span> <span class="text-[#f8f8f2]">h2</span> <span class="text-[#f8f8f2]">{</span>
+  <span class="text-[#a6e22e]">border-bottom</span><span class="text-[#f8f8f2]">: 2px solid #ccc;</span>
+<span class="text-[#f8f8f2]">}</span>
 
-/* Selector hijo directo */
-.contenido > p { 
-  margin-bottom: 20px; 
-}</pre>
+<span class="text-[#75715e]">/* Selector hijo directo */</span>
+<span class="text-[#f92672]">.contenido</span> <span class="text-[#f8f8f2]">&gt; p</span> <span class="text-[#f8f8f2]">{</span>
+  <span class="text-[#a6e22e]">margin-bottom</span><span class="text-[#f8f8f2]">: 20px;</span>
+<span class="text-[#f8f8f2]">}</span>
+</code>
+</pre>
           </div>
         </div>
 
@@ -712,6 +771,9 @@ p { line-height: 1.6; }
         </div>
       </div>
     </div>
+  </div>
+
+  </div>
 
   </div>
 
@@ -719,17 +781,19 @@ p { line-height: 1.6; }
   <footer class="mt-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="bg-white rounded-xl shadow-xl p-6">
-        <div class="flex justify-between items-center">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
           <a href="formas-aplicar-css.html"
-            class="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-600 transition-colors flex items-center">
+            class="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             ← Formas de Aplicar CSS
           </a>
 
-          <a href="../index.html" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+          <a href="../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             🏠 Menú Principal
           </a>
 
-          <a href="../bootstrap/que-es-framework.html" class="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-600 transition-colors flex items-center">
+          <a href="../bootstrap/que-es-framework.html"
+            class="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             ¿Qué es un framework? →
           </a>
         </div>
