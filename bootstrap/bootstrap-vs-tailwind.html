@@ -70,13 +70,13 @@
 
     <!-- Navigation -->
     <nav class="mb-4">
-        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
             <a href="../bootstrap/que-es-framework.html"
-                class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+                class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors w-full sm:w-auto text-center">
                 ← ¿Qué es un Framework?
             </a>
             <a href="../bootstrap/bootstrap-cdn.html"
-                class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors">
+                class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors w-full sm:w-auto text-center">
                 Integrar Bootstrap →
             </a>
         </div>
@@ -100,8 +100,7 @@
             <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
                 <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
                     <h2 class="text-3xl font-bold flex items-center">
-                        <span class="text-4xl mr-3">🅱️</span>
-                        Bootstrap
+                        🅱️ Bootstrap
                     </h2>
                     <p class="text-purple-100 mt-2">El pionero de los frameworks CSS</p>
                 </div>
@@ -240,18 +239,20 @@
             <!-- Bootstrap Example -->
             <div class="bg-white rounded-xl shadow-xl p-6 fade-in-up">
                 <h3 class="text-2xl font-bold text-purple-600 mb-4">🅱️ Ejemplo Bootstrap</h3>
-                <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono mb-4">
-                    <pre>&lt;div class="card"&gt;
-  &lt;div class="card-header"&gt;
-    &lt;h5 class="card-title"&gt;Título&lt;/h5&gt;
-  &lt;/div&gt;
-  &lt;div class="card-body"&gt;
-    &lt;p class="card-text"&gt;Contenido...&lt;/p&gt;
-    &lt;button class="btn btn-primary"&gt;
-      Acción
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
+                <div class="bg-gray-900 p-4 rounded-lg text-sm font-mono mb-4 overflow-x-auto">
+<pre class="text-sm p-3 rounded overflow-x-auto break-words break-all whitespace-pre-wrap">
+<span class="text-gray-500">&lt;div</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"card"</span><span class="text-gray-500">&gt;</span>
+    <span class="text-gray-500">&lt;div</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"card-header"</span><span class="text-gray-500">&gt;</span>
+        <span class="text-gray-500">&lt;h5</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"card-title"</span><span class="text-gray-500">&gt;</span><span class="text-white">Título</span><span class="text-gray-500">&lt;/h5&gt;</span>
+    <span class="text-gray-500">&lt;/div&gt;</span>
+    <span class="text-gray-500">&lt;div</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"card-body"</span><span class="text-gray-500">&gt;</span>
+        <span class="text-gray-500">&lt;p</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"card-text"</span><span class="text-gray-500">&gt;</span><span class="text-white">Contenido...</span><span class="text-gray-500">&lt;/p&gt;</span>
+        <span class="text-gray-500">&lt;button</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"btn btn-primary"</span><span class="text-gray-500">&gt;</span>
+            <span class="text-white">Acción</span>
+        <span class="text-gray-500">&lt;/button&gt;</span>
+    <span class="text-gray-500">&lt;/div&gt;</span>
+<span class="text-gray-500">&lt;/div&gt;</span>
+</pre>
                 </div>
                 <p class="text-sm text-gray-600">
                     ✨ <strong>Ventaja:</strong> Componente completo con una sola clase
@@ -261,19 +262,20 @@
             <!-- Tailwind Example -->
             <div class="bg-white rounded-xl shadow-xl p-6 fade-in-up">
                 <h3 class="text-2xl font-bold text-cyan-600 mb-4">🌊 Ejemplo Tailwind</h3>
-                <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono mb-4">
-                    <pre>&lt;div class="bg-white shadow-lg rounded-lg"&gt;
-  &lt;div class="bg-gray-50 px-6 py-4"&gt;
-    &lt;h5 class="text-xl font-bold"&gt;Título&lt;/h5&gt;
-  &lt;/div&gt;
-  &lt;div class="px-6 py-4"&gt;
-    &lt;p class="text-gray-600 mb-4"&gt;Contenido...&lt;/p&gt;
-    &lt;button class="bg-blue-500 text-white px-4 py-2 rounded 
-    hover:bg-blue-600"&gt;
-      Acción
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
+                <div class="bg-gray-900 p-4 rounded-lg text-sm font-mono mb-4 overflow-x-auto">
+<pre class="text-sm p-3 rounded overflow-x-auto break-words break-all whitespace-pre-wrap">
+<span class="text-gray-500">&lt;div</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"bg-white shadow-lg rounded-lg"</span><span class="text-gray-500">&gt;</span>
+<span class="text-gray-500">&lt;div</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"bg-gray-50 px-6 py-4"</span><span class="text-gray-500">&gt;</span>
+    <span class="text-gray-500">&lt;h5</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"text-xl font-bold"</span><span class="text-gray-500">&gt;</span><span class="text-white">Título</span><span class="text-gray-500">&lt;/h5&gt;</span>
+<span class="text-gray-500">&lt;/div&gt;</span>
+<span class="text-gray-500">&lt;div</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"px-6 py-4"</span><span class="text-gray-500">&gt;</span>
+    <span class="text-gray-500">&lt;p</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"text-gray-600 mb-4"</span><span class="text-gray-500">&gt;</span><span class="text-white">Contenido...</span><span class="text-gray-500">&lt;/p&gt;</span>
+    <span class="text-gray-500">&lt;button</span> <span class="text-yellow-400">class=</span><span class="text-green-400">"bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"</span><span class="text-gray-500">&gt;</span>
+        <span class="text-white">Acción</span>
+    <span class="text-gray-500">&lt;/button&gt;</span>
+<span class="text-gray-500">&lt;/div&gt;</span>
+<span class="text-gray-500">&lt;/div&gt;</span>
+</pre>
                 </div>
                 <p class="text-sm text-gray-600">
                     ✨ <strong>Ventaja:</strong> Control total sobre cada aspecto visual
@@ -344,19 +346,19 @@
     <footer class="mt-16">
         <div class="max-w-6xl mx-auto px-4">
             <div class="bg-white rounded-xl shadow-xl p-6">
-                <div class="flex justify-between items-center">
+                <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
                     <a href="que-es-framework.html"
-                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center justify-center">
                         ← ¿Qué es Framework?
                     </a>
 
                     <a href="../index.html"
-                        class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                        class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center">
                         🏠 Menú Principal
                     </a>
 
                     <a href="bootstrap-cdn.html"
-                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center">
+                        class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center justify-center">
                         Integrar Bootstrap →
                     </a>
                 </div>
