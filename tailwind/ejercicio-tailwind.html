@@ -29,18 +29,6 @@
       animation: fadeInUp 0.8s ease-out forwards;
     }
 
-    .code-toggle {
-      background: #1e1e1e;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-top: 1rem;
-      display: none;
-    }
-
-    .code-toggle.show {
-      display: block;
-    }
-
     .step-number {
       background: linear-gradient(45deg, #06b6d4, #3b82f6);
       color: white;
@@ -71,7 +59,7 @@
     </div>
   </nav>
 
-  <div class="max-w-4xl mx-auto px-4">
+  <div class="max-w-6xl mx-auto px-4">
 
     <!-- Header -->
     <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center fade-in-up">
@@ -80,8 +68,6 @@
     </div>
 
     <!-- Content -->
-    <div class="max-w-6xl mx-auto px-4">
-
       <!-- Objetivo -->
       <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
@@ -182,250 +168,268 @@
       </div>
 
       <!-- Guía Paso a Paso -->
-      <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <div class="bg-white rounded-xl shadow-xl p-4 mb-8 fade-in-up">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-          <span class="text-4xl mr-3">📝</span>
-          Guía Paso a Paso
+          📝Guía Paso a Paso
         </h2>
 
-        <div class="space-y-8">
+        <!-- Paso 1 -->
+        <div>
+          <h3 class="text-xl font-bold text-gray-700 my-3">
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 me-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">1</span>
+            Estructura HTML y CDN
+          </h3>
+          <p class="text-gray-600 mb-3">
+            Configura el HTML básico con Tailwind CDN:
+          </p>
 
-          <!-- Paso 1 -->
-          <div class="flex gap-4">
-            <div class="step-number">1</div>
-            <div class="flex-grow-1">
-              <h3 class="text-xl font-bold text-gray-700 mb-3">Estructura HTML y CDN</h3>
-              <p class="text-gray-600 mb-3">
-                Configura el HTML básico con Tailwind CDN:
-              </p>
-              <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm"
-                onclick="toggleCode('step1')">
-                Ver Código 👀
-              </button>
-
-              <div id="step1" class="code-toggle">
-                <div class="text-green-400 text-sm font-mono">
-                  <pre>&lt;!DOCTYPE html&gt;
-&lt;html lang="es"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;Mi Tarjeta con Tailwind&lt;/title&gt;
-  &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body class="bg-gray-100 min-h-screen py-8"&gt;
-  
-  &lt;!-- Aquí irá tu tarjeta --&gt;
-  
-&lt;/body&gt;
-&lt;/html&gt;</pre>
-                </div>
-              </div>
-            </div>
+          <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+            <span>📄 index.html</span>
+            <button type="button" onclick="copyCode('stepOne')"
+              class=" copy-btn bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+              📋 Copiar
+            </button>
           </div>
+          <pre id="stepOne"
+            class="bg-gray-900 text-white text-xs p-1 rounded-b font-mono whitespace-pre overflow-x-auto">
+<span class="text-[#f92672]">&lt;!DOCTYPE html&gt;</span>
+<span class="text-[#f92672]">&lt;html</span> <span class="text-[#a6e22e]">lang=</span><span class="text-[#e6db74]">"es"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f92672]">&lt;head&gt;</span>
+    <span class="text-[#f92672]">&lt;meta</span> <span class="text-[#a6e22e]">charset=</span><span class="text-[#e6db74]">"UTF-8"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;meta</span> <span class="text-[#a6e22e]">name=</span><span class="text-[#e6db74]">"viewport"</span> <span class="text-[#a6e22e]">content=</span><span class="text-[#e6db74]">"width=device-width, initial-scale=1.0"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;title&gt;</span><span class="text-[#e6db74]">Mi Tarjeta con Tailwind</span><span class="text-[#f92672]">&lt;/title&gt;</span>
+    <span class="text-[#f92672]">&lt;script</span> <span class="text-[#a6e22e]">src=</span><span class="text-[#e6db74]">"https://cdn.tailwindcss.com"</span><span class="text-[#f92672]">&gt;&lt;/script&gt;</span>
+  <span class="text-[#f92672]">&lt;/head&gt;</span>
+  <span class="text-[#f92672]">&lt;body</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-gray-100 min-h-screen py-8"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#75715e]">&lt;!-- Aquí irá tu tarjeta --&gt;</span>
+  <span class="text-[#f92672]">&lt;/body&gt;</span>
+<span class="text-[#f92672]">&lt;/html&gt;</span>
+</pre>
+        </div>
 
-          <!-- Paso 2 -->
-          <div class="flex gap-4">
-            <div class="step-number">2</div>
-            <div class="flex-grow-1">
-              <h3 class="text-xl font-bold text-gray-700 mb-3">Contenedor y Estructura Base</h3>
-              <p class="text-gray-600 mb-3">
-                Crea el contenedor principal y la estructura de la tarjeta:
-              </p>
-              <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm"
-                onclick="toggleCode('step2')">
-                Ver Código 👀
-              </button>
+        <!-- Paso 2 -->
+        <div>
+          <h3 class="flex text-xl font-bold text-gray-700 my-3">
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 me-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">2</span>
+            Contenedor y Estructura Base
+          </h3>
+          <p class="text-gray-600 mb-3">
+            Crea el contenedor principal y la estructura de la tarjeta:
+          </p>
 
-              <div id="step2" class="code-toggle">
-                <div class="text-green-400 text-sm font-mono">
-                  <pre>&lt;body class="bg-gray-100 min-h-screen py-8"&gt;
-  &lt;div class="max-w-sm mx-auto"&gt;
-    &lt;div class="bg-white rounded-xl shadow-xl overflow-hidden"&gt;
-      
-      &lt;!-- Header --&gt;
-      &lt;div class="bg-gradient-to-r from-cyan-500 to-blue-500 p-8 text-white text-center"&gt;
-        &lt;!-- Avatar y título aquí --&gt;
-      &lt;/div&gt;
-      
-      &lt;!-- Body --&gt;
-      &lt;div class="p-6"&gt;
-        &lt;!-- Contenido aquí --&gt;
-      &lt;/div&gt;
-      
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/body&gt;</pre>
-                </div>
-              </div>
-            </div>
+          <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+            <span>📄 index.html</span>
+            <button type="button" onclick="copyCode('stepTwo')"
+              class=" copy-btn bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+              📋 Copiar
+            </button>
           </div>
+          <pre id="stepTwo"
+            class="bg-gray-900 text-white p-1 rounded-b font-mono whitespace-pre overflow-x-auto text-xs">
+<span class="text-[#f92672]">&lt;body</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-gray-100 min-h-screen py-8"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"max-w-sm mx-auto"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-white rounded-xl shadow-xl overflow-hidden"</span><span class="text-[#f92672]">&gt;</span>
+      
+      <span class="text-[#75715e]">&lt;!-- Header --&gt;</span>
+      <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-gradient-to-r from-cyan-500 to-blue-500 p-8 text-white text-center"</span><span class="text-[#f92672]">&gt;</span>
+        <span class="text-[#75715e]">&lt;!-- Avatar y título aquí --&gt;</span>
+      <span class="text-[#f92672]">&lt;/div&gt;</span>
+      
+      <span class="text-[#75715e]">&lt;!-- Body --&gt;</span>
+      <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"p-6"</span><span class="text-[#f92672]">&gt;</span>
+        <span class="text-[#75715e]">&lt;!-- Contenido aquí --&gt;</span>
+      <span class="text-[#f92672]">&lt;/div&gt;</span>
+      
+    <span class="text-[#f92672]">&lt;/div&gt;</span>
+  <span class="text-[#f92672]">&lt;/div&gt;</span>
+<span class="text-[#f92672]">&lt;/body&gt;</span>
+        </pre>
+        </div>
 
-          <!-- Paso 3 -->
-          <div class="flex gap-4">
-            <div class="step-number">3</div>
-            <div class="flex-grow-1">
-              <h3 class="text-xl font-bold text-gray-700 mb-3">Header con Avatar y Gradiente</h3>
-              <p class="text-gray-600 mb-3">
-                Agrega el avatar, nombre y título con efectos visuales:
-              </p>
-              <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm"
-                onclick="toggleCode('step3')">
-                Ver Código 👀
-              </button>
+        <!-- Paso 3 -->
+        <div>
+          <h3 class="flex text-xl font-bold text-gray-700 mb-3 my-3">
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 me-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">3</span>
+            Header con Avatar y Gradiente
+          </h3>
+          <p class="text-gray-600 mb-3">
+            Agrega el avatar, nombre y título con efectos visuales:
+          </p>
 
-              <div id="step3" class="code-toggle">
-                <div class="text-green-400 text-sm font-mono">
-                  <pre>&lt;div class="bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 p-8 text-white text-center relative"&gt;
-  &lt;div class="absolute inset-0 bg-black bg-opacity-10"&gt;&lt;/div&gt;
-  &lt;div class="relative z-10"&gt;
-    &lt;div class="w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center backdrop-blur-sm border-2 border-white border-opacity-30"&gt;
-      &lt;span class="text-3xl"&gt;👩‍💻&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;h3 class="text-2xl font-bold mb-1"&gt;Tu Nombre&lt;/h3&gt;
-    &lt;p class="text-cyan-100"&gt;Tu Profesión&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                </div>
-              </div>
-            </div>
+          <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+            <span>📄 index.html</span>
+            <button type="button" onclick="copyCode('stepThree')"
+              class=" copy-btn bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+              📋 Copiar
+            </button>
           </div>
+          <pre id="stepThree"
+            class="bg-gray-900 text-white p-1 rounded-b font-mono whitespace-pre overflow-x-auto text-xs">
+<span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 p-8 text-white text-center relative"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"absolute inset-0 bg-black bg-opacity-10"</span><span class="text-[#f92672]">&gt;&lt;/div&gt;</span>
+  <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"relative z-10"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center backdrop-blur-sm border-2 border-white border-opacity-30"</span><span class="text-[#f92672]">&gt;</span>
+      <span class="text-[#f92672]">&lt;span</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-3xl"</span><span class="text-[#f92672]">&gt;</span>👩‍💻<span class="text-[#f92672]">&lt;/span&gt;</span>
+    <span class="text-[#f92672]">&lt;/div&gt;</span>
+    <span class="text-[#f92672]">&lt;h3</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-2xl font-bold mb-1"</span><span class="text-[#f92672]">&gt;</span>Tu Nombre<span class="text-[#f92672]">&lt;/h3&gt;</span>
+    <span class="text-[#f92672]">&lt;p</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-cyan-100"</span><span class="text-[#f92672]">&gt;</span>Tu Profesión<span class="text-[#f92672]">&lt;/p&gt;</span>
+  <span class="text-[#f92672]">&lt;/div&gt;</span>
+<span class="text-[#f92672]">&lt;/div&gt;</span>
+</pre>
+        </div>
 
-          <!-- Paso 4 -->
-          <div class="flex gap-4">
-            <div class="step-number">4</div>
-            <div class="flex-grow-1">
-              <h3 class="text-xl font-bold text-gray-700 mb-3">Contenido: Descripción y Skills</h3>
-              <p class="text-gray-600 mb-3">
-                Agrega descripción personal y etiquetas de habilidades:
-              </p>
-              <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm"
-                onclick="toggleCode('step4')">
-                Ver Código 👀
-              </button>
+        <!-- Paso 4 -->
+        <div>
+          <h3 class="flex text-xl font-bold text-gray-700 mb-3 my-3">
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 me-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">4</span>
+            Contenido: Descripción y Skills
+          </h3>
+          <p class="text-gray-600 mb-3">
+            Agrega descripción personal y etiquetas de habilidades:
+          </p>
 
-              <div id="step4" class="code-toggle">
-                <div class="text-green-400 text-sm font-mono">
-                  <pre>&lt;div class="p-6"&gt;
-  &lt;p class="text-gray-600 mb-6 leading-relaxed"&gt;
+          <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+            <span>📄 index.html</span>
+            <button type="button" onclick="copyCode('stepFour')"
+              class=" copy-btn bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+              📋 Copiar
+            </button>
+          </div>
+          <pre id="stepFour"
+            class="bg-gray-900 text-white p-1 rounded-b font-mono whitespace-pre overflow-x-auto text-xs">
+<span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"p-6"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f92672]">&lt;p</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-gray-600 mb-6 leading-relaxed"</span><span class="text-[#f92672]">&gt;</span>
     Aquí va una descripción personal que hable sobre ti, 
     tus intereses y lo que te apasiona de tu profesión.
-  &lt;/p&gt;
+  <span class="text-[#f92672]">&lt;/p&gt;</span>
   
-  &lt;!-- Skills como badges --&gt;
-  &lt;div class="flex flex-wrap gap-2 mb-6"&gt;
-    &lt;span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-xs font-medium"&gt;
+  <span class="text-[#75715e]">&lt;!-- Skills como badges --&gt;</span>
+  <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"flex flex-wrap gap-2 mb-6"</span><span class="text-[#f92672]">&gt;</span>
+    <span class="text-[#f92672]">&lt;span</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-xs font-medium"</span><span class="text-[#f92672]">&gt;</span>
       HTML
-    &lt;/span&gt;
-    &lt;span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium"&gt;
+    <span class="text-[#f92672]">&lt;/span&gt;</span>
+    <span class="text-[#f92672]">&lt;span</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium"</span><span class="text-[#f92672]">&gt;</span>
       CSS
-    &lt;/span&gt;
-    &lt;span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium"&gt;
+    <span class="text-[#f92672]">&lt;/span&gt;</span>
+    <span class="text-[#f92672]">&lt;span</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium"</span><span class="text-[#f92672]">&gt;</span>
       JavaScript
-    &lt;/span&gt;
-    &lt;span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium"&gt;
+    <span class="text-[#f92672]">&lt;/span&gt;</span>
+    <span class="text-[#f92672]">&lt;span</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-xs font-medium"</span><span class="text-[#f92672]">&gt;</span>
       Tailwind
-    &lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Paso 5 -->
-          <div class="flex gap-4">
-            <div class="step-number">5</div>
-            <div class="flex-grow-1">
-              <h3 class="text-xl font-bold text-gray-700 mb-3">Estadísticas y Grid</h3>
-              <p class="text-gray-600 mb-3">
-                Agrega estadísticas usando el sistema de grid:
-              </p>
-              <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm"
-                onclick="toggleCode('step5')">
-                Ver Código 👀
-              </button>
-
-              <div id="step5" class="code-toggle">
-                <div class="text-green-400 text-sm font-mono">
-                  <pre>&lt;!-- Agregar después de los skills --&gt;
-&lt;div class="grid grid-cols-3 gap-4 mb-6 text-center"&gt;
-  &lt;div&gt;
-    &lt;div class="text-2xl font-bold text-cyan-600"&gt;50+&lt;/div&gt;
-    &lt;div class="text-xs text-gray-500"&gt;Proyectos&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-    &lt;div class="text-2xl font-bold text-blue-600"&gt;2&lt;/div&gt;
-    &lt;div class="text-xs text-gray-500"&gt;Años Exp.&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-    &lt;div class="text-2xl font-bold text-purple-600"&gt;100%&lt;/div&gt;
-    &lt;div class="text-xs text-gray-500"&gt;Dedicación&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Paso 6 -->
-          <div class="flex gap-4">
-            <div class="step-number">6</div>
-            <div class="flex-grow-1">
-              <h3 class="text-xl font-bold text-gray-700 mb-3">Botones con Efectos Hover</h3>
-              <p class="text-gray-600 mb-3">
-                Finaliza con botones interactivos que tengan efectos hover:
-              </p>
-              <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm"
-                onclick="toggleCode('step6')">
-                Ver Código 👀
-              </button>
-
-              <div id="step6" class="code-toggle">
-                <div class="text-green-400 text-sm font-mono">
-                  <pre>&lt;!-- Botones al final del contenido --&gt;
-&lt;div class="flex gap-3"&gt;
-  &lt;button class="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-4 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 transition-all duration-200 transform hover:scale-105"&gt;
-    Contactar
-  &lt;/button&gt;
-  &lt;button class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"&gt;
-    Portfolio
-  &lt;/button&gt;
-&lt;/div&gt;</pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Paso 7 -->
-          <div class="flex gap-4">
-            <div class="step-number">7</div>
-            <div class="flex-grow-1">
-              <h3 class="text-xl font-bold text-gray-700 mb-3">Efectos Finales y Responsive</h3>
-              <p class="text-gray-600 mb-3">
-                Agrega efectos hover a la tarjeta completa y hazla responsive:
-              </p>
-              <button class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm"
-                onclick="toggleCode('step7')">
-                Ver Código 👀
-              </button>
-
-              <div id="step7" class="code-toggle">
-                <div class="text-green-400 text-sm font-mono">
-                  <pre>&lt;!-- Actualizar el div principal de la tarjeta --&gt;
-&lt;div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"&gt;
-
-&lt;!-- Y el contenedor principal para responsive --&gt;
-&lt;div class="max-w-sm mx-auto px-4 md:px-0"&gt;</pre>
-                </div>
-              </div>
-            </div>
-          </div>
+    <span class="text-[#f92672]">&lt;/span&gt;</span>
+  <span class="text-[#f92672]">&lt;/div&gt;</span>
+<span class="text-[#f92672]">&lt;/div&gt;</span>
+</pre>
         </div>
+
+        <!-- Paso 5 -->
+        <div>
+          <h3 class="flex text-xl font-bold text-gray-700 mb-3 my-3">
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 me-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">5</span>
+            Estadísticas y Grid
+          </h3>
+          <p class="text-gray-600 mb-3">
+            Agrega estadísticas usando el sistema de grid:
+          </p>
+
+          <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+            <span>📄 index.html</span>
+            <button type="button" onclick="copyCode('stepFive')"
+              class=" copy-btn bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+              📋 Copiar
+            </button>
+          </div>
+          <pre id="stepFive"
+            class="bg-gray-900 text-white p-1 rounded-b font-mono whitespace-pre overflow-x-auto text-xs">
+<span class="text-[#75715e]">&lt;!-- Agregar después de los skills --&gt;</span>
+<span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"grid grid-cols-3 gap-4 mb-6 text-center"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f92672]">&lt;div&gt;</span>
+    <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-2xl font-bold text-cyan-600"</span><span class="text-[#f92672]">&gt;</span>50+<span class="text-[#f92672]">&lt;/div&gt;</span>
+    <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-xs text-gray-500"</span><span class="text-[#f92672]">&gt;</span>Proyectos<span class="text-[#f92672]">&lt;/div&gt;</span>
+  <span class="text-[#f92672]">&lt;/div&gt;</span>
+  <span class="text-[#f92672]">&lt;div&gt;</span>
+    <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-2xl font-bold text-blue-600"</span><span class="text-[#f92672]">&gt;</span>2<span class="text-[#f92672]">&lt;/div&gt;</span>
+    <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-xs text-gray-500"</span><span class="text-[#f92672]">&gt;</span>Años Exp.<span class="text-[#f92672]">&lt;/div&gt;</span>
+  <span class="text-[#f92672]">&lt;/div&gt;</span>
+  <span class="text-[#f92672]">&lt;div&gt;</span>
+    <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-2xl font-bold text-purple-600"</span><span class="text-[#f92672]">&gt;</span>100%<span class="text-[#f92672]">&lt;/div&gt;</span>
+    <span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"text-xs text-gray-500"</span><span class="text-[#f92672]">&gt;</span>Dedicación<span class="text-[#f92672]">&lt;/div&gt;</span>
+  <span class="text-[#f92672]">&lt;/div&gt;</span>
+<span class="text-[#f92672]">&lt;/div&gt;</span>
+</pre>
+        </div>
+
+        <!-- Paso 6 -->
+        <div>
+          <h3 class="flex text-xl font-bold text-gray-700 mb-3 my-3">
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 me-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">6</span>
+            Botones con Efectos Hover
+          </h3>
+          <p class="text-gray-600 mb-3">
+            Finaliza con botones interactivos que tengan efectos hover:
+          </p>
+
+          <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+            <span>📄 index.html</span>
+            <button type="button" onclick="copyCode('stepSix')"
+              class=" copy-btn bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+              📋 Copiar
+            </button>
+          </div>
+          <pre id="stepSix"
+            class="bg-gray-900 text-white p-1 rounded-b font-mono whitespace-pre overflow-x-auto text-xs">
+<span class="text-[#75715e]">&lt;!-- Botones al final del contenido --&gt;</span>
+<span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"flex gap-3"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f92672]">&lt;button</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-4 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 transition-all duration-200 transform hover:scale-105"</span><span class="text-[#f92672]">&gt;</span>
+    Contactar
+  <span class="text-[#f92672]">&lt;/button&gt;</span>
+  <span class="text-[#f92672]">&lt;button</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"</span><span class="text-[#f92672]">&gt;</span>
+    Portfolio
+  <span class="text-[#f92672]">&lt;/button&gt;</span>
+<span class="text-[#f92672]">&lt;/div&gt;</span>
+</pre>
+        </div>
+
+        <!-- Paso 7 -->
+        <div>
+          <h3 class="flex text-xl font-bold text-gray-700 mb-3 my-3">
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 me-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">7</span>
+            Efectos Finales y Responsive
+          </h3>
+          <p class="text-gray-600 mb-3">
+            Agrega efectos hover a la tarjeta completa y hazla responsive:
+          </p>
+
+          <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+            <span>📄 index.html</span>
+            <button onclick="copyCode('stepSeven')"
+              class=" copy-btn bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors">
+              📋 Copiar
+            </button>
+          </div>
+          <pre id="stepSeven"
+            class="bg-gray-900 text-white p-1 rounded-b font-mono whitespace-pre overflow-x-auto text-xs">
+<!-- Actualizar el div principal de la tarjeta -->
+<span class="text-[#75715e]">&lt;!-- Actualizar el div principal de la tarjeta --&gt;</span>
+<span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"</span><span class="text-[#f92672]">&gt;</span>
+
+<!-- Y el contenedor principal para responsive -->
+<span class="text-[#75715e]">&lt;!-- Y el contenedor principal para responsive --&gt;</span>
+<span class="text-[#f92672]">&lt;div</span> <span class="text-[#a6e22e]">class=</span><span class="text-[#e6db74]">"max-w-sm mx-auto px-4 md:px-0"</span><span class="text-[#f92672]">&gt;</span>
+</pre>
+        </div>
+
       </div>
 
       <!-- Código Completo -->
-      <div class="bg-white rounded-xl shadow-xl p-8 mb-8 fade-in-up">
+      <div class="bg-white rounded-xl shadow-xl p-4 mb-8 fade-in-up">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
           <span class="text-4xl mr-3">💻</span>
           Código Completo
@@ -443,7 +447,7 @@
           </button>
         </div>
         <pre id="codeComplete"
-          class="bg-gray-900 text-green-400 p-1 rounded-b font-mono whitespace-pre overflow-x-auto text-xs">
+          class="bg-gray-900 text-white p-1 rounded-b font-mono whitespace-pre overflow-x-auto text-xs">
 <span class="text-[#f92672]">&lt;!DOCTYPE html&gt;</span>
 <span class="text-[#f92672]">&lt;html</span> <span class="text-[#a6e22e]">lang=</span><span class="text-[#e6db74]">"es"</span><span class="text-[#f92672]">&gt;</span>
   <span class="text-[#f92672]">&lt;head&gt;</span>
@@ -604,7 +608,7 @@
         </div>
       </div>
 
-    </div>
+  
   </div>
 
   <!-- Footer Navigation -->
