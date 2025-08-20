@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué son las Tablas HTML?</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .table-demo {
+      transition: all 0.3s ease;
+    }
+
+    .table-demo:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes tableGlow {
+      0%, 100% {
+        box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(102, 126, 234, 0.6);
+      }
+    }
+
+    .glowing-table {
+      animation: tableGlow 2s infinite;
+    }
+
+    .cell-highlight {
+      transition: all 0.3s ease;
+    }
+
+    .cell-highlight:hover {
+      background-color: #fef3c7;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+      <a href="../practica-html.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors text-center w-full sm:w-auto">
+        ← Práctica HTML
+      </a>
+      <a href="estructura-basica-tablas.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors text-center w-full sm:w-auto">
+        Estructura Básica →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">📊 ¿Qué son las Tablas HTML?</h1>
+      <p class="text-xl text-gray-600">Descubre cómo organizar y presentar datos de manera estructurada</p>
+    </div>
+
+    <!-- Concepto Principal -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-purple-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🎯 Concepto Fundamental</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">📋 ¿Qué es una Tabla?</h3>
+            <p class="text-gray-700 mb-4">
+              Una <strong>tabla HTML</strong> es una estructura que permite organizar y mostrar datos en formato
+              de filas y columnas, similar a una hoja de cálculo o una tabla de base de datos.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+              <h4 class="font-semibold mb-2">Características principales:</h4>
+              <ul class="text-gray-700 space-y-2">
+                <li>✅ <strong>Estructura bidimensional:</strong> Filas y columnas</li>
+                <li>✅ <strong>Datos relacionados:</strong> Información organizada</li>
+                <li>✅ <strong>Fácil lectura:</strong> Presentación clara</li>
+                <li>✅ <strong>Accesibilidad:</strong> Compatible con lectores de pantalla</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🌟 Ejemplo Visual</h3>
+            <div class="table-demo bg-gray-50 p-4 rounded-lg">
+              <table class="w-full border-collapse border border-gray-400">
+                <tr class="bg-purple-100">
+                  <th class="border border-gray-400 p-2 font-bold">Estudiante</th>
+                  <th class="border border-gray-400 p-2 font-bold">Edad</th>
+                  <th class="border border-gray-400 p-2 font-bold">Calificación</th>
+                </tr>
+                <tr>
+                  <td class="border border-gray-400 p-2 cell-highlight">Ana García</td>
+                  <td class="border border-gray-400 p-2 cell-highlight">20</td>
+                  <td class="border border-gray-400 p-2 cell-highlight">9.5</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-400 p-2 cell-highlight">Luis Pérez</td>
+                  <td class="border border-gray-400 p-2 cell-highlight">19</td>
+                  <td class="border border-gray-400 p-2 cell-highlight">8.7</td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-400 p-2 cell-highlight">María López</td>
+                  <td class="border border-gray-400 p-2 cell-highlight">21</td>
+                  <td class="border border-gray-400 p-2 cell-highlight">9.2</td>
+                </tr>
+              </table>
+            </div>
+            <p class="text-sm text-gray-600 mt-2">*Pasa el cursor sobre las celdas para ver el efecto interactivo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Historia y Evolución -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-indigo-600 to-purple-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">📜 Historia de las Tablas HTML</h2>
+      </div>
+      <div class="p-8">
+        <div class="space-y-6">
+          <div class="fade-in">
+            <h3 class="text-xl font-bold text-gray-800 mb-3">🕐 Línea del Tiempo</h3>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-4 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
+                <div class="bg-yellow-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</div>
+                <div>
+                  <h4 class="font-bold text-gray-800">1993 - HTML 1.0</h4>
+                  <p class="text-gray-700">Se introducen las primeras etiquetas de tabla básicas</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4 p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</div>
+                <div>
+                  <h4 class="font-bold text-gray-800">1995 - HTML 2.0</h4>
+                  <p class="text-gray-700">Se estandarizan las etiquetas &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</div>
+                <div>
+                  <h4 class="font-bold text-gray-800">1997 - HTML 4.0</h4>
+                  <p class="text-gray-700">Introducción de &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt; y atributos de accesibilidad</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4 p-4 bg-purple-50 rounded-lg border-l-4 border-purple-400">
+                <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</div>
+                <div>
+                  <h4 class="font-bold text-gray-800">2014 - HTML5</h4>
+                  <p class="text-gray-700">Mejoras en accesibilidad y semántica de tablas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cuándo Usar Tablas -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">✅ ¿Cuándo Usar Tablas?</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-green-600 mb-4">🎯 Usos Correctos</h3>
+            <div class="space-y-3">
+              <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-semibold">📊 Datos Tabulares</h4>
+                <p class="text-sm text-gray-700">Información que naturalmente se organiza en filas y columnas</p>
+              </div>
+              <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-semibold">📈 Informes y Estadísticas</h4>
+                <p class="text-sm text-gray-700">Comparaciones de números, fechas o categorías</p>
+              </div>
+              <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-semibold">📋 Listas de Precios</h4>
+                <p class="text-sm text-gray-700">Productos con características y precios</p>
+              </div>
+              <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-semibold">📅 Horarios</h4>
+                <p class="text-sm text-gray-700">Calendarios, cronogramas, planificaciones</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-red-600 mb-4">❌ Usos Incorrectos</h3>
+            <div class="space-y-3">
+              <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-semibold">🎨 Diseño de Layout</h4>
+                <p class="text-sm text-gray-700">Para estructurar el diseño general de la página</p>
+              </div>
+              <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-semibold">📐 Posicionamiento</h4>
+                <p class="text-sm text-gray-700">Para alinear elementos decorativos</p>
+              </div>
+              <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-semibold">🎭 Efectos Visuales</h4>
+                <p class="text-sm text-gray-700">Para crear espacios o efectos de diseño</p>
+              </div>
+              <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-semibold">📱 Responsive Design</h4>
+                <p class="text-sm text-gray-700">Como base para diseños adaptativos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ventajas y Desventajas -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-pink-600 to-red-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">⚖️ Ventajas y Consideraciones</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-green-600 mb-4">🌟 Ventajas</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-2">
+                <span class="text-green-500 font-bold">✓</span>
+                <div>
+                  <strong>Estructura Clara:</strong> Organización lógica de datos relacionados
+                </div>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-green-500 font-bold">✓</span>
+                <div>
+                  <strong>Accesibilidad:</strong> Compatible con lectores de pantalla
+                </div>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-green-500 font-bold">✓</span>
+                <div>
+                  <strong>SEO Friendly:</strong> Los buscadores entienden la estructura
+                </div>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-green-500 font-bold">✓</span>
+                <div>
+                  <strong>Semántica:</strong> Significado claro del contenido
+                </div>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-green-500 font-bold">✓</span>
+                <div>
+                  <strong>Estilización:</strong> Fácil de personalizar con CSS
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-orange-600 mb-4">⚠️ Consideraciones</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-2">
+                <span class="text-orange-500 font-bold">!</span>
+                <div>
+                  <strong>Responsividad:</strong> Requiere técnicas especiales para móviles
+                </div>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-orange-500 font-bold">!</span>
+                <div>
+                  <strong>Flexibilidad:</strong> Estructura rígida por naturaleza
+                </div>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-orange-500 font-bold">!</span>
+                <div>
+                  <strong>Complejidad:</strong> Tablas grandes pueden ser difíciles de mantener
+                </div>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-orange-500 font-bold">!</span>
+                <div>
+                  <strong>Uso Correcto:</strong> Solo para datos tabulares reales
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplo Comparativo -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-teal-600 to-cyan-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🔍 Antes vs Después</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">❌ Sin Tablas (Confuso)</h3>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <div class="text-sm font-mono">
+                <p>Estudiante: Ana García - Edad: 20 - Nota: 9.5</p>
+                <p>Estudiante: Luis Pérez - Edad: 19 - Nota: 8.7</p>
+                <p>Estudiante: María López - Edad: 21 - Nota: 9.2</p>
+                <p>Estudiante: Carlos Ruiz - Edad: 22 - Nota: 8.9</p>
+              </div>
+            </div>
+            <p class="text-sm text-red-600 mt-2">Difícil de leer y comparar</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">✅ Con Tablas (Organizado)</h3>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <table class="w-full border-collapse border border-gray-400 text-sm">
+                <thead>
+                  <tr class="bg-teal-100">
+                    <th class="border border-gray-400 p-2">Estudiante</th>
+                    <th class="border border-gray-400 p-2">Edad</th>
+                    <th class="border border-gray-400 p-2">Nota</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border border-gray-400 p-2">Ana García</td>
+                    <td class="border border-gray-400 p-2">20</td>
+                    <td class="border border-gray-400 p-2">9.5</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="border border-gray-400 p-2">Luis Pérez</td>
+                    <td class="border border-gray-400 p-2">19</td>
+                    <td class="border border-gray-400 p-2">8.7</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-400 p-2">María López</td>
+                    <td class="border border-gray-400 p-2">21</td>
+                    <td class="border border-gray-400 p-2">9.2</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="border border-gray-400 p-2">Carlos Ruiz</td>
+                    <td class="border border-gray-400 p-2">22</td>
+                    <td class="border border-gray-400 p-2">8.9</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-sm text-green-600 mt-2">Fácil de leer y comparar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="bg-gradient-to-r from-purple-600 to-indigo-700 rounded-xl shadow-xl p-8 text-white mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-center">📝 Resumen del Tema</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="text-4xl mb-2">📊</div>
+          <h3 class="font-bold mb-2">Propósito</h3>
+          <p class="text-sm">Organizar datos relacionados en formato de filas y columnas</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-2">🎯</div>
+          <h3 class="font-bold mb-2">Cuándo Usar</h3>
+          <p class="text-sm">Solo para datos tabulares reales, nunca para layout</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-2">🌟</div>
+          <h3 class="font-bold mb-2">Beneficios</h3>
+          <p class="text-sm">Accesibilidad, SEO, estructura clara y semántica</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-white mt-16 pb-8">
+    <p class="text-sm opacity-75">© 2025 Escuela de Desarrollo. Aprende HTML paso a paso.</p>
+  </footer>
+
+</body>
+</html>

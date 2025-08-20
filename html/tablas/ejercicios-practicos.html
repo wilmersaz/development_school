@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios Prácticos: Tablas HTML</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .exercise-card {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .exercise-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border-color: #10b981;
+    }
+
+    .code-editor {
+      background: #1e293b;
+      color: #e2e8f0;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .code-line {
+      display: block;
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+
+    .code-line:nth-child(odd) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .result-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .result-table th {
+      background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .result-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+    }
+
+    .result-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .result-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .level-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .level-basic {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+    }
+
+    .level-intermediate {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+    }
+
+    .level-advanced {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: white;
+    }
+
+    .try-it-button {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .try-it-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+    }
+
+    .solution-toggle {
+      background: #374151;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .solution-toggle:hover {
+      background: #4b5563;
+    }
+
+    .solution-content {
+      display: none;
+      margin-top: 15px;
+      padding: 20px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border-left: 4px solid #10b981;
+    }
+
+    .solution-content.show {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hint-box {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .success-box {
+      background: #dcfce7;
+      border-left: 4px solid #10b981;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease forwards;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+  <!-- Header -->
+  <header class="bg-white/10 backdrop-blur-md border-b border-white/20">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img src="../../images/school.png" alt="Development School" class="w-10 h-10">
+          <div>
+            <h1 class="text-2xl font-bold text-white">Development School</h1>
+            <p class="text-white/80 text-sm">Ejercicios Prácticos: Tablas HTML</p>
+          </div>
+        </div>
+        <nav class="flex space-x-4">
+          <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-200">← Temario</a>
+          <a href="../../index.html" class="text-white/80 hover:text-white transition-colors duration-200">Inicio</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-8">
+    <!-- Introduction -->
+    <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl mb-8 overflow-hidden fade-in">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-6">
+        <h1 class="text-4xl font-bold text-white mb-2">🏋️ Ejercicios Prácticos</h1>
+        <p class="text-purple-100 text-lg">Pon en práctica lo aprendido con ejercicios progresivos</p>
+      </div>
+      
+      <div class="p-8">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="level-badge level-basic mb-2">Básico</div>
+            <p class="text-gray-700 text-sm">Fundamentos y estructura simple</p>
+          </div>
+          <div class="text-center">
+            <div class="level-badge level-intermediate mb-2">Intermedio</div>
+            <p class="text-gray-700 text-sm">Técnicas avanzadas</p>
+          </div>
+          <div class="text-center">
+            <div class="level-badge level-advanced mb-2">Avanzado</div>
+            <p class="text-gray-700 text-sm">Proyectos completos</p>
+          </div>
+        </div>
+        
+        <div class="hint-box mt-6">
+          <h3 class="font-semibold text-yellow-800 mb-2">💡 Cómo usar estos ejercicios:</h3>
+          <ul class="text-yellow-700 text-sm space-y-1">
+            <li>• Lee cuidadosamente cada ejercicio</li>
+            <li>• Intenta resolverlo primero sin ver la solución</li>
+            <li>• Usa el botón "Ver Solución" solo si necesitas ayuda</li>
+            <li>• Practica las variaciones sugeridas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejercicios Nivel Básico -->
+    <section class="mb-12">
+      <div class="flex items-center mb-6">
+        <div class="level-badge level-basic mr-4">Nivel Básico</div>
+        <h2 class="text-2xl font-bold text-white">Fundamentos de Tablas</h2>
+      </div>
+
+      <!-- Ejercicio 1 -->
+      <div class="exercise-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg mb-8 overflow-hidden fade-in">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">📚 Ejercicio 1: Tabla de Estudiantes y Notas</h3>
+            <span class="level-badge level-basic">Básico</span>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-2">🎯 Objetivo:</h4>
+            <p class="text-gray-700 mb-4">
+              Crear una tabla de 3x3 que muestre nombres de estudiantes y sus notas, aplicando estilos CSS básicos.
+            </p>
+            
+            <h4 class="font-semibold text-gray-700 mb-2">📋 Requerimientos:</h4>
+            <ul class="text-gray-700 text-sm space-y-1 mb-4">
+              <li>• Tabla con 3 columnas: Nombre, Materia, Nota</li>
+              <li>• 3 filas de datos (sin contar el encabezado)</li>
+              <li>• Usar encabezados apropiados (&lt;th&gt;)</li>
+              <li>• Aplicar bordes y estilos básicos</li>
+              <li>• Centrar la tabla en la página</li>
+            </ul>
+
+            <h4 class="font-semibold text-gray-700 mb-2">📊 Datos a usar:</h4>
+            <div class="bg-gray-50 p-4 rounded-lg text-sm">
+              <p><strong>Estudiante 1:</strong> Ana García, Matemáticas, 9.5</p>
+              <p><strong>Estudiante 2:</strong> Carlos López, Historia, 8.7</p>
+              <p><strong>Estudiante 3:</strong> María Silva, Ciencias, 9.2</p>
+            </div>
+          </div>
+
+          <!-- Resultado Esperado -->
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-3">✨ Resultado Esperado:</h4>
+            <div class="border border-gray-200 rounded-lg p-4 bg-white">
+              <table class="result-table mx-auto">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Materia</th>
+                    <th>Nota</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Ana García</td>
+                    <td>Matemáticas</td>
+                    <td>9.5</td>
+                  </tr>
+                  <tr>
+                    <td>Carlos López</td>
+                    <td>Historia</td>
+                    <td>8.7</td>
+                  </tr>
+                  <tr>
+                    <td>María Silva</td>
+                    <td>Ciencias</td>
+                    <td>9.2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <button class="solution-toggle" onclick="toggleSolution('solution1')">
+            👁️ Ver Solución
+          </button>
+
+          <div id="solution1" class="solution-content">
+            <h4 class="font-semibold text-gray-800 mb-3">📝 Solución Completa:</h4>
+            
+            <h5 class="font-medium text-gray-700 mb-2">HTML:</h5>
+            <div class="code-editor mb-4">
+              <code>
+<span class="code-line">&lt;!DOCTYPE html&gt;</span>
+<span class="code-line">&lt;html lang="es"&gt;</span>
+<span class="code-line">&lt;head&gt;</span>
+<span class="code-line">    &lt;meta charset="UTF-8"&gt;</span>
+<span class="code-line">    &lt;title&gt;Tabla de Estudiantes&lt;/title&gt;</span>
+<span class="code-line">    &lt;link rel="stylesheet" href="styles.css"&gt;</span>
+<span class="code-line">&lt;/head&gt;</span>
+<span class="code-line">&lt;body&gt;</span>
+<span class="code-line">    &lt;h1&gt;Notas de Estudiantes&lt;/h1&gt;</span>
+<span class="code-line">    &lt;table class="students-table"&gt;</span>
+<span class="code-line">        &lt;thead&gt;</span>
+<span class="code-line">            &lt;tr&gt;</span>
+<span class="code-line">                &lt;th&gt;Nombre&lt;/th&gt;</span>
+<span class="code-line">                &lt;th&gt;Materia&lt;/th&gt;</span>
+<span class="code-line">                &lt;th&gt;Nota&lt;/th&gt;</span>
+<span class="code-line">            &lt;/tr&gt;</span>
+<span class="code-line">        &lt;/thead&gt;</span>
+<span class="code-line">        &lt;tbody&gt;</span>
+<span class="code-line">            &lt;tr&gt;</span>
+<span class="code-line">                &lt;td&gt;Ana García&lt;/td&gt;</span>
+<span class="code-line">                &lt;td&gt;Matemáticas&lt;/td&gt;</span>
+<span class="code-line">                &lt;td&gt;9.5&lt;/td&gt;</span>
+<span class="code-line">            &lt;/tr&gt;</span>
+<span class="code-line">            &lt;tr&gt;</span>
+<span class="code-line">                &lt;td&gt;Carlos López&lt;/td&gt;</span>
+<span class="code-line">                &lt;td&gt;Historia&lt;/td&gt;</span>
+<span class="code-line">                &lt;td&gt;8.7&lt;/td&gt;</span>
+<span class="code-line">            &lt;/tr&gt;</span>
+<span class="code-line">            &lt;tr&gt;</span>
+<span class="code-line">                &lt;td&gt;María Silva&lt;/td&gt;</span>
+<span class="code-line">                &lt;td&gt;Ciencias&lt;/td&gt;</span>
+<span class="code-line">                &lt;td&gt;9.2&lt;/td&gt;</span>
+<span class="code-line">            &lt;/tr&gt;</span>
+<span class="code-line">        &lt;/tbody&gt;</span>
+<span class="code-line">    &lt;/table&gt;</span>
+<span class="code-line">&lt;/body&gt;</span>
+<span class="code-line">&lt;/html&gt;</span>
+              </code>
+            </div>
+
+            <h5 class="font-medium text-gray-700 mb-2">CSS (styles.css):</h5>
+            <div class="code-editor mb-4">
+              <code>
+<span class="code-line">body {</span>
+<span class="code-line">    font-family: Arial, sans-serif;</span>
+<span class="code-line">    text-align: center;</span>
+<span class="code-line">    margin: 40px;</span>
+<span class="code-line">    background-color: #f5f5f5;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">h1 {</span>
+<span class="code-line">    color: #333;</span>
+<span class="code-line">    margin-bottom: 30px;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.students-table {</span>
+<span class="code-line">    border-collapse: collapse;</span>
+<span class="code-line">    margin: 0 auto;</span>
+<span class="code-line">    width: 500px;</span>
+<span class="code-line">    background-color: white;</span>
+<span class="code-line">    box-shadow: 0 2px 10px rgba(0,0,0,0.1);</span>
+<span class="code-line">    border-radius: 8px;</span>
+<span class="code-line">    overflow: hidden;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.students-table th {</span>
+<span class="code-line">    background-color: #4a90e2;</span>
+<span class="code-line">    color: white;</span>
+<span class="code-line">    padding: 15px;</span>
+<span class="code-line">    text-align: left;</span>
+<span class="code-line">    font-weight: bold;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.students-table td {</span>
+<span class="code-line">    padding: 12px 15px;</span>
+<span class="code-line">    border-bottom: 1px solid #e0e0e0;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.students-table tr:nth-child(even) {</span>
+<span class="code-line">    background-color: #f8f9fa;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.students-table tr:hover {</span>
+<span class="code-line">    background-color: #e3f2fd;</span>
+<span class="code-line">    cursor: pointer;</span>
+<span class="code-line">}</span>
+              </code>
+            </div>
+
+            <div class="success-box">
+              <h4 class="font-semibold text-green-800 mb-2">✅ Puntos Clave:</h4>
+              <ul class="text-green-700 text-sm space-y-1">
+                <li>• <code>border-collapse: collapse</code> elimina espacios entre celdas</li>
+                <li>• <code>margin: 0 auto</code> centra la tabla horizontalmente</li>
+                <li>• <code>:nth-child(even)</code> alterna colores en las filas</li>
+                <li>• <code>:hover</code> añade interactividad al pasar el mouse</li>
+                <li>• <code>box-shadow</code> da profundidad visual</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejercicio 2 -->
+      <div class="exercise-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg mb-8 overflow-hidden fade-in">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">🏪 Ejercicio 2: Inventario de Productos</h3>
+            <span class="level-badge level-basic">Básico</span>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-2">🎯 Objetivo:</h4>
+            <p class="text-gray-700 mb-4">
+              Crear una tabla de inventario con 4 columnas y aplicar estilos mejorados.
+            </p>
+            
+            <h4 class="font-semibold text-gray-700 mb-2">📋 Requerimientos:</h4>
+            <ul class="text-gray-700 text-sm space-y-1 mb-4">
+              <li>• Tabla con 4 columnas: Producto, Categoría, Precio, Stock</li>
+              <li>• 4 filas de productos</li>
+              <li>• Alineación de precios a la derecha</li>
+              <li>• Colores diferentes para stocks bajos (&lt; 10)</li>
+              <li>• Bordes redondeados y sombras</li>
+            </ul>
+
+            <h4 class="font-semibold text-gray-700 mb-2">📊 Datos sugeridos:</h4>
+            <div class="bg-gray-50 p-4 rounded-lg text-sm">
+              <p>• Laptop Gamer, Electrónicos, $1,299.99, 5 unidades</p>
+              <p>• Mouse Inalámbrico, Accesorios, $49.99, 25 unidades</p>
+              <p>• Monitor 24", Electrónicos, $299.99, 8 unidades</p>
+              <p>• Teclado Mecánico, Accesorios, $129.99, 15 unidades</p>
+            </div>
+          </div>
+
+          <button class="solution-toggle" onclick="toggleSolution('solution2')">
+            👁️ Ver Solución
+          </button>
+
+          <div id="solution2" class="solution-content">
+            <h4 class="font-semibold text-gray-800 mb-3">📝 Solución Completa:</h4>
+            
+            <div class="code-editor mb-4">
+              <code>
+<span class="code-line">&lt;table class="inventory-table"&gt;</span>
+<span class="code-line">    &lt;thead&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;th&gt;Producto&lt;/th&gt;</span>
+<span class="code-line">            &lt;th&gt;Categoría&lt;/th&gt;</span>
+<span class="code-line">            &lt;th class="price"&gt;Precio&lt;/th&gt;</span>
+<span class="code-line">            &lt;th&gt;Stock&lt;/th&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">    &lt;/thead&gt;</span>
+<span class="code-line">    &lt;tbody&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;td&gt;Laptop Gamer&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;Electrónicos&lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="price"&gt;$1,299.99&lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="low-stock"&gt;5&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;td&gt;Mouse Inalámbrico&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;Accesorios&lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="price"&gt;$49.99&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;25&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;td&gt;Monitor 24"&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;Electrónicos&lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="price"&gt;$299.99&lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="low-stock"&gt;8&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;td&gt;Teclado Mecánico&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;Accesorios&lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="price"&gt;$129.99&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;15&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">    &lt;/tbody&gt;</span>
+<span class="code-line">&lt;/table&gt;</span>
+              </code>
+            </div>
+
+            <div class="hint-box">
+              <h4 class="font-semibold text-yellow-800 mb-2">💡 Desafío Extra:</h4>
+              <p class="text-yellow-700 text-sm">
+                Intenta agregar íconos antes de cada categoría usando CSS o caracteres especiales (🖥️ para Electrónicos, ⌨️ para Accesorios).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejercicio 3 -->
+      <div class="exercise-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg mb-8 overflow-hidden fade-in">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">📅 Ejercicio 3: Horario Semanal</h3>
+            <span class="level-badge level-basic">Básico</span>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-2">🎯 Objetivo:</h4>
+            <p class="text-gray-700 mb-4">
+              Crear una tabla de horario escolar usando encabezados tanto en filas como en columnas.
+            </p>
+            
+            <h4 class="font-semibold text-gray-700 mb-2">📋 Requerimientos:</h4>
+            <ul class="text-gray-700 text-sm space-y-1 mb-4">
+              <li>• Primera columna: horas (8:00-9:00, 9:00-10:00, etc.)</li>
+              <li>• Primera fila: días de la semana (Lun-Vie)</li>
+              <li>• Llenar con materias escolares</li>
+              <li>• Usar colores diferentes para cada materia</li>
+              <li>• Centrar el contenido de las celdas</li>
+            </ul>
+          </div>
+
+          <button class="try-it-button" onclick="showEncouragement()">
+            🚀 ¡Inténtalo Tú!
+          </button>
+          
+          <div class="hint-box">
+            <h4 class="font-semibold text-yellow-800 mb-2">💭 Pistas:</h4>
+            <ul class="text-yellow-700 text-sm space-y-1">
+              <li>• Usa <code>&lt;th&gt;</code> para horas y días</li>
+              <li>• Aplica <code>text-align: center</code> para centrar</li>
+              <li>• Considera usar clases CSS para cada materia</li>
+              <li>• El atributo <code>scope</code> mejora la accesibilidad</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ejercicios Nivel Intermedio -->
+    <section class="mb-12">
+      <div class="flex items-center mb-6">
+        <div class="level-badge level-intermediate mr-4">Nivel Intermedio</div>
+        <h2 class="text-2xl font-bold text-white">Técnicas Avanzadas de Tablas</h2>
+      </div>
+
+      <!-- Ejercicio 4 -->
+      <div class="exercise-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg mb-8 overflow-hidden fade-in">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">💰 Ejercicio 4: Reporte de Ventas Mensual</h3>
+            <span class="level-badge level-intermediate">Intermedio</span>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-2">🎯 Objetivo:</h4>
+            <p class="text-gray-700 mb-4">
+              Crear una tabla completa de ventas usando `thead`, `tbody`, `tfoot`, `caption` y `colspan` para totales.
+            </p>
+            
+            <h4 class="font-semibold text-gray-700 mb-2">📋 Requerimientos:</h4>
+            <ul class="text-gray-700 text-sm space-y-1 mb-4">
+              <li>• Usar `&lt;caption&gt;` para el título de la tabla</li>
+              <li>• Estructura semántica: `&lt;thead&gt;`, `&lt;tbody&gt;`, `&lt;tfoot&gt;</li>
+              <li>• En el pie: usar `colspan` para unir celdas del total</li>
+              <li>• Columnas: Producto, Enero, Febrero, Marzo, Total</li>
+              <li>• Calcular y mostrar totales por producto y por mes</li>
+              <li>• Estilos diferenciados para cada sección</li>
+            </ul>
+
+            <h4 class="font-semibold text-gray-700 mb-2">📊 Datos sugeridos:</h4>
+            <div class="bg-gray-50 p-4 rounded-lg text-sm">
+              <p><strong>Laptops:</strong> Ene: $12,000, Feb: $15,500, Mar: $13,200</p>
+              <p><strong>Tablets:</strong> Ene: $8,200, Feb: $9,100, Mar: $7,800</p>
+              <p><strong>Móviles:</strong> Ene: $18,500, Feb: $21,300, Mar: $19,700</p>
+            </div>
+          </div>
+
+          <!-- Resultado Esperado -->
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-3">✨ Resultado Esperado:</h4>
+            <div class="border border-gray-200 rounded-lg p-4 bg-white">
+              <table class="result-table mx-auto" style="width: 600px;">
+                <caption style="caption-side: top; font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #374151;">
+                  📈 Reporte de Ventas - Q1 2024
+                </caption>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Enero</th>
+                    <th>Febrero</th>
+                    <th>Marzo</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Laptops</strong></td>
+                    <td>$12,000</td>
+                    <td>$15,500</td>
+                    <td>$13,200</td>
+                    <td><strong>$40,700</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tablets</strong></td>
+                    <td>$8,200</td>
+                    <td>$9,100</td>
+                    <td>$7,800</td>
+                    <td><strong>$25,100</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Móviles</strong></td>
+                    <td>$18,500</td>
+                    <td>$21,300</td>
+                    <td>$19,700</td>
+                    <td><strong>$59,500</strong></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white;">
+                    <td colspan="4" style="text-align: right; font-weight: bold; padding-right: 15px;">TOTAL GENERAL:</td>
+                    <td style="font-weight: bold; font-size: 16px;">$125,300</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+          <button class="solution-toggle" onclick="toggleSolution('solution4')">
+            👁️ Ver Solución
+          </button>
+
+          <div id="solution4" class="solution-content">
+            <h4 class="font-semibold text-gray-800 mb-3">📝 Solución Completa:</h4>
+            
+            <h5 class="font-medium text-gray-700 mb-2">HTML:</h5>
+            <div class="code-editor mb-4">
+              <code>
+<span class="code-line">&lt;table class="sales-table"&gt;</span>
+<span class="code-line">    &lt;caption&gt;📈 Reporte de Ventas - Q1 2024&lt;/caption&gt;</span>
+<span class="code-line">    &lt;thead&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;th scope="col"&gt;Producto&lt;/th&gt;</span>
+<span class="code-line">            &lt;th scope="col"&gt;Enero&lt;/th&gt;</span>
+<span class="code-line">            &lt;th scope="col"&gt;Febrero&lt;/th&gt;</span>
+<span class="code-line">            &lt;th scope="col"&gt;Marzo&lt;/th&gt;</span>
+<span class="code-line">            &lt;th scope="col"&gt;Total&lt;/th&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">    &lt;/thead&gt;</span>
+<span class="code-line">    &lt;tbody&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;th scope="row"&gt;Laptops&lt;/th&gt;</span>
+<span class="code-line">            &lt;td&gt;$12,000&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;$15,500&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;$13,200&lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="total-cell"&gt;$40,700&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;th scope="row"&gt;Tablets&lt;/th&gt;</span>
+<span class="code-line">            &lt;td&gt;$8,200&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;$9,100&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;$7,800&lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="total-cell"&gt;$25,100&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;th scope="row"&gt;Móviles&lt;/th&gt;</span>
+<span class="code-line">            &lt;td&gt;$18,500&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;$21,300&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;$19,700&lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="total-cell"&gt;$59,500&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">    &lt;/tbody&gt;</span>
+<span class="code-line">    &lt;tfoot&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;td colspan="4" class="grand-total-label"&gt;</span>
+<span class="code-line">                TOTAL GENERAL:</span>
+<span class="code-line">            &lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="grand-total"&gt;$125,300&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">    &lt;/tfoot&gt;</span>
+<span class="code-line">&lt;/table&gt;</span>
+              </code>
+            </div>
+
+            <h5 class="font-medium text-gray-700 mb-2">CSS:</h5>
+            <div class="code-editor mb-4">
+              <code>
+<span class="code-line">.sales-table {</span>
+<span class="code-line">    border-collapse: collapse;</span>
+<span class="code-line">    margin: 20px auto;</span>
+<span class="code-line">    width: 700px;</span>
+<span class="code-line">    box-shadow: 0 4px 15px rgba(0,0,0,0.1);</span>
+<span class="code-line">    border-radius: 10px;</span>
+<span class="code-line">    overflow: hidden;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.sales-table caption {</span>
+<span class="code-line">    font-size: 1.5em;</span>
+<span class="code-line">    font-weight: bold;</span>
+<span class="code-line">    margin-bottom: 15px;</span>
+<span class="code-line">    color: #374151;</span>
+<span class="code-line">    text-align: center;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.sales-table thead th {</span>
+<span class="code-line">    background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);</span>
+<span class="code-line">    color: white;</span>
+<span class="code-line">    padding: 15px;</span>
+<span class="code-line">    text-align: center;</span>
+<span class="code-line">    font-weight: 600;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.sales-table tbody th {</span>
+<span class="code-line">    background-color: #f1f5f9;</span>
+<span class="code-line">    color: #374151;</span>
+<span class="code-line">    padding: 12px 15px;</span>
+<span class="code-line">    text-align: left;</span>
+<span class="code-line">    font-weight: 600;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.sales-table tbody td {</span>
+<span class="code-line">    padding: 12px 15px;</span>
+<span class="code-line">    text-align: center;</span>
+<span class="code-line">    border-bottom: 1px solid #e2e8f0;</span>
+<span class="code-line">    background-color: white;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.sales-table .total-cell {</span>
+<span class="code-line">    background-color: #dbeafe;</span>
+<span class="code-line">    font-weight: bold;</span>
+<span class="code-line">    color: #1e40af;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.sales-table tfoot td {</span>
+<span class="code-line">    background: linear-gradient(135deg, #059669 0%, #047857 100%);</span>
+<span class="code-line">    color: white;</span>
+<span class="code-line">    padding: 15px;</span>
+<span class="code-line">    font-weight: bold;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.grand-total-label {</span>
+<span class="code-line">    text-align: right;</span>
+<span class="code-line">    padding-right: 20px;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.grand-total {</span>
+<span class="code-line">    text-align: center;</span>
+<span class="code-line">    font-size: 1.1em;</span>
+<span class="code-line">}</span>
+              </code>
+            </div>
+
+            <div class="success-box">
+              <h4 class="font-semibold text-green-800 mb-2">✅ Conceptos Clave:</h4>
+              <ul class="text-green-700 text-sm space-y-1">
+                <li>• <code>&lt;caption&gt;</code> proporciona un título descriptivo</li>
+                <li>• <code>scope="col"</code> y <code>scope="row"</code> mejoran accesibilidad</li>
+                <li>• <code>colspan="4"</code> une 4 celdas horizontalmente</li>
+                <li>• <code>&lt;tfoot&gt;</code> agrupa información de resumen</li>
+                <li>• Diferentes estilos por sección (thead, tbody, tfoot)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejercicio 5 -->
+      <div class="exercise-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg mb-8 overflow-hidden fade-in">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">🏢 Ejercicio 5: Organigrama Empresarial</h3>
+            <span class="level-badge level-intermediate">Intermedio</span>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-2">🎯 Objetivo:</h4>
+            <p class="text-gray-700 mb-4">
+              Crear un organigrama usando `rowspan` para mostrar jerarquías empresariales.
+            </p>
+            
+            <h4 class="font-semibold text-gray-700 mb-2">📋 Requerimientos:</h4>
+            <ul class="text-gray-700 text-sm space-y-1 mb-4">
+              <li>• Usar `rowspan` para mostrar departamentos principales</li>
+              <li>• Columnas: Departamento, Cargo, Empleado, Email</li>
+              <li>• Agrupar empleados por departamento</li>
+              <li>• Colores diferentes por nivel jerárquico</li>
+              <li>• Bordes internos para separar secciones</li>
+            </ul>
+
+            <h4 class="font-semibold text-gray-700 mb-2">📊 Estructura sugerida:</h4>
+            <div class="bg-gray-50 p-4 rounded-lg text-sm">
+              <p><strong>Dirección:</strong> Director General, Gerente de Ventas</p>
+              <p><strong>Ventas:</strong> 2 vendedores</p>
+              <p><strong>Desarrollo:</strong> 2 desarrolladores</p>
+              <p><strong>Marketing:</strong> 2 especialistas</p>
+            </div>
+          </div>
+
+          <!-- Ejemplo Visual -->
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-3">✨ Ejemplo Visual:</h4>
+            <div class="border border-gray-200 rounded-lg p-4 bg-white overflow-x-auto">
+              <table class="result-table mx-auto" style="width: 800px;">
+                <thead>
+                  <tr>
+                    <th>Departamento</th>
+                    <th>Cargo</th>
+                    <th>Empleado</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="2" style="background-color: #fef3c7; vertical-align: middle; font-weight: bold; text-align: center;">
+                      DIRECCIÓN
+                    </td>
+                    <td style="font-weight: bold;">Director General</td>
+                    <td>Juan Pérez</td>
+                    <td>juan.perez@empresa.com</td>
+                  </tr>
+                  <tr>
+                    <td>Gerente Ventas</td>
+                    <td>Ana López</td>
+                    <td>ana.lopez@empresa.com</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2" style="background-color: #dbeafe; vertical-align: middle; font-weight: bold; text-align: center;">
+                      VENTAS
+                    </td>
+                    <td>Vendedor Senior</td>
+                    <td>Carlos Ruiz</td>
+                    <td>carlos.ruiz@empresa.com</td>
+                  </tr>
+                  <tr>
+                    <td>Vendedor Junior</td>
+                    <td>Laura Gómez</td>
+                    <td>laura.gomez@empresa.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <button class="solution-toggle" onclick="toggleSolution('solution5')">
+            👁️ Ver Solución
+          </button>
+
+          <div id="solution5" class="solution-content">
+            <h4 class="font-semibold text-gray-800 mb-3">📝 Código de Ejemplo:</h4>
+            
+            <div class="code-editor mb-4">
+              <code>
+<span class="code-line">&lt;table class="org-chart"&gt;</span>
+<span class="code-line">    &lt;caption&gt;🏢 Organigrama - Tech Solutions Corp&lt;/caption&gt;</span>
+<span class="code-line">    &lt;thead&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;th&gt;Departamento&lt;/th&gt;</span>
+<span class="code-line">            &lt;th&gt;Cargo&lt;/th&gt;</span>
+<span class="code-line">            &lt;th&gt;Empleado&lt;/th&gt;</span>
+<span class="code-line">            &lt;th&gt;Email&lt;/th&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">    &lt;/thead&gt;</span>
+<span class="code-line">    &lt;tbody&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;td rowspan="2" class="dept-management"&gt;</span>
+<span class="code-line">                DIRECCIÓN</span>
+<span class="code-line">            &lt;/td&gt;</span>
+<span class="code-line">            &lt;td class="position-executive"&gt;Director General&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;Juan Pérez&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;juan.perez@empresa.com&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">        &lt;tr&gt;</span>
+<span class="code-line">            &lt;td class="position-manager"&gt;Gerente Ventas&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;Ana López&lt;/td&gt;</span>
+<span class="code-line">            &lt;td&gt;ana.lopez@empresa.com&lt;/td&gt;</span>
+<span class="code-line">        &lt;/tr&gt;</span>
+<span class="code-line">        &lt;!-- Más filas... --&gt;</span>
+<span class="code-line">    &lt;/tbody&gt;</span>
+<span class="code-line">&lt;/table&gt;</span>
+              </code>
+            </div>
+
+            <div class="hint-box">
+              <h4 class="font-semibold text-yellow-800 mb-2">💡 Consejos Avanzados:</h4>
+              <ul class="text-yellow-700 text-sm space-y-1">
+                <li>• Usa `vertical-align: middle` en celdas con rowspan</li>
+                <li>• Aplica `border-right` para separar departamentos</li>
+                <li>• Considera agregar íconos para diferentes cargos</li>
+                <li>• Usa `text-transform: uppercase` para departamentos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejercicio 6 -->
+      <div class="exercise-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg mb-8 overflow-hidden fade-in">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">🎓 Ejercicio 6: Horario Universitario Complejo</h3>
+            <span class="level-badge level-intermediate">Intermedio</span>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-2">🎯 Objetivo:</h4>
+            <p class="text-gray-700 mb-4">
+              Crear un horario universitario usando tanto `colspan` como `rowspan` para materias de duración variable.
+            </p>
+            
+            <h4 class="font-semibold text-gray-700 mb-2">📋 Requerimientos:</h4>
+            <ul class="text-gray-700 text-sm space-y-1 mb-4">
+              <li>• Combinar `colspan` y `rowspan` en la misma tabla</li>
+              <li>• Representar clases de 1, 2 o 3 horas</li>
+              <li>• Incluir descansos y horarios de almuerzo</li>
+              <li>• Colores diferentes por tipo de materia</li>
+              <li>• Información de aula y profesor</li>
+            </ul>
+
+            <div class="hint-box">
+              <h4 class="font-semibold text-yellow-800 mb-2">🧠 Desafío Mental:</h4>
+              <p class="text-yellow-700 text-sm">
+                Este ejercicio requiere planificación cuidadosa. Dibuja primero la estructura en papel antes de codificar. 
+                ¿Cómo manejarías una clase que ocupa 2 horas consecutivas en el mismo día?
+              </p>
+            </div>
+          </div>
+
+          <button class="try-it-button" onclick="showIntermediateEncouragement()">
+            🎯 ¡Acepta el Desafío!
+          </button>
+          
+          <div class="success-box mt-4">
+            <h4 class="font-semibold text-green-800 mb-2">🏆 Logros al completar:</h4>
+            <ul class="text-green-700 text-sm space-y-1">
+              <li>• Dominio completo de colspan y rowspan</li>
+              <li>• Planificación de estructuras complejas</li>
+              <li>• Técnicas avanzadas de posicionamiento</li>
+              <li>• Experiencia en proyectos reales</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ejercicios Nivel Avanzado -->
+    <section class="mb-12">
+      <div class="flex items-center mb-6">
+        <div class="level-badge level-advanced mr-4">Nivel Avanzado</div>
+        <h2 class="text-2xl font-bold text-white">Tablas Modernas y Responsivas</h2>
+      </div>
+
+      <!-- Ejercicio 7 -->
+      <div class="exercise-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg mb-8 overflow-hidden fade-in">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">🛒 Ejercicio 7: Catálogo de Productos Responsivo</h3>
+            <span class="level-badge level-advanced">Avanzado</span>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-2">🎯 Objetivo:</h4>
+            <p class="text-gray-700 mb-4">
+              Crear una tabla de productos completa con categorías usando `rowspan`, diseño responsivo con scroll horizontal y técnicas modernas de CSS.
+            </p>
+            
+            <h4 class="font-semibold text-gray-700 mb-2">📋 Requerimientos Avanzados:</h4>
+            <ul class="text-gray-700 text-sm space-y-1 mb-4">
+              <li>• `&lt;caption&gt;` descriptivo con estilos personalizados</li>
+              <li>• `rowspan` para agrupar productos por categoría</li>
+              <li>• **Scroll horizontal** en pantallas pequeñas (&lt; 768px)</li>
+              <li>• **Sticky header** que permanece fijo al hacer scroll</li>
+              <li>• **Hover effects** y transiciones suaves</li>
+              <li>• **Indicadores de stock** con colores semaforizados</li>
+              <li>• **Media queries** para adaptación móvil</li>
+              <li>• **Sombras y gradientes** modernos</li>
+            </ul>
+
+            <h4 class="font-semibold text-gray-700 mb-2">📊 Estructura de Datos:</h4>
+            <div class="bg-gray-50 p-4 rounded-lg text-sm">
+              <p><strong>Categorías:</strong> Electrónicos (3 productos), Hogar (2 productos), Deportes (2 productos)</p>
+              <p><strong>Columnas:</strong> Categoría, Producto, Descripción, Precio, Stock, Valoración, Acción</p>
+              <p><strong>Datos adicionales:</strong> Imágenes, botones, badges de estado</p>
+            </div>
+          </div>
+
+          <!-- Vista Previa Desktop -->
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-3">💻 Vista Desktop:</h4>
+            <div class="border border-gray-200 rounded-lg p-4 bg-white overflow-x-auto">
+              <table class="result-table mx-auto" style="width: 100%; min-width: 900px;">
+                <caption style="caption-side: top; font-size: 20px; font-weight: bold; margin-bottom: 15px; color: #374151; background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); color: white; padding: 15px; border-radius: 10px 10px 0 0;">
+                  🛒 Catálogo de Productos - Tech Store Pro
+                </caption>
+                <thead>
+                  <tr>
+                    <th>Categoría</th>
+                    <th>Producto</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Rating</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="3" style="background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 50%); vertical-align: middle; font-weight: bold; text-align: center; writing-mode: vertical-rl; text-orientation: mixed;">
+                      📱 ELECTRÓNICOS
+                    </td>
+                    <td><strong>iPhone 15 Pro</strong></td>
+                    <td>Smartphone última generación</td>
+                    <td style="font-weight: bold; color: #059669;">$1,199</td>
+                    <td style="background: #dcfce7; color: #166534; font-weight: bold; text-align: center;">✅ 25</td>
+                    <td style="color: #f59e0b;">⭐⭐⭐⭐⭐</td>
+                    <td><button style="background: #3b82f6; color: white; padding: 5px 12px; border: none; border-radius: 5px; cursor: pointer;">🛒 Comprar</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>MacBook Air</strong></td>
+                    <td>Laptop ultradelgada M2</td>
+                    <td style="font-weight: bold; color: #059669;">$1,499</td>
+                    <td style="background: #fef3c7; color: #92400e; font-weight: bold; text-align: center;">⚠️ 8</td>
+                    <td style="color: #f59e0b;">⭐⭐⭐⭐⭐</td>
+                    <td><button style="background: #3b82f6; color: white; padding: 5px 12px; border: none; border-radius: 5px; cursor: pointer;">🛒 Comprar</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>AirPods Pro</strong></td>
+                    <td>Auriculares inalámbricos</td>
+                    <td style="font-weight: bold; color: #059669;">$249</td>
+                    <td style="background: #fee2e2; color: #991b1b; font-weight: bold; text-align: center;">❌ 2</td>
+                    <td style="color: #f59e0b;">⭐⭐⭐⭐⭐</td>
+                    <td><button style="background: #ef4444; color: white; padding: 5px 12px; border: none; border-radius: 5px; cursor: pointer;">🔴 Agotado</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Vista Previa Mobile -->
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-3">📱 Comportamiento Móvil:</h4>
+            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+              <p class="text-blue-800 text-sm mb-2">
+                <strong>🔄 Scroll Horizontal Automático:</strong> En pantallas &lt; 768px, la tabla se convierte en un contenedor con scroll horizontal.
+              </p>
+              <p class="text-blue-700 text-sm">
+                <strong>📌 Header Sticky:</strong> Los encabezados permanecen visibles durante el scroll vertical.
+              </p>
+            </div>
+          </div>
+
+          <button class="solution-toggle" onclick="toggleSolution('solution7')">
+            👁️ Ver Solución Completa
+          </button>
+
+          <div id="solution7" class="solution-content">
+            <h4 class="font-semibold text-gray-800 mb-3">📝 Solución Avanzada:</h4>
+            
+            <h5 class="font-medium text-gray-700 mb-2">HTML - Estructura Semántica:</h5>
+            <div class="code-editor mb-4">
+              <code>
+<span class="code-line">&lt;div class="table-container"&gt;</span>
+<span class="code-line">  &lt;table class="product-catalog"&gt;</span>
+<span class="code-line">    &lt;caption&gt;</span>
+<span class="code-line">      &lt;span class="catalog-icon"&gt;🛒&lt;/span&gt;</span>
+<span class="code-line">      Catálogo de Productos - Tech Store Pro</span>
+<span class="code-line">      &lt;small&gt;Actualizado: Agosto 2024&lt;/small&gt;</span>
+<span class="code-line">    &lt;/caption&gt;</span>
+<span class="code-line">    &lt;thead&gt;</span>
+<span class="code-line">      &lt;tr&gt;</span>
+<span class="code-line">        &lt;th scope="col" class="category-header"&gt;Categoría&lt;/th&gt;</span>
+<span class="code-line">        &lt;th scope="col"&gt;Producto&lt;/th&gt;</span>
+<span class="code-line">        &lt;th scope="col"&gt;Descripción&lt;/th&gt;</span>
+<span class="code-line">        &lt;th scope="col" class="price-header"&gt;Precio&lt;/th&gt;</span>
+<span class="code-line">        &lt;th scope="col"&gt;Stock&lt;/th&gt;</span>
+<span class="code-line">        &lt;th scope="col"&gt;Rating&lt;/th&gt;</span>
+<span class="code-line">        &lt;th scope="col"&gt;Acción&lt;/th&gt;</span>
+<span class="code-line">      &lt;/tr&gt;</span>
+<span class="code-line">    &lt;/thead&gt;</span>
+<span class="code-line">    &lt;tbody&gt;</span>
+<span class="code-line">      &lt;tr class="product-row"&gt;</span>
+<span class="code-line">        &lt;td rowspan="3" class="category-electronics"&gt;</span>
+<span class="code-line">          &lt;span class="category-icon"&gt;📱&lt;/span&gt;</span>
+<span class="code-line">          &lt;span class="category-name"&gt;ELECTRÓNICOS&lt;/span&gt;</span>
+<span class="code-line">        &lt;/td&gt;</span>
+<span class="code-line">        &lt;td class="product-name"&gt;iPhone 15 Pro&lt;/td&gt;</span>
+<span class="code-line">        &lt;td class="product-desc"&gt;Smartphone última generación&lt;/td&gt;</span>
+<span class="code-line">        &lt;td class="price-cell"&gt;$1,199&lt;/td&gt;</span>
+<span class="code-line">        &lt;td class="stock-high"&gt;</span>
+<span class="code-line">          &lt;span class="stock-icon"&gt;✅&lt;/span&gt;</span>
+<span class="code-line">          &lt;span class="stock-number"&gt;25&lt;/span&gt;</span>
+<span class="code-line">        &lt;/td&gt;</span>
+<span class="code-line">        &lt;td class="rating"&gt;⭐⭐⭐⭐⭐&lt;/td&gt;</span>
+<span class="code-line">        &lt;td class="action-cell"&gt;</span>
+<span class="code-line">          &lt;button class="btn-buy"&gt;🛒 Comprar&lt;/button&gt;</span>
+<span class="code-line">        &lt;/td&gt;</span>
+<span class="code-line">      &lt;/tr&gt;</span>
+<span class="code-line">      &lt;!-- Más productos... --&gt;</span>
+<span class="code-line">    &lt;/tbody&gt;</span>
+<span class="code-line">  &lt;/table&gt;</span>
+<span class="code-line">&lt;/div&gt;</span>
+              </code>
+            </div>
+
+            <h5 class="font-medium text-gray-700 mb-2">CSS - Diseño Responsivo Avanzado:</h5>
+            <div class="code-editor mb-4">
+              <code>
+<span class="code-line">/* Contenedor responsivo */</span>
+<span class="code-line">.table-container {</span>
+<span class="code-line">  width: 100%;</span>
+<span class="code-line">  overflow-x: auto;</span>
+<span class="code-line">  margin: 20px 0;</span>
+<span class="code-line">  border-radius: 12px;</span>
+<span class="code-line">  box-shadow: 0 8px 25px rgba(0,0,0,0.15);</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">/* Tabla principal */</span>
+<span class="code-line">.product-catalog {</span>
+<span class="code-line">  border-collapse: collapse;</span>
+<span class="code-line">  width: 100%;</span>
+<span class="code-line">  min-width: 800px; /* Ancho mínimo para scroll */</span>
+<span class="code-line">  background: white;</span>
+<span class="code-line">  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">/* Caption moderno */</span>
+<span class="code-line">.product-catalog caption {</span>
+<span class="code-line">  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);</span>
+<span class="code-line">  color: white;</span>
+<span class="code-line">  padding: 20px;</span>
+<span class="code-line">  font-size: 1.5em;</span>
+<span class="code-line">  font-weight: bold;</span>
+<span class="code-line">  text-align: center;</span>
+<span class="code-line">  border-radius: 12px 12px 0 0;</span>
+<span class="code-line">  caption-side: top;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.catalog-icon {</span>
+<span class="code-line">  font-size: 1.3em;</span>
+<span class="code-line">  margin-right: 10px;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.product-catalog caption small {</span>
+<span class="code-line">  display: block;</span>
+<span class="code-line">  font-size: 0.7em;</span>
+<span class="code-line">  opacity: 0.9;</span>
+<span class="code-line">  margin-top: 5px;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">/* Header sticky */</span>
+<span class="code-line">.product-catalog thead th {</span>
+<span class="code-line">  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);</span>
+<span class="code-line">  color: white;</span>
+<span class="code-line">  padding: 15px 12px;</span>
+<span class="code-line">  font-weight: 600;</span>
+<span class="code-line">  text-align: left;</span>
+<span class="code-line">  position: sticky;</span>
+<span class="code-line">  top: 0;</span>
+<span class="code-line">  z-index: 10;</span>
+<span class="code-line">  border-bottom: 2px solid #3b82f6;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">/* Celdas de categoría con rowspan */</span>
+<span class="code-line">.category-electronics {</span>
+<span class="code-line">  background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);</span>
+<span class="code-line">  writing-mode: vertical-rl;</span>
+<span class="code-line">  text-orientation: mixed;</span>
+<span class="code-line">  vertical-align: middle;</span>
+<span class="code-line">  font-weight: bold;</span>
+<span class="code-line">  text-align: center;</span>
+<span class="code-line">  width: 60px;</span>
+<span class="code-line">  border-right: 3px solid #f59e0b;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">/* Estados de stock */</span>
+<span class="code-line">.stock-high {</span>
+<span class="code-line">  background: #dcfce7;</span>
+<span class="code-line">  color: #166534;</span>
+<span class="code-line">  font-weight: bold;</span>
+<span class="code-line">  text-align: center;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.stock-medium {</span>
+<span class="code-line">  background: #fef3c7;</span>
+<span class="code-line">  color: #92400e;</span>
+<span class="code-line">  font-weight: bold;</span>
+<span class="code-line">  text-align: center;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.stock-low {</span>
+<span class="code-line">  background: #fee2e2;</span>
+<span class="code-line">  color: #991b1b;</span>
+<span class="code-line">  font-weight: bold;</span>
+<span class="code-line">  text-align: center;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">/* Botones interactivos */</span>
+<span class="code-line">.btn-buy {</span>
+<span class="code-line">  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);</span>
+<span class="code-line">  color: white;</span>
+<span class="code-line">  border: none;</span>
+<span class="code-line">  padding: 8px 16px;</span>
+<span class="code-line">  border-radius: 6px;</span>
+<span class="code-line">  cursor: pointer;</span>
+<span class="code-line">  font-weight: 500;</span>
+<span class="code-line">  transition: all 0.3s ease;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">.btn-buy:hover {</span>
+<span class="code-line">  transform: translateY(-2px);</span>
+<span class="code-line">  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">/* Hover effects en filas */</span>
+<span class="code-line">.product-row:hover {</span>
+<span class="code-line">  background-color: #f8fafc;</span>
+<span class="code-line">  transform: scale(1.01);</span>
+<span class="code-line">  transition: all 0.3s ease;</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">/* RESPONSIVE DESIGN */</span>
+<span class="code-line">@media (max-width: 768px) {</span>
+<span class="code-line">  .table-container {</span>
+<span class="code-line">    margin: 10px;</span>
+<span class="code-line">    border-radius: 8px;</span>
+<span class="code-line">  }</span>
+<span class="code-line">  </span>
+<span class="code-line">  .product-catalog {</span>
+<span class="code-line">    font-size: 14px;</span>
+<span class="code-line">    min-width: 650px;</span>
+<span class="code-line">  }</span>
+<span class="code-line">  </span>
+<span class="code-line">  .product-catalog caption {</span>
+<span class="code-line">    font-size: 1.2em;</span>
+<span class="code-line">    padding: 15px;</span>
+<span class="code-line">  }</span>
+<span class="code-line">  </span>
+<span class="code-line">  .product-catalog thead th {</span>
+<span class="code-line">    padding: 10px 8px;</span>
+<span class="code-line">    font-size: 12px;</span>
+<span class="code-line">  }</span>
+<span class="code-line">  </span>
+<span class="code-line">  .btn-buy {</span>
+<span class="code-line">    padding: 6px 12px;</span>
+<span class="code-line">    font-size: 12px;</span>
+<span class="code-line">  }</span>
+<span class="code-line">}</span>
+<span class="code-line"></span>
+<span class="code-line">@media (max-width: 480px) {</span>
+<span class="code-line">  .product-catalog caption {</span>
+<span class="code-line">    font-size: 1em;</span>
+<span class="code-line">    padding: 12px;</span>
+<span class="code-line">  }</span>
+<span class="code-line">  </span>
+<span class="code-line">  .catalog-icon {</span>
+<span class="code-line">    font-size: 1em;</span>
+<span class="code-line">  }</span>
+<span class="code-line">}</span>
+              </code>
+            </div>
+
+            <div class="success-box">
+              <h4 class="font-semibold text-green-800 mb-2">🚀 Técnicas Avanzadas Implementadas:</h4>
+              <ul class="text-green-700 text-sm space-y-1">
+                <li>• <code>position: sticky</code> para headers que permanecen visibles</li>
+                <li>• <code>writing-mode: vertical-rl</code> para texto vertical en categorías</li>
+                <li>• <code>transform: scale()</code> para efectos hover suaves</li>
+                <li>• <code>overflow-x: auto</code> para scroll horizontal responsivo</li>
+                <li>• <code>@media queries</code> para adaptación móvil</li>
+                <li>• <code>linear-gradient()</code> para gradientes modernos</li>
+                <li>• <code>box-shadow</code> para profundidad visual</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejercicio 8 -->
+      <div class="exercise-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg mb-8 overflow-hidden fade-in">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">⚡ Ejercicio 8: Dashboard Interactivo con JavaScript</h3>
+            <span class="level-badge level-advanced">Avanzado</span>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-2">🎯 Objetivo:</h4>
+            <p class="text-gray-700 mb-4">
+              Crear una tabla de dashboard con funcionalidades JavaScript: filtrado, ordenación y exportación.
+            </p>
+            
+            <h4 class="font-semibold text-gray-700 mb-2">🔧 Características JavaScript:</h4>
+            <ul class="text-gray-700 text-sm space-y-1 mb-4">
+              <li>• **Filtros dinámicos** por categoría y rango de precios</li>
+              <li>• **Ordenación clickeable** en todas las columnas</li>
+              <li>• **Búsqueda en tiempo real** en productos</li>
+              <li>• **Paginación** para grandes conjuntos de datos</li>
+              <li>• **Exportar a CSV/JSON** (simulado)</li>
+              <li>• **Animaciones** al filtrar/ordenar</li>
+            </ul>
+
+            <div class="hint-box">
+              <h4 class="font-semibold text-yellow-800 mb-2">💻 Tecnologías Requeridas:</h4>
+              <p class="text-yellow-700 text-sm mb-2">
+                Este ejercicio combina HTML, CSS avanzado y JavaScript vanilla para crear una experiencia completa.
+              </p>
+              <ul class="text-yellow-700 text-sm space-y-1">
+                <li>• DOM manipulation</li>
+                <li>• Event listeners</li>
+                <li>• Array methods (filter, sort, map)</li>
+                <li>• LocalStorage para persistencia</li>
+              </ul>
+            </div>
+          </div>
+
+          <button class="try-it-button" onclick="showAdvancedEncouragement()">
+            🎯 ¡Reto JavaScript!
+          </button>
+          
+          <div class="success-box mt-4">
+            <h4 class="font-semibold text-green-800 mb-2">🏆 Skills que desarrollarás:</h4>
+            <ul class="text-green-700 text-sm space-y-1">
+              <li>• Manipulación avanzada del DOM</li>
+              <li>• Programación funcional con arrays</li>
+              <li>• UX/UI interactiva</li>
+              <li>• Optimización de rendimiento</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejercicio 9 -->
+      <div class="exercise-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg mb-8 overflow-hidden fade-in">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">🌐 Ejercicio 9: Integración con API Externa</h3>
+            <span class="level-badge level-advanced">Avanzado</span>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-700 mb-2">🎯 Objetivo Final:</h4>
+            <p class="text-gray-700 mb-4">
+              Crear una tabla que consuma datos de una API externa y los muestre con todas las técnicas aprendidas.
+            </p>
+            
+            <h4 class="font-semibold text-gray-700 mb-2">🔗 APIs Sugeridas para Practicar:</h4>
+            <ul class="text-gray-700 text-sm space-y-1 mb-4">
+              <li>• **JSONPlaceholder** - Posts, users, comments</li>
+              <li>• **REST Countries** - Información de países</li>
+              <li>• **OpenWeather** - Datos meteorológicos</li>
+              <li>• **GitHub API** - Repositorios y usuarios</li>
+            </ul>
+
+            <div class="success-box">
+              <h4 class="font-semibold text-green-800 mb-2">🎓 Proyecto Capstone:</h4>
+              <p class="text-green-700 text-sm">
+                Este ejercicio representa la culminación de todo lo aprendido: HTML semántico, CSS moderno, 
+                responsividad, JavaScript avanzado y integración con APIs reales.
+              </p>
+            </div>
+          </div>
+
+          <button class="try-it-button" onclick="showMasterEncouragement()">
+            👑 ¡Proyecto Maestro!
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Graduación Section -->
+    <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden fade-in">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-6">
+        <h2 class="text-3xl font-bold text-white mb-2">🎓 ¡Felicidades! Curso Completado</h2>
+        <p class="text-purple-100">Has dominado las tablas HTML desde lo básico hasta técnicas avanzadas</p>
+      </div>
+      
+      <div class="p-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🏆 Lo que has logrado:</h3>
+            <ul class="text-gray-700 space-y-3">
+              <li class="flex items-center">
+                <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-sm">✓</span>
+                <span><strong>Fundamentos sólidos:</strong> Estructura HTML semántica</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-sm">✓</span>
+                <span><strong>Técnicas avanzadas:</strong> colspan, rowspan, estructura compleja</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-sm">✓</span>
+                <span><strong>Diseño moderno:</strong> CSS avanzado, gradientes, animaciones</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-sm">✓</span>
+                <span><strong>Responsividad:</strong> Adaptación a todos los dispositivos</span>
+              </li>
+              <li class="flex items-center">
+                <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center mr-3 text-sm">✓</span>
+                <span><strong>JavaScript avanzado:</strong> Interactividad y APIs</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🚀 Próximos pasos recomendados:</h3>
+            <div class="space-y-3">
+              <div class="bg-white p-3 rounded-lg border border-blue-200">
+                <h4 class="font-semibold text-blue-800 mb-1">📊 Frameworks de Datos</h4>
+                <p class="text-blue-700 text-sm">Explora DataTables, ag-Grid, o React Table</p>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-green-200">
+                <h4 class="font-semibold text-green-800 mb-1">🎨 Librerías de UI</h4>
+                <p class="text-green-700 text-sm">Bootstrap Tables, Tailwind UI, Material-UI</p>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-purple-200">
+                <h4 class="font-semibold text-purple-800 mb-1">⚡ Frameworks JS</h4>
+                <p class="text-purple-700 text-sm">Vue.js, React.js, Angular para SPAs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border border-yellow-200">
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">🎯 Proyectos Finales Sugeridos:</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="text-3xl mb-2">📈</div>
+              <h4 class="font-medium text-gray-800 mb-1">Dashboard Analytics</h4>
+              <p class="text-gray-600 text-sm">Tablas con gráficos integrados</p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl mb-2">🛒</div>
+              <h4 class="font-medium text-gray-800 mb-1">E-commerce Admin</h4>
+              <p class="text-gray-600 text-sm">Gestión de productos completa</p>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl mb-2">👥</div>
+              <h4 class="font-medium text-gray-800 mb-1">CRM Sistema</h4>
+              <p class="text-gray-600 text-sm">Gestión de clientes avanzada</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-8">
+          <div class="flex justify-center space-x-4">
+            <a href="index.html" 
+               class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 inline-block transform hover:scale-105">
+              ← Revisar Temario
+            </a>
+            <a href="../../index.html" 
+               class="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 inline-block transform hover:scale-105">
+              🏠 Ir al Inicio
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white/10 backdrop-blur-md border-t border-white/20 mt-16">
+    <div class="container mx-auto px-6 py-8">
+      <div class="text-center">
+        <p class="text-white/80 mb-4">© 2024 Development School - Practica y mejora tus habilidades</p>
+        <div class="flex justify-center space-x-4">
+          <a href="index.html" class="text-white/60 hover:text-white transition-colors duration-200">Temario</a>
+          <span class="text-white/40">|</span>
+          <a href="../../index.html" class="text-white/60 hover:text-white transition-colors duration-200">Inicio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleSolution(solutionId) {
+      const solution = document.getElementById(solutionId);
+      const button = solution.previousElementSibling;
+      
+      if (solution.classList.contains('show')) {
+        solution.classList.remove('show');
+        button.innerHTML = '👁️ Ver Solución';
+      } else {
+        solution.classList.add('show');
+        button.innerHTML = '🙈 Ocultar Solución';
+      }
+    }
+
+    function showEncouragement() {
+      alert('¡Excelente! 🎉\n\nEste es un gran ejercicio para practicar. Recuerda:\n\n• Planifica primero la estructura\n• Usa encabezados apropiados\n• Aplica estilos paso a paso\n• No dudes en experimentar\n\n¡Tú puedes hacerlo! 💪');
+    }
+
+    function showIntermediateEncouragement() {
+      alert('🎯 ¡Desafío Intermedio Aceptado! 🚀\n\nEste ejercicio te llevará al siguiente nivel:\n\n• 🧠 Requiere planificación estratégica\n• 📐 Combina colspan y rowspan\n• 🎨 Involucra diseño complejo\n• 💡 Simula problemas reales\n\nConsejos:\n• Dibuja la estructura primero\n• Calcula cuidadosamente las celdas\n• Prueba paso a paso\n• ¡La práctica hace al maestro!\n\n¡Estás preparado para este reto! 💪✨');
+    }
+
+    function showAdvancedEncouragement() {
+      alert('🚀 ¡DESAFÍO AVANZADO DESBLOQUEADO! ⚡\n\n¡Has llegado al nivel máximo de tablas HTML!\n\n🎯 Este ejercicio incluye:\n• JavaScript avanzado\n• Manipulación del DOM\n• Event listeners\n• Filtros y búsquedas\n• Animaciones CSS\n\n🧠 Skills que desarrollarás:\n• Programación funcional\n• Optimización de rendimiento\n• UX/UI profesional\n• Debugging avanzado\n\n💡 Consejos de Maestro:\n• Planifica la arquitectura del código\n• Separa lógica de presentación\n• Usa DevTools para debugging\n• Implementa paso a paso\n\n¡Eres un desarrollador frontend en potencia! 🌟👨‍💻');
+    }
+
+    function showMasterEncouragement() {
+      alert('👑 ¡PROYECTO MAESTRO DESBLOQUEADO! 🏆\n\n¡FELICIDADES! Has alcanzado el nivel MASTER en tablas HTML.\n\n🌟 Este es tu proyecto capstone:\n• Integración con APIs reales\n• Arquitectura profesional\n• Manejo de estados complejos\n• Performance optimization\n• Error handling\n• Progressive Web App features\n\n🎓 Al completarlo serás capaz de:\n• Crear dashboards profesionales\n• Manejar grandes volúmenes de datos\n• Implementar funcionalidades enterprise\n• Liderar proyectos frontend\n\n💼 Oportunidades que se abren:\n• Frontend Developer\n• Full Stack Developer\n• UI/UX Engineer\n• Data Visualization Specialist\n\n🚀 ¡EL LÍMITE ERES TÚ!\n\nEste proyecto puede ser la pieza clave de tu portfolio profesional.\n\n¡ADELANTE, FUTURO MASTER DEVELOPER! 🌟✨🎯');
+    }
+
+    // Animaciones al cargar
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.fade-in');
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.style.animationDelay = `${index * 0.1}s`;
+        }, 100);
+      });
+    });
+  </script>
+</body>
+
+</html>

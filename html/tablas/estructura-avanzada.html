@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estructura Avanzada de Tablas HTML</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);
+    }
+
+    .structure-demo {
+      transition: all 0.3s ease;
+    }
+
+    .structure-demo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .slide-in-section {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    .code-highlight {
+      background: #2d3748;
+      color: #e2e8f0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .section-highlight {
+      border-left: 4px solid currentColor;
+      padding-left: 16px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+      <a href="encabezados-celdas.html"
+        class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors text-center w-full sm:w-auto">
+        ← Encabezados y Celdas
+      </a>
+      <a href="colspan-rowspan.html"
+        class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors text-center w-full sm:w-auto">
+        Colspan y Rowspan →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🏗️ Estructura Avanzada de Tablas</h1>
+      <p class="text-xl text-gray-600">Aprende a usar &lt;thead&gt;, &lt;tbody&gt; y &lt;tfoot&gt; para tablas profesionales</p>
+    </div>
+
+    <!-- Introducción a la Estructura -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-blue-600 to-cyan-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🎯 ¿Por qué Estructura Avanzada?</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div class="slide-in-section">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🤔 El Problema</h3>
+            <p class="text-gray-700 mb-4">
+              Las tablas básicas con solo <code class="bg-gray-200 px-2 py-1 rounded">&lt;tr&gt;</code> y 
+              <code class="bg-gray-200 px-2 py-1 rounded">&lt;td&gt;</code> funcionan, pero tienen limitaciones:
+            </p>
+            <div class="space-y-3">
+              <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+                <p class="text-red-800 text-sm">❌ Difícil aplicar estilos específicos por sección</p>
+              </div>
+              <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+                <p class="text-red-800 text-sm">❌ Los navegadores no pueden optimizar el renderizado</p>
+              </div>
+              <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+                <p class="text-red-800 text-sm">❌ Accesibilidad limitada para lectores de pantalla</p>
+              </div>
+              <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+                <p class="text-red-800 text-sm">❌ JavaScript no puede manipular secciones fácilmente</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-in-section">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">✅ La Solución</h3>
+            <p class="text-gray-700 mb-4">
+              HTML5 proporciona etiquetas semánticas que dividen la tabla en secciones lógicas:
+            </p>
+            <div class="space-y-3">
+              <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                <p class="text-green-800 text-sm">✅ <strong>&lt;thead&gt;</strong> - Encabezados de la tabla</p>
+              </div>
+              <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                <p class="text-green-800 text-sm">✅ <strong>&lt;tbody&gt;</strong> - Cuerpo principal con datos</p>
+              </div>
+              <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+                <p class="text-green-800 text-sm">✅ <strong>&lt;tfoot&gt;</strong> - Pie con resúmenes/totales</p>
+              </div>
+              <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400">
+                <p class="text-blue-800 text-sm">🎯 Mejor organización y funcionalidad</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THEAD -->
+    <div class="structure-demo bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-green-600 to-teal-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">&lt;thead&gt; - Sección de Encabezados</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">📋 Descripción</h3>
+            <div class="section-highlight text-green-600 mb-4">
+              <p class="text-gray-700">
+                <code class="bg-green-100 px-2 py-1 rounded">&lt;thead&gt;</code> agrupa las filas de encabezado
+                de una tabla. Generalmente contiene información como títulos de columnas.
+              </p>
+            </div>
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+              <h4 class="font-bold mb-2">🎯 Características:</h4>
+              <ul class="text-gray-700 space-y-1 text-sm">
+                <li>• Debe aparecer antes de &lt;tbody&gt; y &lt;tfoot&gt;</li>
+                <li>• Puede contener una o más filas (&lt;tr&gt;)</li>
+                <li>• Ideal para encabezados complejos (multi-nivel)</li>
+                <li>• Los navegadores pueden repetirlo al imprimir páginas</li>
+                <li>• Fácil de estilizar con CSS</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">💻 Ejemplo de Uso</h3>
+            <div class="code-highlight rounded-lg p-4 text-sm mb-4">
+              <div class="text-green-400 mb-2">// Estructura con thead</div>
+              <div class="space-y-1">
+                <div><span class="text-red-400">&lt;table&gt;</span></div>
+                <div class="ml-2"><span class="text-green-400">&lt;thead&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;th&gt;</span>Producto<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;th&gt;</span>Precio<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;th&gt;</span>Stock<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-green-400">&lt;/thead&gt;</span></div>
+                <div class="ml-2"><span class="text-gray-500">// tbody y tfoot van aquí...</span></div>
+                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              </div>
+            </div>
+            <div class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400">
+              <p class="text-yellow-800 text-sm">
+                <strong>Consejo:</strong> Usa &lt;thead&gt; incluso si solo tienes una fila de encabezados.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TBODY -->
+    <div class="structure-demo bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-purple-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">&lt;tbody&gt; - Cuerpo de la Tabla</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">📦 Descripción</h3>
+            <div class="section-highlight text-purple-600 mb-4">
+              <p class="text-gray-700">
+                <code class="bg-purple-100 px-2 py-1 rounded">&lt;tbody&gt;</code> contiene el cuerpo principal
+                de la tabla con todos los datos reales.
+              </p>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400 mb-4">
+              <h4 class="font-bold mb-2">🎯 Características:</h4>
+              <ul class="text-gray-700 space-y-1 text-sm">
+                <li>• Contiene las filas con datos reales</li>
+                <li>• Puede tener múltiples &lt;tbody&gt; por tabla</li>
+                <li>• Útil para agrupar datos relacionados</li>
+                <li>• Permite estilos alternativos (filas pares/impares)</li>
+                <li>• Facilita el scroll independiente del header</li>
+              </ul>
+            </div>
+            <div class="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400">
+              <p class="text-blue-800 text-sm">
+                <strong>¿Sabías que?</strong> Si no incluyes &lt;tbody&gt;, el navegador lo crea automáticamente.
+              </p>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🎨 Múltiples tbody</h3>
+            <div class="code-highlight rounded-lg p-4 text-sm mb-4">
+              <div class="text-green-400 mb-2">// Múltiples tbody para agrupar datos</div>
+              <div class="space-y-1">
+                <div><span class="text-red-400">&lt;table&gt;</span></div>
+                <div class="ml-2"><span class="text-green-400">&lt;thead&gt;</span>...<span class="text-green-400">&lt;/thead&gt;</span></div>
+                <div class="ml-2"><span class="text-purple-400">&lt;tbody</span> <span class="text-yellow-400">class="grupo-a"</span><span class="text-purple-400">&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span>...<span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span>...<span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-purple-400">&lt;/tbody&gt;</span></div>
+                <div class="ml-2"><span class="text-purple-400">&lt;tbody</span> <span class="text-yellow-400">class="grupo-b"</span><span class="text-purple-400">&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span>...<span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span>...<span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-purple-400">&lt;/tbody&gt;</span></div>
+                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              </div>
+            </div>
+            <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+              <p class="text-green-800 text-sm">
+                <strong>Ventaja:</strong> Cada grupo puede tener estilos diferentes o comportamiento JavaScript específico.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TFOOT -->
+    <div class="structure-demo bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-orange-600 to-red-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">&lt;tfoot&gt; - Pie de la Tabla</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🦶 Descripción</h3>
+            <div class="section-highlight text-orange-600 mb-4">
+              <p class="text-gray-700">
+                <code class="bg-orange-100 px-2 py-1 rounded">&lt;tfoot&gt;</code> define el pie de la tabla,
+                típicamente usado para totales, resúmenes o notas finales.
+              </p>
+            </div>
+            <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400 mb-4">
+              <h4 class="font-bold mb-2">🎯 Usos Comunes:</h4>
+              <ul class="text-gray-700 space-y-1 text-sm">
+                <li>• <strong>Totales:</strong> Sumas de columnas numéricas</li>
+                <li>• <strong>Promedios:</strong> Cálculos estadísticos</li>
+                <li>• <strong>Notas:</strong> Información adicional</li>
+                <li>• <strong>Paginación:</strong> Controles de navegación</li>
+                <li>• <strong>Acciones:</strong> Botones de acciones masivas</li>
+              </ul>
+            </div>
+            <div class="bg-red-50 p-3 rounded-lg border-l-4 border-red-400">
+              <p class="text-red-800 text-sm">
+                <strong>Orden HTML:</strong> tfoot puede ir antes de tbody, pero se renderizará al final.
+              </p>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">💰 Ejemplo de Totales</h3>
+            <div class="code-highlight rounded-lg p-4 text-sm mb-4">
+              <div class="text-green-400 mb-2">// tfoot con totales</div>
+              <div class="space-y-1">
+                <div><span class="text-red-400">&lt;table&gt;</span></div>
+                <div class="ml-2"><span class="text-green-400">&lt;thead&gt;</span>...<span class="text-green-400">&lt;/thead&gt;</span></div>
+                <div class="ml-2"><span class="text-purple-400">&lt;tbody&gt;</span>...<span class="text-purple-400">&lt;/tbody&gt;</span></div>
+                <div class="ml-2"><span class="text-orange-400">&lt;tfoot&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;td&gt;</span>Total<span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;td&gt;</span>$2,450<span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;td&gt;</span>125 items<span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-orange-400">&lt;/tfoot&gt;</span></div>
+                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              </div>
+            </div>
+            <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+              <p class="text-green-800 text-sm">
+                <strong>Tip CSS:</strong> Puedes fijar el tfoot al final con position: sticky.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplo Completo -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-indigo-600 to-purple-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🎯 Ejemplo Completo: Tabla de Ventas</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">📝 Código HTML Completo</h3>
+            <div class="code-highlight rounded-lg p-4 text-sm max-h-96 overflow-y-auto">
+              <div class="text-green-400 mb-2">// Tabla completa con todas las secciones</div>
+              <div class="space-y-1">
+                <div><span class="text-red-400">&lt;table</span> <span class="text-yellow-400">class="ventas-tabla"</span><span class="text-red-400">&gt;</span></div>
+                <div class="ml-2 text-green-500">// ENCABEZADO</div>
+                <div class="ml-2"><span class="text-green-400">&lt;thead&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;th</span> <span class="text-cyan-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Producto<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;th</span> <span class="text-cyan-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Cantidad<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;th</span> <span class="text-cyan-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Precio Unit.<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;th</span> <span class="text-cyan-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Subtotal<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-green-400">&lt;/thead&gt;</span></div>
+                <div class="ml-2 text-purple-500">// CUERPO - DATOS</div>
+                <div class="ml-2"><span class="text-purple-400">&lt;tbody&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-6"><span class="text-cyan-400">&lt;td&gt;</span>Laptop HP<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-6"><span class="text-cyan-400">&lt;td&gt;</span>2<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-6"><span class="text-cyan-400">&lt;td&gt;</span>$899<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-6"><span class="text-cyan-400">&lt;td&gt;</span>$1,798<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-6"><span class="text-cyan-400">&lt;td&gt;</span>Mouse Logitech<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-6"><span class="text-cyan-400">&lt;td&gt;</span>5<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-6"><span class="text-cyan-400">&lt;td&gt;</span>$45<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-6"><span class="text-cyan-400">&lt;td&gt;</span>$225<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-purple-400">&lt;/tbody&gt;</span></div>
+                <div class="ml-2 text-orange-500">// PIE - TOTALES</div>
+                <div class="ml-2"><span class="text-orange-400">&lt;tfoot&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;td</span> <span class="text-cyan-400">colspan="3"</span><span class="text-yellow-400">&gt;</span><span class="text-pink-400">&lt;strong&gt;</span>Total General<span class="text-pink-400">&lt;/strong&gt;</span><span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-6"><span class="text-yellow-400">&lt;td&gt;</span><span class="text-pink-400">&lt;strong&gt;</span>$2,023<span class="text-pink-400">&lt;/strong&gt;</span><span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-orange-400">&lt;/tfoot&gt;</span></div>
+                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🎨 Resultado Visual</h3>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <table class="w-full border-collapse border border-gray-400">
+                <!-- THEAD -->
+                <thead>
+                  <tr class="bg-indigo-100">
+                    <th class="border border-gray-400 p-3 font-bold text-indigo-800" scope="col">Producto</th>
+                    <th class="border border-gray-400 p-3 font-bold text-indigo-800" scope="col">Cant.</th>
+                    <th class="border border-gray-400 p-3 font-bold text-indigo-800" scope="col">Precio</th>
+                    <th class="border border-gray-400 p-3 font-bold text-indigo-800" scope="col">Subtotal</th>
+                  </tr>
+                </thead>
+                <!-- TBODY -->
+                <tbody>
+                  <tr class="bg-white">
+                    <td class="border border-gray-400 p-3">Laptop HP</td>
+                    <td class="border border-gray-400 p-3 text-center">2</td>
+                    <td class="border border-gray-400 p-3 text-green-600">$899</td>
+                    <td class="border border-gray-400 p-3 text-green-600 font-semibold">$1,798</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="border border-gray-400 p-3">Mouse Logitech</td>
+                    <td class="border border-gray-400 p-3 text-center">5</td>
+                    <td class="border border-gray-400 p-3 text-green-600">$45</td>
+                    <td class="border border-gray-400 p-3 text-green-600 font-semibold">$225</td>
+                  </tr>
+                </tbody>
+                <!-- TFOOT -->
+                <tfoot>
+                  <tr class="bg-orange-100">
+                    <td class="border border-gray-400 p-3 font-bold text-orange-800" colspan="3">Total General</td>
+                    <td class="border border-gray-400 p-3 font-bold text-orange-800 text-lg">$2,023</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <div class="mt-4 space-y-2">
+              <div class="flex items-center text-sm">
+                <div class="w-4 h-4 bg-indigo-100 border border-gray-400 mr-2"></div>
+                <span class="text-gray-600"><strong>THEAD:</strong> Encabezados con fondo azul</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <div class="w-4 h-4 bg-white border border-gray-400 mr-2"></div>
+                <span class="text-gray-600"><strong>TBODY:</strong> Datos alternando colores</span>
+              </div>
+              <div class="flex items-center text-sm">
+                <div class="w-4 h-4 bg-orange-100 border border-gray-400 mr-2"></div>
+                <span class="text-gray-600"><strong>TFOOT:</strong> Total con fondo naranja</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Beneficios de la Estructura -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-teal-600 to-cyan-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🌟 Beneficios de Usar Estructura Avanzada</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="structure-demo bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
+            <h3 class="text-lg font-bold text-blue-800 mb-3">🎨 CSS Específico</h3>
+            <div class="code-highlight rounded p-3 text-xs mb-3">
+              <div><span class="text-red-400">thead</span> <span class="text-white">{</span></div>
+              <div class="ml-2"><span class="text-cyan-400">background</span>: <span class="text-green-400">#f0f9ff</span>;</div>
+              <div><span class="text-white">}</span></div>
+            </div>
+            <p class="text-sm text-gray-700">Estilos específicos para cada sección</p>
+          </div>
+
+          <div class="structure-demo bg-green-50 p-6 rounded-lg border-l-4 border-green-400">
+            <h3 class="text-lg font-bold text-green-800 mb-3">♿ Accesibilidad</h3>
+            <ul class="text-sm text-gray-700 space-y-1">
+              <li>• Lectores de pantalla</li>
+              <li>• Navegación por teclado</li>
+              <li>• Estructura semántica</li>
+            </ul>
+          </div>
+
+          <div class="structure-demo bg-purple-50 p-6 rounded-lg border-l-4 border-purple-400">
+            <h3 class="text-lg font-bold text-purple-800 mb-3">⚡ JavaScript</h3>
+            <div class="code-highlight rounded p-3 text-xs mb-3">
+              <div><span class="text-cyan-400">table</span>.<span class="text-yellow-400">tBodies</span>[<span class="text-green-400">0</span>]</div>
+            </div>
+            <p class="text-sm text-gray-700">Fácil manipulación de secciones</p>
+          </div>
+
+          <div class="structure-demo bg-orange-50 p-6 rounded-lg border-l-4 border-orange-400">
+            <h3 class="text-lg font-bold text-orange-800 mb-3">🖨️ Impresión</h3>
+            <p class="text-sm text-gray-700">Los navegadores pueden repetir thead en cada página impresa</p>
+          </div>
+
+          <div class="structure-demo bg-red-50 p-6 rounded-lg border-l-4 border-red-400">
+            <h3 class="text-lg font-bold text-red-800 mb-3">📱 Responsivo</h3>
+            <p class="text-sm text-gray-700">Mejor control del comportamiento en dispositivos móviles</p>
+          </div>
+
+          <div class="structure-demo bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-400">
+            <h3 class="text-lg font-bold text-indigo-800 mb-3">🔍 SEO</h3>
+            <p class="text-sm text-gray-700">Los buscadores entienden mejor la estructura de datos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl shadow-xl p-8 text-white mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-center">📚 Resumen de Estructura Avanzada</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white bg-opacity-20 rounded-lg p-6 text-center">
+          <div class="text-4xl mb-3">📋</div>
+          <h3 class="text-xl font-bold mb-3">&lt;thead&gt;</h3>
+          <p class="text-sm">Agrupa los encabezados de la tabla. Ideal para títulos de columnas y estructura del header.</p>
+        </div>
+        <div class="bg-white bg-opacity-20 rounded-lg p-6 text-center">
+          <div class="text-4xl mb-3">📦</div>
+          <h3 class="text-xl font-bold mb-3">&lt;tbody&gt;</h3>
+          <p class="text-sm">Contiene el cuerpo principal con datos. Puede tener múltiples tbody para agrupar.</p>
+        </div>
+        <div class="bg-white bg-opacity-20 rounded-lg p-6 text-center">
+          <div class="text-4xl mb-3">🦶</div>
+          <h3 class="text-xl font-bold mb-3">&lt;tfoot&gt;</h3>
+          <p class="text-sm">Define el pie con totales, resúmenes o información adicional de la tabla.</p>
+        </div>
+      </div>
+      <div class="mt-6 text-center bg-white bg-opacity-20 rounded-lg p-4">
+        <p class="text-lg"><strong>Orden recomendado:</strong> thead → tbody → tfoot</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-white mt-16 pb-8">
+    <p class="text-sm opacity-75">© 2025 Escuela de Desarrollo. Aprende HTML paso a paso.</p>
+  </footer>
+
+</body>
+</html>

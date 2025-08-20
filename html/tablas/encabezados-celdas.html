@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encabezados y Celdas en Tablas HTML</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a56 0%, #ff6b95 100%);
+    }
+
+    .cell-showcase {
+      transition: all 0.3s ease;
+    }
+
+    .cell-showcase:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes highlight {
+      0%, 100% { background-color: transparent; }
+      50% { background-color: #fef3c7; }
+    }
+
+    .animate-highlight {
+      animation: highlight 2s infinite;
+    }
+
+    .code-demo {
+      background: #1a1a1a;
+      color: #f8f8f2;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+      <a href="etiquetas-principales.html"
+        class="bg-white text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors text-center w-full sm:w-auto">
+        ← Etiquetas Principales
+      </a>
+      <a href="estructura-avanzada.html"
+        class="bg-white text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors text-center w-full sm:w-auto">
+        Estructura Avanzada →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🎯 Encabezados y Celdas</h1>
+      <p class="text-xl text-gray-600">Domina el uso correcto de &lt;th&gt; y &lt;td&gt; para crear tablas profesionales</p>
+    </div>
+
+    <!-- Diferencias TH vs TD -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-orange-600 to-pink-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">⚖️ &lt;th&gt; vs &lt;td&gt;: ¿Cuándo usar cada uno?</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div class="cell-showcase">
+            <h3 class="text-2xl font-bold text-orange-600 mb-4">🏷️ &lt;th&gt; - Table Header</h3>
+            <div class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-400">
+              <h4 class="font-bold mb-3">✅ Cuándo usar &lt;th&gt;:</h4>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2">▶</span>
+                  <span>Títulos de columnas</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2">▶</span>
+                  <span>Títulos de filas</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2">▶</span>
+                  <span>Categorías principales</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-500 mr-2">▶</span>
+                  <span>Encabezados de sección</span>
+                </li>
+              </ul>
+              <div class="mt-4 p-3 bg-white rounded border">
+                <h5 class="font-semibold mb-2">Características por defecto:</h5>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• <strong>Negrita:</strong> font-weight: bold</li>
+                  <li>• <strong>Centrado:</strong> text-align: center</li>
+                  <li>• <strong>Accesible:</strong> Lectores de pantalla</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="cell-showcase">
+            <h3 class="text-2xl font-bold text-pink-600 mb-4">📦 &lt;td&gt; - Table Data</h3>
+            <div class="bg-pink-50 p-6 rounded-lg border-l-4 border-pink-400">
+              <h4 class="font-bold mb-3">✅ Cuándo usar &lt;td&gt;:</h4>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-start">
+                  <span class="text-pink-500 mr-2">▶</span>
+                  <span>Datos específicos</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-pink-500 mr-2">▶</span>
+                  <span>Información detallada</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-pink-500 mr-2">▶</span>
+                  <span>Valores numéricos</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-pink-500 mr-2">▶</span>
+                  <span>Contenido variable</span>
+                </li>
+              </ul>
+              <div class="mt-4 p-3 bg-white rounded border">
+                <h5 class="font-semibold mb-2">Características por defecto:</h5>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• <strong>Texto normal:</strong> font-weight: normal</li>
+                  <li>• <strong>Izquierda:</strong> text-align: left</li>
+                  <li>• <strong>Contenido:</strong> Cualquier HTML válido</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplos Prácticos -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">💡 Ejemplos Prácticos</h2>
+      </div>
+      <div class="p-8">
+        <div class="space-y-8">
+          <!-- Ejemplo 1: Tabla de Empleados -->
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">👥 Tabla de Empleados</h3>
+            <div class="grid lg:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold mb-2">📝 Código HTML</h4>
+                <div class="code-demo rounded-lg p-4 text-sm">
+                  <div class="text-green-400 mb-2">// Encabezados claramente definidos</div>
+                  <div class="space-y-1">
+                    <div><span class="text-red-400">&lt;table&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Nombre<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Cargo<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Salario<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Ana García<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Desarrolladora<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>$3,500<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                    <div><span class="text-red-400">&lt;/table&gt;</span></div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">🎯 Resultado</h4>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <table class="w-full border-collapse border border-gray-400">
+                    <thead>
+                      <tr class="bg-blue-100">
+                        <th class="border border-gray-400 p-3 font-bold animate-highlight">Nombre</th>
+                        <th class="border border-gray-400 p-3 font-bold">Cargo</th>
+                        <th class="border border-gray-400 p-3 font-bold">Salario</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="bg-white">
+                        <td class="border border-gray-400 p-3">Ana García</td>
+                        <td class="border border-gray-400 p-3">Desarrolladora</td>
+                        <td class="border border-gray-400 p-3 text-green-600 font-semibold">$3,500</td>
+                      </tr>
+                      <tr class="bg-gray-50">
+                        <td class="border border-gray-400 p-3">Carlos López</td>
+                        <td class="border border-gray-400 p-3">Diseñador</td>
+                        <td class="border border-gray-400 p-3 text-green-600 font-semibold">$3,200</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">
+                  <strong>Nota:</strong> Los encabezados (&lt;th&gt;) están en negrita y centrados automáticamente
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ejemplo 2: Encabezados de Fila -->
+          <div class="border-t pt-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">📊 Encabezados de Fila</h3>
+            <div class="grid lg:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold mb-2">📝 Código HTML</h4>
+                <div class="code-demo rounded-lg p-4 text-sm">
+                  <div class="text-green-400 mb-2">// &lt;th&gt; también puede ir en la primera columna</div>
+                  <div class="space-y-1">
+                    <div><span class="text-red-400">&lt;table&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Producto<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Laptop HP<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Precio<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>$899<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Stock<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>15 unidades<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                    <div><span class="text-red-400">&lt;/table&gt;</span></div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">🎯 Resultado</h4>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <table class="w-full border-collapse border border-gray-400">
+                    <tr class="bg-white">
+                      <th class="border border-gray-400 p-3 font-bold bg-orange-100">Producto</th>
+                      <td class="border border-gray-400 p-3">Laptop HP</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <th class="border border-gray-400 p-3 font-bold bg-orange-100">Precio</th>
+                      <td class="border border-gray-400 p-3 text-green-600 font-semibold">$899</td>
+                    </tr>
+                    <tr class="bg-white">
+                      <th class="border border-gray-400 p-3 font-bold bg-orange-100">Stock</th>
+                      <td class="border border-gray-400 p-3">15 unidades</td>
+                    </tr>
+                  </table>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">
+                  <strong>Flexibilidad:</strong> Los &lt;th&gt; pueden ser encabezados de fila o columna
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Atributo Scope -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-green-600 to-teal-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🎯 Atributo Scope para Accesibilidad</h2>
+      </div>
+      <div class="p-8">
+        <div class="mb-6">
+          <p class="text-gray-700 mb-4">
+            El atributo <code class="bg-green-100 px-2 py-1 rounded">scope</code> mejora la accesibilidad
+            al especificar si un encabezado se refiere a una columna o fila.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">📋 Valores de Scope</h3>
+            <div class="space-y-3">
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <h4 class="font-bold text-blue-800 mb-2">scope="col"</h4>
+                <p class="text-sm text-gray-700">El encabezado se refiere a toda la columna</p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-bold text-green-800 mb-2">scope="row"</h4>
+                <p class="text-sm text-gray-700">El encabezado se refiere a toda la fila</p>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+                <h4 class="font-bold text-purple-800 mb-2">scope="colgroup"</h4>
+                <p class="text-sm text-gray-700">El encabezado se refiere a un grupo de columnas</p>
+              </div>
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                <h4 class="font-bold text-orange-800 mb-2">scope="rowgroup"</h4>
+                <p class="text-sm text-gray-700">El encabezado se refiere a un grupo de filas</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">💻 Ejemplo con Scope</h3>
+            <div class="code-demo rounded-lg p-4 text-sm mb-4">
+              <div class="space-y-1">
+                <div><span class="text-red-400">&lt;table&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-4"><span class="text-yellow-400">&lt;th</span> <span class="text-green-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Nombre<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-4"><span class="text-yellow-400">&lt;th</span> <span class="text-green-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Edad<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>María<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>28<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              </div>
+            </div>
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+              <h4 class="font-bold text-green-800 mb-2">🌟 Beneficios:</h4>
+              <ul class="text-sm text-gray-700 space-y-1">
+                <li>• Mejor navegación con lectores de pantalla</li>
+                <li>• Comprensión clara de la estructura</li>
+                <li>• Cumple estándares de accesibilidad</li>
+                <li>• Mejora la experiencia del usuario</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tipos de Contenido en Celdas -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-purple-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">📦 Tipos de Contenido en Celdas</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="cell-showcase bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+            <h3 class="font-bold text-blue-800 mb-2">📝 Texto Simple</h3>
+            <div class="bg-white p-3 rounded border text-sm">
+              <code>&lt;td&gt;Juan Pérez&lt;/td&gt;</code>
+            </div>
+            <p class="text-xs text-gray-600 mt-2">Texto plano, nombres, descripciones</p>
+          </div>
+
+          <div class="cell-showcase bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+            <h3 class="font-bold text-green-800 mb-2">💰 Números</h3>
+            <div class="bg-white p-3 rounded border text-sm">
+              <code>&lt;td&gt;$1,250.50&lt;/td&gt;</code>
+            </div>
+            <p class="text-xs text-gray-600 mt-2">Precios, cantidades, porcentajes</p>
+          </div>
+
+          <div class="cell-showcase bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+            <h3 class="font-bold text-purple-800 mb-2">🔗 Enlaces</h3>
+            <div class="bg-white p-3 rounded border text-sm">
+              <code>&lt;td&gt;&lt;a href="#"&gt;Ver más&lt;/a&gt;&lt;/td&gt;</code>
+            </div>
+            <p class="text-xs text-gray-600 mt-2">Links, botones, acciones</p>
+          </div>
+
+          <div class="cell-showcase bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+            <h3 class="font-bold text-yellow-800 mb-2">🖼️ Imágenes</h3>
+            <div class="bg-white p-3 rounded border text-sm">
+              <code>&lt;td&gt;&lt;img src="avatar.jpg"&gt;&lt;/td&gt;</code>
+            </div>
+            <p class="text-xs text-gray-600 mt-2">Fotos, íconos, gráficos</p>
+          </div>
+
+          <div class="cell-showcase bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+            <h3 class="font-bold text-red-800 mb-2">🎨 HTML Complejo</h3>
+            <div class="bg-white p-3 rounded border text-sm">
+              <code>&lt;td&gt;&lt;span class="badge"&gt;Activo&lt;/span&gt;&lt;/td&gt;</code>
+            </div>
+            <p class="text-xs text-gray-600 mt-2">Elementos con estilos, badges</p>
+          </div>
+
+          <div class="cell-showcase bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-400">
+            <h3 class="font-bold text-indigo-800 mb-2">📅 Fechas</h3>
+            <div class="bg-white p-3 rounded border text-sm">
+              <code>&lt;td&gt;15/08/2025&lt;/td&gt;</code>
+            </div>
+            <p class="text-xs text-gray-600 mt-2">Fechas, horarios, timestamps</p>
+          </div>
+        </div>
+
+        <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">🎯 Ejemplo Combinado</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-400">
+              <thead>
+                <tr class="bg-indigo-100">
+                  <th class="border border-gray-400 p-3 font-bold" scope="col">Usuario</th>
+                  <th class="border border-gray-400 p-3 font-bold" scope="col">Avatar</th>
+                  <th class="border border-gray-400 p-3 font-bold" scope="col">Estado</th>
+                  <th class="border border-gray-400 p-3 font-bold" scope="col">Último Acceso</th>
+                  <th class="border border-gray-400 p-3 font-bold" scope="col">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-white">
+                  <td class="border border-gray-400 p-3">Ana García</td>
+                  <td class="border border-gray-400 p-3 text-center">
+                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                      A
+                    </div>
+                  </td>
+                  <td class="border border-gray-400 p-3">
+                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Activo</span>
+                  </td>
+                  <td class="border border-gray-400 p-3 text-sm text-gray-600">19/08/2025</td>
+                  <td class="border border-gray-400 p-3">
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded text-xs hover:bg-blue-600">
+                      Ver perfil
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="bg-gradient-to-r from-orange-600 to-pink-700 rounded-xl shadow-xl p-8 text-white mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-center">📚 Resumen del Tema</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white bg-opacity-20 rounded-lg p-6">
+          <h3 class="text-2xl font-bold mb-4">🏷️ &lt;th&gt; - Encabezados</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="text-yellow-300 mr-2">•</span>
+              <span>Para títulos de columnas y filas</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-yellow-300 mr-2">•</span>
+              <span>Negrita y centrado por defecto</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-yellow-300 mr-2">•</span>
+              <span>Usar atributo scope para accesibilidad</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-yellow-300 mr-2">•</span>
+              <span>Mejora la experiencia del usuario</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white bg-opacity-20 rounded-lg p-6">
+          <h3 class="text-2xl font-bold mb-4">📦 &lt;td&gt; - Datos</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="text-yellow-300 mr-2">•</span>
+              <span>Para el contenido real de la tabla</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-yellow-300 mr-2">•</span>
+              <span>Acepta cualquier contenido HTML</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-yellow-300 mr-2">•</span>
+              <span>Texto normal y alineado a la izquierda</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-yellow-300 mr-2">•</span>
+              <span>Flexible para diferentes tipos de datos</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-white mt-16 pb-8">
+    <p class="text-sm opacity-75">© 2025 Escuela de Desarrollo. Aprende HTML paso a paso.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temario Completo: Tablas HTML</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .topic-card {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      border-color: #fbbf24;
+    }
+
+    .topic-number {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin-right: 15px;
+    }
+
+    .progress-indicator {
+      background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+      height: 6px;
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
+      }
+    }
+
+    .featured-card {
+      animation: pulseGlow 3s infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .table-preview {
+      font-size: 12px;
+      border-collapse: collapse;
+    }
+
+    .table-preview th,
+    .table-preview td {
+      border: 1px solid #d1d5db;
+      padding: 4px 8px;
+      text-align: center;
+    }
+
+    .table-preview th {
+      background-color: #f3f4f6;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+  <!-- Header -->
+  <header class="bg-white/10 backdrop-blur-md border-b border-white/20">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img src="../../images/school.png" alt="Development School" class="w-10 h-10">
+          <div>
+            <h1 class="text-2xl font-bold text-white">Development School</h1>
+            <p class="text-white/80 text-sm">Temario Completo: Tablas HTML</p>
+          </div>
+        </div>
+        <nav class="flex space-x-4">
+          <a href="../hola-mundo.html" class="text-white/80 hover:text-white transition-colors duration-200">HTML Básico</a>
+          <a href="../../index.html" class="text-white/80 hover:text-white transition-colors duration-200">Inicio</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-8">
+    <!-- Introduction Section -->
+    <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl mb-8 overflow-hidden fade-in">
+      <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-6">
+        <h1 class="text-4xl font-bold text-white mb-2">📊 Temario Completo: Tablas HTML</h1>
+        <p class="text-blue-100 text-lg">Domina las tablas HTML desde los conceptos básicos hasta técnicas avanzadas</p>
+      </div>
+      
+      <div class="p-8">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">¿Qué aprenderás?</h2>
+            <ul class="space-y-3">
+              <li class="flex items-center text-gray-700">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Conceptos fundamentales de tablas HTML
+              </li>
+              <li class="flex items-center text-gray-700">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Estructura y elementos principales
+              </li>
+              <li class="flex items-center text-gray-700">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Técnicas avanzadas y mejores prácticas
+              </li>
+              <li class="flex items-center text-gray-700">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Diseño responsivo y accesibilidad
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-gray-50 p-6 rounded-xl">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Vista previa de tabla:</h3>
+            <table class="table-preview w-full">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Laptop</td>
+                  <td>$999</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td>Mouse</td>
+                  <td>$29</td>
+                  <td>50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="mt-6 p-4 bg-gray-50 rounded-xl">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-medium text-gray-700">Progreso del curso</span>
+            <span class="text-sm font-medium text-green-600">0% completado</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="progress-indicator w-0 h-2 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Topics Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+      
+      <!-- Tema 1: ¿Qué son las tablas? -->
+      <div class="topic-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg overflow-hidden fade-in" style="animation-delay: 0.1s;">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="topic-number">1</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">¿Qué son las Tablas?</h3>
+              <p class="text-gray-600 text-sm">Fundamentos y conceptos básicos</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+            Introducción a las tablas HTML, su historia, ventajas y cuándo utilizarlas correctamente.
+          </p>
+          <div class="flex items-center justify-between">
+            <a href="que-son-tablas.html" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium">
+              Comenzar tema
+            </a>
+            <span class="text-xs text-gray-500">⏱️ 10 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 2: Estructura básica -->
+      <div class="topic-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg overflow-hidden fade-in" style="animation-delay: 0.2s;">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="topic-number">2</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Estructura Básica</h3>
+              <p class="text-gray-600 text-sm">Anatomía de una tabla HTML</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+            Aprende la estructura fundamental de las tablas y los elementos que las componen.
+          </p>
+          <div class="flex items-center justify-between">
+            <a href="estructura-basica-tablas.html" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium">
+              Estudiar tema
+            </a>
+            <span class="text-xs text-gray-500">⏱️ 12 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 3: Etiquetas principales -->
+      <div class="topic-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg overflow-hidden fade-in" style="animation-delay: 0.3s;">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="topic-number">3</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Etiquetas Principales</h3>
+              <p class="text-gray-600 text-sm">table, tr, td y th</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+            Domina las etiquetas esenciales para crear tablas HTML efectivas.
+          </p>
+          <div class="flex items-center justify-between">
+            <a href="etiquetas-principales.html" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium">
+              Explorar tema
+            </a>
+            <span class="text-xs text-gray-500">⏱️ 15 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 4: Encabezados y celdas -->
+      <div class="topic-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg overflow-hidden fade-in" style="animation-delay: 0.4s;">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="topic-number">4</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Encabezados y Celdas</h3>
+              <p class="text-gray-600 text-sm">Diferencias entre th y td</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+            Comprende las diferencias y usos apropiados de encabezados y celdas de datos.
+          </p>
+          <div class="flex items-center justify-between">
+            <a href="encabezados-celdas.html" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium">
+              Aprender tema
+            </a>
+            <span class="text-xs text-gray-500">⏱️ 13 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 5: Estructura avanzada -->
+      <div class="topic-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg overflow-hidden fade-in" style="animation-delay: 0.5s;">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="topic-number">5</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Estructura Avanzada</h3>
+              <p class="text-gray-600 text-sm">thead, tbody y tfoot</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+            Organiza mejor tus tablas con elementos semánticos avanzados.
+          </p>
+          <div class="flex items-center justify-between">
+            <a href="estructura-avanzada.html" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium">
+              Dominar tema
+            </a>
+            <span class="text-xs text-gray-500">⏱️ 16 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 6: colspan y rowspan -->
+      <div class="topic-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg overflow-hidden fade-in featured-card" style="animation-delay: 0.6s;">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="topic-number">6</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Colspan y Rowspan</h3>
+              <p class="text-gray-600 text-sm">Celdas combinadas y expandidas</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+            Crea tablas complejas combinando celdas horizontal y verticalmente.
+          </p>
+          <div class="flex items-center justify-between">
+            <a href="colspan-rowspan.html" 
+               class="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium">
+              ⭐ Tema destacado
+            </a>
+            <span class="text-xs text-gray-500">⏱️ 18 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 7: Estilos CSS -->
+      <div class="topic-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg overflow-hidden fade-in" style="animation-delay: 0.7s;">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="topic-number">7</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Estilos con CSS</h3>
+              <p class="text-gray-600 text-sm">Tablas modernas y atractivas</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+            Dale estilo a tus tablas con CSS moderno y crea diseños atractivos.
+          </p>
+          <div class="flex items-center justify-between">
+            <a href="estilos-css.html" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium">
+              Diseñar tablas
+            </a>
+            <span class="text-xs text-gray-500">⏱️ 20 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 8: Tablas responsivas -->
+      <div class="topic-card bg-white/95 backdrop-blur-md rounded-xl shadow-lg overflow-hidden fade-in" style="animation-delay: 0.8s;">
+        <div class="p-6">
+          <div class="flex items-center mb-4">
+            <div class="topic-number">8</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Tablas Responsivas</h3>
+              <p class="text-gray-600 text-sm">Adaptación a dispositivos móviles</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 text-sm leading-relaxed">
+            Haz que tus tablas se vean perfectas en todos los dispositivos.
+          </p>
+          <div class="flex items-center justify-between">
+            <a href="tablas-responsivas.html" 
+               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium">
+              Optimizar tablas
+            </a>
+            <span class="text-xs text-gray-500">⏱️ 22 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Study Path Section -->
+    <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl mt-8 overflow-hidden fade-in" style="animation-delay: 0.9s;">
+      <div class="bg-gradient-to-r from-green-600 to-teal-600 p-6">
+        <h2 class="text-3xl font-bold text-white mb-2">🎯 Ruta de Aprendizaje Recomendada</h2>
+        <p class="text-green-100">Sigue esta secuencia para obtener los mejores resultados</p>
+      </div>
+      
+      <div class="p-8">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🏁</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Nivel Principiante</h3>
+            <p class="text-gray-600 text-sm mb-3">Temas 1-4</p>
+            <p class="text-gray-700 text-sm">Fundamentos y estructura básica de tablas HTML.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">⚡</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Nivel Intermedio</h3>
+            <p class="text-gray-600 text-sm mb-3">Temas 5-6</p>
+            <p class="text-gray-700 text-sm">Estructura avanzada y técnicas de combinación.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🚀</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Nivel Avanzado</h3>
+            <p class="text-gray-600 text-sm mb-3">Temas 7-8</p>
+            <p class="text-gray-700 text-sm">Estilos modernos y diseño responsivo.</p>
+          </div>
+        </div>
+        
+        <div class="mt-8 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">💡 Consejos de estudio:</h3>
+          <ul class="text-sm text-gray-700 space-y-1 mb-4">
+            <li>• Practica cada concepto en tu editor de código</li>
+            <li>• Completa los ejercicios al final de cada tema</li>
+            <li>• Experimenta con las variaciones mostradas</li>
+            <li>• Consulta la documentación oficial cuando tengas dudas</li>
+          </ul>
+          
+          <div class="text-center mt-4">
+            <a href="ejercicios-practicos.html" 
+               class="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 inline-flex items-center space-x-2 transform hover:scale-105">
+              <span>🏋️</span>
+              <span>Ir a Ejercicios Prácticos</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white/10 backdrop-blur-md border-t border-white/20 mt-16">
+    <div class="container mx-auto px-6 py-8">
+      <div class="text-center">
+        <p class="text-white/80 mb-4">© 2024 Development School - Aprende desarrollo web paso a paso</p>
+        <div class="flex justify-center space-x-4">
+          <a href="../../index.html" class="text-white/60 hover:text-white transition-colors duration-200">Inicio</a>
+          <span class="text-white/40">|</span>
+          <a href="../hola-mundo.html" class="text-white/60 hover:text-white transition-colors duration-200">HTML</a>
+          <span class="text-white/40">|</span>
+          <a href="../../css/que-es-css.html" class="text-white/60 hover:text-white transition-colors duration-200">CSS</a>
+          <span class="text-white/40">|</span>
+          <a href="../../js/scripts.js" class="text-white/60 hover:text-white transition-colors duration-200">JavaScript</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Progress tracking (simulado)
+    document.addEventListener('DOMContentLoaded', function() {
+      // Simular progreso después de 1 segundo
+      setTimeout(() => {
+        document.querySelector('.progress-indicator').style.width = '12.5%';
+        document.querySelector('.progress-indicator').parentElement.previousElementSibling.lastElementChild.textContent = '12.5% completado';
+      }, 1000);
+
+      // Agregar efecto hover a las tarjetas
+      const cards = document.querySelectorAll('.topic-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

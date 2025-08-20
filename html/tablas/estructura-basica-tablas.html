@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estructura Básica de Tablas HTML</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    }
+
+    .code-editor {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'Courier New', monospace;
+    }
+
+    .highlight-tag {
+      background: #ffeaa7;
+      color: #2d3436;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .highlight-tag:hover {
+      background: #fdcb6e;
+      transform: scale(1.1);
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .slide-in {
+      animation: slideIn 0.6s ease-out forwards;
+    }
+
+    .interactive-table {
+      transition: all 0.3s ease;
+    }
+
+    .interactive-table:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+      <a href="que-son-tablas.html"
+        class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors text-center w-full sm:w-auto">
+        ← ¿Qué son las Tablas?
+      </a>
+      <a href="etiquetas-principales.html"
+        class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors text-center w-full sm:w-auto">
+        Etiquetas Principales →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🏗️ Estructura Básica de Tablas</h1>
+      <p class="text-xl text-gray-600">Aprende los elementos fundamentales para crear una tabla HTML</p>
+    </div>
+
+    <!-- Anatomía de una Tabla -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-blue-600 to-cyan-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🔍 Anatomía de una Tabla</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">📋 Elementos Principales</h3>
+            <div class="space-y-4">
+              <div class="slide-in bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <h4 class="font-bold text-blue-800 mb-2">
+                  <span class="highlight-tag">&lt;table&gt;</span> - Contenedor Principal
+                </h4>
+                <p class="text-gray-700 text-sm">Define el inicio y fin de la tabla completa</p>
+              </div>
+              <div class="slide-in bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-bold text-green-800 mb-2">
+                  <span class="highlight-tag">&lt;tr&gt;</span> - Fila de Tabla (Table Row)
+                </h4>
+                <p class="text-gray-700 text-sm">Representa cada fila horizontal en la tabla</p>
+              </div>
+              <div class="slide-in bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+                <h4 class="font-bold text-purple-800 mb-2">
+                  <span class="highlight-tag">&lt;td&gt;</span> - Celda de Datos (Table Data)
+                </h4>
+                <p class="text-gray-700 text-sm">Contiene los datos individuales de cada celda</p>
+              </div>
+              <div class="slide-in bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                <h4 class="font-bold text-orange-800 mb-2">
+                  <span class="highlight-tag">&lt;th&gt;</span> - Celda de Encabezado (Table Header)
+                </h4>
+                <p class="text-gray-700 text-sm">Define los títulos o encabezados de columnas/filas</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🎯 Tabla Visual</h3>
+            <div class="interactive-table bg-gray-50 p-4 rounded-lg">
+              <table class="w-full border-collapse border-2 border-blue-500">
+                <tr class="bg-blue-100">
+                  <th class="border-2 border-blue-400 p-3 text-blue-800 font-bold">
+                    &lt;th&gt; Nombre
+                  </th>
+                  <th class="border-2 border-blue-400 p-3 text-blue-800 font-bold">
+                    &lt;th&gt; Edad
+                  </th>
+                </tr>
+                <tr class="bg-white">
+                  <td class="border-2 border-blue-400 p-3 text-gray-700">
+                    &lt;td&gt; Ana
+                  </td>
+                  <td class="border-2 border-blue-400 p-3 text-gray-700">
+                    &lt;td&gt; 25
+                  </td>
+                </tr>
+                <tr class="bg-blue-50">
+                  <td class="border-2 border-blue-400 p-3 text-gray-700">
+                    &lt;td&gt; Luis
+                  </td>
+                  <td class="border-2 border-blue-400 p-3 text-gray-700">
+                    &lt;td&gt; 30
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+              <p><strong>Estructura:</strong> table → tr → th/td</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Código de Ejemplo -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-gray-800 to-gray-900 p-6 text-white">
+        <h2 class="text-3xl font-bold">💻 Tu Primera Tabla</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">📝 Código HTML</h3>
+            <div class="code-editor rounded-lg p-4">
+              <div class="text-green-400 mb-2">// Estructura básica de una tabla</div>
+              <div class="space-y-1 text-sm">
+                <div><span class="text-red-400">&lt;table&gt;</span></div>
+                <div class="ml-4"><span class="text-red-400">&lt;tr&gt;</span></div>
+                <div class="ml-8"><span class="text-blue-400">&lt;th&gt;</span>Producto<span class="text-blue-400">&lt;/th&gt;</span></div>
+                <div class="ml-8"><span class="text-blue-400">&lt;th&gt;</span>Precio<span class="text-blue-400">&lt;/th&gt;</span></div>
+                <div class="ml-8"><span class="text-blue-400">&lt;th&gt;</span>Stock<span class="text-blue-400">&lt;/th&gt;</span></div>
+                <div class="ml-4"><span class="text-red-400">&lt;/tr&gt;</span></div>
+                <div class="ml-4"><span class="text-red-400">&lt;tr&gt;</span></div>
+                <div class="ml-8"><span class="text-yellow-400">&lt;td&gt;</span>Laptop<span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-8"><span class="text-yellow-400">&lt;td&gt;</span>$800<span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-8"><span class="text-yellow-400">&lt;td&gt;</span>15<span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-red-400">&lt;/tr&gt;</span></div>
+                <div class="ml-4"><span class="text-red-400">&lt;tr&gt;</span></div>
+                <div class="ml-8"><span class="text-yellow-400">&lt;td&gt;</span>Mouse<span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-8"><span class="text-yellow-400">&lt;td&gt;</span>$25<span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-8"><span class="text-yellow-400">&lt;td&gt;</span>50<span class="text-yellow-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-red-400">&lt;/tr&gt;</span></div>
+                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🎯 Resultado</h3>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <table class="w-full border-collapse border border-gray-400">
+                <tr class="bg-blue-100">
+                  <th class="border border-gray-400 p-3 font-bold text-gray-800">Producto</th>
+                  <th class="border border-gray-400 p-3 font-bold text-gray-800">Precio</th>
+                  <th class="border border-gray-400 p-3 font-bold text-gray-800">Stock</th>
+                </tr>
+                <tr class="bg-white">
+                  <td class="border border-gray-400 p-3">Laptop</td>
+                  <td class="border border-gray-400 p-3">$800</td>
+                  <td class="border border-gray-400 p-3">15</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-400 p-3">Mouse</td>
+                  <td class="border border-gray-400 p-3">$25</td>
+                  <td class="border border-gray-400 p-3">50</td>
+                </tr>
+              </table>
+            </div>
+            <div class="mt-4 p-3 bg-green-50 rounded-lg border-l-4 border-green-400">
+              <p class="text-sm text-green-800">
+                <strong>¡Perfecto!</strong> Tu tabla muestra los datos de manera organizada y fácil de leer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reglas Importantes -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-orange-600 to-red-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">⚡ Reglas Importantes</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-orange-600 mb-4">📏 Estructura Obligatoria</h3>
+            <div class="space-y-3">
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                <h4 class="font-bold mb-2">🎯 Jerarquía Correcta</h4>
+                <p class="text-sm text-gray-700 mb-2">La estructura debe seguir este orden:</p>
+                <div class="font-mono text-xs bg-white p-2 rounded">
+                  table → tr → (th o td)
+                </div>
+              </div>
+              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                <h4 class="font-bold mb-2">⚖️ Columnas Consistentes</h4>
+                <p class="text-sm text-gray-700">Todas las filas deben tener el mismo número de columnas</p>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <h4 class="font-bold mb-2">🏷️ Encabezados Claros</h4>
+                <p class="text-sm text-gray-700">Usa &lt;th&gt; para encabezados, &lt;td&gt; para datos</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-red-600 mb-4">❌ Errores Comunes</h3>
+            <div class="space-y-3">
+              <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-bold mb-2 text-red-700">🚫 Etiquetas Mal Anidadas</h4>
+                <div class="text-xs font-mono bg-white p-2 rounded mb-2">
+                  ❌ &lt;table&gt;&lt;td&gt;Datos&lt;/td&gt;&lt;/table&gt;
+                </div>
+                <div class="text-xs font-mono bg-white p-2 rounded">
+                  ✅ &lt;table&gt;&lt;tr&gt;&lt;td&gt;Datos&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+                </div>
+              </div>
+              <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-bold mb-2 text-red-700">🚫 Filas Desiguales</h4>
+                <p class="text-xs text-gray-700">No mezclar filas con diferentes números de celdas sin usar colspan</p>
+              </div>
+              <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                <h4 class="font-bold mb-2 text-red-700">🚫 Etiquetas sin Cerrar</h4>
+                <p class="text-xs text-gray-700">Siempre cerrar todas las etiquetas: &lt;tr&gt;, &lt;td&gt;, &lt;th&gt;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejercicio Práctico -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-green-600 to-teal-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🎯 Ejercicio Práctico</h2>
+      </div>
+      <div class="p-8">
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">📚 Crea tu Tabla de Estudiantes</h3>
+          <p class="text-gray-700 mb-4">
+            Intenta crear una tabla que muestre información de estudiantes con las siguientes columnas:
+          </p>
+          <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400 mb-4">
+            <ul class="text-gray-700 space-y-1">
+              <li>• <strong>Nombre:</strong> Nombre completo del estudiante</li>
+              <li>• <strong>Carrera:</strong> Programa de estudios</li>
+              <li>• <strong>Semestre:</strong> Nivel académico actual</li>
+              <li>• <strong>Promedio:</strong> Calificación promedio</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-lg font-bold text-gray-800 mb-3">💡 Pista de Código</h4>
+            <div class="code-editor rounded-lg p-4">
+              <div class="text-green-400 mb-2">// Estructura sugerida</div>
+              <div class="space-y-1 text-sm">
+                <div><span class="text-red-400">&lt;table&gt;</span></div>
+                <div class="ml-4"><span class="text-red-400">&lt;tr&gt;</span></div>
+                <div class="ml-8"><span class="text-blue-400">&lt;th&gt;</span>Nombre<span class="text-blue-400">&lt;/th&gt;</span></div>
+                <div class="ml-8"><span class="text-blue-400">&lt;th&gt;</span>Carrera<span class="text-blue-400">&lt;/th&gt;</span></div>
+                <div class="ml-8"><span class="text-gray-500">// Completa las demás columnas...</span></div>
+                <div class="ml-4"><span class="text-red-400">&lt;/tr&gt;</span></div>
+                <div class="ml-4"><span class="text-gray-500">// Agrega filas de datos aquí...</span></div>
+                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-gray-800 mb-3">🎯 Resultado Esperado</h4>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <table class="w-full border-collapse border border-gray-400 text-sm">
+                <tr class="bg-green-100">
+                  <th class="border border-gray-400 p-2 font-bold">Nombre</th>
+                  <th class="border border-gray-400 p-2 font-bold">Carrera</th>
+                  <th class="border border-gray-400 p-2 font-bold">Semestre</th>
+                  <th class="border border-gray-400 p-2 font-bold">Promedio</th>
+                </tr>
+                <tr class="bg-white">
+                  <td class="border border-gray-400 p-2">Carlos Mendez</td>
+                  <td class="border border-gray-400 p-2">Ingeniería</td>
+                  <td class="border border-gray-400 p-2">5°</td>
+                  <td class="border border-gray-400 p-2">8.5</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-400 p-2">Sofia Rodriguez</td>
+                  <td class="border border-gray-400 p-2">Medicina</td>
+                  <td class="border border-gray-400 p-2">3°</td>
+                  <td class="border border-gray-400 p-2">9.2</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl shadow-xl p-8 text-white mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-center">📋 Resumen de Estructura</h2>
+      <div class="grid md:grid-cols-4 gap-4 text-center">
+        <div>
+          <div class="text-4xl mb-2">🏗️</div>
+          <h3 class="font-bold mb-2">&lt;table&gt;</h3>
+          <p class="text-sm">Contenedor principal de la tabla</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-2">📏</div>
+          <h3 class="font-bold mb-2">&lt;tr&gt;</h3>
+          <p class="text-sm">Define cada fila horizontal</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-2">🏷️</div>
+          <h3 class="font-bold mb-2">&lt;th&gt;</h3>
+          <p class="text-sm">Encabezados de columnas</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-2">📦</div>
+          <h3 class="font-bold mb-2">&lt;td&gt;</h3>
+          <p class="text-sm">Celdas con datos</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-white mt-16 pb-8">
+    <p class="text-sm opacity-75">© 2025 Escuela de Desarrollo. Aprende HTML paso a paso.</p>
+  </footer>
+
+</body>
+</html>

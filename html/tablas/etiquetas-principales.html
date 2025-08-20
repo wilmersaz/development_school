@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etiquetas Principales de Tablas HTML</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+    }
+
+    .tag-card {
+      transition: all 0.3s ease;
+    }
+
+    .tag-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .code-highlight {
+      background: #2d3748;
+      color: #e2e8f0;
+      font-family: 'Courier New', monospace;
+      transition: all 0.3s ease;
+    }
+
+    .code-highlight:hover {
+      background: #1a202c;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .pulsing {
+      animation: pulse 2s infinite;
+    }
+
+    .tooltip {
+      position: relative;
+    }
+
+    .tooltip:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2d3748;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+      <a href="estructura-basica-tablas.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors text-center w-full sm:w-auto">
+        ← Estructura Básica
+      </a>
+      <a href="encabezados-celdas.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors text-center w-full sm:w-auto">
+        Encabezados y Celdas →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🏷️ Etiquetas Principales de Tablas</h1>
+      <p class="text-xl text-gray-600">Conoce a fondo cada etiqueta y su función específica</p>
+    </div>
+
+    <!-- Etiqueta TABLE -->
+    <div class="tag-card bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-6 text-white">
+        <h2 class="text-3xl font-bold">&lt;table&gt; - El Contenedor Principal</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">📋 Descripción</h3>
+            <p class="text-gray-700 mb-4">
+              La etiqueta <code class="bg-blue-100 px-2 py-1 rounded">&lt;table&gt;</code> es el contenedor raíz 
+              que define el inicio y fin de una tabla HTML. Sin ella, no puede existir ninguna tabla.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+              <h4 class="font-bold mb-2">🎯 Función Principal:</h4>
+              <ul class="text-gray-700 space-y-1 text-sm">
+                <li>• Crear el contexto de tabla para el navegador</li>
+                <li>• Permitir que CSS aplique estilos específicos de tabla</li>
+                <li>• Habilitar propiedades como border-collapse</li>
+                <li>• Establecer el modelo de caja de tabla</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">💻 Sintaxis</h3>
+            <div class="code-highlight rounded-lg p-4">
+              <div class="text-green-400 mb-2">// Estructura básica</div>
+              <div class="space-y-1 text-sm">
+                <div><span class="text-red-400">&lt;table&gt;</span></div>
+                <div class="ml-4 text-gray-400">// Todo el contenido de la tabla va aquí</div>
+                <div class="ml-4"><span class="text-yellow-400">&lt;tr&gt;</span>...<span class="text-yellow-400">&lt;/tr&gt;</span></div>
+                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              </div>
+            </div>
+            <div class="mt-4 bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400">
+              <p class="text-sm text-yellow-800">
+                <strong>Importante:</strong> Siempre debe contener al menos una etiqueta &lt;tr&gt;
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Etiqueta TR -->
+    <div class="tag-card bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-green-600 to-green-800 p-6 text-white">
+        <h2 class="text-3xl font-bold">&lt;tr&gt; - Filas de la Tabla</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">📏 Descripción</h3>
+            <p class="text-gray-700 mb-4">
+              La etiqueta <code class="bg-green-100 px-2 py-1 rounded">&lt;tr&gt;</code> (Table Row) 
+              define cada fila horizontal en la tabla. Cada fila contiene una o más celdas.
+            </p>
+            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400 mb-4">
+              <h4 class="font-bold mb-2">🎯 Características:</h4>
+              <ul class="text-gray-700 space-y-1 text-sm">
+                <li>• Define la estructura horizontal de la tabla</li>
+                <li>• Puede contener &lt;td&gt; o &lt;th&gt;</li>
+                <li>• Determina la altura de la fila</li>
+                <li>• Permite aplicar estilos a toda la fila</li>
+              </ul>
+            </div>
+            <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+              <h4 class="font-bold mb-2">⚠️ Regla Importante:</h4>
+              <p class="text-sm text-orange-800">
+                Todas las filas deben tener el mismo número de celdas para mantener la estructura de la tabla.
+              </p>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🎨 Ejemplo Visual</h3>
+            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+              <table class="w-full border-collapse border border-gray-400">
+                <tr class="bg-green-100 pulsing tooltip" data-tooltip="Primera fila (&lt;tr&gt;)">
+                  <td class="border border-gray-400 p-3">Fila 1, Celda 1</td>
+                  <td class="border border-gray-400 p-3">Fila 1, Celda 2</td>
+                </tr>
+                <tr class="bg-white">
+                  <td class="border border-gray-400 p-3">Fila 2, Celda 1</td>
+                  <td class="border border-gray-400 p-3">Fila 2, Celda 2</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-400 p-3">Fila 3, Celda 1</td>
+                  <td class="border border-gray-400 p-3">Fila 3, Celda 2</td>
+                </tr>
+              </table>
+            </div>
+            <div class="code-highlight rounded-lg p-3 text-xs">
+              <div><span class="text-red-400">&lt;tr&gt;</span> <span class="text-gray-400">← Cada fila</span></div>
+              <div class="ml-4"><span class="text-yellow-400">&lt;td&gt;</span>...<span class="text-yellow-400">&lt;/td&gt;</span></div>
+              <div><span class="text-red-400">&lt;/tr&gt;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Etiqueta TD -->
+    <div class="tag-card bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-800 p-6 text-white">
+        <h2 class="text-3xl font-bold">&lt;td&gt; - Celdas de Datos</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">📦 Descripción</h3>
+            <p class="text-gray-700 mb-4">
+              La etiqueta <code class="bg-purple-100 px-2 py-1 rounded">&lt;td&gt;</code> (Table Data) 
+              contiene los datos reales de cada celda en la tabla.
+            </p>
+            <div class="space-y-4">
+              <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+                <h4 class="font-bold mb-2">💡 Usos Comunes:</h4>
+                <ul class="text-gray-700 space-y-1 text-sm">
+                  <li>• Contener texto, números o fechas</li>
+                  <li>• Mostrar imágenes o íconos</li>
+                  <li>• Enlaces o botones</li>
+                  <li>• Cualquier contenido HTML válido</li>
+                </ul>
+              </div>
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <h4 class="font-bold mb-2">🔧 Atributos Útiles:</h4>
+                <div class="space-y-2 text-sm">
+                  <div><code class="bg-gray-200 px-2 py-1 rounded">colspan</code> - Fusionar columnas</div>
+                  <div><code class="bg-gray-200 px-2 py-1 rounded">rowspan</code> - Fusionar filas</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🎯 Tipos de Contenido</h3>
+            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+              <table class="w-full border-collapse border border-gray-400 text-sm">
+                <tr class="bg-purple-100">
+                  <th class="border border-gray-400 p-2 font-bold">Tipo</th>
+                  <th class="border border-gray-400 p-2 font-bold">Ejemplo</th>
+                </tr>
+                <tr class="bg-white">
+                  <td class="border border-gray-400 p-2">Texto</td>
+                  <td class="border border-gray-400 p-2">Juan Pérez</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-400 p-2">Número</td>
+                  <td class="border border-gray-400 p-2">$1,250.00</td>
+                </tr>
+                <tr class="bg-white">
+                  <td class="border border-gray-400 p-2">Fecha</td>
+                  <td class="border border-gray-400 p-2">15/08/2025</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-400 p-2">Estado</td>
+                  <td class="border border-gray-400 p-2">✅ Activo</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Etiqueta TH -->
+    <div class="tag-card bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-orange-600 to-red-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">&lt;th&gt; - Encabezados de Tabla</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">🏷️ Descripción</h3>
+            <p class="text-gray-700 mb-4">
+              La etiqueta <code class="bg-orange-100 px-2 py-1 rounded">&lt;th&gt;</code> (Table Header) 
+              define las celdas de encabezado que describen el contenido de las columnas o filas.
+            </p>
+            <div class="space-y-4">
+              <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                <h4 class="font-bold mb-2">🌟 Beneficios:</h4>
+                <ul class="text-gray-700 space-y-1 text-sm">
+                  <li>• <strong>Accesibilidad:</strong> Lectores de pantalla</li>
+                  <li>• <strong>SEO:</strong> Mejor comprensión para buscadores</li>
+                  <li>• <strong>Estilo:</strong> Negrita y centrado por defecto</li>
+                  <li>• <strong>Semántica:</strong> Significado claro</li>
+                </ul>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                <h4 class="font-bold mb-2">🔧 Atributo Importante:</h4>
+                <p class="text-sm text-gray-700">
+                  <code class="bg-gray-200 px-2 py-1 rounded">scope</code> - 
+                  Define si es encabezado de columna o fila
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">📊 Comparación Visual</h3>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-semibold mb-2">❌ Sin &lt;th&gt; (Confuso)</h4>
+                <table class="w-full border-collapse border border-gray-400 text-sm">
+                  <tr class="bg-gray-100">
+                    <td class="border border-gray-400 p-2">Nombre</td>
+                    <td class="border border-gray-400 p-2">Edad</td>
+                    <td class="border border-gray-400 p-2">Ciudad</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-400 p-2">Ana</td>
+                    <td class="border border-gray-400 p-2">25</td>
+                    <td class="border border-gray-400 p-2">Madrid</td>
+                  </tr>
+                </table>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">✅ Con &lt;th&gt; (Claro)</h4>
+                <table class="w-full border-collapse border border-gray-400 text-sm">
+                  <tr class="bg-orange-100">
+                    <th class="border border-gray-400 p-2 font-bold">Nombre</th>
+                    <th class="border border-gray-400 p-2 font-bold">Edad</th>
+                    <th class="border border-gray-400 p-2 font-bold">Ciudad</th>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-400 p-2">Ana</td>
+                    <td class="border border-gray-400 p-2">25</td>
+                    <td class="border border-gray-400 p-2">Madrid</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparación de Etiquetas -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-teal-600 to-cyan-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">⚖️ Comparación de Etiquetas</h2>
+      </div>
+      <div class="p-8">
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse border border-gray-400">
+            <thead>
+              <tr class="bg-teal-100">
+                <th class="border border-gray-400 p-4 font-bold text-left">Etiqueta</th>
+                <th class="border border-gray-400 p-4 font-bold text-left">Propósito</th>
+                <th class="border border-gray-400 p-4 font-bold text-left">Contenido</th>
+                <th class="border border-gray-400 p-4 font-bold text-left">Estilo por Defecto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white">
+                <td class="border border-gray-400 p-4">
+                  <code class="bg-blue-100 px-2 py-1 rounded font-bold">&lt;table&gt;</code>
+                </td>
+                <td class="border border-gray-400 p-4">Contenedor principal</td>
+                <td class="border border-gray-400 p-4">Otras etiquetas de tabla</td>
+                <td class="border border-gray-400 p-4">display: table</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-400 p-4">
+                  <code class="bg-green-100 px-2 py-1 rounded font-bold">&lt;tr&gt;</code>
+                </td>
+                <td class="border border-gray-400 p-4">Define filas</td>
+                <td class="border border-gray-400 p-4">&lt;td&gt; o &lt;th&gt;</td>
+                <td class="border border-gray-400 p-4">display: table-row</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="border border-gray-400 p-4">
+                  <code class="bg-purple-100 px-2 py-1 rounded font-bold">&lt;td&gt;</code>
+                </td>
+                <td class="border border-gray-400 p-4">Celdas de datos</td>
+                <td class="border border-gray-400 p-4">Cualquier contenido HTML</td>
+                <td class="border border-gray-400 p-4">display: table-cell</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-400 p-4">
+                  <code class="bg-orange-100 px-2 py-1 rounded font-bold">&lt;th&gt;</code>
+                </td>
+                <td class="border border-gray-400 p-4">Encabezados</td>
+                <td class="border border-gray-400 p-4">Títulos de columnas/filas</td>
+                <td class="border border-gray-400 p-4">font-weight: bold<br>text-align: center</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplo Completo -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
+      <div class="bg-gradient-to-r from-indigo-600 to-purple-700 p-6 text-white">
+        <h2 class="text-3xl font-bold">🎯 Ejemplo Completo en Acción</h2>
+      </div>
+      <div class="p-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">📝 Código HTML</h3>
+            <div class="code-highlight rounded-lg p-4 text-sm">
+              <div class="text-green-400 mb-2">// Tabla completa con todas las etiquetas</div>
+              <div class="space-y-1">
+                <div><span class="text-red-400">&lt;table</span> <span class="text-yellow-400">border="1"</span><span class="text-red-400">&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-4"><span class="text-purple-400">&lt;th&gt;</span>Producto<span class="text-purple-400">&lt;/th&gt;</span></div>
+                <div class="ml-4"><span class="text-purple-400">&lt;th&gt;</span>Precio<span class="text-purple-400">&lt;/th&gt;</span></div>
+                <div class="ml-4"><span class="text-purple-400">&lt;th&gt;</span>Disponible<span class="text-purple-400">&lt;/th&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Laptop Gaming<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>$1,299<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Sí<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Monitor 4K<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>$599<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>No<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
+                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🎨 Resultado Visual</h3>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <table class="w-full border-collapse border-2 border-indigo-500">
+                <tr class="bg-indigo-100">
+                  <th class="border-2 border-indigo-400 p-3 font-bold text-indigo-800">Producto</th>
+                  <th class="border-2 border-indigo-400 p-3 font-bold text-indigo-800">Precio</th>
+                  <th class="border-2 border-indigo-400 p-3 font-bold text-indigo-800">Disponible</th>
+                </tr>
+                <tr class="bg-white">
+                  <td class="border-2 border-indigo-400 p-3">Laptop Gaming</td>
+                  <td class="border-2 border-indigo-400 p-3 text-green-600 font-semibold">$1,299</td>
+                  <td class="border-2 border-indigo-400 p-3">
+                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Sí</span>
+                  </td>
+                </tr>
+                <tr class="bg-indigo-50">
+                  <td class="border-2 border-indigo-400 p-3">Monitor 4K</td>
+                  <td class="border-2 border-indigo-400 p-3 text-green-600 font-semibold">$599</td>
+                  <td class="border-2 border-indigo-400 p-3">
+                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">No</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="mt-4 bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
+              <p class="text-sm text-green-800">
+                <strong>¡Perfecto!</strong> Cada etiqueta cumple su función específica para crear una tabla clara y accesible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="bg-gradient-to-r from-purple-600 to-pink-700 rounded-xl shadow-xl p-8 text-white mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-center">🎯 Resumen de Etiquetas</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+          <div class="text-4xl mb-2">🏗️</div>
+          <h3 class="font-bold mb-2">&lt;table&gt;</h3>
+          <p class="text-sm">Contenedor principal que define la tabla</p>
+        </div>
+        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+          <div class="text-4xl mb-2">📏</div>
+          <h3 class="font-bold mb-2">&lt;tr&gt;</h3>
+          <p class="text-sm">Filas horizontales que estructuran la tabla</p>
+        </div>
+        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+          <div class="text-4xl mb-2">📦</div>
+          <h3 class="font-bold mb-2">&lt;td&gt;</h3>
+          <p class="text-sm">Celdas que contienen los datos</p>
+        </div>
+        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+          <div class="text-4xl mb-2">🏷️</div>
+          <h3 class="font-bold mb-2">&lt;th&gt;</h3>
+          <p class="text-sm">Encabezados que describen el contenido</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-white mt-16 pb-8">
+    <p class="text-sm opacity-75">© 2025 Escuela de Desarrollo. Aprende HTML paso a paso.</p>
+  </footer>
+
+</body>
+</html>
