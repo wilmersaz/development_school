@@ -33,8 +33,15 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
     }
 
     .pulsing {
@@ -66,7 +73,8 @@
 
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+    <div
+      class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
       <a href="estructura-basica-tablas.html"
         class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors text-center w-full sm:w-auto">
         ← Estructura Básica
@@ -96,7 +104,7 @@
           <div>
             <h3 class="text-2xl font-bold text-gray-800 mb-4">📋 Descripción</h3>
             <p class="text-gray-700 mb-4">
-              La etiqueta <code class="bg-blue-100 px-2 py-1 rounded">&lt;table&gt;</code> es el contenedor raíz 
+              La etiqueta <code class="bg-blue-100 px-2 py-1 rounded">&lt;table&gt;</code> es el contenedor raíz
               que define el inicio y fin de una tabla HTML. Sin ella, no puede existir ninguna tabla.
             </p>
             <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
@@ -116,7 +124,8 @@
               <div class="space-y-1 text-sm">
                 <div><span class="text-red-400">&lt;table&gt;</span></div>
                 <div class="ml-4 text-gray-400">// Todo el contenido de la tabla va aquí</div>
-                <div class="ml-4"><span class="text-yellow-400">&lt;tr&gt;</span>...<span class="text-yellow-400">&lt;/tr&gt;</span></div>
+                <div class="ml-4"><span class="text-yellow-400">&lt;tr&gt;</span>...<span
+                    class="text-yellow-400">&lt;/tr&gt;</span></div>
                 <div><span class="text-red-400">&lt;/table&gt;</span></div>
               </div>
             </div>
@@ -140,7 +149,7 @@
           <div>
             <h3 class="text-2xl font-bold text-gray-800 mb-4">📏 Descripción</h3>
             <p class="text-gray-700 mb-4">
-              La etiqueta <code class="bg-green-100 px-2 py-1 rounded">&lt;tr&gt;</code> (Table Row) 
+              La etiqueta <code class="bg-green-100 px-2 py-1 rounded">&lt;tr&gt;</code> (Table Row)
               define cada fila horizontal en la tabla. Cada fila contiene una o más celdas.
             </p>
             <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400 mb-4">
@@ -179,7 +188,8 @@
             </div>
             <div class="code-highlight rounded-lg p-3 text-xs">
               <div><span class="text-red-400">&lt;tr&gt;</span> <span class="text-gray-400">← Cada fila</span></div>
-              <div class="ml-4"><span class="text-yellow-400">&lt;td&gt;</span>...<span class="text-yellow-400">&lt;/td&gt;</span></div>
+              <div class="ml-4"><span class="text-yellow-400">&lt;td&gt;</span>...<span
+                  class="text-yellow-400">&lt;/td&gt;</span></div>
               <div><span class="text-red-400">&lt;/tr&gt;</span></div>
             </div>
           </div>
@@ -197,7 +207,7 @@
           <div>
             <h3 class="text-2xl font-bold text-gray-800 mb-4">📦 Descripción</h3>
             <p class="text-gray-700 mb-4">
-              La etiqueta <code class="bg-purple-100 px-2 py-1 rounded">&lt;td&gt;</code> (Table Data) 
+              La etiqueta <code class="bg-purple-100 px-2 py-1 rounded">&lt;td&gt;</code> (Table Data)
               contiene los datos reales de cada celda en la tabla.
             </p>
             <div class="space-y-4">
@@ -260,7 +270,7 @@
           <div>
             <h3 class="text-2xl font-bold text-gray-800 mb-4">🏷️ Descripción</h3>
             <p class="text-gray-700 mb-4">
-              La etiqueta <code class="bg-orange-100 px-2 py-1 rounded">&lt;th&gt;</code> (Table Header) 
+              La etiqueta <code class="bg-orange-100 px-2 py-1 rounded">&lt;th&gt;</code> (Table Header)
               define las celdas de encabezado que describen el contenido de las columnas o filas.
             </p>
             <div class="space-y-4">
@@ -276,7 +286,7 @@
               <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
                 <h4 class="font-bold mb-2">🔧 Atributo Importante:</h4>
                 <p class="text-sm text-gray-700">
-                  <code class="bg-gray-200 px-2 py-1 rounded">scope</code> - 
+                  <code class="bg-gray-200 px-2 py-1 rounded">scope</code> -
                   Define si es encabezado de columna o fila
                 </p>
               </div>
@@ -382,34 +392,40 @@
         <h2 class="text-3xl font-bold">🎯 Ejemplo Completo en Acción</h2>
       </div>
       <div class="p-8">
-        <div class="grid lg:grid-cols-2 gap-8">
-          <div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="overflow-x-auto mx-5">
             <h3 class="text-xl font-bold text-gray-800 mb-4">📝 Código HTML</h3>
-            <div class="code-highlight rounded-lg p-4 text-sm">
-              <div class="text-green-400 mb-2">// Tabla completa con todas las etiquetas</div>
-              <div class="space-y-1">
-                <div><span class="text-red-400">&lt;table</span> <span class="text-yellow-400">border="1"</span><span class="text-red-400">&gt;</span></div>
-                <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                <div class="ml-4"><span class="text-purple-400">&lt;th&gt;</span>Producto<span class="text-purple-400">&lt;/th&gt;</span></div>
-                <div class="ml-4"><span class="text-purple-400">&lt;th&gt;</span>Precio<span class="text-purple-400">&lt;/th&gt;</span></div>
-                <div class="ml-4"><span class="text-purple-400">&lt;th&gt;</span>Disponible<span class="text-purple-400">&lt;/th&gt;</span></div>
-                <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
-                <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Laptop Gaming<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>$1,299<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Sí<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
-                <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Monitor 4K<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>$599<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>No<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
-                <div><span class="text-red-400">&lt;/table&gt;</span></div>
+              <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+                <span>📄 index.html</span>
+                <button type="button" onclick="copyCode('codeComplete')"
+                  class=" copy-btn bg-blue-600 text-white px-3 py-1 mt-1 rounded text-xs hover:bg-blue-700 transition-colors">
+                  📋 Copiar
+                </button>
               </div>
-            </div>
+              <pre id="codeComplete"
+                class="bg-gray-900 text-white p-1 rounded-b whitespace-pre overflow-x-auto text-xs">
+<span class="text-[#75715e]">// Tabla completa con todas las etiquetas</span>
+<span class="text-[#f92672]">&lt;table</span> <span class="text-[#a6e22e]">border=</span><span class="text-[#e6db74]">"1"</span><span class="text-[#f92672]">&gt;</span>
+  <span class="text-[#f92672]">&lt;tr&gt;</span>
+    <span class="text-[#f92672]">&lt;th&gt;</span>Producto<span class="text-[#f92672]">&lt;/th&gt;</span>
+    <span class="text-[#f92672]">&lt;th&gt;</span>Precio<span class="text-[#f92672]">&lt;/th&gt;</span>
+    <span class="text-[#f92672]">&lt;th&gt;</span>Disponible<span class="text-[#f92672]">&lt;/th&gt;</span>
+  <span class="text-[#f92672]">&lt;/tr&gt;</span>
+  <span class="text-[#f92672]">&lt;tr&gt;</span>
+    <span class="text-[#f92672]">&lt;td&gt;</span>Laptop Gaming<span class="text-[#f92672]">&lt;/td&gt;</span>
+    <span class="text-[#f92672]">&lt;td&gt;</span>$1,299<span class="text-[#f92672]">&lt;/td&gt;</span>
+    <span class="text-[#f92672]">&lt;td&gt;</span>Sí<span class="text-[#f92672]">&lt;/td&gt;</span>
+  <span class="text-[#f92672]">&lt;/tr&gt;</span>
+  <span class="text-[#f92672]">&lt;tr&gt;</span>
+    <span class="text-[#f92672]">&lt;td&gt;</span>Monitor 4K<span class="text-[#f92672]">&lt;/td&gt;</span>
+    <span class="text-[#f92672]">&lt;td&gt;</span>$599<span class="text-[#f92672]">&lt;/td&gt;</span>
+    <span class="text-[#f92672]">&lt;td&gt;</span>No<span class="text-[#f92672]">&lt;/td&gt;</span>
+  <span class="text-[#f92672]">&lt;/tr&gt;</span>
+<span class="text-[#f92672]">&lt;/table&gt;</span>
+</pre>
           </div>
           <div>
-            <h3 class="text-xl font-bold text-gray-800 mb-4">🎨 Resultado Visual</h3>
+            <h3 class="text-xl font-bold text-gray-800 mb-4 mx-4">🎨 Resultado Visual</h3>
             <div class="bg-gray-50 p-4 rounded-lg">
               <table class="w-full border-collapse border-2 border-indigo-500">
                 <tr class="bg-indigo-100">
@@ -435,7 +451,8 @@
             </div>
             <div class="mt-4 bg-green-50 p-3 rounded-lg border-l-4 border-green-400">
               <p class="text-sm text-green-800">
-                <strong>¡Perfecto!</strong> Cada etiqueta cumple su función específica para crear una tabla clara y accesible.
+                <strong>¡Perfecto!</strong> Cada etiqueta cumple su función específica para crear una tabla clara y
+                accesible.
               </p>
             </div>
           </div>
@@ -506,4 +523,5 @@
   </footer>
 
 </body>
+
 </html>
