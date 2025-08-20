@@ -22,9 +22,12 @@
     }
 
     @keyframes tableGlow {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
       }
+
       50% {
         box-shadow: 0 0 25px rgba(102, 126, 234, 0.6);
       }
@@ -44,8 +47,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .fade-in {
@@ -58,10 +68,11 @@
 
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
-      <a href="../practica-html.html"
+    <div
+      class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+      <a href="../../css/selectores-css.html"
         class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors text-center w-full sm:w-auto">
-        ← Práctica HTML
+        ← Selectores CSS
       </a>
       <a href="estructura-basica-tablas.html"
         class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors text-center w-full sm:w-auto">
@@ -144,28 +155,37 @@
             <h3 class="text-xl font-bold text-gray-800 mb-3">🕐 Línea del Tiempo</h3>
             <div class="space-y-4">
               <div class="flex items-start space-x-4 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
-                <div class="bg-yellow-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</div>
+                <div
+                  class="bg-yellow-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+                  1</div>
                 <div>
                   <h4 class="font-bold text-gray-800">1993 - HTML 1.0</h4>
                   <p class="text-gray-700">Se introducen las primeras etiquetas de tabla básicas</p>
                 </div>
               </div>
               <div class="flex items-start space-x-4 p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
-                <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</div>
+                <div
+                  class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+                  2</div>
                 <div>
                   <h4 class="font-bold text-gray-800">1995 - HTML 2.0</h4>
                   <p class="text-gray-700">Se estandarizan las etiquetas &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;</p>
                 </div>
               </div>
               <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-                <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</div>
+                <div
+                  class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+                  3</div>
                 <div>
                   <h4 class="font-bold text-gray-800">1997 - HTML 4.0</h4>
-                  <p class="text-gray-700">Introducción de &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt; y atributos de accesibilidad</p>
+                  <p class="text-gray-700">Introducción de &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt; y atributos de
+                    accesibilidad</p>
                 </div>
               </div>
               <div class="flex items-start space-x-4 p-4 bg-purple-50 rounded-lg border-l-4 border-purple-400">
-                <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</div>
+                <div
+                  class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+                  4</div>
                 <div>
                   <h4 class="font-bold text-gray-800">2014 - HTML5</h4>
                   <p class="text-gray-700">Mejoras en accesibilidad y semántica de tablas</p>
@@ -389,10 +409,39 @@
 
   </div>
 
-  <!-- Footer -->
-  <footer class="text-center text-white mt-16 pb-8">
-    <p class="text-sm opacity-75">© 2025 Escuela de Desarrollo. Aprende HTML paso a paso.</p>
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+          <a href="../../css/selectores-css.html"
+            class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center justify-center text-center w-full sm:w-auto">
+            ← Selectores CSS
+          </a>
+
+          <a href="../../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors justify-center text-center w-full sm:w-auto">
+            🏠 Menú Principal
+          </a>
+
+          <a href="estructura-basica-tablas.html"
+            class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors flex items-center justify-center text-center w-full sm:w-auto">
+            Estructura Básica →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Aprende HTML paso a paso.
+      </p>
+      <p class="text-pink-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
   </footer>
 
 </body>
+
 </html>

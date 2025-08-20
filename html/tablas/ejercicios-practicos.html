@@ -175,25 +175,21 @@
   </style>
 </head>
 
-<body class="min-h-screen">
-  <!-- Header -->
-  <header class="bg-white/10 backdrop-blur-md border-b border-white/20">
-    <div class="container mx-auto px-6 py-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-4">
-          <img src="../../images/school.png" alt="Development School" class="w-10 h-10">
-          <div>
-            <h1 class="text-2xl font-bold text-white">Development School</h1>
-            <p class="text-white/80 text-sm">Ejercicios Prácticos: Tablas HTML</p>
-          </div>
-        </div>
-        <nav class="flex space-x-4">
-          <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-200">← Temario</a>
-          <a href="../../index.html" class="text-white/80 hover:text-white transition-colors duration-200">Inicio</a>
-        </nav>
-      </div>
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+      <a href="tablas-responsivas.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors text-center w-full sm:w-auto">
+        ← Tablas Responsivas
+      </a>
+      <a href="../../bootstrap/que-es-framework.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors text-center w-full sm:w-auto">
+        ¿Qué es un Framework? →
+      </a>
     </div>
-  </header>
+  </nav>
 
   <!-- Main Content -->
   <main class="container mx-auto px-6 py-8">
@@ -1450,34 +1446,40 @@
             </div>
           </div>
         </div>
-        
-        <div class="text-center mt-8">
-          <div class="flex justify-center space-x-4">
-            <a href="index.html" 
-               class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 inline-block transform hover:scale-105">
-              ← Revisar Temario
-            </a>
-            <a href="../../index.html" 
-               class="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 inline-block transform hover:scale-105">
-              🏠 Ir al Inicio
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white/10 backdrop-blur-md border-t border-white/20 mt-16">
-    <div class="container mx-auto px-6 py-8">
-      <div class="text-center">
-        <p class="text-white/80 mb-4">© 2024 Development School - Practica y mejora tus habilidades</p>
-        <div class="flex justify-center space-x-4">
-          <a href="index.html" class="text-white/60 hover:text-white transition-colors duration-200">Temario</a>
-          <span class="text-white/40">|</span>
-          <a href="../../index.html" class="text-white/60 hover:text-white transition-colors duration-200">Inicio</a>
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="tablas-responsivas.html"
+            class="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← Tablas Responsivas
+          </a>
+
+          <a href="../../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            🏠 Menú Principal
+          </a>
+
+          <a href="../../bootstrap/que-es-framework.html"
+            class="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ¿Qué es un Framework? →
+          </a>
         </div>
       </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Aprende HTML paso a paso.
+      </p>
+      <p class="text-pink-100 mt-2">
+        CCL © Copyright 2025
+      </p>
     </div>
   </footer>
 
