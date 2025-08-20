@@ -7,6 +7,7 @@
   <title>Encabezados y Celdas en Tablas HTML</title>
   <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../js/scripts.js"></script>
   <style>
     body {
       background: linear-gradient(135deg, #ff9a56 0%, #ff6b95 100%);
@@ -22,8 +23,15 @@
     }
 
     @keyframes highlight {
-      0%, 100% { background-color: transparent; }
-      50% { background-color: #fef3c7; }
+
+      0%,
+      100% {
+        background-color: transparent;
+      }
+
+      50% {
+        background-color: #fef3c7;
+      }
     }
 
     .animate-highlight {
@@ -42,7 +50,8 @@
 
   <!-- Navigation -->
   <nav class="mb-8">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
+    <div
+      class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-0">
       <a href="etiquetas-principales.html"
         class="bg-white text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors text-center w-full sm:w-auto">
         ← Etiquetas Principales
@@ -59,7 +68,8 @@
     <!-- Header -->
     <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 text-center">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">🎯 Encabezados y Celdas</h1>
-      <p class="text-xl text-gray-600">Domina el uso correcto de &lt;th&gt; y &lt;td&gt; para crear tablas profesionales</p>
+      <p class="text-xl text-gray-600">Domina el uso correcto de &lt;th&gt; y &lt;td&gt; para crear tablas profesionales
+      </p>
     </div>
 
     <!-- Diferencias TH vs TD -->
@@ -139,119 +149,122 @@
 
     <!-- Ejemplos Prácticos -->
     <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8">
-      <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white">
+      <div class="bg-gradient-to-r from-indigo-600 to-purple-700 p-6 text-white">
         <h2 class="text-3xl font-bold">💡 Ejemplos Prácticos</h2>
       </div>
-      <div class="p-8">
-        <div class="space-y-8">
-          <!-- Ejemplo 1: Tabla de Empleados -->
-          <div>
-            <h3 class="text-xl font-bold text-gray-800 mb-4">👥 Tabla de Empleados</h3>
-            <div class="grid lg:grid-cols-2 gap-6">
-              <div>
-                <h4 class="font-semibold mb-2">📝 Código HTML</h4>
-                <div class="code-demo rounded-lg p-4 text-sm">
-                  <div class="text-green-400 mb-2">// Encabezados claramente definidos</div>
-                  <div class="space-y-1">
-                    <div><span class="text-red-400">&lt;table&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Nombre<span class="text-yellow-400">&lt;/th&gt;</span></div>
-                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Cargo<span class="text-yellow-400">&lt;/th&gt;</span></div>
-                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Salario<span class="text-yellow-400">&lt;/th&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Ana García<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Desarrolladora<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>$3,500<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
-                    <div><span class="text-red-400">&lt;/table&gt;</span></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-2">🎯 Resultado</h4>
-                <div class="bg-gray-50 p-4 rounded-lg">
-                  <table class="w-full border-collapse border border-gray-400">
-                    <thead>
-                      <tr class="bg-blue-100">
-                        <th class="border border-gray-400 p-3 font-bold animate-highlight">Nombre</th>
-                        <th class="border border-gray-400 p-3 font-bold">Cargo</th>
-                        <th class="border border-gray-400 p-3 font-bold">Salario</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr class="bg-white">
-                        <td class="border border-gray-400 p-3">Ana García</td>
-                        <td class="border border-gray-400 p-3">Desarrolladora</td>
-                        <td class="border border-gray-400 p-3 text-green-600 font-semibold">$3,500</td>
-                      </tr>
-                      <tr class="bg-gray-50">
-                        <td class="border border-gray-400 p-3">Carlos López</td>
-                        <td class="border border-gray-400 p-3">Diseñador</td>
-                        <td class="border border-gray-400 p-3 text-green-600 font-semibold">$3,200</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="text-sm text-gray-600 mt-2">
-                  <strong>Nota:</strong> Los encabezados (&lt;th&gt;) están en negrita y centrados automáticamente
-                </p>
-              </div>
-            </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-4">👥 Tabla de Empleados</h3>
+      <div class="grid md:grid-cols-2 gap-6 mb-4">
+        <div class="overflow-x-auto mx-5">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">📝 Código HTML</h3>
+          <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+            <span>📄 index.html</span>
+            <button type="button" onclick="copyCode('employeeCode')"
+              class=" copy-btn bg-blue-600 text-white px-3 py-1 mt-1 rounded text-xs hover:bg-blue-700 transition-colors">
+              📋 Copiar
+            </button>
           </div>
-
-          <!-- Ejemplo 2: Encabezados de Fila -->
-          <div class="border-t pt-8">
-            <h3 class="text-xl font-bold text-gray-800 mb-4">📊 Encabezados de Fila</h3>
-            <div class="grid lg:grid-cols-2 gap-6">
-              <div>
-                <h4 class="font-semibold mb-2">📝 Código HTML</h4>
-                <div class="code-demo rounded-lg p-4 text-sm">
-                  <div class="text-green-400 mb-2">// &lt;th&gt; también puede ir en la primera columna</div>
-                  <div class="space-y-1">
-                    <div><span class="text-red-400">&lt;table&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Producto<span class="text-yellow-400">&lt;/th&gt;</span></div>
-                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>Laptop HP<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Precio<span class="text-yellow-400">&lt;/th&gt;</span></div>
-                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>$899<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                    <div class="ml-4"><span class="text-yellow-400">&lt;th&gt;</span>Stock<span class="text-yellow-400">&lt;/th&gt;</span></div>
-                    <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>15 unidades<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                    <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
-                    <div><span class="text-red-400">&lt;/table&gt;</span></div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-2">🎯 Resultado</h4>
-                <div class="bg-gray-50 p-4 rounded-lg">
-                  <table class="w-full border-collapse border border-gray-400">
-                    <tr class="bg-white">
-                      <th class="border border-gray-400 p-3 font-bold bg-orange-100">Producto</th>
-                      <td class="border border-gray-400 p-3">Laptop HP</td>
-                    </tr>
-                    <tr class="bg-gray-50">
-                      <th class="border border-gray-400 p-3 font-bold bg-orange-100">Precio</th>
-                      <td class="border border-gray-400 p-3 text-green-600 font-semibold">$899</td>
-                    </tr>
-                    <tr class="bg-white">
-                      <th class="border border-gray-400 p-3 font-bold bg-orange-100">Stock</th>
-                      <td class="border border-gray-400 p-3">15 unidades</td>
-                    </tr>
-                  </table>
-                </div>
-                <p class="text-sm text-gray-600 mt-2">
-                  <strong>Flexibilidad:</strong> Los &lt;th&gt; pueden ser encabezados de fila o columna
-                </p>
-              </div>
-            </div>
+          <pre id="employeeCode" class="bg-gray-900 text-white p-1 rounded-b whitespace-pre overflow-x-auto text-xs">
+<span class="text-[#f92672]">&lt;table&gt;</span>
+  <span class="text-[#f92672]">&lt;tr&gt;</span>
+    <span class="text-[#f8f8f2]">  </span><span class="text-[#a6e22e]">&lt;th&gt;Nombre&lt;/th&gt;</span>
+    <span class="text-[#f8f8f2]">  </span><span class="text-[#a6e22e]">&lt;th&gt;Cargo&lt;/th&gt;</span>
+    <span class="text-[#f8f8f2]">  </span><span class="text-[#a6e22e]">&lt;th&gt;Salario&lt;/th&gt;</span>
+  <span class="text-[#f92672]">&lt;/tr&gt;</span>
+  <span class="text-[#f92672]">&lt;tr&gt;</span>
+    <span class="text-[#f8f8f2]">  </span><span class="text-[#66d9ef]">&lt;td&gt;Ana García&lt;/td&gt;</span>
+    <span class="text-[#f8f8f2]">  </span><span class="text-[#66d9ef]">&lt;td&gt;Desarrolladora&lt;/td&gt;</span>
+    <span class="text-[#f8f8f2]">  </span><span class="text-[#66d9ef]">&lt;td&gt;$3,500&lt;/td&gt;</span>
+  <span class="text-[#f92672]">&lt;/tr&gt;</span>
+<span class="text-[#f92672]">&lt;/table&gt;</span>
+</pre>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2 mx-6">🎯 Resultado</h4>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <table class="w-full border-collapse border border-gray-400">
+              <thead>
+                <tr class="bg-blue-100">
+                  <th class="border border-gray-400 p-3 font-bold animate-highlight">Nombre</th>
+                  <th class="border border-gray-400 p-3 font-bold">Cargo</th>
+                  <th class="border border-gray-400 p-3 font-bold">Salario</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-white">
+                  <td class="border border-gray-400 p-3">Ana García</td>
+                  <td class="border border-gray-400 p-3">Desarrolladora</td>
+                  <td class="border border-gray-400 p-3 text-green-600 font-semibold">$3,500</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="border border-gray-400 p-3">Carlos López</td>
+                  <td class="border border-gray-400 p-3">Diseñador</td>
+                  <td class="border border-gray-400 p-3 text-green-600 font-semibold">$3,200</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          <p class="text-sm text-gray-600 m-4">
+            <strong>Nota:</strong> Los encabezados (&lt;th&gt;) están en negrita y centrados automáticamente
+          </p>
         </div>
       </div>
+
+      <!-- Ejemplo 2: Encabezados de Fila -->
+      <div class="border-t p-6">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">📊 Encabezados de Fila</h3>
+        <div class="grid lg:grid-cols-2 gap-6">
+    <div class="overflow-x-auto mx-5">
+      <h3 class="text-xl font-bold text-gray-800 mb-4">📝 Código HTML</h3>
+      <div class="bg-gray-800 px-4 py-2 text-gray-300 text-sm flex justify-between items-center">
+        <span>📄 index.html</span>
+        <button type="button" onclick="copyCode('headersCells')"
+          class=" copy-btn bg-blue-600 text-white px-3 py-1 mt-1 rounded text-xs hover:bg-blue-700 transition-colors">
+          📋 Copiar
+        </button>
+      </div>
+      <pre id="headersCells" class="bg-gray-900 text-white p-1 rounded-b whitespace-pre overflow-x-auto text-xs">
+<span class="text-gray-500">// &lt;th&gt; también puede ir en la primera columna</span>
+<span class="text-[#f92672]">&lt;table&gt;</span>
+  <span class="text-[#f92672]">&lt;tr&gt;</span>
+    <span class="text-[#f92672]">&lt;th&gt;</span>Producto<span class="text-[#f92672]">&lt;/th&gt;</span>
+    <span class="text-[#f92672]">&lt;td&gt;</span>Laptop HP<span class="text-[#f92672]">&lt;/td&gt;</span>
+  <span class="text-[#f92672]">&lt;/tr&gt;</span>
+  <span class="text-[#f92672]">&lt;tr&gt;</span>
+    <span class="text-[#f92672]">&lt;th&gt;</span>Precio<span class="text-[#f92672]">&lt;/th&gt;</span>
+    <span class="text-[#f92672]">&lt;td&gt;</span>$899<span class="text-[#f92672]">&lt;/td&gt;</span>
+  <span class="text-[#f92672]">&lt;/tr&gt;</span>
+  <span class="text-[#f92672]">&lt;tr&gt;</span>
+    <span class="text-[#f92672]">&lt;th&gt;</span>Stock<span class="text-[#f92672]">&lt;/th&gt;</span>
+    <span class="text-[#f92672]">&lt;td&gt;</span>15 unidades<span class="text-[#f92672]">&lt;/td&gt;</span>
+  <span class="text-[#f92672]">&lt;/tr&gt;</span>
+<span class="text-[#f92672]">&lt;/table&gt;</span>
+</pre>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-2 mx-6">🎯 Resultado</h4>
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <table class="w-full border-collapse border border-gray-400">
+                <tr class="bg-white">
+                  <th class="border border-gray-400 p-3 font-bold bg-orange-100">Producto</th>
+                  <td class="border border-gray-400 p-3">Laptop HP</td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <th class="border border-gray-400 p-3 font-bold bg-orange-100">Precio</th>
+                  <td class="border border-gray-400 p-3 text-green-600 font-semibold">$899</td>
+                </tr>
+                <tr class="bg-white">
+                  <th class="border border-gray-400 p-3 font-bold bg-orange-100">Stock</th>
+                  <td class="border border-gray-400 p-3">15 unidades</td>
+                </tr>
+        </table>
+      </div>
+      <p class="text-sm text-gray-600 m-4">
+        <strong>Flexibilidad:</strong> Los &lt;th&gt; pueden ser encabezados de fila o columna
+      </p>
+    </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Atributo Scope -->
@@ -295,12 +308,18 @@
               <div class="space-y-1">
                 <div><span class="text-red-400">&lt;table&gt;</span></div>
                 <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                <div class="ml-4"><span class="text-yellow-400">&lt;th</span> <span class="text-green-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Nombre<span class="text-yellow-400">&lt;/th&gt;</span></div>
-                <div class="ml-4"><span class="text-yellow-400">&lt;th</span> <span class="text-green-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Edad<span class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-4"><span class="text-yellow-400">&lt;th</span> <span
+                    class="text-green-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Nombre<span
+                    class="text-yellow-400">&lt;/th&gt;</span></div>
+                <div class="ml-4"><span class="text-yellow-400">&lt;th</span> <span
+                    class="text-green-400">scope="col"</span><span class="text-yellow-400">&gt;</span>Edad<span
+                    class="text-yellow-400">&lt;/th&gt;</span></div>
                 <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
                 <div class="ml-2"><span class="text-blue-400">&lt;tr&gt;</span></div>
-                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>María<span class="text-cyan-400">&lt;/td&gt;</span></div>
-                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>28<span class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>María<span
+                    class="text-cyan-400">&lt;/td&gt;</span></div>
+                <div class="ml-4"><span class="text-cyan-400">&lt;td&gt;</span>28<span
+                    class="text-cyan-400">&lt;/td&gt;</span></div>
                 <div class="ml-2"><span class="text-blue-400">&lt;/tr&gt;</span></div>
                 <div><span class="text-red-400">&lt;/table&gt;</span></div>
               </div>
@@ -470,7 +489,7 @@
       <div class="bg-white rounded-xl shadow-xl p-6">
         <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
           <a href="etiquetas-principales.html"
-            class="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             ← Etiquetas Principales
           </a>
 
@@ -480,7 +499,7 @@
           </a>
 
           <a href="estructura-avanzada.html"
-            class="bg-lime-500 text-white px-6 py-3 rounded-lg hover:bg-lime-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
             Estructura Avanzada →
           </a>
         </div>
@@ -498,4 +517,5 @@
   </footer>
 
 </body>
+
 </html>
