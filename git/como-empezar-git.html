@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Cómo empiezo con Git?</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-in {
+      animation: slideIn 0.6s ease-out;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.5em;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="plataformas-git.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+        ← Plataformas
+      </a>
+      <a href="comandos-basicos-git.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+        Comandos básicos →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        🚀 ¿Cómo empiezo? ¡Súper fácil!
+      </h1>
+      <p class="text-xl text-gray-600">
+        Todo lo que necesitas para dar tus primeros pasos con Git
+      </p>
+    </div>
+
+    <!-- Lista de compras -->
+    <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+      <h2 class="text-2xl font-bold mb-6 text-center">
+        📋 Lista de compras (¡solo necesitas esto!)
+      </h2>
+      
+      <div class="space-y-6">
+        <div class="flex items-center space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">1</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Una computadora con internet</h3>
+            <p class="text-blue-100">Windows, Mac o Linux - cualquiera sirve</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">2</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">10 minutos de tu tiempo</h3>
+            <p class="text-blue-100">En serio, es TODO lo que necesitas para empezar</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">3</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Ganas de aprender algo genial</h3>
+            <p class="text-blue-100">¡Esto te va a hacer la vida MÁS fácil!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 1: Crear cuenta en GitHub -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in border-l-8 border-green-500">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        Paso 1: Crear cuenta en GitHub (GRATIS)
+      </h2>
+      <p class="text-lg text-gray-700 mb-4">
+        Es como crear una cuenta de Facebook, pero para tus proyectos:
+      </p>
+      
+      <div class="bg-green-50 rounded-xl p-6">
+        <ol class="space-y-3 text-gray-700">
+          <li class="flex items-start">
+            <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
+            <span>Ve a <strong>github.com</strong></span>
+          </li>
+          <li class="flex items-start">
+            <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
+            <span>Haz clic en "Sign up" (Registrarse)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
+            <span>Elige un nombre de usuario (como @tu_nombre)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</span>
+            <span>Pon tu email y una contraseña</span>
+          </li>
+          <li class="flex items-start">
+            <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">5</span>
+            <span>¡Listo! Ya tienes tu "casa en internet" 🏠</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Paso 2: Instalar Git -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in border-l-8 border-blue-500">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-3xl mr-3">💻</span>
+        Paso 2: Instalar Git en tu computadora
+      </h2>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">¿Tienes Windows?</h3>
+        <div class="bg-blue-50 rounded-xl p-6">
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start">
+              <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
+              <span>Ve a <strong>git-scm.com</strong></span>
+            </li>
+            <li class="flex items-start">
+              <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
+              <span>Haz clic en "Download" (Descargar)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
+              <span>Instala como cualquier programa normal</span>
+            </li>
+            <li class="flex items-start">
+              <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</span>
+              <span>¡Ya está! Git ahora vive en tu computadora</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl p-6 text-white">
+        <h3 class="text-xl font-bold mb-2 flex items-center">
+          <span class="text-2xl mr-3">⚠️</span>
+          ¡Importante!
+        </h3>
+        <p class="text-lg">
+          <strong>¿Mac o Linux?</strong> ¡Probablemente ya tienes Git instalado! Es como si viniera incluido en la caja. 📦
+        </p>
+      </div>
+    </div>
+
+    <!-- ¡Felicidades! -->
+    <div class="bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in text-center">
+      <h2 class="text-2xl font-bold mb-6 flex items-center justify-center">
+        <span class="text-3xl mr-3">🎉</span>
+        ¡Felicidades! Ya tienes lo básico
+      </h2>
+      <p class="text-xl mb-6">Con estos dos pasos ya puedes:</p>
+      
+      <div class="bg-white bg-opacity-10 rounded-xl p-6 text-left">
+        <div class="space-y-3 text-lg">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">✅</span>
+            <span>Guardar versiones de tus archivos</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">✅</span>
+            <span>Subir tus proyectos a internet</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">✅</span>
+            <span>Colaborar con otras personas</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">✅</span>
+            <span>Impresionar a tus jefes/profesores 😎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tips adicionales -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+        💡 Tips para empezar bien
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-6">
+          <h3 class="text-lg font-bold text-blue-800 mb-3 flex items-center">
+            <span class="text-2xl mr-2">📚</span>
+            Para estudiar
+          </h3>
+          <p class="text-gray-700">Usa Git para guardar versiones de tus trabajos, tesis o proyectos universitarios. ¡Nunca más perderás tu trabajo!</p>
+        </div>
+        
+        <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6">
+          <h3 class="text-lg font-bold text-green-800 mb-3 flex items-center">
+            <span class="text-2xl mr-2">💼</span>
+            Para trabajar
+          </h3>
+          <p class="text-gray-700">Organiza documentos de trabajo, presentaciones y colabora con tu equipo de forma profesional.</p>
+        </div>
+        
+        <div class="bg-purple-50 border-2 border-purple-200 rounded-xl p-6">
+          <h3 class="text-lg font-bold text-purple-800 mb-3 flex items-center">
+            <span class="text-2xl mr-2">🎨</span>
+            Para proyectos personales
+          </h3>
+          <p class="text-gray-700">Guarda versiones de tus fotos editadas, documentos personales o cualquier proyecto creativo.</p>
+        </div>
+        
+        <div class="bg-orange-50 border-2 border-orange-200 rounded-xl p-6">
+          <h3 class="text-lg font-bold text-orange-800 mb-3 flex items-center">
+            <span class="text-2xl mr-2">👥</span>
+            Para colaborar
+          </h3>
+          <p class="text-gray-700">Trabaja en equipo sin los típicos problemas de "¿cuál es la versión más nueva?" o archivos perdidos.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 slide-in">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">🎯 ¿Listo para aprender los comandos básicos?</h2>
+      <p class="text-lg text-gray-700 text-center mb-6">
+        Ahora que tienes todo instalado, es hora de aprender los comandos esenciales que usarás todos los días.
+      </p>
+      <div class="flex justify-center">
+        <a href="comandos-basicos-git.html" class="bg-blue-500 text-white px-8 py-3 rounded-xl hover:bg-blue-600 transition-colors text-lg font-semibold">
+          Aprender comandos básicos →
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

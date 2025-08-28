@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario Git para Principiantes</title>
+    <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .interactive-btn {
+            transition: all 0.3s ease;
+        }
+
+        .interactive-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .term-card {
+            transition: all 0.3s ease;
+        }
+
+        .term-card:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+    <!-- Navigation -->
+    <nav class="mb-8">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <a href="practica-git.html"
+                class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+                ← Práctica
+            </a>
+            <div class="bg-gray-300 text-gray-500 px-4 py-2 rounded-lg opacity-50 text-center">
+                (Último tema)
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4">
+
+        <!-- Header -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                📚 Diccionario Git para Principiantes
+            </h1>
+            <p class="text-xl text-gray-600">
+                Traduce todas esas palabras técnicas a español normal
+            </p>
+        </div>
+
+        <!-- Introducción -->
+        <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="text-3xl mr-3">🗣️</span>
+                ¡No más palabras raras!
+            </h2>
+            <p class="text-lg leading-relaxed">
+                Cuando empiezas con Git, parece que todos hablan un idioma diferente.
+                ¡Aquí tienes la traducción de todas esas palabras técnicas a español normal!
+            </p>
+        </div>
+
+        <!-- REPOSITORIO -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in term-card border-l-8 border-blue-500">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span class="text-3xl mr-3">🏠</span>
+                REPOSITORIO (repo)
+            </h2>
+
+            <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-4">
+                <h3 class="text-xl font-bold text-blue-800 mb-3 flex items-center">
+                    <span class="text-2xl mr-2">📦</span>
+                    Como una caja mágica para tus archivos
+                </h3>
+                <p class="text-gray-700 mb-2">
+                    <strong>En palabras simples:</strong> Es una carpeta especial donde Git guarda tu proyecto y TODAS
+                    las versiones que has creado.
+                </p>
+                <p class="text-gray-700">
+                    <strong>Ejemplo de la vida real:</strong> Imagina una caja donde guardas todas las fotos de tus
+                    vacaciones,
+                    pero esta caja mágica también recuerda cada foto que sacaste, incluso las que borraste.
+                </p>
+            </div>
+
+            <div class="bg-green-50 border-2 border-green-200 rounded-xl p-4">
+                <h4 class="font-bold text-green-800 mb-2">🎯 Cuándo lo escuchas:</h4>
+                <p class="text-gray-700">"Sube tu proyecto al repositorio" = "Guarda tu proyecto en la caja mágica"</p>
+            </div>
+        </div>
+
+        <!-- COMMIT -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in term-card border-l-8 border-green-500">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span class="text-3xl mr-3">📸</span>
+                COMMIT
+            </h2>
+
+            <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6 mb-4">
+                <h3 class="text-xl font-bold text-green-800 mb-3 flex items-center">
+                    <span class="text-2xl mr-2">📷</span>
+                    Como tomar una foto de tu proyecto
+                </h3>
+                <p class="text-gray-700 mb-2">
+                    <strong>En palabras simples:</strong> Es una "foto" de tu proyecto en un momento específico. Git
+                    guarda esta foto para siempre.
+                </p>
+                <p class="text-gray-700">
+                    <strong>Ejemplo de la vida real:</strong> Como cuando tomas una selfie y la guardas en tu teléfono.
+                    Puedes tomar mil selfies diferentes, y tu teléfono las guarda todas con la fecha y hora.
+                </p>
+            </div>
+
+            <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-4">
+                <h4 class="font-bold text-blue-800 mb-2">🎯 Cuándo lo escuchas:</h4>
+                <p class="text-gray-700">
+                    "Haz un commit" = "Toma una foto de tu proyecto ahora"<br>
+                    "Ese commit tiene un bug" = "En esa foto del proyecto había un error"
+                </p>
+            </div>
+        </div>
+
+        <!-- BRANCH -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in term-card border-l-8 border-orange-500">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span class="text-3xl mr-3">🌿</span>
+                BRANCH (rama)
+            </h2>
+
+            <div class="bg-orange-50 border-2 border-orange-200 rounded-xl p-6 mb-4">
+                <h3 class="text-xl font-bold text-orange-800 mb-3 flex items-center">
+                    <span class="text-2xl mr-2">🌳</span>
+                    Como las ramas de un árbol
+                </h3>
+                <p class="text-gray-700 mb-2">
+                    <strong>En palabras simples:</strong> Es una línea de desarrollo separada. Puedes trabajar en
+                    diferentes ideas sin arruinar tu proyecto principal.
+                </p>
+                <p class="text-gray-700">
+                    <strong>Ejemplo de la vida real:</strong> Imagina que estás escribiendo tu CV. Haces una rama
+                    "cv-para-marketing" y otra "cv-para-tecnologia".
+                    Trabajas en cada una por separado y después decides cuál te gusta más.
+                </p>
+            </div>
+
+            <div class="bg-purple-50 border-2 border-purple-200 rounded-xl p-4">
+                <h4 class="font-bold text-purple-800 mb-2">🎯 Cuándo lo escuchas:</h4>
+                <p class="text-gray-700">
+                    "Crea una nueva branch" = "Haz una copia separada para experimentar"<br>
+                    "Estoy en la branch principal" = "Estoy trabajando en la versión oficial"
+                </p>
+            </div>
+        </div>
+
+        <!-- MERGE -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in term-card border-l-8 border-purple-500">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span class="text-3xl mr-3">🔄</span>
+                MERGE
+            </h2>
+
+            <div class="bg-purple-50 border-2 border-purple-200 rounded-xl p-6 mb-4">
+                <h3 class="text-xl font-bold text-purple-800 mb-3 flex items-center">
+                    <span class="text-2xl mr-2">🤝</span>
+                    Como combinar dos recetas
+                </h3>
+                <p class="text-gray-700 mb-2">
+                    <strong>En palabras simples:</strong> Es tomar cambios de dos ramas diferentes y combinarlos en una
+                    sola.
+                </p>
+                <p class="text-gray-700">
+                    <strong>Ejemplo de la vida real:</strong> Tú escribes la introducción de un trabajo y tu amigo
+                    escribe la conclusión.
+                    Merge es cuando juntan ambas partes en un documento final.
+                </p>
+            </div>
+
+            <div class="bg-red-50 border-2 border-red-200 rounded-xl p-4">
+                <h4 class="font-bold text-red-800 mb-2">🎯 Cuándo lo escuchas:</h4>
+                <p class="text-gray-700">
+                    "Vamos a hacer merge" = "Vamos a combinar los cambios"<br>
+                    "Conflict en el merge" = "Git no sabe cuál cambio es el correcto"
+                </p>
+            </div>
+        </div>
+
+        <!-- PUSH -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in term-card border-l-8 border-teal-500">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span class="text-3xl mr-3">⬆️</span>
+                PUSH
+            </h2>
+
+            <div class="bg-teal-50 border-2 border-teal-200 rounded-xl p-6 mb-4">
+                <h3 class="text-xl font-bold text-teal-800 mb-3 flex items-center">
+                    <span class="text-2xl mr-2">☁️</span>
+                    Como subir fotos a Instagram
+                </h3>
+                <p class="text-gray-700 mb-2">
+                    <strong>En palabras simples:</strong> Es enviar tus cambios desde tu computadora hacia el
+                    repositorio en internet (como GitHub).
+                </p>
+                <p class="text-gray-700">
+                    <strong>Ejemplo de la vida real:</strong> Terminas de editar un video en tu teléfono y lo subes a
+                    TikTok para que todos lo vean.
+                </p>
+            </div>
+
+            <div class="bg-cyan-50 border-2 border-cyan-200 rounded-xl p-4">
+                <h4 class="font-bold text-cyan-800 mb-2">🎯 Cuándo lo escuchas:</h4>
+                <p class="text-gray-700">
+                    "Haz push de tus cambios" = "Sube tu trabajo a internet"<br>
+                    "No puedo hacer push" = "No puedo subir mis cambios"
+                </p>
+            </div>
+        </div>
+
+        <!-- PULL -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in term-card border-l-8 border-indigo-500">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                <span class="text-3xl mr-3">⬇️</span>
+                PULL
+            </h2>
+
+            <div class="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-6 mb-4">
+                <h3 class="text-xl font-bold text-indigo-800 mb-3 flex items-center">
+                    <span class="text-2xl mr-2">📲</span>
+                    Como actualizar WhatsApp
+                </h3>
+                <p class="text-gray-700 mb-2">
+                    <strong>En palabras simples:</strong> Es descargar los cambios más recientes desde internet hacia tu
+                    computadora.
+                </p>
+                <p class="text-gray-700">
+                    <strong>Ejemplo de la vida real:</strong> Cuando abres WhatsApp y ve "descargando mensajes",
+                    eso es como hacer pull - está trayendo todo lo nuevo a tu teléfono.
+                </p>
+            </div>
+
+            <div class="bg-pink-50 border-2 border-pink-200 rounded-xl p-4">
+                <h4 class="font-bold text-pink-800 mb-2">🎯 Cuándo lo escuchas:</h4>
+                <p class="text-gray-700">
+                    "Haz pull antes de trabajar" = "Descarga lo más nuevo antes de empezar"<br>
+                    "Forgot to pull" = "Se me olvidó descargar las actualizaciones"
+                </p>
+            </div>
+        </div>
+
+        <!-- Quiz del glosario -->
+        <div
+            class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in text-center">
+            <h2 class="text-2xl font-bold mb-6 flex items-center justify-center">
+                <span class="text-3xl mr-3">🎮</span>
+                Mini-quiz: ¡A ver qué tanto entendiste!
+            </h2>
+            <p class="text-xl mb-6"><strong>¿Qué significa hacer un "commit"?</strong></p>
+
+            <div class="space-y-4">
+                <button onclick="glosarioQuiz(this, false)"
+                    class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+                    📧 Enviar un email
+                </button>
+                <button onclick="glosarioQuiz(this, true)"
+                    class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+                    📸 Tomar una "foto" de tu proyecto
+                </button>
+                <button onclick="glosarioQuiz(this, false)"
+                    class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+                    🗑️ Borrar archivos
+                </button>
+            </div>
+
+            <div id="glosario-result" class="mt-6 text-xl font-bold"></div>
+        </div>
+
+        <!-- Desafío final -->
+        <div
+            class="bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in text-center">
+            <h2 class="text-2xl font-bold mb-6 flex items-center justify-center">
+                <span class="text-3xl mr-3">🔥</span>
+                Desafío final del glosario
+            </h2>
+            <p class="text-xl mb-4"><strong>Tu amigo dice: "Hice fork de tu repo, agregué features y abrí un
+                    PR"</strong></p>
+            <p class="text-lg mb-6">¿Qué significa en español normal?</p>
+
+            <div class="space-y-4">
+                <button onclick="glosarioQuiz2(this, true)"
+                    class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-pink-600">
+                    📝 "Copié tu proyecto, lo mejoré y te propongo incluir mis mejoras"
+                </button>
+                <button onclick="glosarioQuiz2(this, false)"
+                    class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-pink-600">
+                    💻 "Instalé un programa en tu computadora"
+                </button>
+                <button onclick="glosarioQuiz2(this, false)"
+                    class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-pink-600">
+                    📱 "Te envié un mensaje por WhatsApp"
+                </button>
+            </div>
+
+            <div id="glosario-result2" class="mt-6 text-xl font-bold"></div>
+        </div>
+
+        <!-- Consejo final -->
+        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="text-3xl mr-3">💡</span>
+                ¡No te agobies!
+            </h2>
+            <p class="text-lg leading-relaxed">
+                No necesitas memorizar todas estas palabras de una vez. Es como aprender un idioma nuevo -
+                mientras más uses Git, más naturales se volverán estos términos. ¡Empieza con lo básico y ve aprendiendo
+                poco a poco!
+            </p>
+        </div>
+
+        <!-- Felicidades final -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 slide-in">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center flex items-center justify-center">
+                <span class="text-3xl mr-3">🌟</span>
+                ¡Felicidades!
+            </h2>
+            <p class="text-lg text-gray-700 text-center mb-6">
+                Ya conoces el vocabulario básico de Git. Ahora ya no te sentirás perdido cuando escuches estos términos.
+                ¡Estás listo para usar Git con confianza!
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function glosarioQuiz(button, isCorrect) {
+            const result = document.getElementById('glosario-result');
+            const allButtons = button.parentNode.querySelectorAll('button');
+
+            // Resetear todos los botones
+            allButtons.forEach(btn => {
+                btn.classList.remove('bg-green-500', 'bg-red-500');
+                btn.classList.add('bg-white', 'bg-opacity-20');
+            });
+
+            if (isCorrect) {
+                button.classList.remove('bg-white', 'bg-opacity-20');
+                button.classList.add('bg-green-500');
+                result.innerHTML = '🎉 ¡Perfecto! Un commit es exactamente como tomar una foto de tu proyecto.';
+                result.style.color = '#10B981';
+            } else {
+                button.classList.remove('bg-white', 'bg-opacity-20');
+                button.classList.add('bg-red-500');
+                result.innerHTML = '❌ No exactamente. Un commit es como tomar una "foto" de tu proyecto.';
+                result.style.color = '#EF4444';
+            }
+        }
+
+        function glosarioQuiz2(button, isCorrect) {
+            const result = document.getElementById('glosario-result2');
+            const allButtons = button.parentNode.querySelectorAll('button');
+
+            // Resetear todos los botones
+            allButtons.forEach(btn => {
+                btn.classList.remove('bg-green-500', 'bg-red-500');
+                btn.classList.add('bg-white', 'bg-opacity-20');
+            });
+
+            if (isCorrect) {
+                button.classList.remove('bg-white', 'bg-opacity-20');
+                button.classList.add('bg-green-500');
+                result.innerHTML = '🎉 ¡Excelente! Ya entiendes el "idioma" de Git perfectamente.';
+                result.style.color = '#10B981';
+            } else {
+                button.classList.remove('bg-white', 'bg-opacity-20');
+                button.classList.add('bg-red-500');
+                result.innerHTML = '❌ No exactamente. Fork = copiar, features = mejoras, PR = propuesta de cambios.';
+                result.style.color = '#EF4444';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

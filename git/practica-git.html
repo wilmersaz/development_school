@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica Git - Tu primer proyecto</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-in {
+      animation: slideIn 0.6s ease-out;
+    }
+
+    .command-box {
+      background: #2d3436;
+      color: #00ff41;
+      padding: 20px;
+      border-radius: 10px;
+      font-family: 'Courier New', monospace;
+      margin: 15px 0;
+      position: relative;
+      border: 3px solid #74b9ff;
+      overflow-x: auto;
+    }
+
+    .command-box::before {
+      content: '💻 Terminal:';
+      position: absolute;
+      top: -12px;
+      left: 15px;
+      background: #74b9ff;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 0.9em;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.5em;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      flex-shrink: 0;
+    }
+
+    .interactive-btn {
+      transition: all 0.3s ease;
+    }
+
+    .interactive-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="comandos-basicos-git.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+        ← Comandos básicos
+      </a>
+      <a href="glosario-git.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+        Glosario →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        🎯 ¡Hora de practicar! (Súper simple)
+      </h1>
+      <p class="text-xl text-gray-600">
+        Crea tu primer proyecto Git paso a paso
+      </p>
+    </div>
+
+    <!-- Tu primera misión -->
+    <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+      <h2 class="text-2xl font-bold mb-4 flex items-center">
+        <span class="text-3xl mr-3">🎮</span>
+        Tu primera misión
+      </h2>
+      <p class="text-lg leading-relaxed">
+        Vamos a crear tu primer proyecto en Git. Es como crear tu primer post en Instagram - ¡nervioso pero emocionante!
+      </p>
+    </div>
+
+    <!-- Misión: Mi primer proyecto -->
+    <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+      <h2 class="text-2xl font-bold mb-6 text-center">
+        🚀 Misión: "Mi primer proyecto"
+      </h2>
+      
+      <div class="space-y-6">
+        <!-- Paso 0 -->
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">0</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">¡PRIMERO! Preséntate a Git</h3>
+            <p class="text-blue-100 mb-3">Abre la terminal y dile a Git quién eres (una sola vez en tu vida)</p>
+            <div class="command-box">git config --global user.name "Tu Nombre"</div>
+            <div class="command-box">git config --global user.email "tu@email.com"</div>
+          </div>
+        </div>
+
+        <!-- Paso 1 -->
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">1</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Crea una carpeta en tu escritorio</h3>
+            <p class="text-blue-100">Llámala "mi-primer-proyecto" (sin espacios, usa guiones)</p>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">2</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Crea un archivo de texto dentro</h3>
+            <p class="text-blue-100">Llámalo "readme.txt" y escribe: "¡Hola mundo! Este es mi primer proyecto con Git"</p>
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">3</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Abre la "terminal" o "símbolo del sistema"</h3>
+            <p class="text-blue-100">En Windows: busca "cmd" en el menú inicio</p>
+          </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">4</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Ve a tu carpeta</h3>
+            <div class="command-box">cd Desktop/mi-primer-proyecto</div>
+            <p class="text-blue-100">(Como navegar a una carpeta en el explorador, pero con texto)</p>
+          </div>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">5</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">¡Inicializa Git!</h3>
+            <div class="command-box">git init</div>
+            <p class="text-blue-100">Le dices a Git: "¡Cuida esta carpeta por favor!"</p>
+          </div>
+        </div>
+
+        <!-- Paso 6 -->
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 rounded-xl p-4">
+          <div class="step-number">6</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Usa los comandos que aprendiste</h3>
+            <div class="command-box">git add .</div>
+            <div class="command-box">git commit -m "Mi primer commit"</div>
+            <p class="text-blue-100">¡Acabas de guardar tu primer "snapshot"!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ¡LO LOGRASTE! -->
+    <div class="bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in text-center">
+      <h2 class="text-2xl font-bold mb-6 flex items-center justify-center">
+        <span class="text-3xl mr-3">🎉</span>
+        ¡LO LOGRASTE!
+      </h2>
+      <p class="text-xl mb-6">¿Qué acabas de hacer?</p>
+      
+      <div class="bg-white bg-opacity-10 rounded-xl p-6 text-left">
+        <div class="space-y-3 text-lg">
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">✅</span>
+            <span>Creaste tu primer repositorio de Git</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">✅</span>
+            <span>Guardaste tu primer "commit" (versión)</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">✅</span>
+            <span>Ya sabes usar Git básico</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-2xl mr-3">✅</span>
+            <span>¡Eres oficialmente un usuario de Git! 🎊</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-6">
+        <button onclick="showCelebration()" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-8 py-3 rounded-xl text-lg hover:bg-white hover:text-blue-600">
+          🎊 ¡Celebrar mi logro!
+        </button>
+      </div>
+      <div id="celebration" class="mt-4 text-xl font-bold"></div>
+    </div>
+
+    <!-- ¿Qué sigue? -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in border-l-8 border-green-500">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-3xl mr-3">🚀</span>
+        ¿Qué sigue? (Ideas para seguir practicando)
+      </h2>
+      
+      <div class="space-y-4">
+        <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded">
+          <div class="flex items-center mb-2">
+            <span class="text-2xl mr-3">📁</span>
+            <strong class="text-lg">Crea más archivos:</strong>
+          </div>
+          <p class="ml-10 text-gray-600">Agrega una foto, un documento de Word, lo que quieras</p>
+        </div>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+          <div class="flex items-center mb-2">
+            <span class="text-2xl mr-3">📸</span>
+            <strong class="text-lg">Haz más commits:</strong>
+          </div>
+          <p class="ml-10 text-gray-600">Cada vez que cambies algo, guarda una nueva versión</p>
+        </div>
+        
+        <div class="bg-purple-50 border-l-4 border-purple-400 p-4 rounded">
+          <div class="flex items-center mb-2">
+            <span class="text-2xl mr-3">☁️</span>
+            <strong class="text-lg">Sube a GitHub:</strong>
+          </div>
+          <p class="ml-10 text-gray-600">Crea un repositorio en github.com y sube tu proyecto</p>
+        </div>
+        
+        <div class="bg-orange-50 border-l-4 border-orange-400 p-4 rounded">
+          <div class="flex items-center mb-2">
+            <span class="text-2xl mr-3">👥</span>
+            <strong class="text-lg">Invita a un amigo:</strong>
+          </div>
+          <p class="ml-10 text-gray-600">Compartan un proyecto y trabajen juntos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recordatorio importante -->
+    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+      <h2 class="text-2xl font-bold mb-4 flex items-center">
+        <span class="text-3xl mr-3">⚠️</span>
+        ¡Recuerda!
+      </h2>
+      <p class="text-lg leading-relaxed">
+        Git no es solo para programadores. Puedes usar Git para CUALQUIER proyecto: documentos de trabajo, 
+        fotos de familia organizadas, apuntes de universidad, ¡lo que se te ocurra!
+      </p>
+    </div>
+
+    <!-- Quiz final -->
+    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in text-center">
+      <h2 class="text-2xl font-bold mb-6 flex items-center justify-center">
+        <span class="text-3xl mr-3">🧠</span>
+        Quiz final: ¿Entendiste todo?
+      </h2>
+      <p class="text-xl mb-6"><strong>Git es útil para...</strong></p>
+      
+      <div class="space-y-4">
+        <button onclick="finalQuiz(this, true)" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+          📚 Cualquier persona que trabaje con archivos digitales
+        </button>
+        <button onclick="finalQuiz(this, false)" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+          👨‍💻 Solo programadores expertos
+        </button>
+        <button onclick="finalQuiz(this, false)" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+          🎮 Solo para crear videojuegos
+        </button>
+      </div>
+      
+      <div id="final-result" class="mt-6 text-xl font-bold"></div>
+    </div>
+
+    <!-- Pasos adicionales (opcional) -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+        🌟 Pasos adicionales (cuando estés listo)
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-6">
+          <h3 class="text-lg font-bold text-blue-800 mb-3 flex items-center">
+            <span class="text-2xl mr-2">🌐</span>
+            Conectar con GitHub
+          </h3>
+          <p class="text-gray-700 mb-3">Sube tu proyecto a internet para acceder desde cualquier lugar.</p>
+          <div class="command-box">git remote add origin https://github.com/tu-usuario/mi-primer-proyecto.git</div>
+          <div class="command-box">git push -u origin main</div>
+        </div>
+        
+        <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6">
+          <h3 class="text-lg font-bold text-green-800 mb-3 flex items-center">
+            <span class="text-2xl mr-2">🔄</span>
+            Trabajar en colaboración
+          </h3>
+          <p class="text-gray-700 mb-3">Invita a otros a tu proyecto y trabajen juntos.</p>
+          <div class="command-box">git clone https://github.com/usuario/proyecto.git</div>
+          <div class="command-box">git pull origin main</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 slide-in">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">🎯 ¿Necesitas aclarar algún término?</h2>
+      <p class="text-lg text-gray-700 text-center mb-6">
+        Si alguna palabra técnica te confunde, consulta nuestro glosario para principiantes.
+      </p>
+      <div class="flex justify-center">
+        <a href="glosario-git.html" class="bg-blue-500 text-white px-8 py-3 rounded-xl hover:bg-blue-600 transition-colors text-lg font-semibold">
+          Consultar glosario →
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function showCelebration() {
+      const celebration = document.getElementById('celebration');
+      const messages = [
+        "🎉 ¡Eres increíble! Has dado tu primer paso en el mundo de Git",
+        "🌟 ¡Felicidades! Ahora formas parte de la comunidad Git",
+        "🚀 ¡Excelente! Tu futuro yo te agradecerá haber aprendido esto",
+        "💪 ¡Genial! Has desbloqueado una nueva habilidad súper útil"
+      ];
+      
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      celebration.innerHTML = randomMessage;
+      celebration.style.color = '#10B981';
+    }
+
+    function finalQuiz(button, isCorrect) {
+      const result = document.getElementById('final-result');
+      const allButtons = button.parentNode.querySelectorAll('button');
+      
+      // Resetear todos los botones
+      allButtons.forEach(btn => {
+        btn.classList.remove('bg-green-500', 'bg-red-500');
+        btn.classList.add('bg-white', 'bg-opacity-20');
+      });
+      
+      if (isCorrect) {
+        button.classList.remove('bg-white', 'bg-opacity-20');
+        button.classList.add('bg-green-500');
+        result.innerHTML = '🎉 ¡Perfecto! Git es para TODOS, no solo para programadores.';
+        result.style.color = '#10B981';
+      } else {
+        button.classList.remove('bg-white', 'bg-opacity-20');
+        button.classList.add('bg-red-500');
+        result.innerHTML = '❌ No exactamente. Git es útil para cualquier persona que trabaje con archivos digitales.';
+        result.style.color = '#EF4444';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué es Git y GitHub?</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    }
+
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.3); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bounce-in {
+      animation: bounceIn 1s ease-out;
+    }
+
+    .slide-in {
+      animation: slideIn 0.6s ease-out;
+    }
+
+    .interactive-btn {
+      transition: all 0.3s ease;
+    }
+
+    .interactive-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="../tailwind/ejercicio-tailwind.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+        ← Ejercicio Tailwind
+      </a>
+      <a href="analogias-git.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+        Analogías →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 bounce-in">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        🤔 ¿Qué es Git y GitHub?
+      </h1>
+      <p class="text-xl text-gray-600">
+        Descubre de forma simple qué son estas herramientas que cambiarán tu forma de trabajar
+      </p>
+    </div>
+
+    <!-- Creador de Git -->
+    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+      <h2 class="text-2xl font-bold mb-4 flex items-center">
+        <span class="text-3xl mr-3">📖</span>
+        Creador de Git
+      </h2>
+      <p class="text-lg leading-relaxed">
+        Git fue creado en 2005 por <strong>Linus Torvalds</strong>, el mismo ingeniero de software finlandés que creó el kernel de Linux.
+        Torvalds desarrolló Git en tan solo diez días para gestionar el control de versiones de los proyectos de Linux después
+        de que la comunidad perdiera el acceso a su anterior sistema, BitKeeper.
+      </p>
+    </div>
+
+    <!-- Historia Simple -->
+    <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+      <h2 class="text-2xl font-bold mb-4 flex items-center">
+        <span class="text-3xl mr-3">📖</span>
+        Una historia simple...
+      </h2>
+      <p class="text-lg leading-relaxed">
+        Imagina que estás escribiendo un libro muy importante. Cada vez que escribes algo nuevo, quieres guardar una copia por si algo sale mal. 
+        <strong>Git es como tener un asistente súper inteligente</strong> que guarda cada versión de tu libro automáticamente. 
+        Y <strong>GitHub es como una biblioteca en internet</strong> donde puedes guardar todas esas versiones y compartirlas con otros escritores.
+      </p>
+    </div>
+
+    <!-- Git = Asistente -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in border-l-8 border-green-500">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+        <span class="text-3xl mr-3">💾</span>
+        Git = Tu asistente personal de copias de seguridad
+      </h2>
+      <p class="text-lg text-gray-700 mb-4">
+        <strong>¿Alguna vez has perdido un documento importante?</strong> Git evita que eso pase. 
+        Es como tener un asistente que automáticamente guarda una foto de tu trabajo cada vez que haces algo importante.
+      </p>
+    </div>
+
+    <!-- GitHub = Caja fuerte -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in border-l-8 border-blue-500">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+        <span class="text-3xl mr-3">☁️</span>
+        GitHub = Tu caja fuerte en la nube
+      </h2>
+      <p class="text-lg text-gray-700 mb-4">
+        <strong>¿Usas Google Drive o Dropbox?</strong> GitHub es similar, pero especialmente diseñado para proyectos y documentos. 
+        Puedes acceder desde cualquier computadora y compartir con quien quieras.
+      </p>
+    </div>
+
+    <!-- Ejemplo práctico -->
+    <div class="bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+      <h2 class="text-2xl font-bold mb-6 flex items-center">
+        <span class="text-3xl mr-3">🎯</span>
+        Ejemplo súper simple:
+      </h2>
+      <p class="text-lg mb-4">Estás haciendo una presentación para el trabajo:</p>
+      
+      <div class="bg-white bg-opacity-20 rounded-xl p-6 mb-4">
+        <div class="flex items-center mb-3">
+          <span class="text-2xl mr-3">❌</span>
+          <strong class="text-xl">Sin Git:</strong>
+        </div>
+        <p class="ml-10">presentacion_final.pptx, presentacion_final_v2.pptx, presentacion_final_DEFINITIVA.pptx 😵‍💫</p>
+      </div>
+
+      <div class="bg-white bg-opacity-20 rounded-xl p-6">
+        <div class="flex items-center mb-3">
+          <span class="text-2xl mr-3">✅</span>
+          <strong class="text-xl">Con Git:</strong>
+        </div>
+        <p class="ml-10">Solo un archivo: presentacion.pptx, pero Git recuerda TODAS las versiones automáticamente ✨</p>
+      </div>
+    </div>
+
+    <!-- Quiz interactivo -->
+    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in text-center">
+      <h2 class="text-2xl font-bold mb-6 flex items-center justify-center">
+        <span class="text-3xl mr-3">🎮</span>
+        ¿Entendiste? ¡Hagamos un mini-quiz!
+      </h2>
+      <p class="text-xl mb-6"><strong>¿Git es como...?</strong></p>
+      
+      <div class="space-y-4">
+        <button onclick="quiz(this, false)" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+          📧 Un programa de email
+        </button>
+        <button onclick="quiz(this, true)" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+          📸 Un fotógrafo que guarda fotos de tu trabajo
+        </button>
+        <button onclick="quiz(this, false)" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+          🎵 Un reproductor de música
+        </button>
+      </div>
+      
+      <div id="quiz-result" class="mt-6 text-xl font-bold"></div>
+    </div>
+
+    <!-- Conclusión -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 slide-in">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">🌟 ¡Ahora ya sabes!</h2>
+      <p class="text-lg text-gray-700 text-center mb-6">
+        Git y GitHub no son solo para programadores. Son herramientas que pueden hacer tu vida más fácil, 
+        sin importar si trabajas con documentos, presentaciones, o cualquier tipo de proyecto.
+      </p>
+      <div class="flex justify-center">
+        <a href="analogias-git.html" class="bg-blue-500 text-white px-8 py-3 rounded-xl hover:bg-blue-600 transition-colors text-lg font-semibold">
+          Continúa con ejemplos del día a día →
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function quiz(button, isCorrect) {
+      const result = document.getElementById('quiz-result');
+      const allButtons = button.parentNode.querySelectorAll('button');
+      
+      // Resetear todos los botones
+      allButtons.forEach(btn => {
+        btn.classList.remove('bg-green-500', 'bg-red-500');
+        btn.classList.add('bg-white', 'bg-opacity-20');
+      });
+      
+      if (isCorrect) {
+        button.classList.remove('bg-white', 'bg-opacity-20');
+        button.classList.add('bg-green-500');
+        result.innerHTML = '🎉 ¡Correcto! Git es exactamente como un fotógrafo que guarda instantáneas de tu trabajo.';
+        result.style.color = '#10B981';
+      } else {
+        button.classList.remove('bg-white', 'bg-opacity-20');
+        button.classList.add('bg-red-500');
+        result.innerHTML = '❌ No exactamente. Git es como un fotógrafo que guarda fotos de tu trabajo.';
+        result.style.color = '#EF4444';
+      }
+    }
+  </script>
+
+</body>
+</html>

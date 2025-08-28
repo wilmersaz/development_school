@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataformas disponibles - Git</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-in {
+      animation: slideIn 0.6s ease-out;
+    }
+
+    .platform-card {
+      transition: all 0.3s ease;
+    }
+
+    .platform-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .interactive-btn {
+      transition: all 0.3s ease;
+    }
+
+    .interactive-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <a href="analogias-git.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+        ← Analogías
+      </a>
+      <a href="como-empezar-git.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
+        ¿Cómo empiezo? →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        🏢 ¿Dónde puedo guardar mis proyectos?
+      </h1>
+      <p class="text-xl text-gray-600">
+        Conoce las mejores plataformas para alojar tus repositorios
+      </p>
+    </div>
+
+    <!-- Analogía de las casas -->
+    <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+      <h2 class="text-2xl font-bold mb-4 flex items-center">
+        <span class="text-3xl mr-3">🏠</span>
+        Como elegir dónde vivir...
+      </h2>
+      <p class="text-lg leading-relaxed">
+        Imagina que quieres mudarte y tienes varias opciones de casas. Todas son casas, pero cada una tiene características diferentes: 
+        algunas son gratis, otras de pago, unas son más grandes, otras más pequeñas. Lo mismo pasa con las plataformas para guardar tus proyectos Git.
+      </p>
+    </div>
+
+    <!-- Tipos de repositorios -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in border-l-8 border-blue-500">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <span class="text-3xl mr-3">🏠</span>
+        Tipos de "casas" para tus proyectos
+      </h2>
+      <p class="text-lg text-gray-700 mb-4">Hay dos tipos principales:</p>
+      
+      <div class="space-y-4">
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+          <div class="flex items-center mb-2">
+            <span class="text-2xl mr-3">💻</span>
+            <strong class="text-lg">Repositorios Locales:</strong>
+          </div>
+          <p class="ml-10 text-gray-600">Como tener una caja fuerte en tu casa - solo tú puedes acceder</p>
+        </div>
+        
+        <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded">
+          <div class="flex items-center mb-2">
+            <span class="text-2xl mr-3">☁️</span>
+            <strong class="text-lg">Repositorios Remotos:</strong>
+          </div>
+          <p class="ml-10 text-gray-600">Como tener una caja fuerte en el banco - puedes acceder desde cualquier lugar</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparación Local vs Remoto -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white rounded-2xl shadow-2xl p-6 slide-in platform-card">
+        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+          <span class="text-2xl mr-3">🏠</span>
+          Local (en tu computadora)
+        </h3>
+        
+        <div class="mb-4">
+          <h4 class="font-semibold text-green-600 mb-2">Ventajas:</h4>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Gratis</li>
+            <li>• Súper rápido</li>
+            <li>• Privado</li>
+            <li>• No necesitas internet</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-red-600 mb-2">Desventajas:</h4>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Solo en una computadora</li>
+            <li>• Si se daña tu PC, pierdes todo</li>
+            <li>• No puedes colaborar fácilmente</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-2xl p-6 slide-in platform-card">
+        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+          <span class="text-2xl mr-3">☁️</span>
+          Remoto (en internet)
+        </h3>
+        
+        <div class="mb-4">
+          <h4 class="font-semibold text-green-600 mb-2">Ventajas:</h4>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Acceso desde cualquier lugar</li>
+            <li>• Respaldo seguro</li>
+            <li>• Colaboración fácil</li>
+            <li>• Nunca pierdes tu trabajo</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-red-600 mb-2">Desventajas:</h4>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Necesitas internet</li>
+            <li>• Algunas opciones cuestan dinero</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Las 4 plataformas principales -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+        🌟 Las 4 plataformas más populares (¡todas gratis para empezar!)
+      </h2>
+      
+      <div class="space-y-6">
+        <!-- GitHub -->
+        <div class="bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl p-6 text-white platform-card">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <span class="text-2xl mr-3">🐙</span>
+            GitHub - El más popular
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p><strong>🏢 Propietario:</strong> Microsoft</p>
+              <p><strong>💰 Precio:</strong> Gratis (con opciones de pago)</p>
+            </div>
+            <div>
+              <p><strong>👥 Usuarios:</strong> +100 millones</p>
+              <p><strong>🎯 Mejor para:</strong> Principiantes y proyectos públicos</p>
+            </div>
+          </div>
+          <p class="mt-4"><strong>✨ Lo genial:</strong> GitHub Pages (sitios web gratis), comunidad gigante</p>
+        </div>
+
+        <!-- GitLab -->
+        <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-6 text-white platform-card">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <span class="text-2xl mr-3">🦊</span>
+            GitLab - El más completo
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p><strong>🏢 Propietario:</strong> GitLab Inc.</p>
+              <p><strong>💰 Precio:</strong> Gratis (con opciones de pago)</p>
+            </div>
+            <div>
+              <p><strong>👥 Usuarios:</strong> +30 millones</p>
+              <p><strong>🎯 Mejor para:</strong> Empresas y proyectos grandes</p>
+            </div>
+          </div>
+          <p class="mt-4"><strong>✨ Lo genial:</strong> Herramientas automáticas incluidas</p>
+        </div>
+
+        <!-- Bitbucket -->
+        <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-6 text-white platform-card">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <span class="text-2xl mr-3">🪣</span>
+            Bitbucket - El favorito de Atlassian
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p><strong>🏢 Propietario:</strong> Atlassian</p>
+              <p><strong>💰 Precio:</strong> Gratis para equipos pequeños</p>
+            </div>
+            <div>
+              <p><strong>👥 Usuarios:</strong> +10 millones</p>
+              <p><strong>🎯 Mejor para:</strong> Equipos que usan Jira</p>
+            </div>
+          </div>
+          <p class="mt-4"><strong>✨ Lo genial:</strong> Se conecta perfecto con otras herramientas de Atlassian</p>
+        </div>
+
+        <!-- Azure DevOps -->
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 text-white platform-card">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <span class="text-2xl mr-3">🔷</span>
+            Azure DevOps - El de Microsoft
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p><strong>🏢 Propietario:</strong> Microsoft</p>
+              <p><strong>💰 Precio:</strong> Gratis para equipos pequeños</p>
+            </div>
+            <div>
+              <p><strong>👥 Usuarios:</strong> Millones de empresas</p>
+              <p><strong>🎯 Mejor para:</strong> Empresas que usan Microsoft</p>
+            </div>
+          </div>
+          <p class="mt-4"><strong>✨ Lo genial:</strong> Se integra con Office y Windows</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz interactivo -->
+    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in text-center">
+      <h2 class="text-2xl font-bold mb-6 flex items-center justify-center">
+        <span class="text-3xl mr-3">🤔</span>
+        ¿Cuál elegir? ¡Hagamos un mini-test!
+      </h2>
+      <p class="text-xl mb-6"><strong>¿Qué quieres hacer principalmente?</strong></p>
+      
+      <div class="space-y-4">
+        <button onclick="recommendPlatform('personal')" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+          📚 Proyectos personales / estudio
+        </button>
+        <button onclick="recommendPlatform('team')" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+          👥 Trabajar en equipo
+        </button>
+        <button onclick="recommendPlatform('business')" class="interactive-btn bg-white bg-opacity-20 text-white border-2 border-white px-6 py-3 rounded-xl w-full text-lg hover:bg-white hover:text-purple-600">
+          🏢 Proyectos de empresa
+        </button>
+      </div>
+      
+      <div id="platform-recommendation" class="mt-6 text-xl font-bold"></div>
+    </div>
+
+    <!-- Consejo para principiantes -->
+    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl shadow-2xl p-8 mb-8 text-white slide-in">
+      <h2 class="text-2xl font-bold mb-4 flex items-center">
+        <span class="text-3xl mr-3">💡</span>
+        Consejo para principiantes
+      </h2>
+      <p class="text-lg leading-relaxed">
+        <strong>Empieza con GitHub.</strong> Es el más popular, tiene más tutoriales, y es súper fácil de usar. 
+        ¡Siempre puedes cambiar después!
+      </p>
+    </div>
+
+    <!-- Navegación -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 slide-in">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">🎯 ¿Ya sabes dónde guardar tus proyectos?</h2>
+      <p class="text-lg text-gray-700 text-center mb-6">
+        Ahora que conoces las plataformas disponibles, 
+        veamos cómo dar tus primeros pasos con Git.
+      </p>
+      <div class="flex justify-center">
+        <a href="como-empezar-git.html" class="bg-blue-500 text-white px-8 py-3 rounded-xl hover:bg-blue-600 transition-colors text-lg font-semibold">
+          Aprender cómo empezar →
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function recommendPlatform(type) {
+      const result = document.getElementById('platform-recommendation');
+      
+      switch(type) {
+        case 'personal':
+          result.innerHTML = '🎯 <strong>Recomendación:</strong> GitHub - Perfecto para aprender, tiene una comunidad enorme y muchos tutoriales.';
+          result.style.color = '#10B981';
+          break;
+        case 'team':
+          result.innerHTML = '🎯 <strong>Recomendación:</strong> GitHub o GitLab - Ambos son excelentes para colaboración en equipo.';
+          result.style.color = '#10B981';
+          break;
+        case 'business':
+          result.innerHTML = '🎯 <strong>Recomendación:</strong> GitLab o Azure DevOps - Tienen herramientas empresariales más avanzadas.';
+          result.style.color = '#10B981';
+          break;
+      }
+    }
+  </script>
+
+</body>
+</html>
