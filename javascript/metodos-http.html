@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métodos HTTP</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.02);
+      }
+    }
+
+    .pulse-hover:hover {
+      animation: pulse 0.5s ease-in-out;
+    }
+
+    .method-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .method-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .http-demo {
+      background: linear-gradient(45deg, #1f2937, #374151);
+      border-radius: 8px;
+      padding: 1rem;
+      color: #10b981;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .http-header {
+      color: #fbbf24;
+    }
+
+    .http-method {
+      color: #ef4444;
+      font-weight: bold;
+    }
+
+    .http-status {
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="que-son-apis-rest.html"
+        class="bg-white text-red-600 px-4 py-2 rounded-lg hover:bg-red-50 transition-colors w-full sm:w-auto text-center">
+        ← ¿Qué son las APIs REST?
+      </a>
+      <a href="peticiones-fetch.html"
+        class="bg-white text-red-600 px-4 py-2 rounded-lg hover:bg-red-50 transition-colors w-full sm:w-auto text-center">
+        Peticiones con Fetch →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 pb-1">🚀 Métodos HTTP</h1>
+      <p class="text-xl text-gray-600">Los verbos que definen las acciones en APIs REST</p>
+    </div>
+
+    <!-- Introducción -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📚 ¿Qué son los Métodos HTTP?</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Definición</h3>
+            <p class="text-gray-600 mb-4">
+              Los <strong>métodos HTTP</strong> (también llamados verbos HTTP) indican la acción que se desea 
+              realizar sobre un recurso específico. Son la base de las operaciones CRUD en APIs REST.
+            </p>
+
+            <div class="bg-red-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-red-800 mb-2">🎯 Propósito:</h4>
+              <p class="text-red-700 text-sm">
+                Cada método HTTP tiene una semántica específica que define qué acción realizar 
+                y cómo debe comportarse el servidor.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-red-800 mb-4">🔄 CRUD Operations</h4>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3">
+                <span class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">C</span>
+                <div>
+                  <strong class="text-gray-800">Create</strong> - POST
+                  <p class="text-gray-600 text-sm">Crear nuevos recursos</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3">
+                <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">R</span>
+                <div>
+                  <strong class="text-gray-800">Read</strong> - GET
+                  <p class="text-gray-600 text-sm">Leer/obtener recursos</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3">
+                <span class="bg-yellow-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">U</span>
+                <div>
+                  <strong class="text-gray-800">Update</strong> - PUT/PATCH
+                  <p class="text-gray-600 text-sm">Actualizar recursos</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3">
+                <span class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">D</span>
+                <div>
+                  <strong class="text-gray-800">Delete</strong> - DELETE
+                  <p class="text-gray-600 text-sm">Eliminar recursos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Métodos HTTP principales -->
+    <div class="space-y-6 mb-8">
+
+      <!-- GET -->
+      <div class="method-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up pulse-hover">
+        <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-4 text-white">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-bold">GET</h2>
+            <div class="flex space-x-2">
+              <span class="badge bg-green-500 text-white">Seguro</span>
+              <span class="badge bg-blue-500 text-white">Idempotente</span>
+              <span class="badge bg-purple-500 text-white">Cacheable</span>
+            </div>
+          </div>
+          <p class="text-blue-100 mt-2">Obtener/leer recursos del servidor</p>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">📋 Características</h4>
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> No modifica el servidor</li>
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Puede ser cacheado</li>
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Idempotente (mismo resultado)</li>
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Parámetros en URL o query string</li>
+                <li class="flex items-center"><span class="text-red-500 mr-2">✗</span> No tiene body en la petición</li>
+              </ul>
+
+              <div class="mt-4 bg-blue-50 p-3 rounded">
+                <h5 class="font-semibold text-blue-800 text-sm mb-2">Casos de uso típicos:</h5>
+                <ul class="text-blue-700 text-xs space-y-1">
+                  <li>• Obtener lista de usuarios</li>
+                  <li>• Ver detalles de un producto</li>
+                  <li>• Buscar información</li>
+                  <li>• Descargar archivos</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">💻 Ejemplo HTTP</h4>
+              <div class="http-demo">
+                <div class="http-header">--- Petición ---</div>
+                <div><span class="http-method">GET</span> /api/users/123 HTTP/1.1</div>
+                <div>Host: api.ejemplo.com</div>
+                <div>Accept: application/json</div>
+                <br>
+                <div class="http-header">--- Respuesta ---</div>
+                <div>HTTP/1.1 <span class="http-status">200 OK</span></div>
+                <div>Content-Type: application/json</div>
+                <br>
+                <div>{</div>
+                <div>  "id": 123,</div>
+                <div>  "name": "Juan Pérez",</div>
+                <div>  "email": "juan@example.com"</div>
+                <div>}</div>
+              </div>
+
+              <div class="mt-4">
+                <h5 class="font-semibold text-gray-700 text-sm mb-2">Fetch API:</h5>
+                <div class="bg-gray-800 text-green-400 p-2 rounded text-xs font-mono">
+                  <div>fetch('/api/users/123')</div>
+                  <div>  .then(res => res.json())</div>
+                  <div>  .then(user => console.log(user));</div>
+                  <div>  .catch(error => console.error(error));</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST -->
+      <div class="method-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up pulse-hover">
+        <div class="bg-gradient-to-r from-green-600 to-green-700 p-4 text-white">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-bold">POST</h2>
+            <div class="flex space-x-2">
+              <span class="badge bg-red-500 text-white">No Seguro</span>
+              <span class="badge bg-red-500 text-white">No Idempotente</span>
+              <span class="badge bg-yellow-500 text-white">Con Body</span>
+            </div>
+          </div>
+          <p class="text-green-100 mt-2">Crear nuevos recursos en el servidor</p>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">📋 Características</h4>
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Crea recursos nuevos</li>
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Envía datos en el body</li>
+                <li class="flex items-center"><span class="text-red-500 mr-2">✗</span> No es idempotente</li>
+                <li class="flex items-center"><span class="text-red-500 mr-2">✗</span> No es cacheable</li>
+                <li class="flex items-center"><span class="text-orange-500 mr-2">!</span> Puede procesar formularios</li>
+              </ul>
+
+              <div class="mt-4 bg-green-50 p-3 rounded">
+                <h5 class="font-semibold text-green-800 text-sm mb-2">Casos de uso típicos:</h5>
+                <ul class="text-green-700 text-xs space-y-1">
+                  <li>• Registrar nuevo usuario</li>
+                  <li>• Crear un producto</li>
+                  <li>• Enviar formularios</li>
+                  <li>• Subir archivos</li>
+                  <li>• Procesar pagos</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">💻 Ejemplo HTTP</h4>
+              <div class="http-demo">
+                <div class="http-header">--- Petición ---</div>
+                <div><span class="http-method">POST</span> /api/users HTTP/1.1</div>
+                <div>Host: api.ejemplo.com</div>
+                <div>Content-Type: application/json</div>
+                <div>Content-Length: 65</div>
+                <br>
+                <div>{</div>
+                <div>  "name": "Ana García",</div>
+                <div>  "email": "ana@example.com"</div>
+                <div>}</div>
+                <br>
+                <div class="http-header">--- Respuesta ---</div>
+                <div>HTTP/1.1 <span class="http-status">201 Created</span></div>
+                <div>Location: /api/users/124</div>
+              </div>
+
+              <div class="mt-4">
+                <h5 class="font-semibold text-gray-700 text-sm mb-2">Fetch API:</h5>
+                <div class="bg-gray-800 text-green-400 p-2 rounded text-xs font-mono">
+                  <div>fetch('/api/users', {</div>
+                  <div>  method: 'POST',</div>
+                  <div>  headers: {</div>
+                  <div>    'Content-Type': 'application/json'</div>
+                  <div>  },</div>
+                  <div>  body: JSON.stringify({name: 'Ana'})</div>
+                  <div>});</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PUT -->
+      <div class="method-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up pulse-hover">
+        <div class="bg-gradient-to-r from-yellow-600 to-yellow-700 p-4 text-white">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-bold">PUT</h2>
+            <div class="flex space-x-2">
+              <span class="badge bg-red-500 text-white">No Seguro</span>
+              <span class="badge bg-green-500 text-white">Idempotente</span>
+              <span class="badge bg-yellow-500 text-white">Con Body</span>
+            </div>
+          </div>
+          <p class="text-yellow-100 mt-2">Actualizar/reemplazar recursos completos</p>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">📋 Características</h4>
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Actualiza recurso completo</li>
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Idempotente</li>
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Puede crear si no existe</li>
+                <li class="flex items-center"><span class="text-orange-500 mr-2">!</span> Reemplaza todo el recurso</li>
+                <li class="flex items-center"><span class="text-red-500 mr-2">✗</span> No es cacheable</li>
+              </ul>
+
+              <div class="mt-4 bg-yellow-50 p-3 rounded">
+                <h5 class="font-semibold text-yellow-800 text-sm mb-2">🔄 PUT vs PATCH:</h5>
+                <div class="text-yellow-700 text-xs space-y-1">
+                  <p><strong>PUT:</strong> Reemplaza el recurso completo</p>
+                  <p><strong>PATCH:</strong> Actualiza parcialmente</p>
+                </div>
+              </div>
+
+              <div class="mt-3 bg-yellow-50 p-3 rounded">
+                <h5 class="font-semibold text-yellow-800 text-sm mb-2">Casos de uso típicos:</h5>
+                <ul class="text-yellow-700 text-xs space-y-1">
+                  <li>• Actualizar perfil completo</li>
+                  <li>• Reemplazar configuración</li>
+                  <li>• Sobrescribir documento</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">💻 Ejemplo HTTP</h4>
+              <div class="http-demo">
+                <div class="http-header">--- Petición ---</div>
+                <div><span class="http-method">PUT</span> /api/users/123 HTTP/1.1</div>
+                <div>Host: api.ejemplo.com</div>
+                <div>Content-Type: application/json</div>
+                <br>
+                <div>{</div>
+                <div>  "id": 123,</div>
+                <div>  "name": "Juan Carlos Pérez",</div>
+                <div>  "email": "juancarlos@example.com",</div>
+                <div>  "phone": "+1234567890"</div>
+                <div>}</div>
+                <br>
+                <div class="http-header">--- Respuesta ---</div>
+                <div>HTTP/1.1 <span class="http-status">200 OK</span></div>
+              </div>
+
+              <div class="mt-4">
+                <h5 class="font-semibold text-gray-700 text-sm mb-2">Fetch API:</h5>
+                <div class="bg-gray-800 text-green-400 p-2 rounded text-xs font-mono">
+                  <div>fetch('/api/users/123', {</div>
+                  <div>  method: 'PUT',</div>
+                  <div>  headers: {</div>
+                  <div>    'Content-Type': 'application/json'</div>
+                  <div>  },</div>
+                  <div>  body: JSON.stringify(userData)</div>
+                  <div>});</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PATCH -->
+      <div class="method-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up pulse-hover">
+        <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-4 text-white">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-bold">PATCH</h2>
+            <div class="flex space-x-2">
+              <span class="badge bg-red-500 text-white">No Seguro</span>
+              <span class="badge bg-yellow-500 text-white">Parcial</span>
+              <span class="badge bg-yellow-500 text-white">Con Body</span>
+            </div>
+          </div>
+          <p class="text-purple-100 mt-2">Actualización parcial de recursos</p>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">📋 Características</h4>
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Actualización parcial</li>
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Más eficiente que PUT</li>
+                <li class="flex items-center"><span class="text-orange-500 mr-2">!</span> No siempre idempotente</li>
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Solo campos modificados</li>
+                <li class="flex items-center"><span class="text-red-500 mr-2">✗</span> No es cacheable</li>
+              </ul>
+
+              <div class="mt-4 bg-purple-50 p-3 rounded">
+                <h5 class="font-semibold text-purple-800 text-sm mb-2">Casos de uso típicos:</h5>
+                <ul class="text-purple-700 text-xs space-y-1">
+                  <li>• Cambiar solo el email</li>
+                  <li>• Actualizar estado</li>
+                  <li>• Modificar precio</li>
+                  <li>• Toggle de configuración</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">💻 Ejemplo HTTP</h4>
+              <div class="http-demo">
+                <div class="http-header">--- Petición ---</div>
+                <div><span class="http-method">PATCH</span> /api/users/123 HTTP/1.1</div>
+                <div>Host: api.ejemplo.com</div>
+                <div>Content-Type: application/json</div>
+                <br>
+                <div>{</div>
+                <div>  "email": "nuevo@example.com"</div>
+                <div>}</div>
+                <br>
+                <div class="http-header">--- Respuesta ---</div>
+                <div>HTTP/1.1 <span class="http-status">200 OK</span></div>
+                <div>Content-Type: application/json</div>
+                <br>
+                <div>{</div>
+                <div>  "id": 123,</div>
+                <div>  "name": "Juan Pérez",</div>
+                <div>  "email": "nuevo@example.com"</div>
+                <div>}</div>
+              </div>
+
+              <div class="mt-4">
+                <h5 class="font-semibold text-gray-700 text-sm mb-2">Fetch API:</h5>
+                <div class="bg-gray-800 text-green-400 p-2 rounded text-xs font-mono">
+                  <div>fetch('/api/users/123', {</div>
+                  <div>  method: 'PATCH',</div>
+                  <div>  headers: {</div>
+                  <div>    'Content-Type': 'application/json'</div>
+                  <div>  },</div>
+                  <div>  body: JSON.stringify({email: 'nuevo@example.com'})</div>
+                  <div>});</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DELETE -->
+      <div class="method-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up pulse-hover">
+        <div class="bg-gradient-to-r from-red-600 to-red-700 p-4 text-white">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-bold">DELETE</h2>
+            <div class="flex space-x-2">
+              <span class="badge bg-red-500 text-white">No Seguro</span>
+              <span class="badge bg-green-500 text-white">Idempotente</span>
+              <span class="badge bg-gray-500 text-white">Sin Body</span>
+            </div>
+          </div>
+          <p class="text-red-100 mt-2">Eliminar recursos del servidor</p>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">📋 Características</h4>
+              <ul class="space-y-2 text-gray-600 text-sm">
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Elimina recursos</li>
+                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Idempotente</li>
+                <li class="flex items-center"><span class="text-orange-500 mr-2">!</span> Operación irreversible</li>
+                <li class="flex items-center"><span class="text-red-500 mr-2">✗</span> No tiene body típicamente</li>
+                <li class="flex items-center"><span class="text-red-500 mr-2">✗</span> No es cacheable</li>
+              </ul>
+
+              <div class="mt-4 bg-red-50 p-3 rounded">
+                <h5 class="font-semibold text-red-800 text-sm mb-2">⚠️ Consideraciones:</h5>
+                <ul class="text-red-700 text-xs space-y-1">
+                  <li>• Siempre verificar permisos</li>
+                  <li>• Considerar soft delete</li>
+                  <li>• Confirmar acción críticas</li>
+                  <li>• Mantener logs de auditoría</li>
+                </ul>
+              </div>
+
+              <div class="mt-3 bg-red-50 p-3 rounded">
+                <h5 class="font-semibold text-red-800 text-sm mb-2">Casos de uso típicos:</h5>
+                <ul class="text-red-700 text-xs space-y-1">
+                  <li>• Eliminar usuario</li>
+                  <li>• Borrar producto</li>
+                  <li>• Cancelar pedido</li>
+                  <li>• Limpiar cache</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-3">💻 Ejemplo HTTP</h4>
+              <div class="http-demo">
+                <div class="http-header">--- Petición ---</div>
+                <div><span class="http-method">DELETE</span> /api/users/123 HTTP/1.1</div>
+                <div>Host: api.ejemplo.com</div>
+                <div>Authorization: Bearer token123</div>
+                <br>
+                <div class="http-header">--- Respuesta ---</div>
+                <div>HTTP/1.1 <span class="http-status">204 No Content</span></div>
+                <br>
+                <div class="http-header">--- O con confirmación ---</div>
+                <div>HTTP/1.1 <span class="http-status">200 OK</span></div>
+                <div>Content-Type: application/json</div>
+                <br>
+                <div>{</div>
+                <div>  "message": "Usuario eliminado",</div>
+                <div>  "deleted_id": 123</div>
+                <div>}</div>
+              </div>
+
+              <div class="mt-4">
+                <h5 class="font-semibold text-gray-700 text-sm mb-2">Fetch API:</h5>
+                <div class="bg-gray-800 text-green-400 p-2 rounded text-xs font-mono">
+                  <div>fetch('/api/users/123', {</div>
+                  <div>  method: 'DELETE',</div>
+                  <div>  headers: {</div>
+                  <div>    'Authorization': 'Bearer token123'</div>
+                  <div>  }</div>
+                  <div>});</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Otros métodos HTTP -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-gray-600 to-gray-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🔧 Otros Métodos HTTP</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <div class="space-y-4">
+            <div class="border border-gray-200 rounded p-4">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-gray-800">HEAD</h4>
+                <span class="badge bg-blue-500 text-white">Metadatos</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                Igual que GET pero solo devuelve headers, sin body
+              </p>
+              <div class="bg-gray-50 p-2 rounded text-xs">
+                <strong>Uso:</strong> Verificar si existe un recurso, obtener tamaño de archivo
+              </div>
+            </div>
+
+            <div class="border border-gray-200 rounded p-4">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-gray-800">OPTIONS</h4>
+                <span class="badge bg-purple-500 text-white">CORS</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                Obtiene los métodos HTTP permitidos para un recurso
+              </p>
+              <div class="bg-gray-50 p-2 rounded text-xs">
+                <strong>Uso:</strong> Preflight requests en CORS, descubrir capacidades API
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="border border-gray-200 rounded p-4">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-gray-800">CONNECT</h4>
+                <span class="badge bg-yellow-500 text-white">Túnel</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                Establece un túnel hacia el servidor (usado por proxies)
+              </p>
+              <div class="bg-gray-50 p-2 rounded text-xs">
+                <strong>Uso:</strong> Conexiones HTTPS a través de proxy HTTP
+              </div>
+            </div>
+
+            <div class="border border-gray-200 rounded p-4">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-gray-800">TRACE</h4>
+                <span class="badge bg-red-500 text-white">Debug</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                Realiza un test de loop-back del mensaje (raramente usado)
+              </p>
+              <div class="bg-gray-50 p-2 rounded text-xs">
+                <strong>Uso:</strong> Debugging, frecuentemente deshabilitado por seguridad
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla comparativa -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📊 Tabla Comparativa de Métodos</h2>
+      </div>
+      <div class="p-6">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="text-left p-3 font-semibold">Método</th>
+                <th class="text-center p-3 font-semibold">Propósito</th>
+                <th class="text-center p-3 font-semibold">Seguro</th>
+                <th class="text-center p-3 font-semibold">Idempotente</th>
+                <th class="text-center p-3 font-semibold">Cacheable</th>
+                <th class="text-center p-3 font-semibold">Body</th>
+                <th class="text-center p-3 font-semibold">Códigos típicos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b hover:bg-blue-50">
+                <td class="p-3 font-semibold text-blue-700">GET</td>
+                <td class="p-3 text-center">Leer</td>
+                <td class="p-3 text-center text-green-600">✓</td>
+                <td class="p-3 text-center text-green-600">✓</td>
+                <td class="p-3 text-center text-green-600">✓</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-xs">200, 404</td>
+              </tr>
+              <tr class="border-b hover:bg-green-50">
+                <td class="p-3 font-semibold text-green-700">POST</td>
+                <td class="p-3 text-center">Crear</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-green-600">✓</td>
+                <td class="p-3 text-center text-xs">201, 400</td>
+              </tr>
+              <tr class="border-b hover:bg-yellow-50">
+                <td class="p-3 font-semibold text-yellow-700">PUT</td>
+                <td class="p-3 text-center">Actualizar completo</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-green-600">✓</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-green-600">✓</td>
+                <td class="p-3 text-center text-xs">200, 201</td>
+              </tr>
+              <tr class="border-b hover:bg-purple-50">
+                <td class="p-3 font-semibold text-purple-700">PATCH</td>
+                <td class="p-3 text-center">Actualizar parcial</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-orange-500">~</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-green-600">✓</td>
+                <td class="p-3 text-center text-xs">200, 204</td>
+              </tr>
+              <tr class="border-b hover:bg-red-50">
+                <td class="p-3 font-semibold text-red-700">DELETE</td>
+                <td class="p-3 text-center">Eliminar</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-green-600">✓</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-red-600">✗</td>
+                <td class="p-3 text-center text-xs">204, 200</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-4 flex flex-wrap gap-4 text-xs">
+          <div class="flex items-center">
+            <span class="text-green-600 mr-1">✓</span>
+            <span>Sí</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-red-600 mr-1">✗</span>
+            <span>No</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-orange-500 mr-1">~</span>
+            <span>Depende de la implementación</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo interactivo -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-pink-600 to-pink-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🎮 Demo Interactivo</h2>
+      </div>
+      <div class="p-6">
+        <p class="text-gray-600 mb-6">Prueba diferentes métodos HTTP con una API real:</p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-4">Selecciona un método para probar:</h4>
+            <div class="space-y-3">
+              <button id="demoGet" class="w-full bg-blue-600 text-white px-4 py-3 rounded hover:bg-blue-700 transition-colors">
+                GET - Obtener usuario
+              </button>
+              <button id="demoPost" class="w-full bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700 transition-colors">
+                POST - Crear post
+              </button>
+              <button id="demoPut" class="w-full bg-yellow-600 text-white px-4 py-3 rounded hover:bg-yellow-700 transition-colors">
+                PUT - Actualizar post
+              </button>
+              <button id="demoDelete" class="w-full bg-red-600 text-white px-4 py-3 rounded hover:bg-red-700 transition-colors">
+                DELETE - Eliminar post
+              </button>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-4">Resultado:</h4>
+            <div id="demoResult" class="bg-gray-100 p-4 rounded-lg text-sm font-mono h-64 overflow-auto">
+              <div class="text-gray-500">Haz clic en un botón para ver el resultado...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="que-son-apis-rest.html"
+            class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← ¿Qué son las APIs REST?
+          </a>
+
+          <a href="../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            🏠 Menú Principal
+          </a>
+
+          <a href="peticiones-fetch.html"
+            class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            Peticiones con Fetch →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>JavaScript - Métodos HTTP</strong>
+      </p>
+      <p class="text-red-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Agregar efectos adicionales
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+
+      // Demo de métodos HTTP
+      const demoResult = document.getElementById('demoResult');
+
+      function showResult(method, url, data, result) {
+        const resultHtml = `
+          <div class="text-gray-700 mb-4">
+            <div class="text-blue-600 font-bold">${method} ${url}</div>
+            ${data ? `<div class="text-gray-500 mt-1">Body: ${JSON.stringify(data, null, 2)}</div>` : ''}
+          </div>
+          <div class="text-green-600 font-bold mb-2">Respuesta:</div>
+          <pre class="text-gray-800 whitespace-pre-wrap">${JSON.stringify(result, null, 2)}</pre>
+        `;
+        demoResult.innerHTML = resultHtml;
+      }
+
+      function showError(method, url, error) {
+        const errorHtml = `
+          <div class="text-gray-700 mb-4">
+            <div class="text-red-600 font-bold">${method} ${url}</div>
+          </div>
+          <div class="text-red-600 font-bold mb-2">Error:</div>
+          <div class="text-red-800">${error.message}</div>
+        `;
+        demoResult.innerHTML = errorHtml;
+      }
+
+      document.getElementById('demoGet').addEventListener('click', function() {
+        demoResult.innerHTML = '<div class="text-blue-600">🔄 Obteniendo usuario...</div>';
+        
+        fetch('https://jsonplaceholder.typicode.com/users/1')
+          .then(response => response.json())
+          .then(user => {
+            showResult('GET', '/users/1', null, {
+              id: user.id,
+              name: user.name,
+              email: user.email,
+              phone: user.phone
+            });
+          })
+          .catch(error => showError('GET', '/users/1', error));
+      });
+
+      // fetch('https://jsonplaceholder.typicode.com/users/1')
+      //     .then(response => response.json())
+      //     .then(user => {console.log(user)})
+      //     .catch(error => console.error(error));
+
+      document.getElementById('demoPost').addEventListener('click', function() {
+        demoResult.innerHTML = '<div class="text-green-600">🔄 Creando post...</div>';
+        
+        const newPost = {
+          title: 'Mi nuevo post',
+          body: 'Este es el contenido del post',
+          userId: 1
+        };
+
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newPost)
+        })
+          .then(response => response.json())
+          .then(post => {
+            showResult('POST', '/posts', newPost, post);
+          })
+          .catch(error => showError('POST', '/posts', error));
+      });
+
+        // const newPost = {
+        //   title: 'Mi nuevo post',
+        //   body: 'Este es el contenido del post',
+        //   userId: 1
+        // };
+
+      // fetch('https://jsonplaceholder.typicode.com/posts', {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify(newPost)
+      //   })
+      //     .then(response => response.json())
+      //     .then(post => {console.log(post)})
+      //     .catch(error => console.error(error));
+
+      document.getElementById('demoPut').addEventListener('click', function() {
+        demoResult.innerHTML = '<div class="text-yellow-600">🔄 Actualizando post...</div>';
+        
+        const updatedPost = {
+          id: 1,
+          title: 'Post actualizado',
+          body: 'Contenido completamente nuevo',
+          userId: 1
+        };
+
+        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatedPost)
+        })
+          .then(response => response.json())
+          .then(post => {
+            showResult('PUT', '/posts/1', updatedPost, post);
+          })
+          .catch(error => showError('PUT', '/posts/1', error));
+      });
+
+        // const updatedPost = {
+        //   id: 1,
+        //   title: 'Post actualizado',
+        //   body: 'Contenido completamente nuevo',
+        //   userId: 1
+        // };
+
+        // fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        //   method: 'PUT',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(updatedPost)
+        // })
+        //   .then(response => response.json())
+        //   .then(post => {console.log(post)})
+        //   .catch(error => console.error(error));
+
+      document.getElementById('demoDelete').addEventListener('click', function() {
+        demoResult.innerHTML = '<div class="text-red-600">🔄 Eliminando post...</div>';
+        
+        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+          method: 'DELETE'
+        })
+          .then(response => {
+            if (response.ok) {
+              showResult('DELETE', '/posts/1', null, { 
+                message: 'Post eliminado correctamente',
+                status: response.status 
+              });
+            } else {
+              throw new Error(`HTTP ${response.status}`);
+            }
+          })
+          .catch(error => showError('DELETE', '/posts/1', error));
+      });
+
+        // fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        //   method: 'DELETE'
+        // })
+        //   .then(response => {
+        //     if (response.ok) {
+        //       console.log('Post eliminado correctamente');
+        //     } else {
+        //       throw new Error(`HTTP ${response.status}`);
+        //     }
+        //   })
+        //   .catch(error => console.error(error));
+    });
+  </script>
+
+</body>
+
+</html>

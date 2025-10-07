@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué son las APIs REST?</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid green;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40, end);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 53%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40%, 43% {
+        transform: translateY(-10px);
+      }
+      70% {
+        transform: translateY(-5px);
+      }
+      90% {
+        transform: translateY(-2px);
+      }
+    }
+
+    .bounce-animation {
+      animation: bounce 2s infinite;
+    }
+
+    .code-block {
+      position: relative;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .code-block:hover .copy-button {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="historia-apis-web.html"
+        class="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition-colors w-full sm:w-auto text-center">
+        ← Historia de las APIs Web
+      </a>
+      <a href="metodos-http.html"
+        class="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition-colors w-full sm:w-auto text-center">
+        Métodos HTTP →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 pb-1">🔗 APIs REST</h1>
+      <p class="text-xl text-gray-600">Representational State Transfer - La arquitectura que cambió la web</p>
+    </div>
+
+    <!-- Definición -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📚 ¿Qué es REST?</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Definición</h3>
+            <p class="text-gray-600 mb-4">
+              <strong>REST</strong> (Representational State Transfer) es un estilo arquitectónico para 
+              diseñar servicios web. Fue definido por Roy Fielding en su tesis doctoral en el año 2000.
+            </p>
+
+            <div class="bg-green-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-green-800 mb-2">💡 En términos simples:</h4>
+              <p class="text-green-700 text-sm">
+                REST es un conjunto de reglas y principios que definen cómo debe comportarse 
+                una API web para ser eficiente, escalable y fácil de usar.
+              </p>
+            </div>
+
+            <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-blue-800 mb-2">🎯 Objetivo principal:</h4>
+              <p class="text-blue-700 text-sm">
+                Crear APIs que sean simples, uniformes y que aprovechen al máximo 
+                las características del protocolo HTTP.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-green-800 mb-4">🏗️ ¿Qué significa REST?</h4>
+            <div class="space-y-3">
+              <div class="flex items-start space-x-3">
+                <span class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">R</span>
+                <div>
+                  <strong class="text-green-800">Representational</strong>
+                  <p class="text-green-700 text-sm">Los recursos se representan en diferentes formatos (JSON, XML, HTML)</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <span class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">S</span>
+                <div>
+                  <strong class="text-green-800">State</strong>
+                  <p class="text-green-700 text-sm">El estado de la aplicación se transfiere con cada petición</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <span class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">T</span>
+                <div>
+                  <strong class="text-green-800">Transfer</strong>
+                  <p class="text-green-700 text-sm">La información se transfiere entre cliente y servidor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Principios de REST -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🎯 Los 6 Principios de REST</h2>
+      </div>
+      <div class="p-6">
+        <div class="space-y-6">
+          
+          <!-- Principio 1 -->
+          <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 p-4 rounded-r-lg">
+            <h3 class="text-lg font-bold text-blue-800 mb-2">1. 🏛️ Arquitectura Cliente-Servidor</h3>
+            <p class="text-blue-700 text-sm mb-2">
+              Separación clara entre cliente y servidor. Cada uno tiene responsabilidades específicas.
+            </p>
+            <div class="bg-blue-100 p-3 rounded text-xs">
+              <strong>Cliente:</strong> Interfaz de usuario, experiencia del usuario<br>
+              <strong>Servidor:</strong> Almacenamiento de datos, lógica de negocio
+            </div>
+          </div>
+
+          <!-- Principio 2 -->
+          <div class="border-l-4 border-purple-500 pl-4 bg-purple-50 p-4 rounded-r-lg">
+            <h3 class="text-lg font-bold text-purple-800 mb-2">2. 🚫 Sin Estado (Stateless)</h3>
+            <p class="text-purple-700 text-sm mb-2">
+              Cada petición debe contener toda la información necesaria. El servidor no guarda información de sesión.
+            </p>
+            <div class="bg-purple-100 p-3 rounded text-xs">
+              <strong>Ventaja:</strong> Mayor escalabilidad y confiabilidad<br>
+              <strong>Ejemplo:</strong> Cada petición incluye el token de autenticación
+            </div>
+          </div>
+
+          <!-- Principio 3 -->
+          <div class="border-l-4 border-green-500 pl-4 bg-green-50 p-4 rounded-r-lg">
+            <h3 class="text-lg font-bold text-green-800 mb-2">3. 💾 Cacheable</h3>
+            <p class="text-green-700 text-sm mb-2">
+              Las respuestas deben indicar si pueden ser cacheadas o no para mejorar el rendimiento.
+            </p>
+            <div class="bg-green-100 p-3 rounded text-xs">
+              <strong>Headers importantes:</strong> Cache-Control, ETag, Last-Modified<br>
+              <strong>Beneficio:</strong> Reduce la carga del servidor y mejora la velocidad
+            </div>
+          </div>
+
+          <!-- Principio 4 -->
+          <div class="border-l-4 border-yellow-500 pl-4 bg-yellow-50 p-4 rounded-r-lg">
+            <h3 class="text-lg font-bold text-yellow-800 mb-2">4. 🔄 Interfaz Uniforme</h3>
+            <p class="text-yellow-700 text-sm mb-2">
+              Uso consistente de métodos HTTP, URLs y formatos de respuesta en toda la API.
+            </p>
+            <div class="bg-yellow-100 p-3 rounded text-xs">
+              <strong>Incluye:</strong> Recursos identificables, manipulación mediante representaciones<br>
+              <strong>Ejemplo:</strong> GET /users/123, POST /users, DELETE /users/123
+            </div>
+          </div>
+
+          <!-- Principio 5 -->
+          <div class="border-l-4 border-indigo-500 pl-4 bg-indigo-50 p-4 rounded-r-lg">
+            <h3 class="text-lg font-bold text-indigo-800 mb-2">5. 🏗️ Sistema de Capas</h3>
+            <p class="text-indigo-700 text-sm mb-2">
+              La arquitectura puede tener múltiples capas (proxies, gateways, firewalls) sin que el cliente lo sepa.
+            </p>
+            <div class="bg-indigo-100 p-3 rounded text-xs">
+              <strong>Capas típicas:</strong> Load balancer, API Gateway, Microservicios<br>
+              <strong>Beneficio:</strong> Escalabilidad y seguridad mejoradas
+            </div>
+          </div>
+
+          <!-- Principio 6 -->
+          <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-4 rounded-r-lg">
+            <h3 class="text-lg font-bold text-red-800 mb-2">6. 📝 Código bajo demanda (Opcional)</h3>
+            <p class="text-red-700 text-sm mb-2">
+              El servidor puede enviar código ejecutable al cliente (JavaScript, applets).
+            </p>
+            <div class="bg-red-100 p-3 rounded text-xs">
+              <strong>Nota:</strong> Este principio es opcional y raramente se implementa<br>
+              <strong>Ejemplo:</strong> APIs que devuelven JavaScript para widgets
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Recursos y URLs -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🎯 Recursos y URLs en REST</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">¿Qué es un Recurso?</h3>
+            <p class="text-gray-600 mb-4">
+              Un <strong>recurso</strong> es cualquier información que puede ser nombrada: 
+              un documento, una imagen, un servicio, una colección de otros recursos, etc.
+            </p>
+
+            <div class="bg-purple-50 p-4 rounded-lg mb-4">
+              <h4 class="font-semibold text-purple-800 mb-2">📋 Características de recursos:</h4>
+              <ul class="text-purple-700 text-sm space-y-1">
+                <li>• Tienen una URL única</li>
+                <li>• Pueden tener múltiples representaciones</li>
+                <li>• Se manipulan mediante métodos HTTP</li>
+                <li>• Pueden contener links a otros recursos</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-blue-800 mb-2">🌐 Ejemplos de recursos:</h4>
+              <ul class="text-blue-700 text-sm space-y-1">
+                <li>• Un usuario específico</li>
+                <li>• Una lista de productos</li>
+                <li>• Un pedido de compra</li>
+                <li>• La información de una empresa</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Diseño de URLs REST</h3>
+            
+            <div class="code-block bg-gray-800 text-green-400 p-4 rounded-lg mb-4 relative">
+              <button class="copy-button bg-gray-600 text-white px-2 py-1 rounded text-xs" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+              <pre class="text-sm">
+# ✅ URLs bien diseñadas
+GET    /users           # Lista de usuarios
+GET    /users/123       # Usuario específico
+POST   /users           # Crear usuario
+PUT    /users/123       # Actualizar usuario
+DELETE /users/123       # Eliminar usuario
+
+GET    /users/123/posts # Posts del usuario 123
+GET    /posts?author=123 # Alternativa con query</pre>
+            </div>
+
+            <div class="space-y-3">
+              <div class="bg-green-50 p-3 rounded">
+                <h5 class="font-semibold text-green-800 text-sm">✅ Buenas prácticas:</h5>
+                <ul class="text-green-700 text-xs mt-1 space-y-1">
+                  <li>• Usar sustantivos, no verbos</li>
+                  <li>• Plural para colecciones</li>
+                  <li>• URLs jerárquicas</li>
+                  <li>• Consistencia en naming</li>
+                </ul>
+              </div>
+
+              <div class="bg-red-50 p-3 rounded">
+                <h5 class="font-semibold text-red-800 text-sm">❌ Evitar:</h5>
+                <ul class="text-red-700 text-xs mt-1 space-y-1">
+                  <li>• /getUsers o /createUser</li>
+                  <li>• URLs con acciones</li>
+                  <li>• Inconsistencias de naming</li>
+                  <li>• URLs muy largas o complejas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Códigos de estado HTTP -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📊 Códigos de Estado HTTP más usados</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <!-- Códigos 2xx -->
+          <div>
+            <h3 class="text-lg font-semibold text-green-700 mb-3">✅ Códigos 2xx - Éxito</h3>
+            <div class="space-y-2">
+              <div class="bg-green-50 p-3 rounded border-l-4 border-green-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-green-800">200 OK</span>
+                  <span class="text-xs text-green-600">GET, PUT</span>
+                </div>
+                <p class="text-green-700 text-sm">Petición exitosa con datos</p>
+              </div>
+              
+              <div class="bg-green-50 p-3 rounded border-l-4 border-green-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-green-800">201 Created</span>
+                  <span class="text-xs text-green-600">POST</span>
+                </div>
+                <p class="text-green-700 text-sm">Recurso creado exitosamente</p>
+              </div>
+              
+              <div class="bg-green-50 p-3 rounded border-l-4 border-green-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-green-800">204 No Content</span>
+                  <span class="text-xs text-green-600">DELETE</span>
+                </div>
+                <p class="text-green-700 text-sm">Exitoso pero sin contenido</p>
+              </div>
+            </div>
+            
+            <h3 class="text-lg font-semibold text-blue-700 mb-3 mt-6">ℹ️ Códigos 3xx - Redirección</h3>
+            <div class="space-y-2">
+              <div class="bg-blue-50 p-3 rounded border-l-4 border-blue-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-blue-800">301 Moved</span>
+                  <span class="text-xs text-blue-600">Permanente</span>
+                </div>
+                <p class="text-blue-700 text-sm">Recurso movido permanentemente</p>
+              </div>
+              
+              <div class="bg-blue-50 p-3 rounded border-l-4 border-blue-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-blue-800">304 Not Modified</span>
+                  <span class="text-xs text-blue-600">Cache</span>
+                </div>
+                <p class="text-blue-700 text-sm">Recurso no modificado (cache)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Códigos 4xx y 5xx -->
+          <div>
+            <h3 class="text-lg font-semibold text-red-700 mb-3">❌ Códigos 4xx - Error del Cliente</h3>
+            <div class="space-y-2">
+              <div class="bg-red-50 p-3 rounded border-l-4 border-red-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-red-800">400 Bad Request</span>
+                  <span class="text-xs text-red-600">Datos inválidos</span>
+                </div>
+                <p class="text-red-700 text-sm">Petición malformada</p>
+              </div>
+              
+              <div class="bg-red-50 p-3 rounded border-l-4 border-red-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-red-800">401 Unauthorized</span>
+                  <span class="text-xs text-red-600">Auth</span>
+                </div>
+                <p class="text-red-700 text-sm">Falta autenticación</p>
+              </div>
+              
+              <div class="bg-red-50 p-3 rounded border-l-4 border-red-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-red-800">404 Not Found</span>
+                  <span class="text-xs text-red-600">No existe</span>
+                </div>
+                <p class="text-red-700 text-sm">Recurso no encontrado</p>
+              </div>
+            </div>
+            
+            <h3 class="text-lg font-semibold text-yellow-700 mb-3 mt-6">⚠️ Códigos 5xx - Error del Servidor</h3>
+            <div class="space-y-2">
+              <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-yellow-800">500 Internal Error</span>
+                  <span class="text-xs text-yellow-600">Servidor</span>
+                </div>
+                <p class="text-yellow-700 text-sm">Error interno del servidor</p>
+              </div>
+              
+              <div class="bg-yellow-50 p-3 rounded border-l-4 border-yellow-500">
+                <div class="flex justify-between items-center">
+                  <span class="font-semibold text-yellow-800">503 Service Unavailable</span>
+                  <span class="text-xs text-yellow-600">Mantenimiento</span>
+                </div>
+                <p class="text-yellow-700 text-sm">Servicio no disponible</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplo práctico de API REST -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">💻 Ejemplo: API REST de una Tienda Online</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <!-- Estructura de la API -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">🏗️ Estructura de recursos</h3>
+            <div class="code-block bg-gray-800 text-cyan-400 p-4 rounded-lg relative">
+              <button class="copy-button bg-gray-600 text-white px-2 py-1 rounded text-xs" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+              <pre class="text-sm">
+# Usuarios
+GET   /api/users            # Lista usuarios
+GET   /api/users/123        # Usuario específico
+POST  /api/users            # Crear usuario
+PUT   /api/users/123        # Actualizar usuario
+DELETE /api/users/123        # Eliminar usuario
+
+# Productos
+GET   /api/products         # Lista productos
+GET   /api/products/456     # Producto específico
+POST  /api/products         # Crear producto
+PUT   /api/products/456     # Actualizar producto
+
+# Pedidos
+GET   /api/orders           # Lista pedidos
+GET   /api/orders/789       # Pedido específico
+POST  /api/orders           # Crear pedido
+GET   /api/users/123/orders # Pedidos del usuario</pre>
+            </div>
+          </div>
+
+          <!-- Ejemplos de respuestas -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">📋 Ejemplos de respuestas JSON</h3>
+            
+            <h4 class="font-semibold text-sm text-gray-700 mb-2">GET /api/users/123</h4>
+            <div class="code-block bg-gray-800 text-green-400 p-3 rounded-lg mb-4 relative">
+              <button class="copy-button bg-gray-600 text-white px-2 py-1 rounded text-xs" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+              <pre class="text-xs">
+{
+  "id": 123,
+  "name": "Juan Pérez",
+  "email": "juan@example.com",
+  "created_at": "2025-01-01T10:00:00Z",
+  "links": {
+    "self": "/api/users/123",
+    "orders": "/api/users/123/orders"
+  }
+}</pre>
+            </div>
+
+            <h4 class="font-semibold text-sm text-gray-700 mb-2">GET /api/products?category=electronics</h4>
+            <div class="code-block bg-gray-800 text-green-400 p-3 rounded-lg relative">
+              <button class="copy-button bg-gray-600 text-white px-2 py-1 rounded text-xs" onclick="copyCode(this)">
+                📋 Copiar
+              </button>
+              <pre class="text-xs">
+{
+  "data": [
+    {
+      "id": 456,
+      "name": "Smartphone XYZ",
+      "price": 699.99,
+      "category": "electronics"
+    }
+  ],
+  "meta": {
+    "total": 50,
+    "page": 1,
+    "per_page": 10
+  }
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demostración interactiva -->
+        <div class="mt-8 bg-indigo-50 p-6 rounded-lg">
+          <h4 class="font-semibold text-indigo-800 mb-4">🚀 Prueba estas APIs reales</h4>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <button id="testUsersApi" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors w-full bounce-animation">
+                👥 Probar API de Usuarios
+              </button>
+              <div id="usersResult" class="mt-3 text-sm"></div>
+            </div>
+            <div>
+              <button id="testPostsApi" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors w-full">
+                📝 Probar API de Posts
+              </button>
+              <div id="postsResult" class="mt-3 text-sm"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ventajas de REST -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-teal-600 to-teal-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🌟 Ventajas de las APIs REST</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-3 gap-6">
+          
+          <div class="text-center">
+            <div class="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🚀</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 mb-2">Simplicidad</h3>
+            <p class="text-gray-600 text-sm">
+              Fácil de entender y usar. Aprovecha HTTP que todos conocen.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">📈</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 mb-2">Escalabilidad</h3>
+            <p class="text-gray-600 text-sm">
+              Sin estado permite escalar horizontalmente fácilmente.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🔄</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 mb-2">Flexibilidad</h3>
+            <p class="text-gray-600 text-sm">
+              Múltiples formatos de datos y fácil de cachear.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🌐</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 mb-2">Interoperabilidad</h3>
+            <p class="text-gray-600 text-sm">
+              Cualquier lenguaje puede consumir una API REST.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">⚡</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 mb-2">Performance</h3>
+            <p class="text-gray-600 text-sm">
+              Soporte nativo para caché y compresión HTTP.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl">🔧</span>
+            </div>
+            <h3 class="font-semibold text-gray-800 mb-2">Mantenibilidad</h3>
+            <p class="text-gray-600 text-sm">
+              Estructura uniforme facilita el mantenimiento.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="historia-apis-web.html"
+            class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← Historia de las APIs Web
+          </a>
+
+          <a href="../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            🏠 Menú Principal
+          </a>
+
+          <a href="metodos-http.html"
+            class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            Métodos HTTP →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>JavaScript - APIs REST</strong>
+      </p>
+      <p class="text-green-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Función para copiar código
+    function copyCode(button) {
+      const codeBlock = button.parentElement.querySelector('pre');
+      const code = codeBlock.textContent;
+      
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = '✅ Copiado';
+        setTimeout(() => {
+          button.textContent = '📋 Copiar';
+        }, 2000);
+      });
+    }
+
+    // Agregar efectos adicionales
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+
+      // Demo APIs
+      document.getElementById('testUsersApi').addEventListener('click', function() {
+        const resultDiv = document.getElementById('usersResult');
+        resultDiv.innerHTML = '<div class="text-blue-600">🔄 Cargando usuarios...</div>';
+        
+        fetch('https://jsonplaceholder.typicode.com/users')
+          .then(response => response.json())
+          .then(users => {
+            const user = users[0]; // Tomar el primer usuario
+            resultDiv.innerHTML = `
+              <div class="bg-indigo-50 p-3 rounded border border-indigo-200">
+                <h5 class="font-semibold text-indigo-800">✅ Usuario obtenido:</h5>
+                <p class="text-sm text-indigo-700 mt-1"><strong>Nombre:</strong> ${user.name}</p>
+                <p class="text-sm text-indigo-700"><strong>Email:</strong> ${user.email}</p>
+                <p class="text-sm text-indigo-700"><strong>Ciudad:</strong> ${user.address.city}</p>
+              </div>
+            `;
+          })
+          .catch(error => {
+            resultDiv.innerHTML = `
+              <div class="bg-red-50 p-3 rounded border border-red-200">
+                <h5 class="font-semibold text-red-800">❌ Error:</h5>
+                <p class="text-sm text-red-700">${error.message}</p>
+              </div>
+            `;
+          });
+      });
+
+        // fetch('https://jsonplaceholder.typicode.com/users')
+        //   .then(response => response.json())
+        //   .then(users => {console.log(users[0]);})
+        //   .catch(error => {console.error(error.message);});
+
+      document.getElementById('testPostsApi').addEventListener('click', function() {
+        const resultDiv = document.getElementById('postsResult');
+        resultDiv.innerHTML = '<div class="text-blue-600">🔄 Cargando posts...</div>';
+        
+        fetch('https://jsonplaceholder.typicode.com/posts?_limit=3')
+          .then(response => response.json())
+          .then(posts => {
+            resultDiv.innerHTML = `
+              <div class="bg-purple-50 p-3 rounded border border-purple-200">
+                <h5 class="font-semibold text-purple-800">✅ ${posts.length} posts obtenidos:</h5>
+                <div class="mt-2 space-y-1">
+                  ${posts.map(post => `
+                    <p class="text-xs text-purple-700">• ${post.title.substring(0, 30)}...</p>
+                  `).join('')}
+                </div>
+              </div>
+            `;
+          })
+          .catch(error => {
+            resultDiv.innerHTML = `
+              <div class="bg-red-50 p-3 rounded border border-red-200">
+                <h5 class="font-semibold text-red-800">❌ Error:</h5>
+                <p class="text-sm text-red-700">${error.message}</p>
+              </div>
+            `;
+          });
+      });
+
+      // fetch('https://jsonplaceholder.typicode.com/posts?_limit=3')
+      //   .then(response => response.json())
+      //   .then(posts => {console.log(posts)})
+      //   .catch(error => {console.error(error.message)});
+
+    });
+  </script>
+
+</body>
+
+</html>

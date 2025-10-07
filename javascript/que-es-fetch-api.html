@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué es Fetch API?</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid orange;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40, end);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="../index.html"
+        class="bg-white text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors w-full sm:w-auto text-center">
+        ← Menú Principal
+      </a>
+      <a href="historia-apis-web.html"
+        class="bg-white text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors w-full sm:w-auto text-center">
+        Historia de las APIs Web →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 pb-1">🌐 Fetch API</h1>
+      <p class="text-xl text-gray-600">La interfaz moderna de JavaScript para realizar peticiones HTTP</p>
+    </div>
+
+    <!-- Definición -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📚 ¿Qué es Fetch API?</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Definición</h3>
+            <p class="text-gray-600 mb-4">
+              Fetch API es una interfaz moderna de JavaScript que proporciona una forma poderosa y flexible 
+              de realizar peticiones HTTP de manera asíncrona. Es el reemplazo moderno de XMLHttpRequest.
+            </p>
+
+            <div class="bg-orange-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-orange-800 mb-2">💡 Características clave:</h4>
+              <ul class="text-orange-700 text-sm space-y-1">
+                <li>• Basado en Promises</li>
+                <li>• Sintaxis más limpia y legible</li>
+                <li>• Soporte nativo en navegadores modernos</li>
+                <li>• Manejo de respuestas más intuitivo</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 p-6 rounded-lg">
+            <h4 class="font-semibold mb-4">Comparación: XMLHttpRequest vs Fetch</h4>
+            
+            <div class="mb-4">
+              <h5 class="text-sm font-semibold text-red-700 mb-2">❌ XMLHttpRequest (Antiguo)</h5>
+              <pre class="text-xs bg-red-50 p-2 rounded text-red-800">
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/api/data');
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      console.log(xhr.responseText);
+    }
+  }
+};
+xhr.send();</pre>
+            </div>
+
+            <div>
+              <h5 class="text-sm font-semibold text-green-700 mb-2">✅ Fetch API (Moderno)</h5>
+              <pre class="text-xs bg-green-50 p-2 rounded text-green-800">
+fetch('/api/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sintaxis Básica -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">⚡ Sintaxis Básica</h2>
+      </div>
+      <div class="p-6">
+        <div class="space-y-6">
+          
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-blue-800 mb-3">Estructura básica de fetch()</h4>
+            <pre class="text-sm bg-gray-800 text-green-400 p-4 rounded overflow-x-auto">
+fetch(url, options)
+  .then(response => {
+    // Procesar la respuesta
+    return response.json(); // o response.text(), response.blob(), etc.
+  })
+  .then(data => {
+    // Trabajar con los datos
+    console.log(data);
+  })
+  .catch(error => {
+    // Manejar errores
+    console.error('Error:', error);
+  });</pre>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Parámetros de fetch()</h4>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <p><strong>url:</strong> La URL del recurso que quieres obtener</p>
+                <p><strong>options:</strong> (Opcional) Objeto con configuraciones como método, headers, body, etc.</p>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Valor de retorno</h4>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <p>Retorna una <strong>Promise</strong> que se resuelve con un objeto <strong>Response</strong></p>
+                <p>La Promise se rechaza solo si hay un error de red</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ventajas de Fetch API -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🚀 Ventajas de Fetch API</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div class="flex items-start space-x-4 p-4 bg-green-50 rounded-lg">
+              <span class="text-green-600 text-xl">✨</span>
+              <div>
+                <h4 class="font-semibold text-green-800">Sintaxis moderna</h4>
+                <p class="text-green-700 text-sm">Basado en Promises, compatible con async/await</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg">
+              <span class="text-blue-600 text-xl">🎯</span>
+              <div>
+                <h4 class="font-semibold text-blue-800">Más simple</h4>
+                <p class="text-blue-700 text-sm">Menos código boilerplate que XMLHttpRequest</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 bg-purple-50 rounded-lg">
+              <span class="text-purple-600 text-xl">🔧</span>
+              <div>
+                <h4 class="font-semibold text-purple-800">Flexible</h4>
+                <p class="text-purple-700 text-sm">Manejo fácil de diferentes tipos de respuesta</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex items-start space-x-4 p-4 bg-yellow-50 rounded-lg">
+              <span class="text-yellow-600 text-xl">🌐</span>
+              <div>
+                <h4 class="font-semibold text-yellow-800">Estándar web</h4>
+                <p class="text-yellow-700 text-sm">Forma parte del estándar web moderno</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 bg-indigo-50 rounded-lg">
+              <span class="text-indigo-600 text-xl">🔒</span>
+              <div>
+                <h4 class="font-semibold text-indigo-800">Seguro</h4>
+                <p class="text-indigo-700 text-sm">Mejor manejo de CORS y políticas de seguridad</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-4 bg-pink-50 rounded-lg">
+              <span class="text-pink-600 text-xl">🎮</span>
+              <div>
+                <h4 class="font-semibold text-pink-800">Stream support</h4>
+                <p class="text-pink-700 text-sm">Soporte nativo para streams y respuestas grandes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplo Práctico Simple -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">💻 Tu primer Fetch</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold mb-3">Código JavaScript</h4>
+            <pre class="text-sm bg-gray-800 text-cyan-400 p-4 rounded overflow-x-auto">
+// Petición GET simple
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+  .then(response => {
+    console.log('Status:', response.status);
+    console.log('OK:', response.ok);
+    return response.json();
+  })
+  .then(post => {
+    console.log('Título:', post.title);
+    console.log('Contenido:', post.body);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });</pre>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-3">¿Qué hace este código?</h4>
+            <div class="space-y-3 text-sm">
+              <div class="bg-purple-50 p-3 rounded">
+                <strong>1. Hace una petición GET</strong><br>
+                <span class="text-gray-600">A la API de JSONPlaceholder</span>
+              </div>
+              <div class="bg-purple-50 p-3 rounded">
+                <strong>2. Verifica la respuesta</strong><br>
+                <span class="text-gray-600">Muestra el status y si fue exitosa</span>
+              </div>
+              <div class="bg-purple-50 p-3 rounded">
+                <strong>3. Convierte a JSON</strong><br>
+                <span class="text-gray-600">Transforma la respuesta en un objeto JavaScript</span>
+              </div>
+              <div class="bg-purple-50 p-3 rounded">
+                <strong>4. Usa los datos</strong><br>
+                <span class="text-gray-600">Muestra el título y contenido del post</span>
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 bg-gray-100 rounded">
+              <button id="demoFetch" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors pulse-animation">
+                🚀 Probar este código
+              </button>
+              <div id="demoResult" class="mt-3 text-sm"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soporte de navegadores -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🌍 Soporte de navegadores</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">Navegadores compatibles</h4>
+            <div class="space-y-2">
+              <div class="flex justify-between items-center bg-green-50 p-2 rounded">
+                <span class="flex items-center"><span class="text-blue-600 mr-2">🌐</span> Chrome</span>
+                <span class="text-green-600 font-semibold">42+</span>
+              </div>
+              <div class="flex justify-between items-center bg-green-50 p-2 rounded">
+                <span class="flex items-center"><span class="text-orange-600 mr-2">🦊</span> Firefox</span>
+                <span class="text-green-600 font-semibold">39+</span>
+              </div>
+              <div class="flex justify-between items-center bg-green-50 p-2 rounded">
+                <span class="flex items-center"><span class="text-blue-500 mr-2">🧭</span> Safari</span>
+                <span class="text-green-600 font-semibold">10.1+</span>
+              </div>
+              <div class="flex justify-between items-center bg-green-50 p-2 rounded">
+                <span class="flex items-center"><span class="text-blue-700 mr-2">🪟</span> Edge</span>
+                <span class="text-green-600 font-semibold">14+</span>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">¿Navegadores antiguos?</h4>
+            <div class="bg-yellow-50 p-4 rounded-lg">
+              <p class="text-yellow-800 text-sm mb-2">
+                <strong>Internet Explorer no soporta Fetch API</strong>
+              </p>
+              <p class="text-yellow-700 text-sm mb-3">
+                Para navegadores antiguos, puedes usar:
+              </p>
+              <ul class="text-sm text-yellow-700 space-y-1">
+                <li>• <strong>Polyfill:</strong> fetch polyfill de GitHub</li>
+                <li>• <strong>Alternativa:</strong> Axios o XMLHttpRequest</li>
+              </ul>
+              
+              <div class="mt-3 bg-yellow-100 p-2 rounded text-xs">
+                <strong>Polyfill CDN:</strong><br>
+                <code class="text-yellow-800">https://polyfill.io/v3/polyfill.min.js?features=fetch</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="../index.html"
+            class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← Menú Principal
+          </a>
+
+          <a href="historia-apis-web.html"
+            class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            Historia de las APIs Web →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>JavaScript - Fetch API</strong>
+      </p>
+      <p class="text-orange-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Agregar efectos adicionales
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+
+      // Demo de Fetch
+      document.getElementById('demoFetch').addEventListener('click', function() {
+        const resultDiv = document.getElementById('demoResult');
+        resultDiv.innerHTML = '<div class="text-blue-600">🔄 Cargando...</div>';
+        
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
+          .then(response => {
+            console.log('Status:', response.status);
+            console.log('OK:', response.ok);
+            return response.json();
+          })
+          .then(post => {
+            console.log('Título:', post.title);
+            console.log('Contenido:', post.body);
+            
+            resultDiv.innerHTML = `
+              <div class="bg-green-50 p-3 rounded border border-green-200">
+                <h5 class="font-semibold text-green-800">✅ Respuesta exitosa:</h5>
+                <p class="text-sm text-green-700 mt-1"><strong>Título:</strong> ${post.title}</p>
+                <p class="text-sm text-green-700"><strong>Contenido:</strong> ${post.body.substring(0, 50)}...</p>
+                <p class="text-xs text-green-600 mt-2">✨ Revisa la consola para ver todos los detalles</p>
+              </div>
+            `;
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            resultDiv.innerHTML = `
+              <div class="bg-red-50 p-3 rounded border border-red-200">
+                <h5 class="font-semibold text-red-800">❌ Error:</h5>
+                <p class="text-sm text-red-700">${error.message}</p>
+              </div>
+            `;
+          });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

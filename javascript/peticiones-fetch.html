@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peticiones con Fetch API</title>
+  <link rel="shortcut icon" href="../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 5px rgba(124, 58, 237, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.8);
+      }
+    }
+
+    .glow-animation {
+      animation: glow 2s infinite;
+    }
+
+    .code-editor {
+      background: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .code-header {
+      background: #2d2d2d;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .code-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .code-content {
+      padding: 1rem;
+      color: #a3a3a3;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .syntax-keyword { color: #c792ea; }
+    .syntax-string { color: #c3e88d; }
+    .syntax-number { color: #f78c6c; }
+    .syntax-comment { color: #546e7a; }
+    .syntax-function { color: #82aaff; }
+    .syntax-property { color: #ffcb6b; }
+
+    .loading-dots {
+      display: inline-block;
+    }
+
+    .loading-dots::after {
+      content: '';
+      animation: dots 1.5s infinite;
+    }
+
+    @keyframes dots {
+      0%, 20% { content: ''; }
+      40% { content: '.'; }
+      60% { content: '..'; }
+      80%, 100% { content: '...'; }
+    }
+
+    .interactive-demo {
+      border: 2px solid #7c3aed;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(91, 33, 182, 0.1));
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 9999px;
+    }
+
+    .status-200 { background: #10b981; color: white; }
+    .status-201 { background: #059669; color: white; }
+    .status-400 { background: #f59e0b; color: white; }
+    .status-404 { background: #ef4444; color: white; }
+    .status-500 { background: #dc2626; color: white; }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="metodos-http.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors w-full sm:w-auto text-center">
+        ← Métodos HTTP
+      </a>
+      <a href="manejo-respuestas.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors w-full sm:w-auto text-center">
+        Manejo de Respuestas →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 pb-1">🚀 Peticiones con Fetch API</h1>
+      <p class="text-xl text-gray-600">Aprende a realizar peticiones HTTP modernas y eficientes</p>
+    </div>
+
+    <!-- Sintaxis básica -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📚 Sintaxis Básica de Fetch</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Estructura básica</h3>
+            <p class="text-gray-600 mb-4">
+              Fetch devuelve una <strong>Promise</strong> que se resuelve con un objeto <strong>Response</strong>
+            </p>
+
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-purple-800 mb-2">💡 Parámetros principales:</h4>
+              <ul class="text-purple-700 text-sm space-y-1">
+                <li><strong>url:</strong> La URL del recurso</li>
+                <li><strong>options:</strong> Configuración (método, headers, body, etc.)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="code-editor">
+            <div class="code-header">
+              <div class="code-dot bg-red-500"></div>
+              <div class="code-dot bg-yellow-500"></div>
+              <div class="code-dot bg-green-500"></div>
+              <span class="text-gray-300 text-sm ml-2">fetch-basic.js</span>
+            </div>
+            <div class="code-content">
+              <span class="syntax-comment">// Sintaxis básica</span><br>
+              <span class="syntax-function">fetch</span>(<span class="syntax-string">'https://api.ejemplo.com/datos'</span>)<br>
+              &nbsp;&nbsp;.<span class="syntax-function">then</span>(<span class="syntax-keyword">response</span> => {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-comment">// Procesar respuesta</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-keyword">return</span> response.<span class="syntax-function">json</span>();<br>
+              &nbsp;&nbsp;})<br>
+              &nbsp;&nbsp;.<span class="syntax-function">then</span>(<span class="syntax-keyword">data</span> => {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-comment">// Usar los datos</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="syntax-function">log</span>(data);<br>
+              &nbsp;&nbsp;})<br>
+              &nbsp;&nbsp;.<span class="syntax-function">catch</span>(<span class="syntax-keyword">error</span> => {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-comment">// Manejar errores</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="syntax-function">error</span>(error);<br>
+              &nbsp;&nbsp;});
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GET Requests -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📖 Peticiones GET</h2>
+      </div>
+      <div class="p-6">
+        <div class="space-y-6">
+          
+          <!-- GET Simple -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">🔵 GET Simple</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              
+              <div class="code-editor">
+                <div class="code-header">
+                  <div class="code-dot bg-red-500"></div>
+                  <div class="code-dot bg-yellow-500"></div>
+                  <div class="code-dot bg-green-500"></div>
+                  <span class="text-gray-300 text-sm ml-2">get-simple.js</span>
+                </div>
+                <div class="code-content">
+                  <span class="syntax-comment">// GET básico</span><br>
+                  <span class="syntax-function">fetch</span>(<span class="syntax-string">'/api/users'</span>)<br>
+                  &nbsp;&nbsp;.<span class="syntax-function">then</span>(<span class="syntax-keyword">response</span> => {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-keyword">if</span> (!response.<span class="syntax-property">ok</span>) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-keyword">throw new</span> <span class="syntax-function">Error</span>(<span class="syntax-string">'Network error'</span>);<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-keyword">return</span> response.<span class="syntax-function">json</span>();<br>
+                  &nbsp;&nbsp;})<br>
+                  &nbsp;&nbsp;.<span class="syntax-function">then</span>(<span class="syntax-keyword">users</span> => {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="syntax-function">log</span>(<span class="syntax-string">'Usuarios:'</span>, users);<br>
+                  &nbsp;&nbsp;});
+                </div>
+              </div>
+
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-2">✨ Características:</h4>
+                <ul class="text-blue-700 text-sm space-y-1">
+                  <li>• Método por defecto es GET</li>
+                  <li>• No requiere configuración extra</li>
+                  <li>• Ideal para obtener datos</li>
+                  <li>• Verificar response.ok</li>
+                </ul>
+                
+                <button id="demoGetSimple" class="mt-3 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 transition-colors glow-animation">
+                  🚀 Probar GET Simple
+                </button>
+                <div id="resultGetSimple" class="mt-2 text-xs"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GET con parámetros -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">🎯 GET con Parámetros</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              
+              <div class="code-editor">
+                <div class="code-header">
+                  <div class="code-dot bg-red-500"></div>
+                  <div class="code-dot bg-yellow-500"></div>
+                  <div class="code-dot bg-green-500"></div>
+                  <span class="text-gray-300 text-sm ml-2">get-params.js</span>
+                </div>
+                <div class="code-content">
+                  <span class="syntax-comment">// Con URLSearchParams</span><br>
+                  <span class="syntax-keyword">const</span> <span class="syntax-property">params</span> = <span class="syntax-keyword">new</span> <span class="syntax-function">URLSearchParams</span>({<br>
+                  &nbsp;&nbsp;<span class="syntax-property">page</span>: <span class="syntax-number">1</span>,<br>
+                  &nbsp;&nbsp;<span class="syntax-property">limit</span>: <span class="syntax-number">10</span>,<br>
+                  &nbsp;&nbsp;<span class="syntax-property">category</span>: <span class="syntax-string">'electronics'</span><br>
+                  });<br>
+                  <br>
+                  <span class="syntax-function">fetch</span>(<span class="syntax-string">`/api/products?${</span>params<span class="syntax-string">}`</span>)<br>
+                  &nbsp;&nbsp;.<span class="syntax-function">then</span>(<span class="syntax-keyword">response</span> => response.<span class="syntax-function">json</span>())<br>
+                  &nbsp;&nbsp;.<span class="syntax-function">then</span>(<span class="syntax-keyword">products</span> => {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="syntax-function">log</span>(products);<br>
+                  &nbsp;&nbsp;});
+                </div>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">🔧 URLSearchParams:</h4>
+                <ul class="text-green-700 text-sm space-y-1">
+                  <li>• Construye query strings fácilmente</li>
+                  <li>• Escapa caracteres especiales</li>
+                  <li>• Más legible que concatenación manual</li>
+                </ul>
+                
+                <div class="mt-3 bg-green-100 p-2 rounded text-xs">
+                  <strong>Resultado URL:</strong><br>
+                  <code>/api/products?page=1&limit=10&category=electronics</code>
+                </div>
+
+                <button id="demoGetParams" class="mt-3 bg-green-600 text-white px-3 py-2 rounded text-sm hover:bg-green-700 transition-colors">
+                  🎯 Probar GET con Parámetros
+                </button>
+                <div id="resultGetParams" class="mt-2 text-xs"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GET con Headers -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">🔐 GET con Headers de Autenticación</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              
+              <div class="code-editor">
+                <div class="code-header">
+                  <div class="code-dot bg-red-500"></div>
+                  <div class="code-dot bg-yellow-500"></div>
+                  <div class="code-dot bg-green-500"></div>
+                  <span class="text-gray-300 text-sm ml-2">get-auth.js</span>
+                </div>
+                <div class="code-content">
+                  <span class="syntax-comment">// GET con autenticación</span><br>
+                  <span class="syntax-function">fetch</span>(<span class="syntax-string">'/api/user/profile'</span>, {<br>
+                  &nbsp;&nbsp;<span class="syntax-property">headers</span>: {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-string">'Authorization'</span>: <span class="syntax-string">'Bearer token123'</span>,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-string">'Accept'</span>: <span class="syntax-string">'application/json'</span>,<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-string">'User-Agent'</span>: <span class="syntax-string">'MiApp/1.0'</span><br>
+                  &nbsp;&nbsp;}<br>
+                  })<br>
+                  .<span class="syntax-function">then</span>(<span class="syntax-keyword">response</span> => {<br>
+                  &nbsp;&nbsp;<span class="syntax-keyword">if</span> (response.<span class="syntax-property">status</span> === <span class="syntax-number">401</span>) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-keyword">throw new</span> <span class="syntax-function">Error</span>(<span class="syntax-string">'No autorizado'</span>);<br>
+                  &nbsp;&nbsp;}<br>
+                  &nbsp;&nbsp;<span class="syntax-keyword">return</span> response.<span class="syntax-function">json</span>();<br>
+                  });
+                </div>
+              </div>
+
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-2">🔑 Headers comunes:</h4>
+                <ul class="text-purple-700 text-sm space-y-1">
+                  <li><strong>Authorization:</strong> Bearer token, API key</li>
+                  <li><strong>Accept:</strong> Tipo de contenido deseado</li>
+                  <li><strong>User-Agent:</strong> Identificación del cliente</li>
+                  <li><strong>Cache-Control:</strong> Política de caché</li>
+                </ul>
+                
+                <div class="mt-3 bg-purple-100 p-2 rounded text-xs">
+                  <strong>💡 Tip:</strong> Siempre maneja códigos de estado como 401, 403, 404
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- POST Requests -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">➕ Peticiones POST</h2>
+      </div>
+      <div class="p-6">
+        <div class="space-y-6">
+          
+          <!-- POST JSON -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">📝 POST con JSON</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              
+              <div class="code-editor">
+                <div class="code-header">
+                  <div class="code-dot bg-red-500"></div>
+                  <div class="code-dot bg-yellow-500"></div>
+                  <div class="code-dot bg-green-500"></div>
+                  <span class="text-gray-300 text-sm ml-2">post-json.js</span>
+                </div>
+                <div class="code-content">
+                  <span class="syntax-comment">// Crear nuevo usuario</span><br>
+                  <span class="syntax-keyword">const</span> <span class="syntax-property">userData</span> = {<br>
+                  &nbsp;&nbsp;<span class="syntax-property">name</span>: <span class="syntax-string">'Ana García'</span>,<br>
+                  &nbsp;&nbsp;<span class="syntax-property">email</span>: <span class="syntax-string">'ana@example.com'</span>,<br>
+                  &nbsp;&nbsp;<span class="syntax-property">age</span>: <span class="syntax-number">28</span><br>
+                  };<br>
+                  <br>
+                  <span class="syntax-function">fetch</span>(<span class="syntax-string">'/api/users'</span>, {<br>
+                  &nbsp;&nbsp;<span class="syntax-property">method</span>: <span class="syntax-string">'POST'</span>,<br>
+                  &nbsp;&nbsp;<span class="syntax-property">headers</span>: {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-string">'Content-Type'</span>: <span class="syntax-string">'application/json'</span><br>
+                  &nbsp;&nbsp;},<br>
+                  &nbsp;&nbsp;<span class="syntax-property">body</span>: <span class="syntax-function">JSON.stringify</span>(userData)<br>
+                  })<br>
+                  .<span class="syntax-function">then</span>(<span class="syntax-keyword">response</span> => response.<span class="syntax-function">json</span>());
+                </div>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">✅ Elementos clave:</h4>
+                <ul class="text-green-700 text-sm space-y-1">
+                  <li><strong>method:</strong> 'POST'</li>
+                  <li><strong>Content-Type:</strong> application/json</li>
+                  <li><strong>body:</strong> JSON.stringify(datos)</li>
+                  <li><strong>Respuesta:</strong> Típicamente 201 Created</li>
+                </ul>
+                
+                <button id="demoPostJson" class="mt-3 bg-green-600 text-white px-3 py-2 rounded text-sm hover:bg-green-700 transition-colors">
+                  📝 Probar POST JSON
+                </button>
+                <div id="resultPostJson" class="mt-2 text-xs"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- POST FormData -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">📎 POST con FormData (Archivos)</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              
+              <div class="code-editor">
+                <div class="code-header">
+                  <div class="code-dot bg-red-500"></div>
+                  <div class="code-dot bg-yellow-500"></div>
+                  <div class="code-dot bg-green-500"></div>
+                  <span class="text-gray-300 text-sm ml-2">post-formdata.js</span>
+                </div>
+                <div class="code-content">
+                  <span class="syntax-comment">// Subir archivo con datos</span><br>
+                  <span class="syntax-keyword">const</span> <span class="syntax-property">formData</span> = <span class="syntax-keyword">new</span> <span class="syntax-function">FormData</span>();<br>
+                  formData.<span class="syntax-function">append</span>(<span class="syntax-string">'name'</span>, <span class="syntax-string">'Mi archivo'</span>);<br>
+                  formData.<span class="syntax-function">append</span>(<span class="syntax-string">'category'</span>, <span class="syntax-string">'documents'</span>);<br>
+                  formData.<span class="syntax-function">append</span>(<span class="syntax-string">'file'</span>, fileInput.files[<span class="syntax-number">0</span>]);<br>
+                  <br>
+                  <span class="syntax-function">fetch</span>(<span class="syntax-string">'/api/upload'</span>, {<br>
+                  &nbsp;&nbsp;<span class="syntax-property">method</span>: <span class="syntax-string">'POST'</span>,<br>
+                  &nbsp;&nbsp;<span class="syntax-comment">// NO incluir Content-Type</span><br>
+                  &nbsp;&nbsp;<span class="syntax-comment">// El navegador lo añade automáticamente</span><br>
+                  &nbsp;&nbsp;<span class="syntax-property">body</span>: formData<br>
+                  })<br>
+                  .<span class="syntax-function">then</span>(<span class="syntax-keyword">response</span> => response.<span class="syntax-function">json</span>());
+                </div>
+              </div>
+
+              <div class="bg-yellow-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-yellow-800 mb-2">📋 FormData Tips:</h4>
+                <ul class="text-yellow-700 text-sm space-y-1">
+                  <li>• NO establezas Content-Type manualmente</li>
+                  <li>• Perfecto para archivos + datos</li>
+                  <li>• Soporte multipart/form-data automático</li>
+                  <li>• Usa .append() para agregar campos</li>
+                </ul>
+                
+                <div class="mt-3">
+                  <input type="file" id="fileInput" title="Seleccionar archivo para subir" class="text-xs bg-white p-1 rounded border">
+                  <button id="demoPostForm" class="mt-2 bg-yellow-600 text-white px-3 py-2 rounded text-sm hover:bg-yellow-700 transition-colors block">
+                    📎 Simular Subida de Archivo
+                  </button>
+                  <div id="resultPostForm" class="mt-2 text-xs"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- PUT y PATCH -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-yellow-600 to-yellow-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🔄 Peticiones PUT y PATCH</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <!-- PUT -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">🔄 PUT - Actualización Completa</h3>
+            
+            <div class="code-editor mb-4">
+              <div class="code-header">
+                <div class="code-dot bg-red-500"></div>
+                <div class="code-dot bg-yellow-500"></div>
+                <div class="code-dot bg-green-500"></div>
+                <span class="text-gray-300 text-sm ml-2">put-update.js</span>
+              </div>
+              <div class="code-content">
+                <span class="syntax-comment">// Actualizar usuario completo</span><br>
+                <span class="syntax-keyword">const</span> <span class="syntax-property">completeUser</span> = {<br>
+                &nbsp;&nbsp;<span class="syntax-property">id</span>: <span class="syntax-number">123</span>,<br>
+                &nbsp;&nbsp;<span class="syntax-property">name</span>: <span class="syntax-string">'Juan Carlos Pérez'</span>,<br>
+                &nbsp;&nbsp;<span class="syntax-property">email</span>: <span class="syntax-string">'juan@example.com'</span>,<br>
+                &nbsp;&nbsp;<span class="syntax-property">phone</span>: <span class="syntax-string">'+1234567890'</span>,<br>
+                &nbsp;&nbsp;<span class="syntax-property">address</span>: <span class="syntax-string">'Calle 123, Ciudad'</span><br>
+                };<br>
+                <br>
+                <span class="syntax-function">fetch</span>(<span class="syntax-string">'/api/users/123'</span>, {<br>
+                &nbsp;&nbsp;<span class="syntax-property">method</span>: <span class="syntax-string">'PUT'</span>,<br>
+                &nbsp;&nbsp;<span class="syntax-property">headers</span>: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-string">'Content-Type'</span>: <span class="syntax-string">'application/json'</span><br>
+                &nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;<span class="syntax-property">body</span>: <span class="syntax-function">JSON.stringify</span>(completeUser)<br>
+                });
+              </div>
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-yellow-800 mb-2">🎯 Cuándo usar PUT:</h4>
+              <ul class="text-yellow-700 text-sm space-y-1">
+                <li>• Reemplazar recurso completo</li>
+                <li>• Tienes todos los datos</li>
+                <li>• Operación idempotente</li>
+                <li>• Puede crear si no existe</li>
+              </ul>
+              
+              <button id="demoPut" class="mt-3 bg-yellow-600 text-white px-3 py-2 rounded text-sm hover:bg-yellow-700 transition-colors">
+                🔄 Probar PUT
+              </button>
+              <div id="resultPut" class="mt-2 text-xs"></div>
+            </div>
+          </div>
+
+          <!-- PATCH -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">⚡ PATCH - Actualización Parcial</h3>
+            
+            <div class="code-editor mb-4">
+              <div class="code-header">
+                <div class="code-dot bg-red-500"></div>
+                <div class="code-dot bg-yellow-500"></div>
+                <div class="code-dot bg-green-500"></div>
+                <span class="text-gray-300 text-sm ml-2">patch-update.js</span>
+              </div>
+              <div class="code-content">
+                <span class="syntax-comment">// Solo actualizar email</span><br>
+                <span class="syntax-keyword">const</span> <span class="syntax-property">partialUpdate</span> = {<br>
+                &nbsp;&nbsp;<span class="syntax-property">email</span>: <span class="syntax-string">'nuevoemail@example.com'</span><br>
+                };<br>
+                <br>
+                <span class="syntax-function">fetch</span>(<span class="syntax-string">'/api/users/123'</span>, {<br>
+                &nbsp;&nbsp;<span class="syntax-property">method</span>: <span class="syntax-string">'PATCH'</span>,<br>
+                &nbsp;&nbsp;<span class="syntax-property">headers</span>: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-string">'Content-Type'</span>: <span class="syntax-string">'application/json'</span><br>
+                &nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;<span class="syntax-property">body</span>: <span class="syntax-function">JSON.stringify</span>(partialUpdate)<br>
+                })<br>
+                .<span class="syntax-function">then</span>(<span class="syntax-keyword">response</span> => {<br>
+                &nbsp;&nbsp;<span class="syntax-keyword">if</span> (response.<span class="syntax-property">ok</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-keyword">return</span> response.<span class="syntax-function">json</span>();<br>
+                &nbsp;&nbsp;}<br>
+                });
+              </div>
+            </div>
+
+            <div class="bg-orange-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-orange-800 mb-2">⚡ Cuándo usar PATCH:</h4>
+              <ul class="text-orange-700 text-sm space-y-1">
+                <li>• Cambios pequeños/específicos</li>
+                <li>• Ahorro de ancho de banda</li>
+                <li>• Solo campos modificados</li>
+                <li>• Más eficiente que PUT</li>
+              </ul>
+              
+              <button id="demoPatch" class="mt-3 bg-orange-600 text-white px-3 py-2 rounded text-sm hover:bg-orange-700 transition-colors">
+                ⚡ Probar PATCH
+              </button>
+              <div id="resultPatch" class="mt-2 text-xs"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- DELETE -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🗑️ Peticiones DELETE</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">🗑️ DELETE Simple</h3>
+            
+            <div class="code-editor mb-4">
+              <div class="code-header">
+                <div class="code-dot bg-red-500"></div>
+                <div class="code-dot bg-yellow-500"></div>
+                <div class="code-dot bg-green-500"></div>
+                <span class="text-gray-300 text-sm ml-2">delete-resource.js</span>
+              </div>
+              <div class="code-content">
+                <span class="syntax-comment">// Eliminar usuario</span><br>
+                <span class="syntax-function">fetch</span>(<span class="syntax-string">'/api/users/123'</span>, {<br>
+                &nbsp;&nbsp;<span class="syntax-property">method</span>: <span class="syntax-string">'DELETE'</span>,<br>
+                &nbsp;&nbsp;<span class="syntax-property">headers</span>: {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="syntax-string">'Authorization'</span>: <span class="syntax-string">'Bearer token123'</span><br>
+                &nbsp;&nbsp;}<br>
+                })<br>
+                .<span class="syntax-function">then</span>(<span class="syntax-keyword">response</span> => {<br>
+                &nbsp;&nbsp;<span class="syntax-keyword">if</span> (response.<span class="syntax-property">status</span> === <span class="syntax-number">204</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="syntax-function">log</span>(<span class="syntax-string">'Eliminado exitosamente'</span>);<br>
+                &nbsp;&nbsp;} <span class="syntax-keyword">else if</span> (response.<span class="syntax-property">status</span> === <span class="syntax-number">404</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.<span class="syntax-function">log</span>(<span class="syntax-string">'Recurso no encontrado'</span>);<br>
+                &nbsp;&nbsp;}<br>
+                });<br>
+                <br>
+                <span class="syntax-comment">// Confirmación antes de eliminar</span><br>
+                <span class="syntax-keyword">if</span> (<span class="syntax-function">confirm</span>(<span class="syntax-string">'¿Estás seguro?'</span>)) {<br>
+                &nbsp;&nbsp;<span class="syntax-comment">// Realizar DELETE</span><br>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="bg-red-50 p-4 rounded-lg mb-4">
+              <h4 class="font-semibold text-red-800 mb-2">⚠️ Consideraciones DELETE:</h4>
+              <ul class="text-red-700 text-sm space-y-1">
+                <li>• Siempre pedir confirmación</li>
+                <li>• Verificar permisos/autenticación</li>
+                <li>• Manejar códigos 204, 404, 403</li>
+                <li>• Considerar soft delete</li>
+                <li>• Mantener logs de auditoría</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <h4 class="font-semibold text-gray-800 mb-2">📊 Códigos de respuesta típicos:</h4>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span>Eliminado sin contenido</span>
+                  <span class="status-badge status-204">204</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Eliminado con confirmación</span>
+                  <span class="status-badge status-200">200</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>No encontrado</span>
+                  <span class="status-badge status-404">404</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Sin permisos</span>
+                  <span class="status-badge status-403">403</span>
+                </div>
+              </div>
+              
+              <button id="demoDelete" class="mt-3 bg-red-600 text-white px-3 py-2 rounded text-sm hover:bg-red-700 transition-colors">
+                🗑️ Probar DELETE
+              </button>
+              <div id="resultDelete" class="mt-2 text-xs"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Interactivo Completo -->
+    <div class="interactive-demo p-6 mb-8 fade-in-up">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-white mb-2">🎮 Demo Interactivo Completo</h2>
+        <p class="text-purple-100">Prueba todos los métodos HTTP con APIs reales</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold text-purple-800 mb-4">Selecciona una acción:</h3>
+          <div class="space-y-3">
+            <button id="fullDemoGet" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center">
+              <span class="mr-2">📖</span> GET - Obtener Posts
+            </button>
+            <button id="fullDemoPost" class="w-full bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center">
+              <span class="mr-2">➕</span> POST - Crear Post
+            </button>
+            <button id="fullDemoPut" class="w-full bg-yellow-600 text-white px-4 py-3 rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center">
+              <span class="mr-2">🔄</span> PUT - Actualizar Post
+            </button>
+            <button id="fullDemoDelete" class="w-full bg-red-600 text-white px-4 py-3 rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center">
+              <span class="mr-2">🗑️</span> DELETE - Eliminar Post
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-purple-800 mb-4">Resultado en tiempo real:</h3>
+          <div id="fullDemoResult" class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm h-64 overflow-auto">
+            <div class="text-gray-500">Selecciona una acción para ver el resultado...</div>
+          </div>
+          
+          <div id="fullDemoStatus" class="mt-3 text-center"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="metodos-http.html"
+            class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← Métodos HTTP
+          </a>
+
+          <a href="../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            🏠 Menú Principal
+          </a>
+
+          <a href="manejo-respuestas.html"
+            class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            Manejo de Respuestas →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>JavaScript - Peticiones con Fetch</strong>
+      </p>
+      <p class="text-purple-100 mt-2">
+        CCL © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Funciones auxiliares
+    function showResult(elementId, result, isSuccess = true) {
+      const element = document.getElementById(elementId);
+      const bgColor = isSuccess ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800';
+      const icon = isSuccess ? '✅' : '❌';
+      
+      element.innerHTML = `
+        <div class="${bgColor} p-2 rounded border">
+          <div class="font-semibold">${icon} ${isSuccess ? 'Éxito' : 'Error'}:</div>
+          <div class="mt-1">${result}</div>
+        </div>
+      `;
+    }
+
+    function showLoading(elementId, message) {
+      const element = document.getElementById(elementId);
+      element.innerHTML = `<div class="text-blue-600"><span class="loading-dots">🔄 ${message}</span></div>`;
+    }
+
+    // Agregar efectos adicionales
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+
+      // Demos individuales
+      document.getElementById('demoGetSimple').addEventListener('click', function() {
+        showLoading('resultGetSimple', 'Obteniendo datos');
+        
+        fetch('https://jsonplaceholder.typicode.com/users/1')
+          .then(response => {
+            if (!response.ok) throw new Error('Network error');
+            return response.json();
+          })
+          .then(user => {
+            showResult('resultGetSimple', `Usuario: ${user.name} (${user.email})`);
+          })
+          .catch(error => {
+            showResult('resultGetSimple', error.message, false);
+          });
+      });
+
+      document.getElementById('demoGetParams').addEventListener('click', function() {
+        showLoading('resultGetParams', 'Buscando posts');
+        
+        const params = new URLSearchParams({
+          userId: 1,
+          _limit: 3
+        });
+        
+        fetch(`https://jsonplaceholder.typicode.com/posts?${params}`)
+          .then(response => response.json())
+          .then(posts => {
+            showResult('resultGetParams', `${posts.length} posts encontrados del usuario 1`);
+          })
+          .catch(error => {
+            showResult('resultGetParams', error.message, false);
+          });
+      });
+
+      document.getElementById('demoPostJson').addEventListener('click', function() {
+        showLoading('resultPostJson', 'Creando post');
+        
+        const newPost = {
+          title: 'Mi nuevo post desde Fetch',
+          body: 'Este es el contenido del post creado con fetch',
+          userId: 1
+        };
+
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newPost)
+        })
+          .then(response => response.json())
+          .then(post => {
+            showResult('resultPostJson', `Post creado con ID: ${post.id}`);
+          })
+          .catch(error => {
+            showResult('resultPostJson', error.message, false);
+          });
+      });
+
+      document.getElementById('demoPostForm').addEventListener('click', function() {
+        showLoading('resultPostForm', 'Simulando subida');
+        
+        // Simular FormData
+        setTimeout(() => {
+          const fileInput = document.getElementById('fileInput');
+          const fileName = fileInput.files[0] ? fileInput.files[0].name : 'archivo-ejemplo.pdf';
+          showResult('resultPostForm', `Archivo "${fileName}" subido correctamente`);
+        }, 1000);
+      });
+
+      document.getElementById('demoPut').addEventListener('click', function() {
+        showLoading('resultPut', 'Actualizando post');
+        
+        const updatedPost = {
+          id: 1,
+          title: 'Post actualizado con PUT',
+          body: 'Contenido completamente nuevo',
+          userId: 1
+        };
+
+        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatedPost)
+        })
+          .then(response => response.json())
+          .then(post => {
+            showResult('resultPut', `Post ${post.id} actualizado completamente`);
+          })
+          .catch(error => {
+            showResult('resultPut', error.message, false);
+          });
+      });
+
+      document.getElementById('demoPatch').addEventListener('click', function() {
+        showLoading('resultPatch', 'Actualizando parcialmente');
+        
+        const partialUpdate = {
+          title: 'Solo el título cambió'
+        };
+
+        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(partialUpdate)
+        })
+          .then(response => response.json())
+          .then(post => {
+            showResult('resultPatch', `Solo el título del post ${post.id} cambió`);
+          })
+          .catch(error => {
+            showResult('resultPatch', error.message, false);
+          });
+      });
+
+      document.getElementById('demoDelete').addEventListener('click', function() {
+        if (!confirm('¿Estás seguro de que quieres eliminar este post?')) return;
+        
+        showLoading('resultDelete', 'Eliminando post');
+        
+        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+          method: 'DELETE'
+        })
+          .then(response => {
+            if (response.ok) {
+              showResult('resultDelete', 'Post eliminado correctamente');
+            } else {
+              throw new Error(`HTTP ${response.status}`);
+            }
+          })
+          .catch(error => {
+            showResult('resultDelete', error.message, false);
+          });
+      });
+
+      // Demo completo
+      function showFullResult(method, url, data, response, status) {
+        const fullResult = document.getElementById('fullDemoResult');
+        const statusDiv = document.getElementById('fullDemoStatus');
+        
+        const timestamp = new Date().toLocaleTimeString();
+        
+        let output = `[${timestamp}] ${method} ${url}\n`;
+        if (data) {
+          output += `Request Body:\n${JSON.stringify(data, null, 2)}\n\n`;
+        }
+        output += `Response (${status}):\n${JSON.stringify(response, null, 2)}\n\n`;
+        
+        fullResult.textContent = output;
+        fullResult.scrollTop = fullResult.scrollHeight;
+        
+        let statusClass = 'status-500';
+        if (status < 300) {
+          statusClass = 'status-200';
+        } else if (status < 400) {
+          statusClass = 'status-300';
+        } else if (status < 500) {
+          statusClass = 'status-400';
+        }
+        statusDiv.innerHTML = `<span class="status-badge ${statusClass}">Status: ${status}</span>`;
+      }
+
+      document.getElementById('fullDemoGet').addEventListener('click', function() {
+        fetch('https://jsonplaceholder.typicode.com/posts?_limit=2')
+          .then(response => {
+            const status = response.status;
+            return response.json().then(data => ({ data, status }));
+          })
+          .then(({ data, status }) => {
+            showFullResult('GET', '/posts?_limit=2', null, data, status);
+          });
+      });
+
+        // fetch('https://jsonplaceholder.typicode.com/posts?_limit=2')
+        //   .then(response => {
+        //     const status = response.status;
+        //     return response.json().then(data => ({ data, status }));
+        //   })
+        //   .then(({ data, status }) => {
+        //     showFullResult('GET', '/posts?_limit=2', null, data, status);
+        //   });
+
+      document.getElementById('fullDemoPost').addEventListener('click', function() {
+        const newPost = {
+          title: 'Post desde Demo Completo',
+          body: 'Contenido del demo interactivo',
+          userId: 1
+        };
+
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newPost)
+        })
+          .then(response => {
+            const status = response.status;
+            return response.json().then(data => ({ data, status }));
+          })
+          .then(({ data, status }) => {
+            showFullResult('POST', '/posts', newPost, data, status);
+          });
+      });
+
+      document.getElementById('fullDemoPut').addEventListener('click', function() {
+        const updatedPost = {
+          id: 1,
+          title: 'Post actualizado desde Demo',
+          body: 'Nuevo contenido desde el demo completo',
+          userId: 1
+        };
+
+        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatedPost)
+        })
+          .then(response => {
+            const status = response.status;
+            return response.json().then(data => ({ data, status }));
+          })
+          .then(({ data, status }) => {
+            showFullResult('PUT', '/posts/1', updatedPost, data, status);
+          });
+      });
+
+      document.getElementById('fullDemoDelete').addEventListener('click', function() {
+        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+          method: 'DELETE'
+        })
+          .then(response => {
+            const status = response.status;
+            const result = { message: 'Post deleted successfully', deletedId: 1 };
+            showFullResult('DELETE', '/posts/1', null, result, status);
+          });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
