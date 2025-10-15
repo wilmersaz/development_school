@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propiedades y Métodos en JavaScript</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .code-container {
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .copy-btn:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="que-son-objetos.html"
+        class="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition-colors w-full sm:w-auto text-center">
+        ← ¿Qué son los Objetos?
+      </a>
+      <a href="this-contexto.html"
+        class="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 transition-colors w-full sm:w-auto text-center">
+        Contexto "this" →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 pb-1">🔧 Propiedades y Métodos</h1>
+      <p class="text-xl text-gray-600">Accediendo y manipulando los datos de nuestros objetos</p>
+    </div>
+
+    <!-- Propiedades -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📋 Propiedades de Objetos</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">¿Qué son las Propiedades?</h3>
+            <div class="space-y-3 text-gray-600">
+              <p>Las <strong>propiedades</strong> son las características o atributos que definen un objeto.</p>
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-2">💡 Analogía:</h4>
+                <p class="text-green-700 text-sm">
+                  Como las características de una persona: nombre, edad, altura, etc.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-semibold mb-3">Ejemplo Visual</h4>
+            <div class="bg-white p-4 rounded border-2 border-green-200">
+              <div class="text-center mb-3">
+                <span class="text-2xl">📱</span>
+                <h5 class="font-bold">Objeto: Teléfono</h5>
+              </div>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between border-b pb-1">
+                  <span class="font-medium text-green-600">marca:</span>
+                  <span>"Samsung"</span>
+                </div>
+                <div class="flex justify-between border-b pb-1">
+                  <span class="font-medium text-green-600">modelo:</span>
+                  <span>"Galaxy S23"</span>
+                </div>
+                <div class="flex justify-between border-b pb-1">
+                  <span class="font-medium text-green-600">bateria:</span>
+                  <span>85</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="font-medium text-green-600">encendido:</span>
+                  <span>true</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Acceso a Propiedades -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🎯 Acceso a Propiedades</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid gap-6">
+          
+          <!-- Notación de Punto -->
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h3 class="text-lg font-semibold text-blue-800 mb-3">1. Notación de Punto (.)</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>const estudiante = {
+  nombre: "María",
+  edad: 20,
+  carrera: "Ingeniería",
+  activo: true
+};
+
+// LECTURA - Acceder a propiedades
+console.log(estudiante.nombre);   // "María"
+console.log(estudiante.edad);     // 20
+console.log(estudiante.carrera);  // "Ingeniería"
+
+// ESCRITURA - Modificar propiedades
+estudiante.edad = 21;
+estudiante.semestre = 5; // Agregar nueva propiedad
+
+console.log(estudiante);
+// {nombre: "María", edad: 21, carrera: "Ingeniería", activo: true, semestre: 5}</code></pre>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-3 text-blue-800">Características</h4>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-2 p-2 bg-blue-50 rounded">
+                    <span class="text-green-600">✅</span>
+                    <span class="text-sm">Sintaxis simple y limpia</span>
+                  </div>
+                  <div class="flex items-center space-x-2 p-2 bg-blue-50 rounded">
+                    <span class="text-green-600">✅</span>
+                    <span class="text-sm">Fácil de leer y escribir</span>
+                  </div>
+                  <div class="flex items-center space-x-2 p-2 bg-red-50 rounded">
+                    <span class="text-red-600">❌</span>
+                    <span class="text-sm">Solo con nombres válidos de variables</span>
+                  </div>
+                  <div class="flex items-center space-x-2 p-2 bg-red-50 rounded">
+                    <span class="text-red-600">❌</span>
+                    <span class="text-sm">No funciona con nombres dinámicos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notación de Corchetes -->
+          <div class="border-l-4 border-purple-500 pl-4">
+            <h3 class="text-lg font-semibold text-purple-800 mb-3">2. Notación de Corchetes []</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre class="text-sm bg-gray-900 text-cyan-400 p-4 rounded overflow-x-auto"><code>const producto = {
+  "nombre": "Laptop",
+  "precio-original": 1500,
+  "código de barras": "123456789",
+  categoria: "tecnología"
+};
+
+// LECTURA - Acceder con corchetes
+console.log(producto["nombre"]);           // "Laptop"
+console.log(producto["precio-original"]);  // 1500
+console.log(producto["código de barras"]); // "123456789"
+
+// ESCRITURA - Modificar con corchetes
+producto["precio-original"] = 1200;
+producto["en-stock"] = true;
+
+// DINÁMICO - Usar variables
+const propiedad = "categoria";
+console.log(producto[propiedad]); // "tecnología"
+
+// Con expresiones
+const prefijo = "precio";
+console.log(producto[prefijo + "-original"]); // 1200</code></pre>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-3 text-purple-800">Características</h4>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-2 p-2 bg-purple-50 rounded">
+                    <span class="text-green-600">✅</span>
+                    <span class="text-sm">Acepta cualquier nombre de propiedad</span>
+                  </div>
+                  <div class="flex items-center space-x-2 p-2 bg-purple-50 rounded">
+                    <span class="text-green-600">✅</span>
+                    <span class="text-sm">Permite acceso dinámico</span>
+                  </div>
+                  <div class="flex items-center space-x-2 p-2 bg-purple-50 rounded">
+                    <span class="text-green-600">✅</span>
+                    <span class="text-sm">Funciona con espacios y caracteres especiales</span>
+                  </div>
+                  <div class="flex items-center space-x-2 p-2 bg-yellow-50 rounded">
+                    <span class="text-yellow-600">⚠️</span>
+                    <span class="text-sm">Requiere comillas para strings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Métodos -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">⚙️ Métodos de Objetos</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">¿Qué son los Métodos?</h3>
+            <div class="space-y-3 text-gray-600">
+              <p>Los <strong>métodos</strong> son funciones que pertenecen a un objeto y pueden acceder a sus propiedades.</p>
+              <div class="bg-orange-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-orange-800 mb-2">💡 Analogía:</h4>
+                <p class="text-orange-700 text-sm">
+                  Como las acciones que puede realizar una persona: caminar, hablar, dormir, etc.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-semibold mb-3">Diferencias Clave</h4>
+            <div class="space-y-3">
+              <div class="bg-blue-100 p-3 rounded">
+                <h5 class="font-semibold text-blue-800">📋 Propiedades</h5>
+                <p class="text-blue-700 text-sm">Almacenan <strong>datos</strong></p>
+                <code class="text-xs">persona.nombre = "Juan"</code>
+              </div>
+              <div class="bg-orange-100 p-3 rounded">
+                <h5 class="font-semibold text-orange-800">⚙️ Métodos</h5>
+                <p class="text-orange-700 text-sm">Ejecutan <strong>acciones</strong></p>
+                <code class="text-xs">persona.saludar()</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Definición de Métodos -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🏗️ Definiendo Métodos</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid gap-6">
+          
+          <!-- Sintaxis Tradicional -->
+          <div class="border-l-4 border-red-500 pl-4">
+            <h3 class="text-lg font-semibold text-red-800 mb-3">1. Sintaxis Tradicional (ES5)</h3>
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>const calculadora = {
+  // Propiedades
+  resultado: 0,
+  historial: [],
+  
+  // Métodos con function
+  sumar: function(a, b) {
+    this.resultado = a + b;
+    this.historial.push(`${a} + ${b} = ${this.resultado}`);
+    return this.resultado;
+  },
+  
+  restar: function(a, b) {
+    this.resultado = a - b;
+    this.historial.push(`${a} - ${b} = ${this.resultado}`);
+    return this.resultado;
+  },
+  
+  mostrarHistorial: function() {
+    return this.historial.join(', ');
+  },
+  
+  limpiar: function() {
+    this.resultado = 0;
+    this.historial = [];
+    return "Calculadora limpia";
+  }
+};
+
+// Uso de los métodos
+console.log(calculadora.sumar(10, 5));     // 15
+console.log(calculadora.restar(20, 8));    // 12
+console.log(calculadora.mostrarHistorial()); // "10 + 5 = 15, 20 - 8 = 12"</code></pre>
+            </div>
+          </div>
+
+          <!-- Sintaxis Moderna -->
+          <div class="border-l-4 border-green-500 pl-4">
+            <h3 class="text-lg font-semibold text-green-800 mb-3">2. Sintaxis Moderna (ES6+)</h3>
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-cyan-400 p-4 rounded overflow-x-auto"><code>const mascota = {
+  // Propiedades
+  nombre: "Buddy",
+  tipo: "Perro",
+  energia: 100,
+  felicidad: 80,
+  
+  // Métodos con sintaxis moderna (sin function)
+  saludar() {
+    return `¡Hola! Soy ${this.nombre}, un ${this.tipo} muy feliz 🐕`;
+  },
+  
+  jugar(minutos) {
+    this.energia -= minutos * 2;
+    this.felicidad += minutos;
+    
+    if (this.energia < 0) this.energia = 0;
+    if (this.felicidad > 100) this.felicidad = 100;
+    
+    return `${this.nombre} jugó ${minutos} minutos. Energía: ${this.energia}, Felicidad: ${this.felicidad}`;
+  },
+  
+  descansar(horas) {
+    this.energia += horas * 10;
+    if (this.energia > 100) this.energia = 100;
+    return `${this.nombre} descansó ${horas} horas. Energía restaurada: ${this.energia}`;
+  },
+  
+  obtenerEstado() {
+    const estados = {
+      energia: this.energia > 70 ? "Alta" : this.energia > 30 ? "Media" : "Baja",
+      felicidad: this.felicidad > 70 ? "Muy feliz" : this.felicidad > 30 ? "Contento" : "Triste"
+    };
+    
+    return `${this.nombre} tiene energía ${estados.energia} y está ${estados.felicidad}`;
+  }
+};
+
+// Uso de los métodos
+console.log(mascota.saludar());        // ¡Hola! Soy Buddy, un Perro muy feliz 🐕
+console.log(mascota.jugar(20));        // Buddy jugó 20 minutos. Energía: 60, Felicidad: 100
+console.log(mascota.obtenerEstado());  // Buddy tiene energía Media y está Muy feliz</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Métodos vs Funciones -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🔄 Métodos vs Funciones Externas</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold mb-3 text-purple-800">❌ Función Externa</h4>
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-red-400 p-4 rounded overflow-x-auto"><code>const usuario = {
+  nombre: "Ana",
+  email: "ana@email.com"
+};
+
+// Función separada del objeto
+function saludarUsuario(obj) {
+  return `Hola ${obj.nombre}`;
+}
+
+// Uso engorroso
+console.log(saludarUsuario(usuario));
+
+// Problemas:
+// - No está relacionada con el objeto
+// - Sintaxis menos natural
+// - Difícil de mantener</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-3 text-green-800">✅ Método del Objeto</h4>
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>const usuario = {
+  nombre: "Ana",
+  email: "ana@email.com",
+  
+  // Método integrado
+  saludar() {
+    return `Hola ${this.nombre}`;
+  },
+  
+  obtenerInfo() {
+    return `${this.nombre} (${this.email})`;
+  }
+};
+
+// Uso natural
+console.log(usuario.saludar());     // Hola Ana
+console.log(usuario.obtenerInfo()); // Ana (ana@email.com)
+
+// Ventajas:
+// - Pertenece al objeto
+// - Sintaxis natural
+// - Fácil mantenimiento</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejercicio Práctico -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">💻 Ejercicio Práctico: Cuenta Bancaria</h2>
+      </div>
+      <div class="p-6">
+        <div class="code-container">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>const cuentaBancaria = {
+  // Propiedades
+  titular: "Carlos Mendoza",
+  numeroCuenta: "001-234-567",
+  saldo: 1000,
+  activa: true,
+  transacciones: [],
+  
+  // Métodos
+  consultarSaldo() {
+    return `Saldo actual: $${this.saldo}`;
+  },
+  
+  depositar(cantidad) {
+    if (!this.activa) {
+      return "Error: Cuenta inactiva";
+    }
+    
+    if (cantidad <= 0) {
+      return "Error: La cantidad debe ser positiva";
+    }
+    
+    this.saldo += cantidad;
+    this.transacciones.push({
+      tipo: "Depósito",
+      cantidad: cantidad,
+      fecha: new Date().toLocaleDateString(),
+      saldoResultante: this.saldo
+    });
+    
+    return `Depósito exitoso. ${this.consultarSaldo()}`;
+  },
+  
+  retirar(cantidad) {
+    if (!this.activa) {
+      return "Error: Cuenta inactiva";
+    }
+    
+    if (cantidad <= 0) {
+      return "Error: La cantidad debe ser positiva";
+    }
+    
+    if (cantidad > this.saldo) {
+      return "Error: Saldo insuficiente";
+    }
+    
+    this.saldo -= cantidad;
+    this.transacciones.push({
+      tipo: "Retiro",
+      cantidad: cantidad,
+      fecha: new Date().toLocaleDateString(),
+      saldoResultante: this.saldo
+    });
+    
+    return `Retiro exitoso. ${this.consultarSaldo()}`;
+  },
+  
+  obtenerHistorial() {
+    if (this.transacciones.length === 0) {
+      return "No hay transacciones registradas";
+    }
+    
+    return this.transacciones.map(t => 
+      `${t.fecha}: ${t.tipo} de $${t.cantidad} (Saldo: $${t.saldoResultante})`
+    ).join('\n');
+  },
+  
+  obtenerResumen() {
+    return {
+      titular: this.titular,
+      cuenta: this.numeroCuenta,
+      saldo: this.saldo,
+      estado: this.activa ? "Activa" : "Inactiva",
+      totalTransacciones: this.transacciones.length
+    };
+  }
+};
+
+// Prueba del ejercicio
+console.log(cuentaBancaria.consultarSaldo());     // Saldo actual: $1000
+console.log(cuentaBancaria.depositar(500));       // Depósito exitoso. Saldo actual: $1500
+console.log(cuentaBancaria.retirar(200));         // Retiro exitoso. Saldo actual: $1300
+console.log(cuentaBancaria.retirar(2000));        // Error: Saldo insuficiente
+console.log(cuentaBancaria.obtenerHistorial());   // Historial de transacciones
+console.log(cuentaBancaria.obtenerResumen());     // Resumen de la cuenta</code></pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="que-son-objetos.html"
+            class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← ¿Qué son los Objetos?
+          </a>
+
+          <a href="../../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            🏠 Inicio
+          </a>
+
+          <a href="this-contexto.html"
+            class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            Contexto "this" →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Propiedades y Métodos en JavaScript</strong>
+      </p>
+      <p class="text-green-100 mt-2">
+        Development School © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Función para copiar código
+    function copyCode(button) {
+      const codeBlock = button.nextElementSibling.querySelector('code');
+      const text = codeBlock.textContent;
+      
+      navigator.clipboard.writeText(text).then(() => {
+        button.textContent = '✅ Copiado';
+        setTimeout(() => {
+          button.textContent = 'Copiar';
+        }, 2000);
+      });
+    }
+
+    // Efectos de animación
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

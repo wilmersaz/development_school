@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Contexto "this" en JavaScript</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .code-container {
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .copy-btn:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="propiedades-metodos.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors w-full sm:w-auto text-center">
+        ← Propiedades y Métodos
+      </a>
+      <a href="desestructuracion.html"
+        class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors w-full sm:w-auto text-center">
+        Desestructuración →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 pb-1">🎯 El Contexto "this"</h1>
+      <p class="text-xl text-gray-600">La referencia al objeto actual en JavaScript</p>
+    </div>
+
+    <!-- Definición -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📚 ¿Qué es "this"?</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Definición</h3>
+            <div class="space-y-3 text-gray-600">
+              <p><strong>"this"</strong> es una palabra clave que hace referencia al objeto que está ejecutando el código en ese momento.</p>
+              
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-2">💡 Analogía:</h4>
+                <p class="text-purple-700 text-sm">
+                  Como un <strong>pronombre personal</strong> en español. Cuando dices "yo camino", 
+                  "yo" se refiere a ti mismo. En JavaScript, "this" se refiere al objeto actual.
+                </p>
+              </div>
+
+              <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                <h4 class="font-semibold text-yellow-800 mb-2">⚠️ Importante:</h4>
+                <p class="text-yellow-700 text-sm">
+                  El valor de "this" <strong>cambia</strong> dependiendo de cómo se llama la función.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-semibold mb-3">Ejemplo Básico</h4>
+            <div class="bg-white p-4 rounded border-2 border-purple-200">
+              <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre class="text-sm bg-gray-900 text-green-400 p-3 rounded"><code>const persona = {
+  nombre: "María",
+  
+  saludar() {
+    // "this" se refiere al objeto "persona"
+    return `Hola, soy ${this.nombre}`;
+  }
+};
+
+console.log(persona.saludar());
+// "Hola, soy María"</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contextos de "this" -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🔄 Diferentes Contextos de "this"</h2>
+      </div>
+      <div class="p-6">
+        
+        <!-- En Métodos de Objeto -->
+        <div class="border-l-4 border-blue-500 pl-4 mb-6">
+          <h3 class="text-lg font-semibold text-blue-800 mb-3">1. En Métodos de Objeto</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>const coche = {
+  marca: "Toyota",
+  modelo: "Camry",
+  año: 2023,
+  
+  obtenerInfo() {
+    // "this" = objeto "coche"
+    return `${this.marca} ${this.modelo} (${this.año})`;
+  },
+  
+  actualizar(nuevoAño) {
+    // "this" permite modificar propiedades del objeto
+    this.año = nuevoAño;
+    return `Año actualizado: ${this.año}`;
+  },
+  
+  mostrarTodo() {
+    // "this" da acceso a todas las propiedades
+    return {
+      marca: this.marca,
+      modelo: this.modelo,
+      año: this.año
+    };
+  }
+};
+
+console.log(coche.obtenerInfo());    // "Toyota Camry (2023)"
+console.log(coche.actualizar(2024)); // "Año actualizado: 2024"
+console.log(coche.mostrarTodo());    // {marca: "Toyota", modelo: "Camry", año: 2024}</code></pre>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-3 text-blue-800">Comportamiento</h4>
+              <div class="space-y-2">
+                <div class="flex items-center space-x-2 p-2 bg-blue-50 rounded">
+                  <span class="text-blue-600">👍</span>
+                  <span class="text-sm"><code>this</code> = objeto que contiene el método</span>
+                </div>
+                <div class="flex items-center space-x-2 p-2 bg-blue-50 rounded">
+                  <span class="text-blue-600">📋</span>
+                  <span class="text-sm">Accede a propiedades del objeto</span>
+                </div>
+                <div class="flex items-center space-x-2 p-2 bg-blue-50 rounded">
+                  <span class="text-blue-600">✏️</span>
+                  <span class="text-sm">Puede modificar el objeto</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Función Independiente -->
+        <div class="border-l-4 border-red-500 pl-4 mb-6">
+          <h3 class="text-lg font-semibold text-red-800 mb-3">2. En Funciones Independientes</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-red-400 p-4 rounded overflow-x-auto"><code>// Función independiente
+function mostrarThis() {
+  console.log(this);
+}
+
+// En el navegador
+mostrarThis(); // Window object
+
+// En Node.js
+mostrarThis(); // Global object
+
+// En modo estricto
+"use strict";
+function mostrarThisEstricto() {
+  console.log(this);
+}
+
+mostrarThisEstricto(); // undefined
+
+// Problema común: método asignado a variable
+const usuario = {
+  nombre: "Pedro",
+  saludar() {
+    return `Hola, soy ${this.nombre}`;
+  }
+};
+
+const saludarFunc = usuario.saludar;
+console.log(saludarFunc()); // Error: this.nombre is undefined</code></pre>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-3 text-red-800">⚠️ Problemas Comunes</h4>
+              <div class="space-y-2">
+                <div class="flex items-center space-x-2 p-2 bg-red-50 rounded">
+                  <span class="text-red-600">❌</span>
+                  <span class="text-sm"><code>this</code> = objeto global o undefined</span>
+                </div>
+                <div class="flex items-center space-x-2 p-2 bg-red-50 rounded">
+                  <span class="text-red-600">⚠️</span>
+                  <span class="text-sm">Pierde contexto al asignar a variable</span>
+                </div>
+                <div class="flex items-center space-x-2 p-2 bg-red-50 rounded">
+                  <span class="text-red-600">💥</span>
+                  <span class="text-sm">Causa errores inesperados</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arrow Functions -->
+        <div class="border-l-4 border-green-500 pl-4">
+          <h3 class="text-lg font-semibold text-green-800 mb-3">3. En Arrow Functions</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-cyan-400 p-4 rounded overflow-x-auto"><code>const equipo = {
+  nombre: "Desarrolladores",
+  miembros: ["Ana", "Juan", "Luis"],
+  
+  // Función normal - this = equipo
+  mostrarEquipo() {
+    return `Equipo: ${this.nombre}`;
+  },
+  
+  // Arrow function - this = contexto exterior
+  mostrarEquipoArrow: () => {
+    // ❌ this NO es "equipo"
+    return `Equipo: ${this.nombre}`; // undefined
+  },
+  
+  // Usando arrow functions dentro de métodos
+  listarMiembros() {
+    // this = equipo (función normal)
+    return this.miembros.map(miembro => {
+      // Arrow function hereda this del método padre
+      return `${miembro} del equipo ${this.nombre}`;
+    });
+  },
+  
+  // Comparación con función normal
+  listarMiembrosError() {
+    return this.miembros.map(function(miembro) {
+      // ❌ this se pierde en función normal
+      return `${miembro} del equipo ${this.nombre}`; // undefined
+    });
+  }
+};
+
+console.log(equipo.mostrarEquipo());     // "Equipo: Desarrolladores"
+console.log(equipo.mostrarEquipoArrow()); // "Equipo: undefined"
+console.log(equipo.listarMiembros());    // ["Ana del equipo Desarrolladores", ...]</code></pre>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-3 text-green-800">🏹 Arrow Functions</h4>
+              <div class="space-y-2">
+                <div class="flex items-center space-x-2 p-2 bg-green-50 rounded">
+                  <span class="text-green-600">📍</span>
+                  <span class="text-sm">No tienen su propio <code>this</code></span>
+                </div>
+                <div class="flex items-center space-x-2 p-2 bg-green-50 rounded">
+                  <span class="text-green-600">🔗</span>
+                  <span class="text-sm">Heredan <code>this</code> del contexto padre</span>
+                </div>
+                <div class="flex items-center space-x-2 p-2 bg-green-50 rounded">
+                  <span class="text-green-600">✅</span>
+                  <span class="text-sm">Útiles en callbacks y métodos internos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soluciones y Buenas Prácticas -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🛠️ Soluciones y Buenas Prácticas</h2>
+      </div>
+      <div class="p-6">
+        
+        <!-- bind() -->
+        <div class="border-l-4 border-orange-500 pl-4 mb-6">
+          <h3 class="text-lg font-semibold text-orange-800 mb-3">1. Método bind()</h3>
+          <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>const persona = {
+  nombre: "Sofia",
+  edad: 28,
+  
+  presentarse() {
+    return `Hola, soy ${this.nombre} y tengo ${this.edad} años`;
+  }
+};
+
+// Problema: método asignado a variable
+const presentar = persona.presentarse;
+console.log(presentar()); // Error: this.nombre is undefined
+
+// Solución 1: bind() - vincula permanentemente el contexto
+const presentarConBind = persona.presentarse.bind(persona);
+console.log(presentarConBind()); // "Hola, soy Sofia y tengo 28 años"
+
+// Uso común: pasar métodos como callbacks
+function ejecutarCallback(callback) {
+  callback();
+}
+
+// Sin bind - Error
+ejecutarCallback(persona.presentarse); // Error
+
+// Con bind - Funciona
+ejecutarCallback(persona.presentarse.bind(persona)); // ✅ Funciona</code></pre>
+          </div>
+        </div>
+
+        <!-- call() y apply() -->
+        <div class="border-l-4 border-blue-500 pl-4 mb-6">
+          <h3 class="text-lg font-semibold text-blue-800 mb-3">2. Métodos call() y apply()</h3>
+          <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre class="text-sm bg-gray-900 text-cyan-400 p-4 rounded overflow-x-auto"><code>const animal1 = {
+  nombre: "Rex",
+  tipo: "Perro"
+};
+
+const animal2 = {
+  nombre: "Misu",
+  tipo: "Gato"
+};
+
+function presentarAnimal(edad, ciudad) {
+  return `Soy ${this.nombre}, un ${this.tipo} de ${edad} años que vive en ${ciudad}`;
+}
+
+// call() - pasa argumentos individualmente
+console.log(presentarAnimal.call(animal1, 5, "Madrid"));
+// "Soy Rex, un Perro de 5 años que vive en Madrid"
+
+console.log(presentarAnimal.call(animal2, 3, "Barcelona"));
+// "Soy Misu, un Gato de 3 años que vive en Barcelona"
+
+// apply() - pasa argumentos como array
+console.log(presentarAnimal.apply(animal1, [5, "Madrid"]));
+console.log(presentarAnimal.apply(animal2, [3, "Barcelona"]));
+
+// Uso práctico: encontrar máximo en array usando Math.max
+const numeros = [1, 5, 3, 9, 2];
+const maximo = Math.max.apply(null, numeros);
+console.log(maximo); // 9</code></pre>
+          </div>
+        </div>
+
+        <!-- Arrow Functions como Solución -->
+        <div class="border-l-4 border-green-500 pl-4">
+          <h3 class="text-lg font-semibold text-green-800 mb-3">3. Arrow Functions como Solución</h3>
+          <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre class="text-sm bg-gray-900 text-purple-400 p-4 rounded overflow-x-auto"><code>const tienda = {
+  nombre: "TechStore",
+  productos: ["Laptop", "Mouse", "Teclado"],
+  
+  // Método que usa arrow functions para mantener contexto
+  mostrarProductos() {
+    console.log(`Productos de ${this.nombre}:`);
+    
+    // Arrow function mantiene el "this" del método padre
+    this.productos.forEach(producto => {
+      console.log(`- ${producto} disponible en ${this.nombre}`);
+    });
+  },
+  
+  // Filtrar productos con arrow function
+  buscarProducto(termino) {
+    return this.productos.filter(producto => 
+      producto.toLowerCase().includes(termino.toLowerCase())
+    ).map(producto => 
+      `${producto} encontrado en ${this.nombre}`
+    );
+  },
+  
+  // Ejemplo con setTimeout - problema y solución
+  mostrarMensajeDemorado() {
+    console.log(`Mensaje inmediato de ${this.nombre}`);
+    
+    // ❌ Problema con función normal
+    setTimeout(function() {
+      console.log(`Mensaje tardío de ${this.nombre}`); // undefined
+    }, 1000);
+    
+    // ✅ Solución con arrow function
+    setTimeout(() => {
+      console.log(`Mensaje tardío correcto de ${this.nombre}`); // TechStore
+    }, 2000);
+  }
+};
+
+tienda.mostrarProductos();
+// Productos de TechStore:
+// - Laptop disponible en TechStore
+// - Mouse disponible en TechStore
+// - Teclado disponible en TechStore
+
+console.log(tienda.buscarProducto("la")); // ["Laptop encontrado en TechStore", "Teclado encontrado en TechStore"]</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejercicio Práctico -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">💻 Ejercicio Práctico: Sistema de Tareas</h2>
+      </div>
+      <div class="p-6">
+        <div class="code-container">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>const gestorTareas = {
+  usuario: "Ana López",
+  tareas: [
+    { id: 1, titulo: "Estudiar JavaScript", completada: false },
+    { id: 2, titulo: "Hacer ejercicio", completada: true },
+    { id: 3, titulo: "Leer un libro", completada: false }
+  ],
+  
+  // Mostrar resumen usando this
+  mostrarResumen() {
+    const total = this.tareas.length;
+    const completadas = this.tareas.filter(tarea => tarea.completada).length;
+    const pendientes = total - completadas;
+    
+    return `📊 Resumen de ${this.usuario}:
+Total: ${total} tareas
+✅ Completadas: ${completadas}
+⏳ Pendientes: ${pendientes}`;
+  },
+  
+  // Listar tareas con arrow functions
+  listarTareas() {
+    console.log(`📝 Tareas de ${this.usuario}:`);
+    
+    this.tareas.forEach(tarea => {
+      const estado = tarea.completada ? "✅" : "⏳";
+      console.log(`${estado} ${tarea.titulo}`);
+    });
+  },
+  
+  // Completar tarea
+  completarTarea(id) {
+    const tarea = this.tareas.find(t => t.id === id);
+    if (tarea) {
+      tarea.completada = true;
+      return `✅ ${tarea.titulo} completada por ${this.usuario}`;
+    }
+    return "❌ Tarea no encontrada";
+  },
+  
+  // Agregar nueva tarea
+  agregarTarea(titulo) {
+    const nuevaId = Math.max(...this.tareas.map(t => t.id)) + 1;
+    this.tareas.push({
+      id: nuevaId,
+      titulo: titulo,
+      completada: false
+    });
+    return `➕ "${titulo}" agregada a las tareas de ${this.usuario}`;
+  },
+  
+  // Obtener tareas pendientes
+  obtenerPendientes() {
+    return this.tareas
+      .filter(tarea => !tarea.completada)
+      .map(tarea => `⏳ ${tarea.titulo}`)
+      .join('\n');
+  },
+  
+  // Método que demuestra el problema y solución de this
+  procesarTareasAsync() {
+    console.log(`Procesando tareas de ${this.usuario}...`);
+    
+    // Simular procesamiento asíncrono
+    this.tareas.forEach((tarea, index) => {
+      setTimeout(() => {
+        // Arrow function mantiene el contexto de this
+        console.log(`Procesada: ${tarea.titulo} por ${this.usuario}`);
+      }, (index + 1) * 1000);
+    });
+  }
+};
+
+// Pruebas del sistema
+console.log(gestorTareas.mostrarResumen());
+gestorTareas.listarTareas();
+console.log(gestorTareas.completarTarea(1));
+console.log(gestorTareas.agregarTarea("Aprender sobre 'this'"));
+console.log(gestorTareas.obtenerPendientes());
+
+// Demostrar problema de contexto
+const metodoSeparado = gestorTareas.mostrarResumen;
+// console.log(metodoSeparado()); // ❌ Error
+
+// Solución con bind
+const metodoConBind = gestorTareas.mostrarResumen.bind(gestorTareas);
+console.log(metodoConBind()); // ✅ Funciona correctamente</code></pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="propiedades-metodos.html"
+            class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← Propiedades y Métodos
+          </a>
+
+          <a href="../../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            🏠 Inicio
+          </a>
+
+          <a href="desestructuracion.html"
+            class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            Desestructuración →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Contexto "this" en JavaScript</strong>
+      </p>
+      <p class="text-purple-100 mt-2">
+        Development School © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Función para copiar código
+    function copyCode(button) {
+      const codeBlock = button.nextElementSibling.querySelector('code');
+      const text = codeBlock.textContent;
+      
+      navigator.clipboard.writeText(text).then(() => {
+        button.textContent = '✅ Copiado';
+        setTimeout(() => {
+          button.textContent = 'Copiar';
+        }, 2000);
+      });
+    }
+
+    // Efectos de animación
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

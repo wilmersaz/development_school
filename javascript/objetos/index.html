@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetos en JavaScript - Índice</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .topic-card {
+      transition: all 0.3s ease;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="../../index.html"
+        class="bg-white text-slate-600 px-4 py-2 rounded-lg hover:bg-slate-50 transition-colors w-full sm:w-auto text-center">
+        ← Menú Principal
+      </a>
+      <a href="../index.html"
+        class="bg-white text-slate-600 px-4 py-2 rounded-lg hover:bg-slate-50 transition-colors w-full sm:w-auto text-center">
+        JavaScript Principal →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in text-center">
+      <h1 class="text-5xl font-bold text-gray-800 mb-4">🧩 Objetos en JavaScript</h1>
+      <p class="text-xl text-gray-600 mb-6">Domina la programación orientada a objetos en JavaScript</p>
+      <div class="inline-flex items-center bg-gradient-to-r from-blue-100 to-purple-100 px-6 py-3 rounded-full">
+        <span class="text-sm font-medium text-gray-700">6 Temas Completos • Ejemplos Prácticos • Ejercicios</span>
+      </div>
+    </div>
+
+    <!-- Progress Overview -->
+    <div class="bg-white rounded-xl shadow-xl p-6 mb-8 fade-in-up">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">📊 Ruta de Aprendizaje</h2>
+      <div class="grid md:grid-cols-6 gap-2">
+        <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-3 rounded-lg text-center">
+          <div class="font-bold text-sm">1. Definición</div>
+          <div class="text-xs opacity-90">Conceptos básicos</div>
+        </div>
+        <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-3 rounded-lg text-center">
+          <div class="font-bold text-sm">2. Propiedades</div>
+          <div class="text-xs opacity-90">Acceso y modificación</div>
+        </div>
+        <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-3 rounded-lg text-center">
+          <div class="font-bold text-sm">3. This</div>
+          <div class="text-xs opacity-90">Contexto y referencia</div>
+        </div>
+        <div class="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white p-3 rounded-lg text-center">
+          <div class="font-bold text-sm">4. Desestructuración</div>
+          <div class="text-xs opacity-90">Extracción de valores</div>
+        </div>
+        <div class="bg-gradient-to-r from-red-500 to-red-600 text-white p-3 rounded-lg text-center">
+          <div class="font-bold text-sm">5. Objetos Literales</div>
+          <div class="text-xs opacity-90">Creación estática</div>
+        </div>
+        <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white p-3 rounded-lg text-center">
+          <div class="font-bold text-sm">6. Objetos Dinámicos</div>
+          <div class="text-xs opacity-90">Creación dinámica</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Topics Grid -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-8">
+
+      <!-- Tema 1: ¿Qué son los Objetos? -->
+      <div class="topic-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-6 text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-2xl font-bold">🧩 ¿Qué son los Objetos?</h3>
+              <p class="text-orange-100 mt-2">Fundamentos y conceptos básicos</p>
+            </div>
+            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Tema 1</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="mb-4">
+            <h4 class="font-semibold text-gray-800 mb-2">📝 Lo que aprenderás:</h4>
+            <ul class="text-gray-600 text-sm space-y-1">
+              <li>• Definición de objetos como colecciones clave-valor</li>
+              <li>• Sintaxis básica y estructura de objetos</li>
+              <li>• Tipos de propiedades y métodos</li>
+              <li>• Casos de uso prácticos</li>
+            </ul>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+              <span>⏱️ 15 min</span>
+              <span>📄 Ejemplos</span>
+              <span>💻 Ejercicios</span>
+            </div>
+            <a href="que-son-objetos.html" 
+               class="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors">
+              Estudiar →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 2: Propiedades y Métodos -->
+      <div class="topic-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-2xl font-bold">🔧 Propiedades y Métodos</h3>
+              <p class="text-green-100 mt-2">Acceso y manipulación de datos</p>
+            </div>
+            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Tema 2</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="mb-4">
+            <h4 class="font-semibold text-gray-800 mb-2">📝 Lo que aprenderás:</h4>
+            <ul class="text-gray-600 text-sm space-y-1">
+              <li>• Notación de punto vs notación de corchetes</li>
+              <li>• Definición y uso de métodos</li>
+              <li>• Sintaxis tradicional vs moderna (ES6+)</li>
+              <li>• Proyecto práctico: cuenta bancaria</li>
+            </ul>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+              <span>⏱️ 20 min</span>
+              <span>📄 Ejemplos</span>
+              <span>💻 Ejercicios</span>
+            </div>
+            <a href="propiedades-metodos.html" 
+               class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
+              Estudiar →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 3: Contexto "this" -->
+      <div class="topic-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-2xl font-bold">🎯 Contexto "this"</h3>
+              <p class="text-purple-100 mt-2">La referencia al objeto actual</p>
+            </div>
+            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Tema 3</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="mb-4">
+            <h4 class="font-semibold text-gray-800 mb-2">📝 Lo que aprenderás:</h4>
+            <ul class="text-gray-600 text-sm space-y-1">
+              <li>• Qué es "this" y cómo funciona</li>
+              <li>• Diferentes contextos de "this"</li>
+              <li>• Problemas comunes y soluciones</li>
+              <li>• bind(), call() y apply()</li>
+            </ul>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+              <span>⏱️ 25 min</span>
+              <span>📄 Ejemplos</span>
+              <span>💻 Ejercicios</span>
+            </div>
+            <a href="this-contexto.html" 
+               class="bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition-colors">
+              Estudiar →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 4: Desestructuración -->
+      <div class="topic-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up">
+        <div class="bg-gradient-to-r from-cyan-600 to-cyan-700 p-6 text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-2xl font-bold">🎯 Desestructuración</h3>
+              <p class="text-cyan-100 mt-2">Extracción elegante de valores</p>
+            </div>
+            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Tema 4</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="mb-4">
+            <h4 class="font-semibold text-gray-800 mb-2">📝 Lo que aprenderás:</h4>
+            <ul class="text-gray-600 text-sm space-y-1">
+              <li>• Sintaxis básica de desestructuración</li>
+              <li>• Renombrado y valores por defecto</li>
+              <li>• Desestructuración anidada</li>
+              <li>• Casos de uso prácticos con APIs</li>
+            </ul>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+              <span>⏱️ 18 min</span>
+              <span>📄 Ejemplos</span>
+              <span>💻 Ejercicios</span>
+            </div>
+            <a href="desestructuracion.html" 
+               class="bg-cyan-500 text-white px-6 py-2 rounded-lg hover:bg-cyan-600 transition-colors">
+              Estudiar →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tema 5: Objetos Literales y Dinámicos -->
+      <div class="topic-card bg-white rounded-xl shadow-xl overflow-hidden fade-in-up col-span-full">
+        <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-2xl font-bold">🏗️ Objetos Literales y Dinámicos</h3>
+              <p class="text-red-100 mt-2">Creación flexible y avanzada de objetos</p>
+            </div>
+            <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Tema 5-6</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">📝 Lo que aprenderás:</h4>
+              <ul class="text-gray-600 text-sm space-y-1">
+                <li>• Objetos literales y sintaxis moderna ES6+</li>
+                <li>• Property shorthand y method shorthand</li>
+                <li>• Computed property names</li>
+                <li>• Objetos dinámicos con Object.assign()</li>
+                <li>• Spread operator para combinar objetos</li>
+                <li>• Factory functions para crear objetos</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">🚀 Proyecto Final:</h4>
+              <div class="bg-red-50 p-4 rounded-lg">
+                <h5 class="font-semibold text-red-800">Sistema de E-commerce Completo</h5>
+                <p class="text-red-700 text-sm mt-1">
+                  Construirás un sistema completo que incluye productos, usuarios, 
+                  pedidos, pagos y estadísticas, aplicando todos los conceptos aprendidos.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-6">
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+              <span>⏱️ 30 min</span>
+              <span>📄 Ejemplos</span>
+              <span>💻 Proyecto</span>
+              <span>🚀 Avanzado</span>
+            </div>
+            <a href="objetos-literales-dinamicos.html" 
+               class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition-colors">
+              Estudiar →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Quick Reference -->
+    <div class="bg-white rounded-xl shadow-xl p-6 mb-8 fade-in-up">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">📚 Referencia Rápida</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-gray-800 mb-2">🏗️ Creación de Objetos</h3>
+          <div class="text-sm text-gray-600 space-y-1">
+            <code class="bg-gray-200 px-2 py-1 rounded text-xs">const obj = { key: value }</code>
+            <code class="bg-gray-200 px-2 py-1 rounded text-xs">const obj = new Object()</code>
+            <code class="bg-gray-200 px-2 py-1 rounded text-xs">Object.create(prototype)</code>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-gray-800 mb-2">🔍 Acceso a Propiedades</h3>
+          <div class="text-sm text-gray-600 space-y-1">
+            <code class="bg-gray-200 px-2 py-1 rounded text-xs">obj.property</code>
+            <code class="bg-gray-200 px-2 py-1 rounded text-xs">obj["property"]</code>
+            <code class="bg-gray-200 px-2 py-1 rounded text-xs">obj?. property</code>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-gray-800 mb-2">🎯 Desestructuración</h3>
+          <div class="text-sm text-gray-600 space-y-1">
+            <code class="bg-gray-200 px-2 py-1 rounded text-xs">const { a, b } = obj</code>
+            <code class="bg-gray-200 px-2 py-1 rounded text-xs">const { a: newName } = obj</code>
+            <code class="bg-gray-200 px-2 py-1 rounded text-xs">const { a = default } = obj</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tips and Best Practices -->
+    <div class="bg-white rounded-xl shadow-xl p-6 fade-in-up">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">💡 Tips y Mejores Prácticas</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <div class="flex items-start space-x-3 mb-4">
+            <span class="text-green-600 text-xl">✅</span>
+            <div>
+              <h4 class="font-semibold text-green-800">Usa nombres descriptivos</h4>
+              <p class="text-green-700 text-sm">Las propiedades deben describir claramente su propósito</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3 mb-4">
+            <span class="text-green-600 text-xl">✅</span>
+            <div>
+              <h4 class="font-semibold text-green-800">Aprovecha la sintaxis moderna</h4>
+              <p class="text-green-700 text-sm">Usa shorthand properties y methods para código más limpio</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-green-600 text-xl">✅</span>
+            <div>
+              <h4 class="font-semibold text-green-800">Desestructura en parámetros</h4>
+              <p class="text-green-700 text-sm">Hace las funciones más legibles y flexibles</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-start space-x-3 mb-4">
+            <span class="text-red-600 text-xl">❌</span>
+            <div>
+              <h4 class="font-semibold text-red-800">Evita mutar objetos inesperadamente</h4>
+              <p class="text-red-700 text-sm">Usa spread operator para crear copias cuando sea necesario</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3 mb-4">
+            <span class="text-red-600 text-xl">❌</span>
+            <div>
+              <h4 class="font-semibold text-red-800">Cuidado con el contexto de "this"</h4>
+              <p class="text-red-700 text-sm">Especialmente al pasar métodos como callbacks</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-red-600 text-xl">❌</span>
+            <div>
+              <h4 class="font-semibold text-red-800">No abuses de la desestructuración profunda</h4>
+              <p class="text-red-700 text-sm">Puede hacer el código menos legible si es muy compleja</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="../../index.html"
+            class="bg-slate-500 text-white px-6 py-3 rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← Menú Principal
+          </a>
+
+          <a href="que-son-objetos.html"
+            class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-red-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            🚀 Comenzar con Objetos
+          </a>
+
+          <a href="../index.html"
+            class="bg-slate-500 text-white px-6 py-3 rounded-lg hover:bg-slate-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            JavaScript Principal →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Objetos en JavaScript</strong>
+      </p>
+      <p class="text-slate-300 mt-2">
+        Development School © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Efectos de animación
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        }
+      });
+
+      for (const element of elements) {
+        observer.observe(element);
+      }
+    });
+  </script>
+
+</body>
+
+</html>

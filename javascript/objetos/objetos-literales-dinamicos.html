@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetos Literales y Dinámicos en JavaScript</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .code-container {
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .copy-btn:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="desestructuracion.html"
+        class="bg-white text-red-600 px-4 py-2 rounded-lg hover:bg-red-50 transition-colors w-full sm:w-auto text-center">
+        ← Desestructuración
+      </a>
+      <a href="index.html"
+        class="bg-white text-red-600 px-4 py-2 rounded-lg hover:bg-red-50 transition-colors w-full sm:w-auto text-center">
+        Índice de Objetos →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 pb-1">🏗️ Objetos Literales y Dinámicos</h1>
+      <p class="text-xl text-gray-600">Creación flexible y dinámica de objetos en JavaScript</p>
+    </div>
+
+    <!-- Objetos Literales -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📋 Objetos Literales</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">¿Qué son?</h3>
+            <div class="space-y-3 text-gray-600">
+              <p>Los <strong>objetos literales</strong> son objetos creados directamente con la sintaxis de llaves <code>{}</code>, definiendo sus propiedades y valores de forma estática.</p>
+              
+              <div class="bg-red-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-red-800 mb-2">🎯 Características:</h4>
+                <ul class="text-red-700 text-sm list-disc ml-4 space-y-1">
+                  <li>Sintaxis simple y directa</li>
+                  <li>Definición en tiempo de escritura del código</li>
+                  <li>Estructura fija (aunque modificable después)</li>
+                  <li>Fácil de leer y mantener</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-semibold mb-3">Ejemplo Básico</h4>
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-green-400 p-3 rounded overflow-x-auto"><code>// Objeto literal - definido directamente
+const libro = {
+  titulo: "El Quijote",
+  autor: "Miguel de Cervantes",
+  año: 1605,
+  genero: "Novela",
+  paginas: 863,
+  
+  // Método dentro del objeto literal
+  obtenerInfo() {
+    return `${this.titulo} por ${this.autor}`;
+  }
+};
+
+console.log(libro.titulo); // "El Quijote"
+console.log(libro.obtenerInfo()); // "El Quijote por Miguel de Cervantes"</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sintaxis Moderna ES6+ -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">⚡ Sintaxis Moderna (ES6+)</h2>
+      </div>
+      <div class="p-6">
+        
+        <!-- Property Shorthand -->
+        <div class="border-l-4 border-blue-500 pl-4 mb-6">
+          <h3 class="text-lg font-semibold text-blue-800 mb-3">1. Property Shorthand</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-medium text-gray-700 mb-2">❌ Forma Tradicional</h4>
+              <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre class="text-sm bg-gray-900 text-red-400 p-3 rounded overflow-x-auto"><code>const nombre = "Ana";
+const edad = 25;
+const ciudad = "Madrid";
+
+const persona = {
+  nombre: nombre,  // Repetición
+  edad: edad,      // Repetición
+  ciudad: ciudad   // Repetición
+};</code></pre>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="font-medium text-gray-700 mb-2">✅ ES6+ Shorthand</h4>
+              <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre class="text-sm bg-gray-900 text-green-400 p-3 rounded overflow-x-auto"><code>const nombre = "Ana";
+const edad = 25;
+const ciudad = "Madrid";
+
+const persona = {
+  nombre,    // Automáticamente nombre: nombre
+  edad,      // Automáticamente edad: edad
+  ciudad     // Automáticamente ciudad: ciudad
+};</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Method Shorthand -->
+        <div class="border-l-4 border-green-500 pl-4 mb-6">
+          <h3 class="text-lg font-semibold text-green-800 mb-3">2. Method Shorthand</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-medium text-gray-700 mb-2">❌ Forma Tradicional</h4>
+              <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre class="text-sm bg-gray-900 text-red-400 p-3 rounded overflow-x-auto"><code>const calculadora = {
+  suma: function(a, b) {
+    return a + b;
+  },
+  
+  resta: function(a, b) {
+    return a - b;
+  },
+  
+  multiplicar: function(a, b) {
+    return a * b;
+  }
+};</code></pre>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="font-medium text-gray-700 mb-2">✅ ES6+ Method Shorthand</h4>
+              <div class="code-container">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <pre class="text-sm bg-gray-900 text-green-400 p-3 rounded overflow-x-auto"><code>const calculadora = {
+  suma(a, b) {      // Sin 'function'
+    return a + b;
+  },
+  
+  resta(a, b) {     // Sin 'function'
+    return a - b;
+  },
+  
+  multiplicar(a, b) { // Sin 'function'
+    return a * b;
+  }
+};</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Computed Property Names -->
+        <div class="border-l-4 border-purple-500 pl-4">
+          <h3 class="text-lg font-semibold text-purple-800 mb-3">3. Computed Property Names</h3>
+          <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre class="text-sm bg-gray-900 text-cyan-400 p-4 rounded overflow-x-auto"><code>// Nombres de propiedades calculados dinámicamente
+const prefijo = "usuario";
+const campo1 = "nombre";
+const campo2 = "email";
+
+const datos = {
+  [`${prefijo}_id`]: 123,           // Resultado: usuario_id: 123
+  [campo1]: "María",                // Resultado: nombre: "María"
+  [campo2]: "maria@email.com",      // Resultado: email: "maria@email.com"
+  [`${prefijo}_activo`]: true       // Resultado: usuario_activo: true
+};
+
+console.log(datos);
+// {
+//   usuario_id: 123,
+//   nombre: "María",
+//   email: "maria@email.com",
+//   usuario_activo: true
+// }
+
+// Ejemplo avanzado: generar propiedades basadas en arrays
+const campos = ["nombre", "apellido", "edad"];
+const valores = ["Juan", "Pérez", 30];
+
+const persona = {};
+campos.forEach((campo, index) => {
+  persona[campo] = valores[index];
+});
+
+// Forma más elegante con computed properties
+const personaElegante = campos.reduce((obj, campo, index) => ({
+  ...obj,
+  [campo]: valores[index]
+}), {});
+
+console.log(personaElegante); // {nombre: "Juan", apellido: "Pérez", edad: 30}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Objetos Dinámicos -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🔄 Objetos Dinámicos</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">¿Qué son?</h3>
+            <div class="space-y-3 text-gray-600">
+              <p>Los <strong>objetos dinámicos</strong> son objetos que se crean o modifican durante la ejecución del programa, basándose en condiciones, datos de entrada o lógica de negocio.</p>
+              
+              <div class="bg-orange-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-orange-800 mb-2">⚡ Ventajas:</h4>
+                <ul class="text-orange-700 text-sm list-disc ml-4 space-y-1">
+                  <li>Flexibilidad total</li>
+                  <li>Adaptabilidad a datos variables</li>
+                  <li>Menos código repetitivo</li>
+                  <li>Escalabilidad</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">Técnicas Principales</h3>
+            <div class="space-y-3">
+              <div class="bg-blue-50 p-3 rounded">
+                <h4 class="font-semibold text-blue-800">🏗️ Object.assign()</h4>
+                <p class="text-blue-700 text-sm">Combinar múltiples objetos</p>
+              </div>
+              
+              <div class="bg-green-50 p-3 rounded">
+                <h4 class="font-semibold text-green-800">📦 Spread Operator (...)</h4>
+                <p class="text-green-700 text-sm">Expandir y combinar objetos</p>
+              </div>
+              
+              <div class="bg-purple-50 p-3 rounded">
+                <h4 class="font-semibold text-purple-800">🔧 Factory Functions</h4>
+                <p class="text-purple-700 text-sm">Funciones que crean objetos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Técnicas de Creación Dinámica -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🛠️ Técnicas de Creación Dinámica</h2>
+      </div>
+      <div class="p-6">
+        
+        <!-- Object.assign() -->
+        <div class="border-l-4 border-green-500 pl-4 mb-6">
+          <h3 class="text-lg font-semibold text-green-800 mb-3">1. Object.assign()</h3>
+          <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>// Crear objeto base
+const configuracionBase = {
+  tema: "claro",
+  idioma: "es",
+  notificaciones: true
+};
+
+// Configuraciones específicas por usuario
+const configuracionPremium = {
+  tema: "oscuro",
+  funcionalidadesPremium: true,
+  almacenamientoExtra: "50GB"
+};
+
+const configuracionAdmin = {
+  permisos: "admin",
+  accesoPanelControl: true,
+  gestionUsuarios: true
+};
+
+// Combinar configuraciones dinámicamente
+const usuarioPremium = Object.assign({}, configuracionBase, configuracionPremium);
+const usuarioAdmin = Object.assign({}, configuracionBase, configuracionAdmin);
+
+console.log(usuarioPremium);
+// {
+//   tema: "oscuro",
+//   idioma: "es", 
+//   notificaciones: true,
+//   funcionalidadesPremium: true,
+//   almacenamientoExtra: "50GB"
+// }
+
+// Función para crear configuración dinámica
+function crearConfiguracion(tipoUsuario, personalizaciones = {}) {
+  const configuraciones = {
+    basico: configuracionBase,
+    premium: { ...configuracionBase, ...configuracionPremium },
+    admin: { ...configuracionBase, ...configuracionAdmin }
+  };
+  
+  return Object.assign({}, configuraciones[tipoUsuario], personalizaciones);
+}
+
+// Uso dinámico
+const configUsuario1 = crearConfiguracion("premium", { idioma: "en" });
+const configUsuario2 = crearConfiguracion("admin", { tema: "oscuro", notificaciones: false });
+
+console.log(configUsuario1); // Configuración premium con idioma inglés
+console.log(configUsuario2); // Configuración admin personalizada</code></pre>
+          </div>
+        </div>
+
+        <!-- Spread Operator -->
+        <div class="border-l-4 border-blue-500 pl-4 mb-6">
+          <h3 class="text-lg font-semibold text-blue-800 mb-3">2. Spread Operator (...)</h3>
+          <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre class="text-sm bg-gray-900 text-cyan-400 p-4 rounded overflow-x-auto"><code>// Objetos base
+const datosPersonales = {
+  nombre: "Carlos",
+  apellido: "López",
+  edad: 32
+};
+
+const datosContacto = {
+  email: "carlos@email.com",
+  telefono: "+34 600 123 456",
+  direccion: "Calle Mayor 123"
+};
+
+const datosProfesionales = {
+  puesto: "Desarrollador",
+  empresa: "TechCorp",
+  experiencia: 5
+};
+
+// Combinación con spread operator
+const perfilCompleto = {
+  ...datosPersonales,
+  ...datosContacto,
+  ...datosProfesionales,
+  // Propiedades adicionales
+  fechaRegistro: new Date().toISOString(),
+  activo: true
+};
+
+console.log(perfilCompleto);
+
+// Función para crear perfiles dinámicos
+function crearPerfil(tipo, datos = {}) {
+  const perfilesBase = {
+    empleado: {
+      ...datosPersonales,
+      ...datosContacto,
+      tipoUsuario: "empleado"
+    },
+    freelancer: {
+      ...datosPersonales,
+      ...datosContacto,
+      ...datosProfesionales,
+      tipoUsuario: "freelancer",
+      disponible: true
+    },
+    cliente: {
+      ...datosPersonales,
+      ...datosContacto,
+      tipoUsuario: "cliente",
+      historialCompras: []
+    }
+  };
+  
+  return {
+    ...perfilesBase[tipo],
+    ...datos,
+    id: Math.random().toString(36).substr(2, 9),
+    fechaCreacion: new Date().toISOString()
+  };
+}
+
+// Crear perfiles dinámicamente
+const empleado = crearPerfil("empleado", { departamento: "IT" });
+const freelancer = crearPerfil("freelancer", { tarifaHora: 50 });
+const cliente = crearPerfil("cliente", { credito: 1000 });
+
+console.log("Empleado:", empleado);
+console.log("Freelancer:", freelancer);
+console.log("Cliente:", cliente);</code></pre>
+          </div>
+        </div>
+
+        <!-- Factory Functions -->
+        <div class="border-l-4 border-purple-500 pl-4">
+          <h3 class="text-lg font-semibold text-purple-800 mb-3">3. Factory Functions</h3>
+          <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre class="text-sm bg-gray-900 text-purple-400 p-4 rounded overflow-x-auto"><code>// Factory function para crear productos
+function crearProducto(nombre, precio, categoria, opciones = {}) {
+  // Configuración por defecto basada en categoría
+  const configuracionesPorCategoria = {
+    electronico: {
+      garantia: 24,
+      envioGratis: precio > 100,
+      categoria: "Electrónicos"
+    },
+    ropa: {
+      garantia: 6,
+      envioGratis: precio > 50,
+      categoria: "Ropa y Moda",
+      tallesDisponibles: ["S", "M", "L", "XL"]
+    },
+    libro: {
+      garantia: 0,
+      envioGratis: true,
+      categoria: "Libros",
+      formato: "físico"
+    }
+  };
+
+  const configBase = configuracionesPorCategoria[categoria] || {
+    garantia: 12,
+    envioGratis: false,
+    categoria: "General"
+  };
+
+  return {
+    id: `PROD-${Date.now()}-${Math.random().toString(36).substr(2, 4).toUpperCase()}`,
+    nombre,
+    precio,
+    ...configBase,
+    ...opciones,
+    fechaCreacion: new Date().toISOString(),
+    activo: true,
+    
+    // Métodos dinámicos
+    obtenerDescuento(porcentaje) {
+      return this.precio * (1 - porcentaje / 100);
+    },
+    
+    obtenerInfo() {
+      return `${this.nombre} - $${this.precio} (${this.categoria})`;
+    },
+    
+    puedeEnviarseGratis() {
+      return this.envioGratis;
+    }
+  };
+}
+
+// Factory function para crear usuarios
+function crearUsuario(datosBasicos, tipoSuscripcion = "basico") {
+  const suscripciones = {
+    basico: {
+      limite: 10,
+      caracteristicas: ["acceso básico"],
+      precio: 0
+    },
+    premium: {
+      limite: 100,
+      caracteristicas: ["acceso básico", "funciones avanzadas", "soporte prioritario"],
+      precio: 9.99
+    },
+    pro: {
+      limite: 1000,
+      caracteristicas: ["acceso completo", "API access", "soporte 24/7"],
+      precio: 29.99
+    }
+  };
+
+  const { nombre, email, edad } = datosBasicos;
+  const configSuscripcion = suscripciones[tipoSuscripcion];
+
+  return {
+    id: `USER-${Date.now()}`,
+    nombre,
+    email,
+    edad,
+    tipoSuscripcion,
+    ...configSuscripcion,
+    fechaRegistro: new Date().toISOString(),
+    activo: true,
+    uso: 0,
+    
+    // Métodos dinámicos
+    puedeUsar() {
+      return this.uso < this.limite;
+    },
+    
+    incrementarUso() {
+      if (this.puedeUsar()) {
+        this.uso++;
+        return true;
+      }
+      return false;
+    },
+    
+    obtenerEstadisticas() {
+      return {
+        usuario: this.nombre,
+        suscripcion: this.tipoSuscripcion,
+        usoActual: this.uso,
+        limiteTotal: this.limite,
+        porcentajeUso: ((this.uso / this.limite) * 100).toFixed(2) + "%"
+      };
+    }
+  };
+}
+
+// Uso de las factory functions
+const laptop = crearProducto("MacBook Pro", 1999, "electronico", {
+  ram: "16GB",
+  almacenamiento: "512GB SSD"
+});
+
+const libro = crearProducto("JavaScript: The Good Parts", 25, "libro", {
+  autor: "Douglas Crockford",
+  paginas: 176
+});
+
+const usuarioBasico = crearUsuario({ nombre: "Ana", email: "ana@email.com", edad: 28 });
+const usuarioPremium = crearUsuario({ nombre: "Carlos", email: "carlos@email.com", edad: 35 }, "premium");
+
+console.log("Producto laptop:", laptop.obtenerInfo());
+console.log("¿Envío gratis?", laptop.puedeEnviarseGratis());
+
+console.log("Usuario básico:", usuarioBasico.obtenerEstadisticas());
+usuarioPremium.incrementarUso();
+console.log("Usuario premium:", usuarioPremium.obtenerEstadisticas());</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto Completo -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🚀 Proyecto Completo: Sistema de E-commerce</h2>
+      </div>
+      <div class="p-6">
+        <div class="code-container">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>// Sistema completo que combina objetos literales y dinámicos
+
+// Configuración base del sistema (objeto literal)
+const configSistema = {
+  nombre: "MiTienda Online",
+  version: "2.1.0",
+  moneda: "EUR",
+  impuesto: 0.21,
+  envioGratis: 50,
+  configuracionPagos: {
+    tarjeta: { activo: true, comision: 0.029 },
+    paypal: { activo: true, comision: 0.034 },
+    transferencia: { activo: false, comision: 0 }
+  }
+};
+
+// Factory para crear tienda dinámica
+function crearTienda(configuracion = {}) {
+  const config = { ...configSistema, ...configuracion };
+  
+  return {
+    ...config,
+    productos: [],
+    usuarios: [],
+    pedidos: [],
+    
+    // Métodos dinámicos
+    agregarProducto(datosProducto) {
+      const producto = {
+        id: `PROD-${Date.now()}`,
+        ...datosProducto,
+        fechaCreacion: new Date().toISOString(),
+        activo: true,
+        
+        // Método para calcular precio con impuestos
+        precioConImpuestos() {
+          return this.precio * (1 + config.impuesto);
+        }
+      };
+      
+      this.productos.push(producto);
+      return producto;
+    },
+    
+    crearUsuario(datosUsuario, tipoSuscripcion = "regular") {
+      const beneficios = {
+        regular: { descuento: 0, envioGratis: config.envioGratis },
+        premium: { descuento: 0.1, envioGratis: 25 },
+        vip: { descuento: 0.15, envioGratis: 0 }
+      };
+      
+      const usuario = {
+        id: `USER-${Date.now()}`,
+        ...datosUsuario,
+        tipo: tipoSuscripcion,
+        ...beneficios[tipoSuscripcion],
+        fechaRegistro: new Date().toISOString(),
+        pedidos: [],
+        
+        realizarPedido(productosIds, metodoPago) {
+          const productosEncontrados = this.productos.filter(p => 
+            productosIds.includes(p.id)
+          );
+          
+          if (productosEncontrados.length === 0) {
+            return { error: "No se encontraron productos válidos" };
+          }
+          
+          const subtotal = productosEncontrados.reduce((sum, p) => 
+            sum + p.precioConImpuestos(), 0
+          );
+          
+          const descuentoAplicado = subtotal * this.descuento;
+          const totalConDescuento = subtotal - descuentoAplicado;
+          
+          const costoEnvio = totalConDescuento >= this.envioGratis ? 0 : 10;
+          const total = totalConDescuento + costoEnvio;
+          
+          const comisionPago = config.configuracionPagos[metodoPago]?.comision || 0;
+          const comision = total * comisionPago;
+          
+          const pedido = {
+            id: `PED-${Date.now()}`,
+            usuarioId: this.id,
+            productos: productosEncontrados.map(p => ({
+              id: p.id,
+              nombre: p.nombre,
+              precio: p.precio,
+              precioConImpuestos: p.precioConImpuestos()
+            })),
+            subtotal,
+            descuento: descuentoAplicado,
+            envio: costoEnvio,
+            comision,
+            total: total + comision,
+            metodoPago,
+            fecha: new Date().toISOString(),
+            estado: "pendiente"
+          };
+          
+          this.pedidos.push(pedido);
+          usuario.pedidos.push(pedido.id);
+          
+          return pedido;
+        }.bind(this)
+      };
+      
+      this.usuarios.push(usuario);
+      return usuario;
+    },
+    
+    obtenerEstadisticas() {
+      const totalProductos = this.productos.length;
+      const totalUsuarios = this.usuarios.length;
+      const totalPedidos = this.pedidos.length;
+      
+      const ingresoTotal = this.pedidos.reduce((sum, p) => sum + p.total, 0);
+      const ticketPromedio = totalPedidos > 0 ? ingresoTotal / totalPedidos : 0;
+      
+      return {
+        tienda: this.nombre,
+        version: this.version,
+        productos: totalProductos,
+        usuarios: totalUsuarios,
+        pedidos: totalPedidos,
+        ingresoTotal: `${ingresoTotal.toFixed(2)} ${this.moneda}`,
+        ticketPromedio: `${ticketPromedio.toFixed(2)} ${this.moneda}`,
+        usuariosPorTipo: this.usuarios.reduce((acc, u) => {
+          acc[u.tipo] = (acc[u.tipo] || 0) + 1;
+          return acc;
+        }, {})
+      };
+    }
+  };
+}
+
+// Crear instancia de tienda
+const miTienda = crearTienda({
+  nombre: "SuperTech Store",
+  impuesto: 0.19 // Impuesto personalizado
+});
+
+// Agregar productos
+const laptop = miTienda.agregarProducto({
+  nombre: "Gaming Laptop",
+  precio: 1200,
+  categoria: "electronicos",
+  especificaciones: { ram: "32GB", gpu: "RTX 4080" }
+});
+
+const mouse = miTienda.agregarProducto({
+  nombre: "Gaming Mouse",
+  precio: 80,
+  categoria: "accesorios"
+});
+
+// Crear usuarios
+const usuarioRegular = miTienda.crearUsuario({
+  nombre: "Juan Pérez",
+  email: "juan@email.com"
+}, "regular");
+
+const usuarioPremium = miTienda.crearUsuario({
+  nombre: "María García",
+  email: "maria@email.com"
+}, "premium");
+
+// Realizar pedidos
+const pedido1 = usuarioRegular.realizarPedido([laptop.id, mouse.id], "tarjeta");
+const pedido2 = usuarioPremium.realizarPedido([laptop.id], "paypal");
+
+// Ver estadísticas
+console.log("=== ESTADÍSTICAS DE LA TIENDA ===");
+console.log(miTienda.obtenerEstadisticas());
+
+console.log("\n=== PEDIDO USUARIO REGULAR ===");
+console.log(pedido1);
+
+console.log("\n=== PEDIDO USUARIO PREMIUM ===");
+console.log(pedido2);
+
+// Ejemplo de extensibilidad: agregar nueva funcionalidad dinámicamente
+miTienda.agregarCategoria = function(nombreCategoria, configuracion = {}) {
+  this.categorias = this.categorias || {};
+  this.categorias[nombreCategoria] = {
+    nombre: nombreCategoria,
+    activa: true,
+    descuentoEspecial: 0,
+    ...configuracion
+  };
+  return this.categorias[nombreCategoria];
+};
+
+miTienda.agregarCategoria("libros", { descuentoEspecial: 0.05 });
+
+console.log("\n=== NUEVA CATEGORÍA AGREGADA ===");
+console.log(miTienda.categorias);</code></pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="desestructuracion.html"
+            class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← Desestructuración
+          </a>
+
+          <a href="../../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            🏠 Inicio
+          </a>
+
+          <a href="index.html"
+            class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            Índice de Objetos →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Objetos Literales y Dinámicos en JavaScript</strong>
+      </p>
+      <p class="text-red-100 mt-2">
+        Development School © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Función para copiar código
+    function copyCode(button) {
+      const codeBlock = button.nextElementSibling.querySelector('code');
+      const text = codeBlock.textContent;
+      
+      navigator.clipboard.writeText(text).then(() => {
+        button.textContent = '✅ Copiado';
+        setTimeout(() => {
+          button.textContent = 'Copiar';
+        }, 2000);
+      });
+    }
+
+    // Efectos de animación
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        }
+      });
+
+      for (const element of elements) {
+        observer.observe(element);
+      }
+    });
+  </script>
+
+</body>
+
+</html>

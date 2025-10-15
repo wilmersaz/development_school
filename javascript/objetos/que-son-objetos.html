@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué son los Objetos en JavaScript?</title>
+  <link rel="shortcut icon" href="../../images/school.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid #f59e0b;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typewriter 3s steps(40, end);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .code-container {
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .copy-btn:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-8">
+
+  <!-- Navigation -->
+  <nav class="mb-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+      <a href="../../index.html"
+        class="bg-white text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors w-full sm:w-auto text-center">
+        ← Menú Principal
+      </a>
+      <a href="propiedades-metodos.html"
+        class="bg-white text-orange-600 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors w-full sm:w-auto text-center">
+        Propiedades y Métodos →
+      </a>
+    </div>
+  </nav>
+
+  <div class="max-w-4xl mx-auto px-4">
+
+    <!-- Header -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mb-8 slide-in">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4 pb-1">🧩 Objetos en JavaScript</h1>
+      <p class="text-xl text-gray-600">Colecciones de propiedades que representan entidades del mundo real</p>
+    </div>
+
+    <!-- Definición -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-orange-600 to-orange-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">📚 Definición de Objetos</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">¿Qué es un Objeto?</h3>
+            <div class="space-y-3 text-gray-600">
+              <p><strong>Un objeto es una colección de pares clave-valor</strong> que representa una entidad o concepto del mundo real.</p>
+              <ul class="list-disc ml-6 space-y-2">
+                <li><strong>Clave (Key):</strong> El nombre de la propiedad</li>
+                <li><strong>Valor (Value):</strong> El dato asociado a esa propiedad</li>
+                <li>Los valores pueden ser primitivos, funciones u otros objetos</li>
+              </ul>
+            </div>
+
+            <div class="mt-6 bg-orange-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-orange-800 mb-2">💡 Analogía:</h4>
+              <p class="text-orange-700 text-sm">
+                Un objeto es como una <strong>ficha de identidad</strong> que contiene información 
+                organizada sobre una persona, cosa o concepto.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 p-4 rounded-lg">
+            <h4 class="font-semibold mb-3">Ejemplo Visual</h4>
+            <div class="bg-white p-4 rounded border-2 border-orange-200">
+              <div class="text-center mb-3">
+                <span class="text-2xl">👤</span>
+                <h5 class="font-bold">Objeto: Persona</h5>
+              </div>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span class="font-medium">nombre:</span>
+                  <span>"Juan"</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="font-medium">edad:</span>
+                  <span>25</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="font-medium">activo:</span>
+                  <span>true</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="font-medium">saludar:</span>
+                  <span>función()</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sintaxis Básica -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">⚡ Sintaxis Básica</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold mb-3 text-blue-800">Objeto Literal</h4>
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>// Sintaxis básica
+const persona = {
+  // propiedad: valor
+  nombre: "Ana",
+  edad: 30,
+  ciudad: "Madrid",
+  
+  // Método (función dentro del objeto)
+  saludar: function() {
+    return "¡Hola, soy " + this.nombre + "!";
+  }
+};
+
+console.log(persona); // {nombre: "Ana", edad: 30, ...}</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-3 text-blue-800">Características Clave</h4>
+            <div class="space-y-3">
+              <div class="flex items-start space-x-3 p-3 bg-blue-50 rounded-lg">
+                <span class="text-blue-600 font-bold">1.</span>
+                <div>
+                  <h5 class="font-semibold text-blue-800">Llaves { }</h5>
+                  <p class="text-blue-700 text-sm">Los objetos se definen entre llaves</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3 p-3 bg-green-50 rounded-lg">
+                <span class="text-green-600 font-bold">2.</span>
+                <div>
+                  <h5 class="font-semibold text-green-800">Clave: Valor</h5>
+                  <p class="text-green-700 text-sm">Pares separados por dos puntos</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3 p-3 bg-purple-50 rounded-lg">
+                <span class="text-purple-600 font-bold">3.</span>
+                <div>
+                  <h5 class="font-semibold text-purple-800">Comas</h5>
+                  <p class="text-purple-700 text-sm">Separan las propiedades</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tipos de Propiedades -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🔧 Tipos de Propiedades</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid gap-6">
+          <div class="code-container">
+            <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+            <pre class="text-sm bg-gray-900 text-cyan-400 p-4 rounded overflow-x-auto"><code>const producto = {
+  // Propiedades primitivas
+  id: 1,                    // Número
+  nombre: "Laptop",         // String
+  disponible: true,         // Boolean
+  precio: null,             // Null
+  
+  // Propiedades de referencia
+  especificaciones: {       // Objeto anidado
+    ram: "16GB",
+    procesador: "Intel i7"
+  },
+  
+  caracteristicas: ["Ligera", "Potente", "Silenciosa"], // Array
+  
+  // Métodos (funciones)
+  mostrarInfo: function() {
+    return `${this.nombre} - ID: ${this.id}`;
+  },
+  
+  // Método con sintaxis de ES6 (más moderna)
+  calcularDescuento(porcentaje) {
+    return this.precio * (porcentaje / 100);
+  }
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplo Completo -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">💻 Ejemplo Completo: Coche</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold mb-3">Código JavaScript</h4>
+            <div class="code-container">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre class="text-sm bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>const coche = {
+  // Propiedades básicas
+  marca: "Toyota",
+  modelo: "Corolla",
+  año: 2023,
+  color: "Rojo",
+  encendido: false,
+  
+  // Propiedades complejas
+  motor: {
+    cilindros: 4,
+    potencia: "132 HP",
+    combustible: "Gasolina"
+  },
+  
+  // Métodos
+  encender: function() {
+    this.encendido = true;
+    return "🚗 El coche está encendido";
+  },
+  
+  apagar() {
+    this.encendido = false;
+    return "🛑 El coche está apagado";
+  },
+  
+  obtenerInfo() {
+    return `${this.marca} ${this.modelo} (${this.año})`;
+  }
+};
+
+// Uso del objeto
+console.log(coche.obtenerInfo()); // Toyota Corolla (2023)
+console.log(coche.encender());    // 🚗 El coche está encendido</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-3">Salida en Consola</h4>
+            <div class="bg-gray-900 text-green-400 p-4 rounded font-mono text-sm">
+              <div class="mb-2">
+                <span class="text-blue-300">></span> coche.obtenerInfo()
+              </div>
+              <div class="text-yellow-300 mb-3">"Toyota Corolla (2023)"</div>
+              
+              <div class="mb-2">
+                <span class="text-blue-300">></span> coche.encender()
+              </div>
+              <div class="text-yellow-300 mb-3">"🚗 El coche está encendido"</div>
+              
+              <div class="mb-2">
+                <span class="text-blue-300">></span> coche.encendido
+              </div>
+              <div class="text-yellow-300">true</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Casos de Uso -->
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden mb-8 fade-in-up">
+      <div class="bg-gradient-to-r from-red-600 to-red-700 p-6 text-white">
+        <h2 class="text-2xl font-bold">🎯 ¿Cuándo Usar Objetos?</h2>
+      </div>
+      <div class="p-6">
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-red-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-red-800 mb-3">📊 Datos Relacionados</h4>
+            <p class="text-red-700 text-sm mb-3">Cuando necesitas agrupar información que pertenece junta.</p>
+            <div class="text-xs bg-white p-2 rounded">
+              <strong>Ejemplo:</strong> Usuario con nombre, email, edad
+            </div>
+          </div>
+          
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-blue-800 mb-3">🏗️ Modelar Entidades</h4>
+            <p class="text-blue-700 text-sm mb-3">Para representar cosas del mundo real en tu código.</p>
+            <div class="text-xs bg-white p-2 rounded">
+              <strong>Ejemplo:</strong> Producto, Coche, Libro
+            </div>
+          </div>
+          
+          <div class="bg-green-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-green-800 mb-3">⚙️ Funcionalidades</h4>
+            <p class="text-green-700 text-sm mb-3">Combinar datos con las funciones que los manipulan.</p>
+            <div class="text-xs bg-white p-2 rounded">
+              <strong>Ejemplo:</strong> Calculadora con números y métodos
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="mt-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="bg-white rounded-xl shadow-xl p-6">
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+          <a href="../../index.html"
+            class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            ← Menú Principal
+          </a>
+
+          <a href="../../index.html"
+            class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            🏠 Inicio
+          </a>
+
+          <a href="propiedades-metodos.html"
+            class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center w-full sm:w-auto text-center">
+            Propiedades y Métodos →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white text-lg">
+        📖 Preparado para la clase de <strong>Objetos en JavaScript</strong>
+      </p>
+      <p class="text-orange-100 mt-2">
+        Development School © Copyright 2025
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Función para copiar código
+    function copyCode(button) {
+      const codeBlock = button.nextElementSibling.querySelector('code');
+      const text = codeBlock.textContent;
+      
+      navigator.clipboard.writeText(text).then(() => {
+        button.textContent = '✅ Copiado';
+        setTimeout(() => {
+          button.textContent = 'Copiar';
+        }, 2000);
+      });
+    }
+
+    // Efectos de animación
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.querySelectorAll('.fade-in-up');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
